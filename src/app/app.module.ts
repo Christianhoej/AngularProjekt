@@ -5,18 +5,22 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import {FormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
-// import {AppRoutingModule} from './app-routing.module';
+import { TraeComponent } from './trae/trae.component';
+import {AppRoutingModule} from './app-routing.module';
+import { StartsideComponent } from './startside/startside.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent
+    HeaderComponent,
+    TraeComponent,
+    StartsideComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpClientModule
-    // AppRoutingModule
+    HttpClientModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
