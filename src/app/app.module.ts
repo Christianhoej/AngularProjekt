@@ -10,6 +10,7 @@ import { StartsideComponent } from './startside/startside.component';
 import { StartsideKategoriComponent } from './startside-kategori/startside-kategori.component';
 import { DetaljeretAnnonceComponent } from './detaljeret-annonce/detaljeret-annonce.component';
 import { LogIndComponent } from './log-ind/log-ind.component';
+import { OpretAnnonceComponent } from './opret-annonce/opret-annonce.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { LogIndComponent } from './log-ind/log-ind.component';
     StartsideComponent,
     StartsideKategoriComponent,
     DetaljeretAnnonceComponent,
-    LogIndComponent
+    LogIndComponent,
+    OpretAnnonceComponent
   ],
   imports: [
     BrowserModule,
