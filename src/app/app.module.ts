@@ -9,8 +9,9 @@ import {AppRoutingModule} from './app-routing.module';
 import { StartsideComponent } from './startside/startside.component';
 import { StartsideKategoriComponent } from './startside-kategori/startside-kategori.component';
 import { DetaljeretAnnonceComponent } from './detaljeret-annonce/detaljeret-annonce.component';
-import { LogIndComponent } from './log-ind/log-ind.component';
+import { LogIndComponent } from './bruger/log-ind/log-ind.component';
 import { OpretAnnonceComponent } from './opret-annonce/opret-annonce.component';
+import { OpretBrugerComponent } from './bruger/opret-bruger/opret-bruger.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { OpretAnnonceComponent } from './opret-annonce/opret-annonce.component';
     StartsideKategoriComponent,
     DetaljeretAnnonceComponent,
     LogIndComponent,
-    OpretAnnonceComponent
+    OpretAnnonceComponent,
+    OpretBrugerComponent
   ],
   imports: [
     BrowserModule,

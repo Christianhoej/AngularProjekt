@@ -1,0 +1,31 @@
+<p>
+  log-ind works!
+</p>
+<div class="row">
+  <div class="col-xs-12">
+    <form (ngSubmit)="onLogIndPressed(f)" #f=ngForm>
+      <label for="email">Email</label>
+      <input type ="email"
+             class="form-control"
+             id="email"
+             name="email"
+             ngModel
+             required
+
+      >
+      <label for="password">Kode:</label>
+      <input type="text"
+             class="form-control"
+             id="password"
+             name="password"
+             ngModel
+             required
+      >
+
+      <button type="submit"
+              class=btn-primary
+              [disabled]="!f.valid">Log ind</button>
+      <button type="button" class="btn-success">Ny bruger</button>
+    </form>
+  </div>
+</div>
