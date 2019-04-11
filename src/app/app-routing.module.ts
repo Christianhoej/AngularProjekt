@@ -15,7 +15,6 @@ const appRoutes: Routes = [
   {path: 'opret_annonce', component: OpretAnnonceComponent}
 ];
 
-
 @NgModule({
   imports: [RouterModule.forRoot(appRoutes)],
   exports: [RouterModule]
