@@ -1,11 +1,62 @@
 <p>
   opret-annonce works!
 </p>
-<div class="form-group">
-  <label for="name">Name</label>
-  <input
-    type="text"
-    id="name"
-    formControlName="name"
-    class="form-control">
+
+<div class="row">
+  <div class="col-xs-12">
+   <!-- <form [formGroup]="annonceForm" (ngSubmit)="onSubmit()"> -->
+      <!-- <div class="row">
+        <div class="col-xs-12">
+          <button
+            type="submit"
+            class="btn btn-success"
+            [disabled]="!recipeForm.valid">Save</button>
+          <button type="button" class="btn btn-danger" (click)="onCancel()">Cancel</button>
+        </div>
+      </div> -->
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label for="titel">Titel</label>
+            <input
+              type="text"
+              id="titel"
+              formControlName="name"
+              class="form-control">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label for="imagePath">Billede URL</label>
+            <input
+              type="text"
+              id="imagePath"
+              formControlName="imagePath"
+              class="form-control"
+              #imagePath>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <img [src]="imagePath.value" class="img-responsive">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label for="beskrivelse">Beskrivelse</label>
+            <textarea
+              type="text"
+              id="beskrivelse"
+              class="form-control"
+              formControlName="beskrivelse"
+              rows="6"></textarea>
+          </div>
+        </div>
+      </div>
+    <!-- </form> -->
+  </div>
 </div>
