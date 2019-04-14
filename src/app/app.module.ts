@@ -8,9 +8,10 @@ import {HttpClientModule} from '@angular/common/http';
 import {AppRoutingModule} from './app-routing.module';
 import { StartsideComponent } from './startside/startside.component';
 import { StartsideKategoriComponent } from './startside-kategori/startside-kategori.component';
-import { DetaljeretAnnonceComponent } from './detaljeret-annonce/detaljeret-annonce.component';
+import { DetaljeretAnnonceComponent } from './annonce/detaljeret-annonce/detaljeret-annonce.component';
 import { LogIndComponent } from './log-ind/log-ind.component';
-import { OpretAnnonceComponent } from './opret-annonce/opret-annonce.component';
+import { OpretAnnonceComponent } from './annonce/opret-annonce/opret-annonce.component';
+import { AnnonceComponent } from './annonce/annonce.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { OpretAnnonceComponent } from './opret-annonce/opret-annonce.component';
     StartsideKategoriComponent,
     DetaljeretAnnonceComponent,
     LogIndComponent,
-    OpretAnnonceComponent
+    OpretAnnonceComponent,
+    AnnonceComponent
   ],
   imports: [
     BrowserModule,

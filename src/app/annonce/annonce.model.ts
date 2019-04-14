@@ -1,4 +1,4 @@
-export class DetaljeretAnnonceModel {
+export class Annonce {
   public titel: string;
   public pris: number;
   public imagepath: string;
