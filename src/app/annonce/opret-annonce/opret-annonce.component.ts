@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {FormGroup} from '@angular/forms';
+import {FormGroup, NgForm} from '@angular/forms';
 import {AnnonceService} from '../annonce.service';
+import {Annonce} from '../annonce.model';
 
 @Component({
   selector: 'app-opret-annonce',
@@ -10,14 +11,14 @@ import {AnnonceService} from '../annonce.service';
 export class OpretAnnonceComponent implements OnInit {
   // id: number;
   // editMode = false;
-  annonceForm: FormGroup;
+  // annonceForm: FormGroup;
 
-  constructor(/*public annonceService: AnnonceService*/) { }
+  constructor(private annonceService: AnnonceService) { }
 
   ngOnInit() {
   }
 
-  onSubmit() {
+  onSubmit(form: NgForm) {
     // const newRecipe = new Recipe(
     //   this.recipeForm.value['name'],
     //   this.recipeForm.value['description'],
@@ -29,6 +30,8 @@ export class OpretAnnonceComponent implements OnInit {
       this.recipeService.addRecipe(this.recipeForm.value);
     }
     this.onCancel();*/
-    // this.annonceService.addAnnonce(this.annonceForm.value);
+    const value = form.value;
+    const nyAnnonce = new Annonce(value.titel, value.pris, value.imagePath, value.beskrivelse);
+    this.annonceService.addAnnonce(nyAnnonce);
   }
 }

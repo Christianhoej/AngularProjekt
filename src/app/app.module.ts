@@ -12,6 +12,7 @@ import { DetaljeretAnnonceComponent } from './annonce/detaljeret-annonce/detalje
 import { LogIndComponent } from './log-ind/log-ind.component';
 import { OpretAnnonceComponent } from './annonce/opret-annonce/opret-annonce.component';
 import { AnnonceComponent } from './annonce/annonce.component';
+import {AnnonceService} from './annonce/annonce.service';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,7 @@ import { AnnonceComponent } from './annonce/annonce.component';
     AppRoutingModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [AnnonceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
