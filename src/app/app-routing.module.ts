@@ -6,6 +6,7 @@ import {DetaljeretAnnonceComponent} from './detaljeret-annonce/detaljeret-annonc
 import {LogIndComponent} from './bruger/log-ind/log-ind.component';
 import {OpretAnnonceComponent} from './opret-annonce/opret-annonce.component';
 import {HttpClientModule} from '@angular/common/http';
+import {OpretBrugerComponent} from './bruger/opret-bruger/opret-bruger.component';
 
 const appRoutes: Routes = [
   {path: '', redirectTo: '/startside', pathMatch: 'full'},
@@ -13,7 +14,8 @@ const appRoutes: Routes = [
   {path: 'startside_kategori', component: StartsideKategoriComponent},
   {path: 'detaljeret_annonce', component: DetaljeretAnnonceComponent},
   {path: 'log_ind', component: LogIndComponent},
-  {path: 'opret_annonce', component: OpretAnnonceComponent}
+  {path: 'opret_annonce', component: OpretAnnonceComponent},
+  {path: 'opret_bruger', component: OpretBrugerComponent}
 ];
 
 

@@ -1,3 +1,31 @@
 <p>
   opret-bruger works!
 </p>
+<form (ngSubmit)="onOpretBruger(f)" #f="ngForm">
+  <div class="row">
+    <div class="col-xs-12">
+      <label for="fornavnOpret">Fornavn</label>
+      <input class="form-control" type="text" ngModel required name="fornavnOpret" id="fornavnOpret">
+      <label for="efternavnOpret">Efternavn</label>
+      <input class="form-control" type="text" ngModel required name="efternavnOpret" id="efternavnOpret">
+      <label for="fodselsdagOpret">Fødselsdag</label>
+      <input class="form-control" type="date" ngModel required name="fodselsdagOpret" id="fodselsdagOpret">
+      <label for="konOpret">Køn</label>
+      <input class="form-control" type="text" ngModel required name="konOpret" id="konOpret">
+      <label for="adresseOpret">Adresse</label>
+      <input class="form-control" type="text" ngModel required name="adresseOpret" id="adresseOpret">
+      <label for="postnrOpret">PostNr</label>
+      <input class="form-control" type="text" ngModel required name="postnrOpret" id="postnrOpret">
+      <label for="telefonOpret">Telefon</label>
+      <input class="form-control" type="text" ngModel required name="telefonOpret" id="telefonOpret">
+      <label for="emailOpret"> Email (brugernavn)</label>
+      <input class="form-control" type="text" ngModel required name="emailOpret" id="emailOpret">
+      <label for="kodeordOpret">Kode</label>
+      <input class="form-control" type="password" ngModel required name="kodeordOpret" id="kodeordOpret">
+      <label for="kodeordGentagOpret">Gentag Kode</label>
+      <input class="form-control" type="password" ngModel required name="kodeordGentagOpret" id="kodeordGentagOpret">
+
+      <button class="btn btn-primary" type="submit">Opret Bruger</button>
+    </div>
+  </div>
+</form>
