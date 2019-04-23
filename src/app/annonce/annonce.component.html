@@ -1,0 +1,15 @@
+<p>
+  annonce works!
+</p>
+<ul class="list-group" class="list-group-item"
+    style="cursor: pointer"
+    *ngFor="let annonce of annonceArr">
+    {{ annonce.titel }} {{ annonce.pris }} {{ annonce.beskrivelse }}
+  <div class="row">
+    <div class="col-xs-12">
+      <img [src]="annonce.imagepath" class="img-responsive">
+    </div>
+  </div>
+</ul>
+
+

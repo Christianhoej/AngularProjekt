@@ -1,0 +1,87 @@
+<p>
+  opret-annonce works!
+</p>
+
+<div class="row">
+  <div class="col-xs-12">
+    <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+    <div class="row">
+      <div class="col-xs-12">
+        <button
+          type="submit"
+          class="btn btn-success" >Save</button>
+        </div>
+      </div>
+      <!-- <div class="row">
+        <div class="col-xs-12">
+          <button
+            type="submit"
+            class="btn btn-success"
+            [disabled]="!recipeForm.valid">Save</button>
+          <button type="button" class="btn btn-danger" (click)="onCancel()">Cancel</button>
+        </div>
+      </div> -->
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label for="titel">Titel</label>
+            <input
+              type="text"
+              id="titel"
+              class="form-control"
+              name="titel"
+              ngModel>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label for="pris">Pris</label>
+            <input
+              type="number"
+              id="pris"
+              class="form-control"
+              name="titel"
+              ngModel>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label for="imagePath">Billede URL</label>
+            <input
+              type="text"
+              id="imagePath"
+              class="form-control"
+              name="imagePath"
+              ngModel
+              #imagePath>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <img [src]="imagePath.value" class="img-responsive">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label for="beskrivelse">Beskrivelse</label>
+            <textarea
+              type="text"
+              id="beskrivelse"
+              class="form-control"
+            rows="6"
+            name="beskrivelse"
+            ngModel>
+          </textarea>
+        </div>
+      </div>
+    </div>
+   </form>
+</div>
+</div>
+<app-annonce></app-annonce>
