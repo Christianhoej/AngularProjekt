@@ -8,11 +8,17 @@ import {HttpClientModule} from '@angular/common/http';
 import {AppRoutingModule} from './app-routing.module';
 import { StartsideComponent } from './startside/startside.component';
 import { StartsideKategoriComponent } from './startside-kategori/startside-kategori.component';
+
+import { LogIndComponent } from './bruger/log-ind/log-ind.component';
+
+import { OpretBrugerComponent } from './bruger/opret-bruger/opret-bruger.component';
+
 import { DetaljeretAnnonceComponent } from './annonce/detaljeret-annonce/detaljeret-annonce.component';
-import { LogIndComponent } from './log-ind/log-ind.component';
+
 import { OpretAnnonceComponent } from './annonce/opret-annonce/opret-annonce.component';
 import { AnnonceComponent } from './annonce/annonce.component';
 import {AnnonceService} from './annonce/annonce.service';
+
 
 @NgModule({
   declarations: [
@@ -23,7 +29,11 @@ import {AnnonceService} from './annonce/annonce.service';
     DetaljeretAnnonceComponent,
     LogIndComponent,
     OpretAnnonceComponent,
+
+    OpretBrugerComponent
+
     AnnonceComponent
+
   ],
   imports: [
     BrowserModule,
