@@ -18,6 +18,7 @@ import { DetaljeretAnnonceComponent } from './annonce/detaljeret-annonce/detalje
 import { OpretAnnonceComponent } from './annonce/opret-annonce/opret-annonce.component';
 import { AnnonceComponent } from './annonce/annonce.component';
 import {AnnonceService} from './annonce/annonce.service';
+import { GridComponent } from './grid/grid.component';
 
 
 @NgModule({
@@ -30,9 +31,11 @@ import {AnnonceService} from './annonce/annonce.service';
     LogIndComponent,
     OpretAnnonceComponent,
 
-    OpretBrugerComponent
+    OpretBrugerComponent,
 
-    AnnonceComponent
+    AnnonceComponent,
+
+    GridComponent
 
   ],
   imports: [
