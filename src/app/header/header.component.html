@@ -1,6 +1,7 @@
 <div class="row">
   <h1></h1>
 </div>
+<!--
 <div class="col-xs-12">
 
 
@@ -15,7 +16,7 @@
   </div>
 
   <div class="col-xs-6" style="text-align: center">
-    <a routerLinkActive="active" routerLink="/startside">
+    <a routerLinkActive="active" routerLink="/">
       <img src="https://i.ibb.co/cxrCcRd/1.png"  border="0" style="max-height: 50px">
     </a>
   </div>
@@ -26,3 +27,49 @@
   </div>
 
 </div>
+-->
+
+<nav class="navbar">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a routerLinkActive="active" routerLink="/"
+        >
+        <img src="https://upload.wikimedia.org/wikipedia/en/thumb/a/ac/Zalando-Logo.svg/1280px-Zalando-Logo.svg.png"  border="0" style="max-height: 50px">
+
+      </a>
+    </div>
+
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li routerLinkActive="active" routerLink="/opret_annonce" >
+          <button
+            style="margin-right: 50px"
+            type="button"
+            class="btn btn-success"
+
+          >
+            <!--
+            indsættes indenfor button^^
+            class: more-styles
+            [hidden]="!inboundClick"
+            (click)="inboundClick = !inboundClick"
+            [routerLink]="['/opret_annonce']" href=""-->
+            Opret annonce
+          </button>
+        </li>
+        <li routerLinkActive="active" routerLink="/min_side" >
+          <button
+            style="margin-right: 50px"
+            type="button"
+            class="btn btn-toolbar ">
+            Min side
+          </button>
+        </li>
+        <li routerLinkActive="active"><a routerLink="/log_ind" id="header2">Log ind</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
