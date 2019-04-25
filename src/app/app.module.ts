@@ -29,12 +29,10 @@ import {AnnonceService} from './annonce/annonce.service';
     DetaljeretAnnonceComponent,
     LogIndComponent,
     OpretAnnonceComponent,
-
-    OpretBrugerComponent
-
+    OpretBrugerComponent,
     AnnonceComponent
-
   ],
+
   imports: [
     BrowserModule,
     FormsModule,

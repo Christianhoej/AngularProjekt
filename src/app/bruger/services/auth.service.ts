@@ -1,4 +1,4 @@
-import {OpretBruger} from '../Models/OpretBruger';
+import {OpretBrugerModel} from '../Models/OpretBruger.model';
 import {HttpClient} from '@angular/common/http';
 
 export class AuthService {
@@ -7,11 +7,11 @@ export class AuthService {
 
   }
 
-  signUpUser(brugerinfo: OpretBruger) {
+  signUpUser(brugerinfo: OpretBrugerModel) {
     // TODO create postrequest to opretbruger.
 
   }
-  singInUser(email: string, password: string){
+  singInUser(email: string, password: string) {
     this.http.post('http://localhost:8080/Homely-ws/users/login', {
       email: 'gunn@test.dk',
       password: '54439844',

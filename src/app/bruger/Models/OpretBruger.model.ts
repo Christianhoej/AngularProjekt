@@ -1,4 +1,4 @@
-export class OpretBruger {
+export class OpretBrugerModel {
 
   constructor(  private fornavn: string, private efternavn: string, private fødselsdag: string,
                 private køn: string, private adresse: string, private postnr: string,
