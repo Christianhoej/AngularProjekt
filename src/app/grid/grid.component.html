@@ -1,0 +1,13 @@
+<h1>Annoncer:</h1>
+<hr>
+
+<ul *ngIf="items">
+  annoncer inførsel via rest virker!
+  Bootstrap 4 virker ikke...
+  <li *ngFor="let item of items.data">
+    <img [src]="item.avatar">
+    <p>Title: {{item.first_name}} Price: {{item.last_name}} DKK</p>
+  </li>
+</ul>
+
+
