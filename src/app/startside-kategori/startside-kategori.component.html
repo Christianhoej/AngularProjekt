@@ -1,34 +1,20 @@
-<div class="container">
-  <div class="row-md-5"
-       *ngFor=" let kategoriElement of kategori"
-       > <!-- >
-style="cursor: pointer"
-    <ul class="list-group">
-      <a
-        class="list-group-item"
+<div class="col-xs-2">
 
-        type=""-->
-
-        {{kategoriElement}}
-      <!--</a>
-    </ul>-->
-  </div>
-</div>
-
-<hr>
-
-<div class="container">
-  <div class="col-xs-2">
       <ul class="list-group">
-      <a
-        class="list-group-item-text"
-        *ngFor=" let kategoriElement of kategori, let i = index"
-        style="cursor: pointer"
-        type="">
+        <a
+          class="list-group-item-text"
+          *ngFor=" let kategoriElement of kategori"
+          style="cursor: pointer">
+          {{kategoriElement}} <br>
+        </a>
+     </ul>
 
-        {{kategoriElement}} <br>
-      </a>
-    </ul>
   </div>
-  <app-startside-test></app-startside-test>
-</div>
+  <span class="pull-right">
+    <app-startside-kategori-valgt
+      *ngFor="let annonceEl of annoncer; let i = index"
+      [annonce]="annonceEl"
+      [index]="i"
+      ></app-startside-kategori-valgt>
+    </span>
+
