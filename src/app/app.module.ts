@@ -18,6 +18,8 @@ import { DetaljeretAnnonceComponent } from './annonce/detaljeret-annonce/detalje
 import { OpretAnnonceComponent } from './annonce/opret-annonce/opret-annonce.component';
 import { AnnonceComponent } from './annonce/annonce.component';
 import {AnnonceService} from './annonce/annonce.service';
+import { StartsideKategoriValgtComponent } from './startside-kategori/startside-kategori-valgt/startside-kategori-valgt.component';
+import { StartsideTestComponent } from './startside-kategori/startside-test/startside-test.component';
 
 
 @NgModule({
@@ -30,7 +32,9 @@ import {AnnonceService} from './annonce/annonce.service';
     LogIndComponent,
     OpretAnnonceComponent,
     OpretBrugerComponent,
-    AnnonceComponent
+    AnnonceComponent,
+    StartsideKategoriValgtComponent,
+    StartsideTestComponent
   ],
 
   imports: [
