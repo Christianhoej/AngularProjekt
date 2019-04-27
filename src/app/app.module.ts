@@ -30,14 +30,12 @@ import { GridComponent } from './grid/grid.component';
     DetaljeretAnnonceComponent,
     LogIndComponent,
     OpretAnnonceComponent,
-
     OpretBrugerComponent,
-
     AnnonceComponent,
-
     GridComponent
 
   ],
+
   imports: [
     BrowserModule,
     FormsModule,
