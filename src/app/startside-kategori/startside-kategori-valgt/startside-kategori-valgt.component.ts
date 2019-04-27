@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {Annonce} from '../annoncetest.model';
+import {AnnoncetestService} from '../annoncetest.service';
 
 @Component({
   selector: 'app-startside-kategori-valgt',
@@ -8,10 +10,12 @@ import { Component, OnInit } from '@angular/core';
 export class StartsideKategoriValgtComponent implements OnInit {
 
   kategoriItems = ['Træ', 'Jern', 'Ler', 'Andet'];
+  annoncer: Annonce[];
 
-  constructor() { }
+  constructor(private annonceService: AnnoncetestService) { }
 
   ngOnInit() {
+    this.annoncer = this.annonceService.getAnnoncer();
   }
 
 
