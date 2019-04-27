@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StartsideKategoriComponent implements OnInit {
 
+  kategori = ['Nips', 'Møbler', 'Strik', 'Til børn', 'Andet '];
   constructor() { }
 
   ngOnInit() {

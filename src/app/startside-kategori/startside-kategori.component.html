@@ -1,3 +1,52 @@
-<p>
-  startside-kategori works!
-</p>
+<div class="container">
+  <div class="row-md-5"
+       *ngFor=" let kategoriElement of kategori"
+       > <!-- >
+style="cursor: pointer"
+    <ul class="list-group">
+      <a
+        class="list-group-item"
+
+        type=""-->
+
+        {{kategoriElement}}
+      <!--</a>
+    </ul>-->
+  </div>
+</div>
+
+<hr>
+
+<div class="container">
+  <div class="col-xs-2">
+      <ul class="list-group">
+      <a
+        class="list-group-item-text"
+        *ngFor=" let kategoriElement of kategori, let i = index"
+        style="cursor: pointer"
+        type="">
+
+        {{kategoriElement}} <br>
+      </a>
+    </ul>
+  </div>
+</div>
+
+<div class="container">
+  <div class="col-xs-2">
+    <ul class="list-group">
+      <a
+        class="list-group-item-heading"
+        >
+      </a>
+        Dette er valgt <br>
+      <a
+        class="list-group-item-text"
+        *ngFor=" let kategoriElement of kategori, let i = index"
+        style="cursor: pointer"
+        type="">
+        {{kategoriElement}} <br>
+      </a>
+    </ul>
+  </div>
+</div>
