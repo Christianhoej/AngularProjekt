@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="col-xs-12">
+  <div class="col-xs-6">
     <form (ngSubmit)="onSubmit(f)" #f="ngForm">
 
       <!-- <div class="row">
@@ -61,11 +61,6 @@
       </div>
       <div class="row">
         <div class="col-xs-12">
-          <img [src]="imagePath.value" class="img-responsive">
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-xs-12">
           <div class="form-group">
             <label for="beskrivelse">Beskrivelse</label>
             <textarea
@@ -88,5 +83,10 @@
       </div>
    </form>
 </div>
+  <div class="row">
+    <div class="col-xs-6">
+      <img [src]="imagePath.value" class="img-responsive">
+    </div>
+  </div>
 </div>
 <app-annonce></app-annonce>
