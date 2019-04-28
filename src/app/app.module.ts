@@ -23,7 +23,7 @@ import { StartsideTestComponent } from './startside-kategori/startside-test/star
 import { GridComponent } from './grid/grid.component';
 import {AnnoncetestService} from './startside-kategori/annoncetest.service';
 import {KategoriService} from './startside-kategori/kategori.service';
-
+import {AnnonceDataService} from './annonce-data.service';
 
 
 @NgModule({
@@ -51,7 +51,8 @@ import {KategoriService} from './startside-kategori/kategori.service';
     AppRoutingModule,
     ReactiveFormsModule
   ],
-  providers: [AnnonceService, AnnoncetestService, KategoriService],
+
+  providers: [AnnonceService, AnnoncetestService, KategoriService, AnnonceDataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
