@@ -51,6 +51,7 @@ import {AnnonceDataService} from './annonce-data.service';
     AppRoutingModule,
     ReactiveFormsModule
   ],
+
   providers: [AnnonceService, AnnoncetestService, KategoriService, AnnonceDataService],
   bootstrap: [AppComponent]
 })

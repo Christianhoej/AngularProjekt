@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+
+import {Component, Input, OnInit} from '@angular/core';
+
 import {Annonce} from '../annoncetest.model';
 import {AnnoncetestService} from '../annoncetest.service';
 
@@ -8,6 +10,10 @@ import {AnnoncetestService} from '../annoncetest.service';
   styleUrls: ['./startside-kategori-valgt.component.css']
 })
 export class StartsideKategoriValgtComponent implements OnInit {
+
+  @Input() index: number;
+  @Input() annonce: Annonce;
+
 
   kategoriItems = ['Træ', 'Jern', 'Ler', 'Andet'];
   annoncer: Annonce[];
