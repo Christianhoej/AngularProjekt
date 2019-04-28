@@ -18,9 +18,12 @@ import { DetaljeretAnnonceComponent } from './annonce/detaljeret-annonce/detalje
 import { OpretAnnonceComponent } from './annonce/opret-annonce/opret-annonce.component';
 import { AnnonceComponent } from './annonce/annonce.component';
 import {AnnonceService} from './annonce/annonce.service';
-import { GridComponent } from './grid/grid.component';
 import { StartsideKategoriValgtComponent } from './startside-kategori/startside-kategori-valgt/startside-kategori-valgt.component';
 import { StartsideTestComponent } from './startside-kategori/startside-test/startside-test.component';
+import { GridComponent } from './grid/grid.component';
+import {AnnoncetestService} from './startside-kategori/annoncetest.service';
+import {KategoriService} from './startside-kategori/kategori.service';
+import {AnnonceDataService} from './annonce-data.service';
 
 
 @NgModule({
@@ -33,6 +36,7 @@ import { StartsideTestComponent } from './startside-kategori/startside-test/star
     LogIndComponent,
     OpretAnnonceComponent,
     OpretBrugerComponent,
+    AnnonceComponent,
     StartsideKategoriValgtComponent,
     StartsideTestComponent,
     AnnonceComponent,
@@ -47,7 +51,7 @@ import { StartsideTestComponent } from './startside-kategori/startside-test/star
     AppRoutingModule,
     ReactiveFormsModule
   ],
-  providers: [AnnonceService],
+  providers: [AnnonceService, AnnoncetestService, KategoriService, AnnonceDataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
