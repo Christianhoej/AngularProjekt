@@ -8,16 +8,11 @@ import {ItemdataService} from '../itemdata.service';
 })
 export class GridComponent implements OnInit {
 
-  items: object;
+  items: object[];
 
   constructor(private itemdata: ItemdataService) { }
 
   ngOnInit() {
-    this.itemdata.getItems().subscribe(data => {
-        this.items = data;
-        console.log(this.items);
-      }
-    );
   }
 
 
