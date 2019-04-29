@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Annonce} from '../annonce.model';
 import {Subscription} from 'rxjs';
 import {AnnonceService} from '../annonce.service';
@@ -11,12 +11,13 @@ import {AnnonceService} from '../annonce.service';
 export class DetaljeretAnnonceComponent implements OnInit {
   annonceArr: Annonce[];
   private subscription: Subscription;
+  @Input() annonce: Annonce;
 
   constructor(private annonceService: AnnonceService) { }
 
   ngOnInit() {
     this.annonceArr = this.annonceService.getAnnoncer();
-    this.subscription = this.annonceService.annonceændret.subscribe((annoncer: Annonce[]) => {this.annonceArr = annoncer});
+    this.subscription = this.annonceService.annonceændret.subscribe((annoncer: Annonce[]) => {this.annonceArr = annoncer; });
   }
 
 }

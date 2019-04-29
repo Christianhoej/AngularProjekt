@@ -17,6 +17,7 @@ const appRoutes: Routes = [
   {path: 'startside', component: StartsideComponent},
   {path: 'startside_kategori', component: StartsideKategoriComponent},
   {path: 'detaljeret_annonce', component: DetaljeretAnnonceComponent},
+  {path: 'detaljeret_annonce/:id', component: DetaljeretAnnonceComponent},
   {path: 'log_ind', component: LogIndComponent},
   {path: 'opret_annonce', component: OpretAnnonceComponent},
   {path: 'opret_bruger', component: OpretBrugerComponent}

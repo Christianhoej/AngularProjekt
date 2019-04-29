@@ -1,110 +1,44 @@
-<div class="main" style="text-align:center">Annoncer:</div>
-<hr>
+<!-- <div class="main" style="text-align:center">Annoncer:</div>
+<hr> -->
 
 <div class="grid-container">
+<!--
+  <div class="grid-item">
+    <a routerLinkActive="active" routerLink="/detaljeret_annonce">
+    <img id="Img"  src="https://images.rosendahl.dk/products/392/53/39253/v/39253-3/XXLarge/abe-mellem-teak-limba--1500x1500-3.png" onclick="displayAnnonce()" style=" max-height: 135px;"/>
+    <div class="title">Kaj Bojesen Abe  </div>
+    <div class="price">700 kr</div>
+    </a>
+  </div>
+-->
+  <div  class="grid-item"
+      style="cursor: pointer"
+      routerLinkActive="active"
+      routerLink="/detaljeret_annonce"
 
-  <div class="grid-item">
-    <img id="Img" src="https://img1.etsystatic.com/042/0/5704632/il_170x135.514572627_qez9.jpg" onclick="displayAnnonce()" />
-    <div class="title">Fin Hjemmelavet ting!  </div>
-    <div class="price">21.000,00 DKK</div>
-  </div>
+      *ngFor="let annonce of annonceArr">
+    <div class="row" style="min-height: 135px; min-width: 135px">
+      <div class="col-xs-12">
+        <img [src]="annonce.imagepath" class="img-responsive"  style="max-height: 135px ; max-width: 135px">
 
-  <div class="grid-item">
-    <img id="Img" src="https://img1.etsystatic.com/042/0/5704632/il_170x135.514572627_qez9.jpg" onclick="displayAnnonce()" />
-    <div class="title">Fin Hjemmelavet ting!  </div>
-    <div class="price">21.000,00 DKK</div>
-  </div>
-  <div class="grid-item">
-    <img id="Img" src="https://img1.etsystatic.com/042/0/5704632/il_170x135.514572627_qez9.jpg" onclick="displayAnnonce()" />
-    <div class="title">Fin Hjemmelavet ting!  </div>
-    <div class="price">21.000,00 DKK</div>
-  </div>
-  <div class="grid-item">
-    <img id="Img" src="https://img1.etsystatic.com/042/0/5704632/il_170x135.514572627_qez9.jpg" onclick="displayAnnonce()" />
-    <div class="title">Fin Hjemmelavet ting!  </div>
-    <div class="price">21.000,00 DKK</div>
-  </div>
-  <div class="grid-item">
-    <img id="Img" src="https://img1.etsystatic.com/042/0/5704632/il_170x135.514572627_qez9.jpg" onclick="displayAnnonce()" />
-    <div class="title">Fin Hjemmelavet ting!  </div>
-    <div class="price">21.000,00 DKK</div>
-  </div>
-  <div class="grid-item">
-    <img id="Img" src="https://img1.etsystatic.com/042/0/5704632/il_170x135.514572627_qez9.jpg" onclick="displayAnnonce()" />
-    <div class="title">Fin Hjemmelavet ting!  </div>
-    <div class="price">21.000,00 DKK</div>
-  </div>
-  <div class="grid-item">
-    <img id="Img" src="https://img1.etsystatic.com/042/0/5704632/il_170x135.514572627_qez9.jpg" onclick="displayAnnonce()" />
-    <div class="title">Fin Hjemmelavet ting!  </div>
-    <div class="price">21.000,00 DKK</div>
-  </div>
-  <div class="grid-item">
-    <img id="Img" src="https://img1.etsystatic.com/042/0/5704632/il_170x135.514572627_qez9.jpg" onclick="displayAnnonce()" />
-    <div class="title">Fin Hjemmelavet ting!  </div>
-    <div class="price">21.000,00 DKK</div>
-  </div>
-  <div class="grid-item">
-    <img id="Img" src="https://img1.etsystatic.com/042/0/5704632/il_170x135.514572627_qez9.jpg" onclick="displayAnnonce()" />
-    <div class="title">Fin Hjemmelavet ting!  </div>
-    <div class="price">21.000,00 DKK</div>
-  </div>
-  <div class="grid-item">
-    <img id="Img" src="https://img1.etsystatic.com/042/0/5704632/il_170x135.514572627_qez9.jpg" onclick="displayAnnonce()" />
-    <div class="title">Fin Hjemmelavet ting!  </div>
-    <div class="price">21.000,00 DKK</div>
-  </div>
-  <div class="grid-item">
-    <img id="Img" src="https://img1.etsystatic.com/042/0/5704632/il_170x135.514572627_qez9.jpg" onclick="displayAnnonce()" />
-    <div class="title">Fin Hjemmelavet ting!  </div>
-    <div class="price">21.000,00 DKK</div>
-  </div>
-  <div class="grid-item">
-    <img id="Img" src="https://img1.etsystatic.com/042/0/5704632/il_170x135.514572627_qez9.jpg" onclick="displayAnnonce()" />
-    <div class="title">Fin Hjemmelavet ting!  </div>
-    <div class="price">21.000,00 DKK</div>
-  </div>
-  <div class="grid-item">
-    <img id="Img" src="https://img1.etsystatic.com/042/0/5704632/il_170x135.514572627_qez9.jpg" onclick="displayAnnonce()" />
-    <div class="title">Fin Hjemmelavet ting!  </div>
-    <div class="price">21.000,00 DKK</div>
-  </div>
-  <div class="grid-item">
-    <img id="Img" src="https://img1.etsystatic.com/042/0/5704632/il_170x135.514572627_qez9.jpg" onclick="displayAnnonce()" />
-    <div class="title">Fin Hjemmelavet ting!  </div>
-    <div class="price">21.000,00 DKK</div>
-  </div>
-  <div class="grid-item">
-    <img id="Img" src="https://img1.etsystatic.com/042/0/5704632/il_170x135.514572627_qez9.jpg" onclick="displayAnnonce()" />
-    <div class="title">Fin Hjemmelavet ting!  </div>
-    <div class="price">21.000,00 DKK</div>
-  </div>
-  <div class="grid-item">
-    <img id="Img" src="https://img1.etsystatic.com/042/0/5704632/il_170x135.514572627_qez9.jpg" onclick="displayAnnonce()" />
-    <div class="title">Fin Hjemmelavet ting!  </div>
-    <div class="price">21.000,00 DKK</div>
-  </div>
-  <div class="grid-item">
-    <img id="Img" src="https://img1.etsystatic.com/042/0/5704632/il_170x135.514572627_qez9.jpg" onclick="displayAnnonce()" />
-    <div class="title">Fin Hjemmelavet ting!  </div>
-    <div class="price">21.000,00 DKK</div>
-  </div>
-  <div class="grid-item">
-    <img id="Img" src="https://img1.etsystatic.com/042/0/5704632/il_170x135.514572627_qez9.jpg" onclick="displayAnnonce()" />
-    <div class="title">Fin Hjemmelavet ting!  </div>
-    <div class="price">21.000,00 DKK</div>
-  </div>
-  <div class="grid-item">
-    <img id="Img" src="https://img1.etsystatic.com/042/0/5704632/il_170x135.514572627_qez9.jpg" onclick="displayAnnonce()" />
-    <div class="title">Fin Hjemmelavet ting!  </div>
-    <div class="price">21.000,00 DKK</div>
-  </div>
-  <div class="grid-item">
-    <img id="Img" src="https://img1.etsystatic.com/042/0/5704632/il_170x135.514572627_qez9.jpg" onclick="displayAnnonce()" />
-    <div class="title">Fin Hjemmelavet ting!  </div>
-    <div class="price">21.000,00 DKK</div>
-  </div>
+      </div>
+    </div>
+    <div class="title">
+      {{ annonce.titel }}
+    </div>
+    <div class="price">
+      {{ annonce.pris }} kr
+    </div>
+     <!--  {{ annonce.beskrivelse }} {{ annonce.kategori }} -->
 
+  </div>
+<!--
+  <div class="grid-item">
+    <img id="Img" src="https://img1.etsystatic.com/042/0/5704632/il_170x135.514572627_qez9.jpg" onclick="displayAnnonce()" />
+    <div class="title">Fin Hjemmelavet ting!  </div>
+    <div class="price">21.000,00 DKK</div>
+  </div>
+-->
 
 
 

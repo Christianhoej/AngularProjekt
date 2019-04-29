@@ -25,6 +25,7 @@ import {AnnoncetestService} from './startside-kategori/annoncetest.service';
 import {KategoriService} from './startside-kategori/kategori.service';
 import {AnnonceDataService} from './annonce-data.service';
 import {GridService} from './grid/grid.service';
+import {MaterialeService} from './startside-kategori/materiale.service';
 
 
 @NgModule({
@@ -53,7 +54,7 @@ import {GridService} from './grid/grid.service';
     ReactiveFormsModule
   ],
 
-  providers: [AnnonceService, AnnoncetestService, KategoriService, AnnonceDataService, GridService],
+  providers: [AnnonceService, AnnoncetestService, KategoriService, AnnonceDataService, GridService, MaterialeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

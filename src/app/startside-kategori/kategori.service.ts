@@ -3,7 +3,7 @@ import {Subject} from 'rxjs';
 
 @Injectable()
 export class KategoriService {
-  kategori = ['Nips', 'Møbler', 'Ler', 'Strik', 'Kunst', 'Til børn', 'Andet '];
+  kategori = ['Nips', 'Møbler', 'Til køkkenet', 'Tøj', 'Kunst', 'Til børn', 'Andet '];
 
   getKategorier() {
     return this.kategori.slice();
