@@ -15,7 +15,20 @@
         <div class="col-xs-12">
           <div class="form-group">
             <label for="kategori">Kategori</label>
-            <select name="kategori" id="kategori" ngModel class="form-control"></select>
+            <select name="kategori" id="kategori" ngModel class="form-control">
+            <option style="cursor: pointer" *ngFor="let kategoriElement of kategori"> {{ kategoriElement }}</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label for="materiale">Materiale</label>
+            <select name="materiale" id="materiale" ngModel class="form-control">
+              <option style="cursor: pointer" *ngFor="let materialeElement of materiale"> {{ materialeElement }}</option>
+
+            </select>
           </div>
         </div>
       </div>
@@ -89,4 +102,4 @@
     </div>
   </div>
 </div>
-<app-annonce></app-annonce>
+
