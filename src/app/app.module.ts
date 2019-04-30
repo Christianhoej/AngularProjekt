@@ -18,14 +18,12 @@ import { DetaljeretAnnonceComponent } from './annonce/detaljeret-annonce/detalje
 import { OpretAnnonceComponent } from './annonce/opret-annonce/opret-annonce.component';
 import { AnnonceComponent } from './annonce/annonce.component';
 import {AnnonceService} from './annonce/annonce.service';
-import { StartsideKategoriValgtComponent } from './startside-kategori/startside-kategori-valgt/startside-kategori-valgt.component';
-import { StartsideTestComponent } from './startside-kategori/startside-test/startside-test.component';
-import { GridComponent } from './grid/grid.component';
-import {AnnoncetestService} from './startside-kategori/annoncetest.service';
 import {KategoriService} from './startside-kategori/kategori.service';
 import {AnnonceDataService} from './annonce-data.service';
 import {GridService} from './grid/grid.service';
 import {MaterialeService} from './startside-kategori/materiale.service';
+import {GridComponent} from './grid/grid.component';
+import {ConfigService} from './bruger/services/config.service';
 
 
 @NgModule({
@@ -33,17 +31,13 @@ import {MaterialeService} from './startside-kategori/materiale.service';
     AppComponent,
     HeaderComponent,
     StartsideComponent,
-    StartsideKategoriComponent,
     DetaljeretAnnonceComponent,
     LogIndComponent,
     OpretAnnonceComponent,
     OpretBrugerComponent,
     AnnonceComponent,
-    StartsideKategoriValgtComponent,
-    StartsideTestComponent,
-    AnnonceComponent,
-    GridComponent
-
+    GridComponent,
+    StartsideKategoriComponent
   ],
 
   imports: [
@@ -54,7 +48,7 @@ import {MaterialeService} from './startside-kategori/materiale.service';
     ReactiveFormsModule
   ],
 
-  providers: [AnnonceService, AnnoncetestService, KategoriService, AnnonceDataService, GridService, MaterialeService],
+  providers: [AnnonceService, KategoriService, AnnonceDataService, GridService, MaterialeService, ConfigService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

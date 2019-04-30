@@ -74,6 +74,4 @@ export class AnnonceService {
     this.annonceændret.next(this.annoncer.slice());
   }
 
-
-
 }

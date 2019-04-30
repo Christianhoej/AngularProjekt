@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {ItemdataService} from '../itemdata.service';
 import {Annonce} from '../annonce/annonce.model';
 import {AnnonceService} from '../annonce/annonce.service';
@@ -9,7 +9,8 @@ import {AnnonceService} from '../annonce/annonce.service';
   styleUrls: ['./grid.component.css']
 })
 export class GridComponent implements OnInit {
-
+  @Input() annonceEl: Annonce;
+  @Input() index: number;
   annonceArr: Annonce[];
   items: object[];
 
@@ -19,6 +20,4 @@ export class GridComponent implements OnInit {
     this.annonceArr = this.annonceService.getAnnoncer();
     // this.subscription = this.annonceService.annonceændret.subscribe((annoncer: Annonce[]) => {this.annonceArr = annoncer});
   }
-
-
 }

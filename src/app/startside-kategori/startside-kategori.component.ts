@@ -1,10 +1,9 @@
 
-import {Component, Injectable, OnDestroy, OnInit} from '@angular/core';
-import {AnnoncetestService} from './annoncetest.service';
-import {ActivatedRoute, Router} from '@angular/router';
-import {Annonce} from './annoncetest.model';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Subscription} from 'rxjs';
 import {KategoriService} from './kategori.service';
+import {AnnonceService} from '../annonce/annonce.service';
+import {Annonce} from '../annonce/annonce.model';
 
 
 @Component({
@@ -21,7 +20,7 @@ export class StartsideKategoriComponent implements OnInit, OnDestroy {
   subscription: Subscription;
   kategori = [];
   constructor(private kategoriService: KategoriService,
-              private annonceService: AnnoncetestService) { }
+              private annonceService: AnnonceService) { }
 
 
   ngOnInit() {

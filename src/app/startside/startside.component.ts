@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {Annonce} from '../startside-kategori/annoncetest.model';
 import {Subscription} from 'rxjs';
 import {KategoriService} from '../startside-kategori/kategori.service';
-import {AnnoncetestService} from '../startside-kategori/annoncetest.service';
+import {Annonce} from '../annonce/annonce.model';
+import {AnnonceService} from '../annonce/annonce.service';
 
 @Component({
   selector: 'app-startside',
@@ -15,7 +15,7 @@ export class StartsideComponent implements OnInit {
   subscription: Subscription;
   kategori = [];
   constructor(private kategoriService: KategoriService,
-              private annonceService: AnnoncetestService) { }
+              private annonceService: AnnonceService) { }
 
 
   ngOnInit() {

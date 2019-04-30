@@ -13,13 +13,16 @@
        </a>
      </ul>
    </div>
-
-     <div class="col-xs-10">
-       <app-grid></app-grid>
-     </div>
-
-
+   <div class="col-xs-10">
+     <div class="grid-container">
+       <app-grid
+         *ngFor="let annonceElement of annoncer; let i = index"
+         [annonceEl]="annonceElement"
+         [index]="i"></app-grid>
+   </div>
+   </div>
  </div>
+ <router-outlet></router-outlet>
 
 
 
