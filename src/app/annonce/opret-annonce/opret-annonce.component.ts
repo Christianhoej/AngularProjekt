@@ -4,6 +4,9 @@ import {AnnonceService} from '../annonce.service';
 import {Annonce} from '../annonce.model';
 import {KategoriService} from '../../startside-kategori/kategori.service';
 import {MaterialeService} from '../../startside-kategori/materiale.service';
+import {HttpClient} from '@angular/common/http';
+import {UploadBilleder} from '../Shared/upload-billeder';
+import * as _ from 'lodash';
 
 
 @Component({
@@ -14,13 +17,21 @@ import {MaterialeService} from '../../startside-kategori/materiale.service';
 export class OpretAnnonceComponent implements OnInit {
   kategori: string[];
   materiale: string[];
+
+  billedet = null;
+
+  selectedFiles: FileList;
+  currentUpload: UploadBilleder;
+
   // id: number;
   // editMode = false;
   // annonceForm: FormGroup;
 
   constructor(private annonceService: AnnonceService,
               private kategoriService: KategoriService,
-              private materialeService: MaterialeService) { }
+              private materialeService: MaterialeService,
+              private http: HttpClient,
+              ) { }
 
   ngOnInit() {
     this.kategori = this.kategoriService.getKategorier();
@@ -28,6 +39,32 @@ export class OpretAnnonceComponent implements OnInit {
 
   }
 
+  valgtBillede(event) {
+    this.billedet = event.target.files[0];
+  }
+
+  uploadBillede() {
+    // const fd = new FormData();
+    // fd.append('image', this.billedet, this.billedet.name)
+
+    this.http.post('https://api.imgur.com/3/upload?Client-ID=1cc04e1ddf61692',   this.billedet)
+      .subscribe(event => { console.log(event); });
+
+  }
+
+/*
+
+
+  detectFiles(event) {
+    this.selectedFiles = event.target.files;
+  }
+
+  uploadSingle() {
+    const file = this.selectedFiles.item(0);
+    this.currentUpload = new UploadBilleder(file);
+    this.upSvc.pushUpload(this.currentUpload);
+  }
+*/
   onSubmit(form: NgForm) {
     // const newRecipe = new Recipe(
     //   this.recipeForm.value['name'],
