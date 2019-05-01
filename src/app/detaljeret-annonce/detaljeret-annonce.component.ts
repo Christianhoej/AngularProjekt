@@ -1,7 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Annonce} from '../annonce.model';
+import {Annonce} from '../annonce/annonce.model';
 import {Subscription} from 'rxjs';
-import {AnnonceService} from '../annonce.service';
+import {AnnonceService} from '../annonce/annonce.service';
+import {ActivatedRoute, Params, Router} from '@angular/router';
 
 @Component({
   selector: 'app-detaljeret-annonce',
@@ -10,14 +11,27 @@ import {AnnonceService} from '../annonce.service';
 })
 export class DetaljeretAnnonceComponent implements OnInit {
   annonceArr: Annonce[];
-  private subscription: Subscription;
-  @Input() annonce: Annonce;
+  id: number;
+  annonce: Annonce;
 
-  constructor(private annonceService: AnnonceService) { }
+  private subscription: Subscription;
+
+
+  constructor(private annonceService: AnnonceService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
     this.annonceArr = this.annonceService.getAnnoncer();
     this.subscription = this.annonceService.annonceændret.subscribe((annoncer: Annonce[]) => {this.annonceArr = annoncer; });
+    /*this.route.params
+      .subscribe(
+        (params: Params) => {
+          this.id = +params['id'];
+          this.annonce = this.annonceService.getAnnonce(this.id);
+        }
+      );*/
   }
+
+
+
 
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Annonce} from './annonce.model';
 import {AnnonceService} from './annonce.service';
 import {Subscription} from 'rxjs';
@@ -11,6 +11,8 @@ import {Subscription} from 'rxjs';
 export class AnnonceComponent implements OnInit {
   annonceArr: Annonce[];
   private subscription: Subscription;
+  @Input() annonce: Annonce;
+  @Input() index: number;
 
   constructor(private annonceService: AnnonceService) { }
 
