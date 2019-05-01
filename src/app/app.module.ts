@@ -13,16 +13,16 @@ import { LogIndComponent } from './bruger/log-ind/log-ind.component';
 
 import { OpretBrugerComponent } from './bruger/opret-bruger/opret-bruger.component';
 
-import { DetaljeretAnnonceComponent } from './annonce/detaljeret-annonce/detaljeret-annonce.component';
+import { DetaljeretAnnonceComponent } from './detaljeret-annonce/detaljeret-annonce.component';
 
-import { OpretAnnonceComponent } from './annonce/opret-annonce/opret-annonce.component';
+import { OpretAnnonceComponent } from './opret-annonce/opret-annonce.component';
 import { AnnonceComponent } from './annonce/annonce.component';
 import {AnnonceService} from './annonce/annonce.service';
 import { StartsideKategoriValgtComponent } from './startside-kategori/startside-kategori-valgt/startside-kategori-valgt.component';
 import { StartsideTestComponent } from './startside-kategori/startside-test/startside-test.component';
 import { GridComponent } from './grid/grid.component';
 import {AnnoncetestService} from './startside-kategori/annoncetest.service';
-import {KategoriService} from './startside-kategori/kategori.service';
+import {KategoriService} from './startside/kategorier/kategori.service';
 import {AnnonceDataService} from './annonce-data.service';
 import {GridService} from './grid/grid.service';
 import {MaterialeService} from './startside-kategori/materiale.service';
@@ -31,6 +31,7 @@ import {UploadBilleder} from './annonce/Shared/upload-billeder';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { environment } from '../environments/environment';
+import { KategorierComponent } from './startside/kategorier/kategorier.component';
 
 
 @NgModule({
@@ -47,7 +48,8 @@ import { environment } from '../environments/environment';
     StartsideKategoriValgtComponent,
     StartsideTestComponent,
     AnnonceComponent,
-    GridComponent
+    GridComponent,
+    KategorierComponent
   ],
 
   imports: [

@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import {FormGroup, NgForm} from '@angular/forms';
-import {AnnonceService} from '../annonce.service';
-import {Annonce} from '../annonce.model';
-import {KategoriService} from '../../startside-kategori/kategori.service';
-import {MaterialeService} from '../../startside-kategori/materiale.service';
+import {AnnonceService} from '../annonce/annonce.service';
+import {Annonce} from '../annonce/annonce.model';
+import {KategoriService} from '../startside/kategorier/kategori.service';
+import {MaterialeService} from '../startside-kategori/materiale.service';
 import {HttpClient} from '@angular/common/http';
-import {UploadBilleder} from '../Shared/upload-billeder';
+import {UploadBilleder} from '../annonce/Shared/upload-billeder';
 import * as _ from 'lodash';
 
 

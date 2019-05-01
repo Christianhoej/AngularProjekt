@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {Annonce} from '../startside-kategori/annoncetest.model';
 import {Subscription} from 'rxjs';
-import {KategoriService} from '../startside-kategori/kategori.service';
+import {KategoriService} from './kategorier/kategori.service';
 import {AnnoncetestService} from '../startside-kategori/annoncetest.service';
+import {Kategorier} from './kategorier/kategorier.model';
 
 @Component({
   selector: 'app-startside',
@@ -13,7 +14,7 @@ export class StartsideComponent implements OnInit {
 
   annoncer: Annonce[];
   subscription: Subscription;
-  kategori = [];
+  kategorier: Kategorier[];
   constructor(private kategoriService: KategoriService,
               private annonceService: AnnoncetestService) { }
 
@@ -26,7 +27,7 @@ export class StartsideComponent implements OnInit {
         }
       );
     this.annoncer = this.annonceService.getAnnoncer();
-    this.kategori = this.kategoriService.getKategorier();
+    this.kategorier = this.kategoriService.getKategorier();
   }
 
 

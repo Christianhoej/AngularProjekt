@@ -4,7 +4,7 @@ import {AnnoncetestService} from './annoncetest.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {Annonce} from './annoncetest.model';
 import {Subscription} from 'rxjs';
-import {KategoriService} from './kategori.service';
+import {KategoriService} from '../startside/kategorier/kategori.service';
 
 
 @Component({

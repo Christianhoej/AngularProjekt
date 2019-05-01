@@ -1,13 +1,69 @@
-
-<ul class="list-group" class="list-group-item"
-    style="cursor: pointer"
-    *ngFor="let annonce of annonceArr">
-    {{ annonce.titel }} {{ annonce.pris }} {{ annonce.beskrivelse }} {{ annonce.kategori }}
-  <div class="row">
+<!--
+<a
+  style="cursor: pointer;"
+  routerLink="/detaljeret_annonce"
+  routerLinkActive="active"
+  >
+  <div class="row" style="min-height: 135px; min-width: 135px">
     <div class="col-xs-12">
-      <img [src]="annonce.imagepath" class="img-responsive">
+      <img [src]="annonce.imagepath" class="img-responsive"  style="max-height: 135px ; max-width: 135px">
+
     </div>
   </div>
-</ul>
+  <div class="title">
+    {{ annonce.titel }}
+  </div>
+  <div class="price">
+    {{ annonce.pris }} kr
+  </div>
+</a>
+-->
+<!--
+<div class="row">
+  <div class="col-xs-2">
+    <ul class="list-group">
+      <h3>Kategorier</h3>
+      <hr>
+      <a
+        class="list-group-item-text,  "
+        *ngFor=" let kategoriElement of kategori"
+        style="cursor: pointer"
 
+      >
 
+        <font size="+1">
+          {{kategoriElement}} <br>
+        </font>
+      </a>
+    </ul>
+  </div>
+  -->
+<!--
+  <div class="col-xs-10">
+    <app-grid></app-grid>
+  </div>
+-->
+
+<div class="grid-container">
+  <div  class="grid-item"
+        style="cursor: pointer; margin-right: 50px"
+        routerLinkActive="active"
+        routerLink="/detaljeret_annonce"
+
+        *ngFor="let annonce of annonceArr">
+    <div class="row" style="min-height: 135px; min-width: 135px">
+      <div class="col-xs-12">
+        <img [src]="annonce.imagepath" class="img-responsive"  style="max-height: 135px ; max-width: 135px">
+
+      </div>
+    </div>
+    <div class="title">
+      {{ annonce.titel }}
+    </div>
+    <div class="price">
+      {{ annonce.pris }} kr
+    </div>
+    <!--  {{ annonce.beskrivelse }} {{ annonce.kategori }} -->
+
+  </div>
+</div>

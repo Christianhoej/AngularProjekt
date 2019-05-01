@@ -1,0 +1,25 @@
+<!--
+ul class="list-group">
+  <h3>Kategorier</h3>
+  <hr>
+  <a
+    class="list-group-item-text,  "
+    *ngFor=" let kategoriElement of kategori"
+    style="cursor: pointer"
+    [routerLink]=""
+  >
+
+    <font size="+1">
+      {{kategoriElement}} <br>
+    </font>
+  </a>
+</ul> -->
+<a
+  style="cursor: pointer;"
+  [routerLink]="[kategoriArr[kategoriIndex]]"
+  routerLinkActive="active"
+  class="list-group-item-text">
+  {{ kategoriInput.navn}}
+  <br>
+
+</a>
