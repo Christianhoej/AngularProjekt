@@ -26,6 +26,11 @@ import {KategoriService} from './startside-kategori/kategori.service';
 import {AnnonceDataService} from './annonce-data.service';
 import {GridService} from './grid/grid.service';
 import {MaterialeService} from './startside-kategori/materiale.service';
+import {FirebaseError} from 'firebase';
+import {UploadBilleder} from './annonce/Shared/upload-billeder';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { environment } from '../environments/environment';
 
 
 @NgModule({
@@ -43,7 +48,6 @@ import {MaterialeService} from './startside-kategori/materiale.service';
     StartsideTestComponent,
     AnnonceComponent,
     GridComponent
-
   ],
 
   imports: [
@@ -51,7 +55,7 @@ import {MaterialeService} from './startside-kategori/materiale.service';
     FormsModule,
     HttpClientModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
 
   providers: [AnnonceService, AnnoncetestService, KategoriService, AnnonceDataService, GridService, MaterialeService],
