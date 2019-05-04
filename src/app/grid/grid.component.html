@@ -10,25 +10,112 @@
     <div class="price">700 kr</div>
     </a>
   </div>
+
+
+  <div class="col-xs-12">
+    <app-recipe-item
+      *ngFor="let recipeEl of recipes; let i = index"
+      [recipe]="recipeEl"
+      [index]="i"></app-recipe-item>
+  </div>
 -->
-  <div class="grid-item"
-       style="cursor: pointer"
-       [routerLink]="annonceEl.annonceID"
-       routerLinkActive="active"
-       >
+
+  <!--
+  <div class="row">
+  <div class="col-xs-12">
+    <button class="btn btn-success" (click)="onNewRecipe()">New Recipe</button>
+  </div>
+</div>
+<hr>
+<div class="row">
+  <div class="col-xs-12">
+    <app-recipe-item
+      *ngFor="let recipeEl of recipes; let i = index"
+      [recipe]="recipeEl"
+      [index]="i"></app-recipe-item>
+  </div>
+</div>
+
+
+  -->
+<!--
+  <div class="row">
+    <div class="grid-container">
+      <app-annonce *ngFor="let annonce of annonceArr; let i = index"
+      [annonce] = "annonce"
+      [index] = "i"
+      style="margin-right: 50px"></app-annonce>
+
+    </div>
+  </div>
+
+
+<a
+  style="cursor: pointer;"
+  routerLink="/detaljeret_annonce"
+  routerLinkActive="active"
+>
+  <div class="row" style="min-height: 135px; min-width: 135px">
+    <div class="col-xs-12">
+      <img [src]="annonce.imagepath" class="img-responsive"  style="max-height: 135px ; max-width: 135px">
+
+    </div>
+  </div>
+  <div class="title">
+    {{ annonce.titel }}
+  </div>
+  <div class="price">
+    {{ annonce.pris }} kr
+  </div>
+</a>
+-->
+<div class="grid-container">
+<div  class="grid-item"
+      style="cursor: pointer; margin-right: 50px"
+      routerLinkActive="active"
+      routerLink="/detaljeret_annonce"
+
+      *ngFor="let annonce of annonceArr">
+  <div class="row" style="min-height: 135px; min-width: 135px">
+    <div class="col-xs-12">
+      <img [src]="annonce.imagepath" class="img-responsive"  style="max-height: 135px ; max-width: 135px">
+
+    </div>
+  </div>
+  <div class="title">
+    {{ annonce.titel }}
+  </div>
+  <div class="price">
+    {{ annonce.pris }} kr
+  </div>
+  <!--  {{ annonce.beskrivelse }} {{ annonce.kategori }} -->
+
+</div>
+</div>
+<!--
+  <div  class="grid-item"
+      style="cursor: pointer"
+      routerLinkActive="active"
+      routerLink="/detaljeret_annonce"
+
+      *ngFor="let annonce of annonceArr">
     <div class="row" style="min-height: 135px; min-width: 135px">
       <div class="col-xs-12">
-        <img [src]="annonceEl.imagepath" class="img-responsive"  style="max-height: 135px ; max-width: 135px">
+        <img [src]="annonce.imagepath" class="img-responsive"  style="max-height: 135px ; max-width: 135px">
+
       </div>
     </div>
     <div class="title">
-      {{ annonceEl.titel }}
+      {{ annonce.titel }}
     </div>
     <div class="price">
-      {{ annonceEl.pris }} kr
-    </div>
+      {{ annonce.pris }} kr
+    </div>s
+    -->
      <!--  {{ annonce.beskrivelse }} {{ annonce.kategori }} -->
+<!--
   </div>
+-->
 <!--
   <div class="grid-item">
     <img id="Img" src="https://img1.etsystatic.com/042/0/5704632/il_170x135.514572627_qez9.jpg" onclick="displayAnnonce()" />
@@ -36,6 +123,9 @@
     <div class="price">21.000,00 DKK</div>
   </div>
 -->
+
+
+
 
 
 

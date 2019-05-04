@@ -11,13 +11,17 @@ import {AnnonceService} from '../annonce/annonce.service';
 export class GridComponent implements OnInit {
   @Input() annonceEl: Annonce;
   @Input() index: number;
-  annonceArr: Annonce[];
+  annoncer: Annonce[];
   items: object[];
 
   constructor(private itemdata: ItemdataService, private annonceService: AnnonceService) { }
 
   ngOnInit() {
-    this.annonceArr = this.annonceService.getAnnoncer();
+    this.annonceService.getAnnoncer()
+      .subscribe(
+      (annoncer: Annonce[]) => {this.annoncer = annoncer;
+      }
+    );
     // this.subscription = this.annonceService.annonceændret.subscribe((annoncer: Annonce[]) => {this.annonceArr = annoncer});
   }
 }

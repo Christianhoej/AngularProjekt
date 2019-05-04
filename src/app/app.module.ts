@@ -8,22 +8,19 @@ import {HttpClientModule} from '@angular/common/http';
 import {AppRoutingModule} from './app-routing.module';
 import { StartsideComponent } from './startside/startside.component';
 import { StartsideKategoriComponent } from './startside-kategori/startside-kategori.component';
-
 import { LogIndComponent } from './bruger/log-ind/log-ind.component';
-
 import { OpretBrugerComponent } from './bruger/opret-bruger/opret-bruger.component';
-
 import { DetaljeretAnnonceComponent } from './annonce/detaljeret-annonce/detaljeret-annonce.component';
-
-import { OpretAnnonceComponent } from './annonce/opret-annonce/opret-annonce.component';
+import { OpretAnnonceComponent } from './opret-annonce/opret-annonce.component';
 import { AnnonceComponent } from './annonce/annonce.component';
 import {AnnonceService} from './annonce/annonce.service';
-import {KategoriService} from './startside-kategori/kategori.service';
-import {AnnonceDataService} from './annonce-data.service';
+import { GridComponent } from './grid/grid.component';
+import {KategoriService} from './startside/kategorier/kategori.service';
+import {AnnonceDataService} from './annonce/annonce-data.service';
 import {GridService} from './grid/grid.service';
 import {MaterialeService} from './startside-kategori/materiale.service';
-import {GridComponent} from './grid/grid.component';
-import {ConfigService} from './bruger/services/config.service';
+import { KategorierComponent } from './startside/kategorier/kategorier.component';
+import {Annonce} from './annonce/annonce.model';
 
 
 @NgModule({
@@ -31,13 +28,14 @@ import {ConfigService} from './bruger/services/config.service';
     AppComponent,
     HeaderComponent,
     StartsideComponent,
+    StartsideKategoriComponent,
     DetaljeretAnnonceComponent,
     LogIndComponent,
     OpretAnnonceComponent,
     OpretBrugerComponent,
     AnnonceComponent,
     GridComponent,
-    StartsideKategoriComponent
+    KategorierComponent
   ],
 
   imports: [
@@ -48,7 +46,7 @@ import {ConfigService} from './bruger/services/config.service';
     ReactiveFormsModule
   ],
 
-  providers: [AnnonceService, KategoriService, AnnonceDataService, GridService, MaterialeService, ConfigService],
+  providers: [AnnonceService, KategoriService, AnnonceDataService, GridService, MaterialeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

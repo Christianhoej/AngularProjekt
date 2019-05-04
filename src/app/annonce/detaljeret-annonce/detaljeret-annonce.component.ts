@@ -1,33 +1,37 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Annonce} from '../annonce.model';
-import {AnnonceService} from '../annonce.service';
+import {Subscription} from 'rxjs';
 import {ActivatedRoute, Params, Router} from '@angular/router';
-import {applySourceSpanToExpressionIfNeeded} from '@angular/compiler/src/output/output_ast';
+import {AnnonceService} from '../annonce.service';
 
-@Component({
+@Component ({
   selector: 'app-detaljeret-annonce',
   templateUrl: './detaljeret-annonce.component.html',
   styleUrls: ['./detaljeret-annonce.component.css']
 })
 export class DetaljeretAnnonceComponent implements OnInit {
-  annonce: Annonce;
+  annoncer: Annonce[];
   id: number;
+  annonce: Annonce;
+
+  private subscription: Subscription;
 
 
-  constructor(private annonceService: AnnonceService,
-              private route: ActivatedRoute,
-              private router: Router) { }
+  constructor(private annonceService: AnnonceService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
-    this.route.params
+    /*this.annonce = this.annonceService.getAnnoncer();
+    this.subscription = this.annonceService.annonceændret.subscribe((annoncer: Annonce[]) => {this.annonceArr = annoncer; });*/
+    /*this.route.params
       .subscribe(
         (params: Params) => {
           this.id = +params['id'];
           this.annonce = this.annonceService.getAnnonce(this.id);
         }
-      );
-   // this.annonceArr = this.annonceService.getAnnoncer();
-   // this.subscription = this.annonceService.annonceændret.subscribe((annoncer: Annonce[]) => {this.annonceArr = annoncer; });
+      );*/
   }
+
+
+
 
 }

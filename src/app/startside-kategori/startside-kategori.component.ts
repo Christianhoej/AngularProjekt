@@ -1,12 +1,12 @@
 
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Subscription} from 'rxjs';
-import {KategoriService} from './kategori.service';
-import {AnnonceService} from '../annonce/annonce.service';
+import {KategoriService} from '../startside/kategorier/kategori.service';
 import {Annonce} from '../annonce/annonce.model';
+import {AnnonceService} from '../annonce/annonce.service';
 
 
-@Component({
+@Component ({
   selector: 'app-startside-kategori',
   templateUrl: './startside-kategori.component.html',
   styleUrls: ['./startside-kategori.component.css'],
@@ -30,7 +30,10 @@ export class StartsideKategoriComponent implements OnInit, OnDestroy {
           this.annoncer = annoncer;
         }
       );
-    this.annoncer = this.annonceService.getAnnoncer();
+    /*this.annonceService.getAnnoncer().subscribe(
+      (annoncer: Annonce[]) => {this.annoncer = annoncer;
+      }
+    );*/
     this.kategori = this.kategoriService.getKategorier();
   }
 
