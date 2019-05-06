@@ -27,7 +27,7 @@
        <div class="grid-container">
        <app-annonce *ngFor="let annonce of annoncer, let i = index"
                     [id]="annonce.id"
-                    [index]="i"
+                    [index]="annonce.header"
                     [annonce]="annonce"></app-annonce>
      </div>
      </div>

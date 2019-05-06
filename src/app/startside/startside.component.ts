@@ -33,7 +33,12 @@ export class StartsideComponent implements OnInit {
         (annoncer: Annonce[]) => {this.annoncer = annoncer;
         }
       );
-    this.kategorier = this.kategoriService.getKategorier();
+    this.kategoriService.getKategorier()
+      .subscribe(
+        (kategorier: Kategorier[]) => {this.kategorier = kategorier;
+          (error) => console.log(error);
+        }
+      );
 
   }
 

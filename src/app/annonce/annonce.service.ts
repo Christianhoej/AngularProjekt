@@ -2,6 +2,7 @@ import {Annonce} from './annonce.model';
 import { Subject } from 'rxjs';
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
+import {ResourceURLService} from '../resourceURL.service';
 
 @Injectable({
   providedIn: 'root'
@@ -62,7 +63,7 @@ export class AnnonceService {
 
   ];*/
 
-  constructor(private http: HttpClient)  { }
+  constructor(private http: HttpClient, private resourceURL: ResourceURLService)  { }
 
  /* setAnnoncer(annoncer: Annonce[]) {
     this.annoncer = annoncer;
@@ -74,11 +75,11 @@ export class AnnonceService {
   }*/
 
   getAnnoncer() {
-    return this.http.get('http://localhost:8080/Homely-ws/ads');
+    return this.http.get(this.resourceURL.adsURL);
   }
 
-  getAnnonce(id: number) {
-    return this.http.get('http://localhost:8080/Homely-ws/ads' + id);
+  getAnnonce(id: string) {
+    return this.http.get(this.resourceURL.adsURL + '/' + id);
   }
 /*
   getAnnonce(index: number) {
