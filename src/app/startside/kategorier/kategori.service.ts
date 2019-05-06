@@ -1,22 +1,30 @@
 import {Injectable} from '@angular/core';
 import {Subject} from 'rxjs';
 import {Kategorier} from './kategorier.model';
+import {HttpClient} from '@angular/common/http';
+import {ResourceURLService} from '../../resourceURL.service';
 
 @Injectable()
 export class KategoriService {
 
-  private kategori: Kategorier[] = [new Kategorier('Nips'),
+ /* private kategori: Kategorier[] = [new Kategorier('Nips'),
     new Kategorier('Møbel'),
     new Kategorier('Til køkkenet'),
     new Kategorier('Tøj'),
     new Kategorier('Kunst'),
     new Kategorier('Til børn'),
     new Kategorier('Andet')];
+*/
+
+  constructor(private http: HttpClient, private resourceURL: ResourceURLService) {
+
+  }
+
   getKategorier() {
-    return this.kategori.slice();
+    return this.http.get(this.resourceURL.categoryURL);
   }
 
   getKategori(index: number) {
-    return this.kategori[index];
+    return this.http.get(this.resourceURL.categoryURL + '/' + index);
   }
 }

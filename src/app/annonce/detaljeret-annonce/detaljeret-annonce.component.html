@@ -5,7 +5,7 @@
   <div class="col-xs-12">
     <div class="col-xs-7">
       <h2>{{ annonce.header }}</h2>
-      <h4>700kr.</h4>
+      <h4>{{ annonce.price }}</h4>
       <img
         [src]="annonce.imageURL"
         class="img-responsive"
@@ -13,8 +13,6 @@
       <div class="row">
         <p>
           {{annonce.description}}
-          <br>
-          Køb den nu!!
         </p>
 
         <!-- {{ recipe.description }}

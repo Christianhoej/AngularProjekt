@@ -1,7 +1,9 @@
 export class Kategorier {
-  public navn: string;
+  public categoryName: string;
+  public id: number;
 
-  constructor(navn: string) {
-  this.navn = navn;
+  constructor(categoryName: string, id: number) {
+  this.categoryName = categoryName;
+  this.id = id;
   }
 }

@@ -7,7 +7,6 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import {AppRoutingModule} from './app-routing.module';
 import { StartsideComponent } from './startside/startside.component';
-import { StartsideKategoriComponent } from './startside-kategori/startside-kategori.component';
 import { LogIndComponent } from './bruger/log-ind/log-ind.component';
 import { OpretBrugerComponent } from './bruger/opret-bruger/opret-bruger.component';
 import { DetaljeretAnnonceComponent } from './annonce/detaljeret-annonce/detaljeret-annonce.component';
@@ -18,9 +17,9 @@ import { GridComponent } from './grid/grid.component';
 import {KategoriService} from './startside/kategorier/kategori.service';
 import {AnnonceDataService} from './annonce/annonce-data.service';
 import {GridService} from './grid/grid.service';
-import {MaterialeService} from './startside-kategori/materiale.service';
 import { KategorierComponent } from './startside/kategorier/kategorier.component';
 import {Annonce} from './annonce/annonce.model';
+import {ResourceURLService} from './resourceURL.service';
 
 
 @NgModule({
@@ -28,7 +27,7 @@ import {Annonce} from './annonce/annonce.model';
     AppComponent,
     HeaderComponent,
     StartsideComponent,
-    StartsideKategoriComponent,
+
     DetaljeretAnnonceComponent,
     LogIndComponent,
     OpretAnnonceComponent,
@@ -46,7 +45,7 @@ import {Annonce} from './annonce/annonce.model';
     ReactiveFormsModule
   ],
 
-  providers: [AnnonceService, KategoriService, AnnonceDataService, GridService, MaterialeService],
+  providers: [AnnonceService, KategoriService, AnnonceDataService, GridService, ResourceURLService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

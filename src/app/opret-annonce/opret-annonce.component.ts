@@ -3,7 +3,6 @@ import {FormGroup, NgForm} from '@angular/forms';
 import {AnnonceService} from '../annonce/annonce.service';
 import {Annonce} from '../annonce/annonce.model';
 import {KategoriService} from '../startside/kategorier/kategori.service';
-import {MaterialeService} from '../startside-kategori/materiale.service';
 import {HttpClient} from '@angular/common/http';
 import {UploadBilleder} from '../annonce/Shared/upload-billeder';
 import * as _ from 'lodash';
@@ -16,7 +15,7 @@ import {Kategorier} from '../startside/kategorier/kategorier.model';
   styleUrls: ['./opret-annonce.component.css']
 })
 export class OpretAnnonceComponent implements OnInit {
-  kategori: Kategorier[];
+  kategorier: Kategorier[];
   materiale: string[];
 
   billedet = null;
@@ -30,13 +29,15 @@ export class OpretAnnonceComponent implements OnInit {
 
   constructor(private annonceService: AnnonceService,
               private kategoriService: KategoriService,
-              private materialeService: MaterialeService,
               private http: HttpClient,
               ) { }
 
   ngOnInit() {
-    this.kategori = this.kategoriService.getKategorier();
-    this.materiale = this.materialeService.getMaterialer();
+    this.kategoriService.getKategorier()
+      .subscribe(
+        (kategorier: Kategorier[]) => {this.kategorier = kategorier;
+        }
+      );
 
   }
 

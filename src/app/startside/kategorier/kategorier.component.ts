@@ -15,6 +15,7 @@ export class KategorierComponent implements OnInit {
   id: number;
   @Input() kategoriIndex: Kategorier;
   @Input() kategoriInput: Kategorier;
+  key: string;
 
   constructor(private kategoriService: KategoriService,
               private route: ActivatedRoute,
@@ -22,12 +23,13 @@ export class KategorierComponent implements OnInit {
 
   ngOnInit() {
 
-    this.kategoriArr = this.kategoriService.getKategorier();
+
 
     this.route.params
       .subscribe(
         (params: Params) => {
-          this.id = +params['id'];
+          this.key = 'id';
+          this.id = +params[this.key];
           console.log(this.id);
         }
       );

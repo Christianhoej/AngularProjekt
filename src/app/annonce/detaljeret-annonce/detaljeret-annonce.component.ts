@@ -10,9 +10,10 @@ import {AnnonceService} from '../annonce.service';
   styleUrls: ['./detaljeret-annonce.component.css']
 })
 export class DetaljeretAnnonceComponent implements OnInit {
-  id: number;
+  id: string;
   annonce: Annonce;
   @Input() index;
+  key: string;
 
   constructor(private annonceService: AnnonceService, private route: ActivatedRoute, private router: Router) { }
 
@@ -22,9 +23,10 @@ export class DetaljeretAnnonceComponent implements OnInit {
     this.route.params
       .subscribe(
         (params: Params) => {
-          this.id = +params['id'];
+          this.key = 'id';
+          this.id = params[this.key];
           console.log(this.id);
-          this.annonceService.getAnnonce(this.index)
+          this.annonceService.getAnnonce(this.id)
             .subscribe(
               (annonce: Annonce) => {this.annonce = annonce;
               }
