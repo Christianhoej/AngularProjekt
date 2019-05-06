@@ -25,7 +25,6 @@ export class DetaljeretAnnonceComponent implements OnInit {
         (params: Params) => {
           this.key = 'id';
           this.id = params[this.key];
-          console.log(this.id);
           this.annonceService.getAnnonce(this.id)
             .subscribe(
               (annonce: Annonce) => {this.annonce = annonce;

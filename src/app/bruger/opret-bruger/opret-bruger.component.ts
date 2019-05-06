@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {NgForm} from '@angular/forms';
-import {OpretBrugerModel} from '../Models/OpretBruger.model';
-import {ConfigService} from '../services/config.service';
+import {Bruger} from '../Models/bruger.model';
+import {BrugerService} from '../services/bruger.service';
 
 @Component({
   selector: 'app-opret-bruger',
@@ -10,9 +10,9 @@ import {ConfigService} from '../services/config.service';
 })
 export class OpretBrugerComponent implements OnInit {
 
-  opretBruger: OpretBrugerModel;
+  opretBruger: Bruger;
 
-  constructor(private configService: ConfigService) { }
+  constructor(private brugerService: BrugerService) { }
 
   ngOnInit() {
   }
@@ -29,9 +29,9 @@ export class OpretBrugerComponent implements OnInit {
     const telefon = form.value.telefonOpret;
     const postnr = form.value.postnrOpret;
 
-    this.opretBruger = new OpretBrugerModel(fornavn, efternavn, email, kon, fodselsdag,
+    this.opretBruger = new Bruger(fornavn, efternavn, email, kon, fodselsdag,
                 adresse, postnr, telefon, kodeord);
-    this.configService.opretBruger(this.opretBruger)
+    this.brugerService.opretBruger(this.opretBruger)
       .subscribe(
         (response) => console.log(response),
         (error) => console.log(error)

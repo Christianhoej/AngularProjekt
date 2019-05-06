@@ -49,7 +49,6 @@
             style="margin-right: 50px"
             type="button"
             class="btn btn-success"
-
           >
             <!--
             indsættes indenfor button^^
@@ -60,15 +59,17 @@
             Opret annonce
           </button>
         </li>
-        <li routerLinkActive="active" routerLink="/min_side" >
+        <li routerLinkActive="active" routerLink="/min_side"  >
           <button
             style="margin-right: 50px"
             type="button"
-            class="btn btn-toolbar ">
+            class="btn btn-toolbar "
+            *ngIf="erLoggetInd"
+            >
             Min side
           </button>
         </li>
-        <li routerLinkActive="active" routerLink="/log_ind"><button type="button" class="btn btn-link"> Log ind</button></li>
+        <li routerLinkActive="active" routerLink="/log_ind"><button type="button" class="btn btn-link"> {{erLoggetInd ? 'Log ud' : 'Log ind'}}</button></li>
       </ul>
     </div>
   </div>

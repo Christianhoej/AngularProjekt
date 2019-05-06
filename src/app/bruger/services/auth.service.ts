@@ -1,13 +1,11 @@
-import {OpretBrugerModel} from '../Models/OpretBruger.model';
+import {Bruger} from '../Models/bruger.model';
 import {HttpClient} from '@angular/common/http';
 
 export class AuthService {
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient) { }
 
-  }
-
-  signUpUser(brugerinfo: OpretBrugerModel) {
+  signUpUser(brugerinfo: Bruger) {
     // TODO create postrequest to opretbruger.
 
   }
