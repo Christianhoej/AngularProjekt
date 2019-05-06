@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import {FormGroup, NgForm} from '@angular/forms';
-import {AnnonceService} from '../annonce/annonce.service';
-import {Annonce} from '../annonce/annonce.model';
-import {KategoriService} from '../startside/kategorier/kategori.service';
+import {AnnonceService} from '../../annonce/annonce.service';
+import {Annonce} from '../../annonce/annonce.model';
+import {KategoriService} from '../../startside/kategorier/kategori.service';
 import {HttpClient} from '@angular/common/http';
-import {UploadBilleder} from '../annonce/Shared/upload-billeder';
+import {UploadBilleder} from '../../annonce/Shared/upload-billeder';
 import * as _ from 'lodash';
-import {Kategorier} from '../startside/kategorier/kategorier.model';
+import {Kategorier} from '../../startside/kategorier/kategorier.model';
+import {BrugerService} from '../services/bruger.service';
 
 
 @Component({
@@ -17,6 +18,7 @@ import {Kategorier} from '../startside/kategorier/kategorier.model';
 export class OpretAnnonceComponent implements OnInit {
   kategorier: Kategorier[];
   materiale: string[];
+  erLoggetInd: boolean;
 
   billedet = null;
 
@@ -30,6 +32,7 @@ export class OpretAnnonceComponent implements OnInit {
   constructor(private annonceService: AnnonceService,
               private kategoriService: KategoriService,
               private http: HttpClient,
+              private brugerService: BrugerService
               ) { }
 
   ngOnInit() {
@@ -38,7 +41,6 @@ export class OpretAnnonceComponent implements OnInit {
         (kategorier: Kategorier[]) => {this.kategorier = kategorier;
         }
       );
-
   }
 
   valgtBillede(event) {
