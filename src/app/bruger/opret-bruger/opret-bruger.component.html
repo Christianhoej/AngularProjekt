@@ -8,7 +8,9 @@
       <label for="fodselsdagOpret">Fødselsdag</label>
       <input class="form-control" type="date" ngModel required name="fodselsdagOpret" id="fodselsdagOpret">
       <label for="konOpret">Køn</label>
-      <input class="form-control" type="text" ngModel required name="konOpret" id="konOpret">
+      <select required ngModel class="form-control" name="konOpret" id="konOpret">
+        <option style="cursor: pointer; size: 10px" *ngFor="let kon of gender">{{kon}}</option>
+      </select>
       <label for="adresseOpret">Adresse</label>
       <input class="form-control" type="text" ngModel required name="adresseOpret" id="adresseOpret">
       <label for="postnrOpret">PostNr</label>

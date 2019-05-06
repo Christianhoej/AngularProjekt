@@ -9,6 +9,8 @@ import {HttpClientModule} from '@angular/common/http';
 import {OpretBrugerComponent} from './bruger/opret-bruger/opret-bruger.component';
 import { AnnonceComponent } from './annonce/annonce.component';
 import {AnnonceService} from './annonce/annonce.service';
+import {MinSideComponent} from './bruger/min-side/min-side.component';
+import {RedigerAnnonceComponent} from './annonce/rediger-annonce/rediger-annonce.component';
 
 
 const appRoutes: Routes = [
@@ -22,6 +24,10 @@ const appRoutes: Routes = [
   {path: 'detaljeret_annonce', component: DetaljeretAnnonceComponent},
 
   {path: 'log_ind', component: LogIndComponent},
+  {path: 'min_side', component: MinSideComponent},
+  {path: 'rediger_annonce', component: RedigerAnnonceComponent},
+
+
   {path: 'opret_annonce', component: OpretAnnonceComponent},
   {path: 'opret_bruger', component: OpretBrugerComponent}
 ];

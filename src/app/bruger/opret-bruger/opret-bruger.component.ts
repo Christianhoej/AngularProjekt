@@ -21,7 +21,7 @@ export class OpretBrugerComponent implements OnInit {
     const email = form.value.emailOpret;
     const kodeord = form.value.kodeord;
     const gentagetKodeord = form.value.kodeordGentagOpret;
-    const fodselsdag = form.value.fodselsdagOpret.toString(); // evt. gemme som string
+    const fodselsdag = form.value.fodselsdagOpret; // evt. gemme som string
     const fornavn = form.value.fornavnOpret;
     const efternavn = form.value.efternavnOpret;
     const kon = form.value.konOpret;

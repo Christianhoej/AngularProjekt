@@ -1,0 +1,10 @@
+label{
+display: flow;
+  width: 140px;
+  text-align: left;
+}
+
+input[type=text]{
+height: 10px;
+}
+

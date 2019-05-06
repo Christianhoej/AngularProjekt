@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Subscription} from 'rxjs';
 import {KategoriService} from './kategorier/kategori.service';
 import {Kategorier} from './kategorier/kategorier.model';
@@ -16,18 +16,12 @@ export class StartsideComponent implements OnInit {
   annoncer: Annonce[];
   subscription: Subscription;
   kategorier: Kategorier[];
+  @Input() valgtKategori;
   constructor(private kategoriService: KategoriService,
               private annonceService: AnnonceService,
               private route: ActivatedRoute) { }
 
   ngOnInit() {
-    // this.subscription = this.annonceService.annonceændret
-    //   .subscribe(
-    //     (annoncer: Annonce[]) => {
-    //       this.annoncer = annoncer;
-    //       console.log(this.annoncer);
-    //     }
-    //   );
     this.annonceService.getAnnoncer()
       .subscribe(
         (annoncer: Annonce[]) => {this.annoncer = annoncer;
@@ -36,10 +30,8 @@ export class StartsideComponent implements OnInit {
     this.kategoriService.getKategorier()
       .subscribe(
         (kategorier: Kategorier[]) => {this.kategorier = kategorier;
-          (error) => console.log(error);
         }
       );
-
   }
 
 

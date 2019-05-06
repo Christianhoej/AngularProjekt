@@ -19,14 +19,14 @@
        -->
        <app-kategorier *ngFor="let kategoriElement of kategorier, let i= index"
        [kategoriInput]="kategoriElement"
-       [kategoriIndex]="i" ></app-kategorier>
+       [kategoriIndex]="i"></app-kategorier>
      </ul>
    </div>
 
      <div class="col-xs-10">
        <div class="grid-container">
        <app-annonce *ngFor="let annonce of annoncer, let i = index"
-                    [id]="annonce.id"
+                    [id]="annonce.adId"
                     [index]="annonce.header"
                     [annonce]="annonce"></app-annonce>
      </div>
