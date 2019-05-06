@@ -44,17 +44,21 @@
   </div>
 -->
 
-<div class="grid-container">
-  <div
+
+  <a
     class="grid-item"
     style="cursor: pointer; margin-right: 50px"
     routerLinkActive="active"
-    *ngFor="let annonce of annoncer"
-    routerLink="/detaljeret_annonce/{{annonce.id}}">
+    [routerLink]="['/detaljeret_annonce', index]">
 
     <div class="row" style="min-height: 135px; min-width: 135px">
       <div class="col-xs-12">
-        <img [src]="annonce.imageURL" class="img-responsive" style="max-height: 135px ; max-width: 135px">
+        <img
+          [src]="annonce.imageURL"
+          alt="{{annonce.header}}"
+          class="img-responsive"
+          style="max-height: 135px;
+          max-width: 135px">
 
       </div>
     </div>
@@ -66,5 +70,5 @@
     </div>
     <!--  {{ annonce.beskrivelse }} {{ annonce.kategori }} -->
 
-  </div>
-</div>
+  </a>
+

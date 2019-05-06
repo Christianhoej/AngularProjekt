@@ -76,6 +76,10 @@ export class AnnonceService {
   getAnnoncer() {
     return this.http.get('http://localhost:8080/Homely-ws/ads');
   }
+
+  getAnnonce(id: number) {
+    return this.http.get('http://localhost:8080/Homely-ws/ads' + id);
+  }
 /*
   getAnnonce(index: number) {
     return this.annoncer[index];

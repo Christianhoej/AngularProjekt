@@ -12,8 +12,9 @@ export class AnnonceComponent implements OnInit {
  // annonce: Annonce;
   annoncer: Annonce[];
   private subscription: Subscription;
-  @Output() annonce1: Annonce;
-  @Output() id: number;
+  @Input() annonce: Annonce;
+  @Input() id: number;
+  @Input() index: number;
 
   constructor(private annonceService: AnnonceService) { }
 
