@@ -3,12 +3,16 @@ import { Subject } from 'rxjs';
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {ResourceURLService} from '../resourceURL.service';
+import {AnnonceDataService} from './annonce-data.service';
+import {Kategorier} from '../startside/kategorier/kategorier.model';
 
 @Injectable({
   providedIn: 'root'
   })
 export class AnnonceService {
   annonceændret = new Subject<Annonce[]>();
+  annoncer: Annonce[];
+  annonce: Annonce;
   /*private annoncer: Annonce[] = [
     new Annonce(
       'Kaj Bojesen Abe',
@@ -63,7 +67,8 @@ export class AnnonceService {
 
   ];*/
 
-  constructor(private http: HttpClient, private resourceURL: ResourceURLService)  { }
+  constructor(private http: HttpClient, private resourceURL: ResourceURLService,
+              private annonceDataService: AnnonceDataService)  { }
 
  /* setAnnoncer(annoncer: Annonce[]) {
     this.annoncer = annoncer;
@@ -81,6 +86,15 @@ export class AnnonceService {
   getAnnonce(id: string) {
     return this.http.get(this.resourceURL.adsURL + '/' + id);
   }
+
+  filtrerAnnonce(kategori: Kategorier) {
+    return this.http.get(this.resourceURL.adsCategoryURL);
+  }
+
+
+
+
+
 /*
   getAnnonce(index: number) {
     return this.annoncer[index];

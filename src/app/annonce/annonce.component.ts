@@ -20,7 +20,11 @@ export class AnnonceComponent implements OnInit {
 
   ngOnInit() {
 
-
+    this.annonceService.getAnnoncer()
+      .subscribe(
+        (annoncer: Annonce[]) => {this.annoncer = annoncer;
+        }
+      );
     // this.annonceArr = this.annonceService.getAnnoncer();
     // this.subscription = this.annonceService.annonceændret.subscribe((annoncer: Annonce[]) => {this.annonceArr = annoncer});
   }

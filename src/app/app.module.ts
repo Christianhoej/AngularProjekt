@@ -13,13 +13,13 @@ import { DetaljeretAnnonceComponent } from './annonce/detaljeret-annonce/detalje
 import { OpretAnnonceComponent } from './opret-annonce/opret-annonce.component';
 import { AnnonceComponent } from './annonce/annonce.component';
 import {AnnonceService} from './annonce/annonce.service';
-import { GridComponent } from './grid/grid.component';
 import {KategoriService} from './startside/kategorier/kategori.service';
 import {AnnonceDataService} from './annonce/annonce-data.service';
-import {GridService} from './grid/grid.service';
 import { KategorierComponent } from './startside/kategorier/kategorier.component';
 import {Annonce} from './annonce/annonce.model';
 import {ResourceURLService} from './resourceURL.service';
+import { MinSideComponent } from './bruger/min-side/min-side.component';
+import { RedigerAnnonceComponent } from './annonce/rediger-annonce/rediger-annonce.component';
 
 
 @NgModule({
@@ -27,14 +27,14 @@ import {ResourceURLService} from './resourceURL.service';
     AppComponent,
     HeaderComponent,
     StartsideComponent,
-
     DetaljeretAnnonceComponent,
     LogIndComponent,
     OpretAnnonceComponent,
     OpretBrugerComponent,
     AnnonceComponent,
-    GridComponent,
-    KategorierComponent
+    KategorierComponent,
+    MinSideComponent,
+    RedigerAnnonceComponent
   ],
 
   imports: [
@@ -45,7 +45,7 @@ import {ResourceURLService} from './resourceURL.service';
     ReactiveFormsModule
   ],
 
-  providers: [AnnonceService, KategoriService, AnnonceDataService, GridService, ResourceURLService],
+  providers: [AnnonceService, KategoriService, AnnonceDataService, ResourceURLService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,22 +1,14 @@
+REDIGER
 <div class="row">
   <div class="col-xs-6">
     <form (ngSubmit)="onSubmit(f)" #f="ngForm">
 
-      <!-- <div class="row">
-        <div class="col-xs-12">
-          <button
-            type="submit"
-            class="btn btn-success"
-            [disabled]="!recipeForm.valid">Save</button>
-          <button type="button" class="btn btn-danger" (click)="onCancel()">Cancel</button>
-        </div>
-      </div> -->
       <div class="row">
         <div class="col-xs-12">
           <div class="form-group">
             <label for="kategori">Kategori</label>
             <select name="kategori" id="kategori" ngModel class="form-control">
-            <option style="cursor: pointer" *ngFor="let kategoriElement of kategorier"> {{ kategoriElement.categoryName }}</option>
+              <option style="cursor: pointer" *ngFor="let kategoriElement of kategorier"> {{ kategoriElement.categoryName }}</option>
             </select>
           </div>
         </div>
@@ -69,13 +61,13 @@
               type="text"
               id="beskrivelse"
               class="form-control"
-            rows="6"
-            name="beskrivelse"
-            ngModel>
+              rows="6"
+              name="beskrivelse"
+              ngModel>
           </textarea>
+          </div>
         </div>
       </div>
-    </div>
       <div class="row">
         <div class="col-xs-12">
           <button
@@ -83,75 +75,23 @@
             class="btn btn-success" >Opret annonce!</button>
         </div>
       </div>
-   </form>
-    <!--
-</div>
-  <div class="row">
-    <div class="col-xs-6">
-      <img [src]="imagePath.value" class="img-responsive">
-    </div>
-  </div>
-</div>
--->
+    </form>
 
-<h1>Upload billede</h1>
-<input #fileInput
-       type="file" accept="image/*"
-        (change)="valgtBillede($event)">
-    <!--
-<div class="row">
-  <div class="col-xs-6">
-    <img [src]="imageInput.value" class="img-responsive">
-  </div>
-</div>
--->
-<button type="button"
-        class="btn btn-primary"
-        (click)="fileInput.click()" style="margin-right: 20px">Vælg fil</button>
-<button type="button"
-        class="btn btn-success"
-        (click)="uploadBillede()">Upload billede</button>
+
+
+    <h1>Upload billede</h1>
+    <input #fileInput
+           type="file" accept="image/*"
+           (change)="valgtBillede($event)">
+
+    <button type="button"
+            class="btn btn-primary"
+            (click)="fileInput.click()" style="margin-right: 20px">Vælg fil</button>
+    <button type="button"
+            class="btn btn-success"
+            (click)="uploadBillede()">Upload billede</button>
 
 
 
   </div>
 </div>
-<!--
-<div *ngIf="currentUpload">
-  <div class="progress">
-    <div class="progress-bar progress-bar-animated" [ngStyle]="{ 'width': currentUpload?.progress + '%' }"></div>
-  </div>
-  Progress: {{currentUpload?.name}} | {{currentUpload?.progress}}% Complete
-</div>
--->
-<!--
-<div class="card card-outline-primary">
-  <div class="card-block">
-
-
-<label>
-  <input type="file" (change)="detectFiles($event)">
-</label>
-
-<button
-  class="btn btn-primary"
-  [disabled]="!selectedFiles"
-  (click)="uploadSingle()">
-
-  Upload Single
-</button>
-
-<label>
-  <input type="file" (change)="detectFiles($event)" multiple>
-</label>
-
-<button
-  class="btn btn-success"
-  [disabled]="!selectedFiles"
-  (click)="uploadMulti()">
-
-  Upload Multiple
-</button>
-  </div>
-</div>
--->
