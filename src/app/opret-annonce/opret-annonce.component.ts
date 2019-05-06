@@ -7,6 +7,7 @@ import {MaterialeService} from '../startside-kategori/materiale.service';
 import {HttpClient} from '@angular/common/http';
 import {UploadBilleder} from '../annonce/Shared/upload-billeder';
 import * as _ from 'lodash';
+import {Kategorier} from '../startside/kategorier/kategorier.model';
 
 
 @Component({
@@ -15,7 +16,7 @@ import * as _ from 'lodash';
   styleUrls: ['./opret-annonce.component.css']
 })
 export class OpretAnnonceComponent implements OnInit {
-  kategori: string[];
+  kategori: Kategorier[];
   materiale: string[];
 
   billedet = null;
