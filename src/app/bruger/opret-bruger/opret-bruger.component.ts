@@ -19,9 +19,9 @@ export class OpretBrugerComponent implements OnInit {
   onOpretBruger(form: NgForm) {
     // TODO først tjekke om de to passwordfelter er ens.
     const email = form.value.emailOpret;
-    const kodeord = form.value.kodeord;
+    const kodeord = form.value.kodeordOpret;
     const gentagetKodeord = form.value.kodeordGentagOpret;
-    const fodselsdag = form.value.fodselsdagOpret; // evt. gemme som string
+    const fodselsdag = form.value.fodselsdagOpret.toString(); // evt. gemme som string
     const fornavn = form.value.fornavnOpret;
     const efternavn = form.value.efternavnOpret;
     const kon = form.value.konOpret;
@@ -30,7 +30,7 @@ export class OpretBrugerComponent implements OnInit {
     const postnr = form.value.postnrOpret;
 
     this.opretBruger = new OpretBrugerModel(fornavn, efternavn, email, kon, fodselsdag,
-                adresse, postnr, telefon);
+                adresse, postnr, telefon, kodeord);
     this.configService.opretBruger(this.opretBruger)
       .subscribe(
         (response) => console.log(response),
