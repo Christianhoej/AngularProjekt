@@ -20,6 +20,7 @@ import {Annonce} from './annonce/annonce.model';
 import {ResourceURLService} from './resourceURL.service';
 import { MinSideComponent } from './bruger/min-side/min-side.component';
 import { RedigerAnnonceComponent } from './annonce/rediger-annonce/rediger-annonce.component';
+import {ConfigService} from './bruger/services/config.service';
 
 
 @NgModule({
@@ -45,7 +46,7 @@ import { RedigerAnnonceComponent } from './annonce/rediger-annonce/rediger-annon
     ReactiveFormsModule
   ],
 
-  providers: [AnnonceService, KategoriService, AnnonceDataService, ResourceURLService],
+  providers: [AnnonceService, KategoriService, AnnonceDataService, ResourceURLService, ConfigService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
