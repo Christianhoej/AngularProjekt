@@ -44,26 +44,31 @@
   </div>
 -->
 
-<div class="grid-container">
-  <div  class="grid-item"
-        style="cursor: pointer; margin-right: 50px"
-        routerLinkActive="active"
-        routerLink="/detaljeret_annonce"
 
-        *ngFor="let annonce of annonceArr">
+  <a
+    class="grid-item"
+    style="cursor: pointer; margin-right: 50px"
+    routerLinkActive="active"
+    [routerLink]="['/detaljeret_annonce', index]">
+
     <div class="row" style="min-height: 135px; min-width: 135px">
       <div class="col-xs-12">
-        <img [src]="annonce.imagepath" class="img-responsive"  style="max-height: 135px ; max-width: 135px">
+        <img
+          [src]="annonce.imageURL"
+          alt="{{annonce.header}}"
+          class="img-responsive"
+          style="max-height: 135px;
+          max-width: 135px">
 
       </div>
     </div>
     <div class="title">
-      {{ annonce.titel }}
+      {{ annonce.header }}
     </div>
     <div class="price">
-      {{ annonce.pris }} kr
+      {{ annonce.price }} kr
     </div>
     <!--  {{ annonce.beskrivelse }} {{ annonce.kategori }} -->
 
-  </div>
-</div>
+  </a>
+

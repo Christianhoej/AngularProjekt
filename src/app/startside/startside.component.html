@@ -24,7 +24,12 @@
    </div>
 
      <div class="col-xs-10">
-       <app-annonce></app-annonce>
+       <div class="grid-container">
+       <app-annonce *ngFor="let annonce of annoncer, let i = index"
+                    [id]="annonce.id"
+                    [index]="i"
+                    [annonce]="annonce"></app-annonce>
+     </div>
      </div>
 
 

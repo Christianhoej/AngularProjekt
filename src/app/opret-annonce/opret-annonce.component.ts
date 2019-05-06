@@ -50,7 +50,6 @@ export class OpretAnnonceComponent implements OnInit {
 
     this.http.post('https://api.imgur.com/3/upload?Client-ID=1cc04e1ddf61692',   this.billedet)
       .subscribe(event => { console.log(event); });
-
   }
 
 /*
@@ -79,7 +78,7 @@ export class OpretAnnonceComponent implements OnInit {
     }
     this.onCancel();*/
     const value = form.value;
-    const nyAnnonce = new Annonce(value.titel, value.pris, value.imagePath, value.beskrivelse, value.kategori, value.materiale, value.id);
-    this.annonceService.addAnnonce(nyAnnonce);
+   // const nyAnnonce = new Annonce(value.titel, value.pris, value.imagePath, value.beskrivelse, value.kategori, value.materiale, value.id);
+  //  this.annonceService.addAnnonce(nyAnnonce);
   }
 }

@@ -1,6 +1,6 @@
 export class OpretBrugerModel {
 
-  constructor(  private fornavn: string, private efternavn: string, private fødselsdag: string,
-                private køn: string, private adresse: string, private postnr: string,
-                private telefonnr: string, private email: string, private kodeord: string) {}
+  constructor(  private firstName: string, private lastName: string, private email: string,
+                private gender: string, private birthday: string, private address: string,
+                private zipCode: string, private phonenumber: string) {}
 }

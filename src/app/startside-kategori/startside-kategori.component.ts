@@ -1,13 +1,12 @@
 
-import {Component, Injectable, OnDestroy, OnInit} from '@angular/core';
-import {AnnoncetestService} from './annoncetest.service';
-import {ActivatedRoute, Router} from '@angular/router';
-import {Annonce} from './annoncetest.model';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Subscription} from 'rxjs';
 import {KategoriService} from '../startside/kategorier/kategori.service';
+import {Annonce} from '../annonce/annonce.model';
+import {AnnonceService} from '../annonce/annonce.service';
 
 
-@Component({
+@Component ({
   selector: 'app-startside-kategori',
   templateUrl: './startside-kategori.component.html',
   styleUrls: ['./startside-kategori.component.css'],
@@ -21,7 +20,7 @@ export class StartsideKategoriComponent implements OnInit, OnDestroy {
   subscription: Subscription;
   kategori = [];
   constructor(private kategoriService: KategoriService,
-              private annonceService: AnnoncetestService) { }
+              private annonceService: AnnonceService) { }
 
 
   ngOnInit() {
@@ -31,7 +30,10 @@ export class StartsideKategoriComponent implements OnInit, OnDestroy {
           this.annoncer = annoncer;
         }
       );
-    this.annoncer = this.annonceService.getAnnoncer();
+    /*this.annonceService.getAnnoncer().subscribe(
+      (annoncer: Annonce[]) => {this.annoncer = annoncer;
+      }
+    );*/
     this.kategori = this.kategoriService.getKategorier();
   }
 

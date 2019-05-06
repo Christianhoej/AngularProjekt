@@ -20,9 +20,10 @@
       <label for="kodeordOpret">Kode</label>
       <input class="form-control" type="password" ngModel required name="kodeordOpret" id="kodeordOpret">
       <label for="kodeordGentagOpret">Gentag Kode</label>
-      <input class="form-control" type="password" ngModel required name="kodeordGentagOpret" id="kodeordGentagOpret">
+      <input class="form-control" type="password" required name="kodeordGentagOpret" id="kodeordGentagOpret">
+      <!--div *ngIf="kodeordGentagOpret.errors.pattern">De indtastede kodeord er ikke ens</div>-->
 
-      <button class="btn btn-primary" type="submit">Opret Bruger</button>
+      <button class="btn btn-primary" type="submit"[disabled]="!f.valid">Opret Bruger</button>
     </div>
   </div>
 </form>

@@ -1,20 +1,24 @@
-export class Annonce {
-  public titel: string;
-  public pris: number;
-  public imagepath: string;
-  public beskrivelse: string;
-  public kategori: string[];
-  public materiale: string[];
-  private annonceID: string;
-  // public sælger: bruger;
+import {NgModule} from '@angular/core';
 
-  constructor(titel: string, pris: number, imagepath: string, beskrivelse: string, kategori: string[], materiale: string[], annonceID: string) {
-    this.titel = titel;
-    this.pris = pris;
-    this.imagepath = imagepath;
-    this.beskrivelse = beskrivelse;
-    this.kategori = kategori;
-    this.materiale = materiale;
-    this.annonceID = annonceID;
+export class Annonce {
+  public header: string;
+  public price: number;
+  public imageURL: string;
+  public description: string;
+  public category: string;
+  public id: string;
+  public email: string;
+  public date: string;
+
+  // public sælger: bruger;
+  constructor(header: string, price: number, imageURL: string, description: string, category: string, id: string, email: string, date: string) {
+    this.header = header;
+    this.price = price;
+    this.imageURL = imageURL;
+    this.description = description;
+    this.category = category;
+    this.id = id;
+    this.email = email;
+    this.date = date;
   }
 }
