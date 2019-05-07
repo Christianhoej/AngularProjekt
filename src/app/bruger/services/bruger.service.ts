@@ -23,4 +23,16 @@ export class BrugerService {
   logind(email: string, password: string){
     return this.http.post(this.resourceURL.usersLoginURL, {email: email, password: password});
   }
+
+  redigerBruger(bruger: Bruger) {
+    return this.http.put(this.resourceURL.usersURL + '/id', bruger);
+  }
+
+  getMineAnnoncer() {
+    return this.http.get(this.resourceURL.adsURL);
+  }
+
+  getMinAnnonce(id: string) {
+    return this.http.get(this.resourceURL.adsURL + '/' + id);
+  }
 }

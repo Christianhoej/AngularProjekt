@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormGroup, NgForm} from '@angular/forms';
 import {AnnonceService} from '../../annonce/annonce.service';
-import {Annonce} from '../../annonce/annonce.model';
+import {Annonce} from '../../models/annonce.model';
 import {KategoriService} from '../../startside/kategorier/kategori.service';
 import {HttpClient} from '@angular/common/http';
 import {UploadBilleder} from '../../annonce/Shared/upload-billeder';

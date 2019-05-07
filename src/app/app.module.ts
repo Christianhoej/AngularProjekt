@@ -21,6 +21,7 @@ import { MinSideComponent } from './bruger/min-side/min-side.component';
 import { RedigerAnnonceComponent } from './annonce/rediger-annonce/rediger-annonce.component';
 import {BrugerService} from './bruger/services/bruger.service';
 import {AuthGuard} from './auth-guard.service';
+import { MineAnnoncerComponent } from './annonce/mine-annoncer/mine-annoncer.component';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import {AuthGuard} from './auth-guard.service';
     AnnonceComponent,
     KategorierComponent,
     MinSideComponent,
-    RedigerAnnonceComponent
+    RedigerAnnonceComponent,
+    MineAnnoncerComponent
   ],
 
   imports: [

@@ -1,64 +1,95 @@
 
 <h3>Oplysninger</h3>
-<form (ngSubmit)="onRedigerBruger(f)" #f=ngForm>
-<table>
-  <tr style="margin-top: 10px">
-    <th >Fornavn</th>
-    <td><input type="text" ngModel required class="form-control" name="fornavn" [(ngModel)]="bruger.firstName"style="max-height: 25px; margin-left: 8px" id="fornavn"></td>
-  </tr>
-  <br>
-  <tr style="margin-top: 10px">
-    <th >Efternavn</th>
-    <td><input type="text" required ngModel class="form-control" name="efternavn" [(ngModel)]="bruger.lastName" style="max-height: 25px; margin-left: 8px"></td>
-  </tr>
-  <br>
-  <tr style="margin-top: 10px">
-    <th >Fødselsår</th>
-    <td><input type="text" required ngModel class="form-control" name="fødselsdag" [(ngModel)]="bruger.birthday" style="max-height: 25px; margin-left: 8px"></td>
-  </tr>
-  <br>
-  <tr style="margin-top: 10px">
-    <th >Køn</th>
-    <td><select required ngModel class="form-control" name="køn" [(ngModel)]="bruger.gender" style="max-height: 30px; margin-left: 8px">
-      <option style="cursor: pointer; size: 10px" *ngFor="let kon of gender">{{kon}}</option>
-    </select></td>
-  </tr>
-  <br>
-  <tr style="margin-top: 10px">
-    <th >Adresse</th>
-    <td><input type="text" required ngModel class="form-control" name="adresse" [(ngModel)]="bruger.address" style="max-height: 25px; margin-left: 8px"></td>
-  </tr>
-  <br>
-  <tr style="margin-top: 10px">
-    <th >PostNr</th>
-    <td><input type="text" required ngModel class="form-control" name="postnr" [(ngModel)]="bruger.zipCode" style="max-height: 25px; margin-left: 8px"></td>
-  </tr>
-  <br>
-  <tr style="margin-top: 10px">
-    <th >Telefonnummer</th>
-    <td><input type="text" required ngModel class="form-control" name="telefonnummer" [(ngModel)]="bruger.phonenumber" style="max-height: 25px; margin-left: 8px"></td>
-  </tr>
-  <br>
-  <tr style="margin-top: 10px">
-    <th >Email</th>
-    <td><input type="text" required ngModel class="form-control" name="email" [(ngModel)]="bruger.email" style="max-height: 25px; margin-left: 8px"></td>
-  </tr>
-  <br>
-  <tr style="margin-top: 10px">
-    <th >Kode</th>
-    <td><input type="text" required ngModel class="form-control" name="kode" style="max-height: 25px; margin-left: 8px"></td>
-  </tr>
-  <br>
-  <tr style="margin-top: 10px">
-    <th >Gentag kode</th>
-    <td><input type="text" required ngModel class="form-control" name="gentag_kode"  style="max-height: 25px; margin-left: 8px"></td>
-  </tr>
-  <br>
-</table>
+<div class="row">
+  <div class="col-xs-5" style="border: #0c5593">
+    <form (ngSubmit)="onRedigerBruger(f)" #f=ngForm>
+      <table>
+        <tr style="margin-top: 10px">
+          <th >Fornavn</th>
+          <td><input type="text" ngModel required class="form-control" name="fornavn" [(ngModel)]="bruger.firstName"style="margin-left: 8px" id="fornavn"></td>
+        </tr>
+        <br>
+        <tr style="margin-top: 10px">
+          <th >Efternavn</th>
+          <td><input type="text" required ngModel class="form-control" name="efternavn" [(ngModel)]="bruger.lastName" style="margin-left: 8px"></td>
+        </tr>
+        <br>
+        <tr style="margin-top: 10px">
+          <th >Fødselsår</th>
+          <td><input type="text" required ngModel class="form-control" name="fødselsdag" [(ngModel)]="bruger.birthday" style="margin-left: 8px"></td>
+        </tr>
+        <br>
+        <tr style="margin-top: 10px">
+          <th >Køn</th>
+          <td><select required ngModel class="form-control" name="køn" [(ngModel)]="bruger.gender" style="margin-left: 8px">
+            <option style="cursor: pointer; size: 10px" *ngFor="let kon of gender">{{kon}}</option>
+          </select></td>
+        </tr>
+        <br>
+        <tr style="margin-top: 10px">
+          <th >Adresse</th>
+          <td><input type="text" required ngModel class="form-control" name="adresse" [(ngModel)]="bruger.address" style="margin-left: 8px"></td>
+        </tr>
+        <br>
+        <tr style="margin-top: 10px">
+          <th >PostNr</th>
+          <td><input type="text" required ngModel class="form-control" name="postnr" [(ngModel)]="bruger.zipCode" style="margin-left: 8px"></td>
+        </tr>
+        <br>
+        <tr style="margin-top: 10px">
+          <th >Telefonnummer</th>
+          <td><input type="text" required ngModel class="form-control" name="telefonnummer" [(ngModel)]="bruger.phonenumber" style="margin-left: 8px"></td>
+        </tr>
+        <br>
+        <tr style="margin-top: 10px">
+          <th >Email</th>
+          <td><input type="text" required ngModel class="form-control" name="email" [(ngModel)]="bruger.email" style="margin-left: 8px"></td>
+        </tr>
+        <br>
+
+      </table>
+
+      <button type="submit"
+              class="btn btn-primary"
+              style="margin-right: 20px"
+              [disabled]="!f.valid">Gem oplysninger</button>
+
+    </form>
+
+  </div>
+
+  <div class="col-xs-7" >
+    <form (ngSubmit)="aendreKode(f)" #ngform>
+      <table>
+        <tr>
+          <th >Kode</th>
+          <td><input type="text" required ngModel [(ngModel)]="kode" class="form-control" name="kode" style="margin-left: 8px"></td>
+        </tr>
+        <br>
+        <tr style="margin-top: 10px">
+          <th >Gentag kode</th>
+          <td><input type="text" required ngModel [(ngModel)]="gentagKode" class="form-control" name="gentag_kode"  style="margin-left: 8px"></td>
+        </tr>
+        <br>
+
+        <button type="submit"
+                class="btn btn-primary"
+                style="margin-right: 20px"
+                [disabled]="kode != gentagKode">Ændre kode</button>
+      </table>
+    </form>
+  </div>
+  <hr>
+
+  <div class="col-xs-12">
+    <h3>Mine annoncer</h3>
+    <div class="grid-container">
+      <app-mine-annoncer *ngFor="let minAnnonce of mineAnnoncer, let i = index"
+                   [id]="minAnnonce.adId"
+                   [index]="minAnnonce.header"
+                   [annonce]="minAnnonce"></app-mine-annoncer>
+    </div>
+  </div>
+</div>
 
 
-  <button type="submit"
-          class="btn btn-primary"
-          style="margin-right: 20px"
-          [disabled]="!f.valid">Gem oplysninger</button>
-</form>

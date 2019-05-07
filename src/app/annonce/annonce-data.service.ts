@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {Annonce} from './annonce.model';
+import {Annonce} from '../models/annonce.model';
 import {ResourceURLService} from '../resourceURL.service';
 
 @Injectable({

@@ -1,4 +1,4 @@
-import {Annonce} from './annonce.model';
+import {Annonce} from '../models/annonce.model';
 import { Subject } from 'rxjs';
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
