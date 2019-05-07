@@ -7,7 +7,7 @@ REDIGER
         <div class="col-xs-12">
           <div class="form-group">
             <label for="kategori">Kategori</label>
-            <select name="kategori" id="kategori" ngModel class="form-control">
+            <select name="kategori" [(ngModel)]="annonce.category" id="kategori" ngModel class="form-control">
               <option style="cursor: pointer" *ngFor="let kategoriElement of kategorier"> {{ kategoriElement.categoryName }}</option>
             </select>
           </div>
@@ -22,7 +22,8 @@ REDIGER
               id="titel"
               class="form-control"
               name="titel"
-              ngModel>
+              ngModel
+              [(ngModel)]="annonce.header">
           </div>
         </div>
       </div>
@@ -34,8 +35,9 @@ REDIGER
               type="number"
               id="pris"
               class="form-control"
-              name="titel"
-              ngModel>
+              name="pris"
+              ngModel
+              [(ngModel)]="annonce.price">
           </div>
         </div>
       </div>
@@ -49,6 +51,7 @@ REDIGER
               class="form-control"
               name="imagePath"
               ngModel
+              [(ngModel)]="annonce.imageURL"
               #imagePath>
           </div>
         </div>
@@ -63,16 +66,27 @@ REDIGER
               class="form-control"
               rows="6"
               name="beskrivelse"
-              ngModel>
+              ngModel
+              [(ngModel)]="annonce.description">
           </textarea>
           </div>
         </div>
       </div>
       <div class="row">
-        <div class="col-xs-12">
+        <div class="col-xs-4">
           <button
             type="submit"
             class="btn btn-success" >Opret annonce!</button>
+        </div>
+        <div class="col-xs-4">
+          <button
+            type="danger"
+            class="btn btn-danger" >Slet annonce!</button>
+        </div>
+        <div class="col-xs-4">
+          <button
+            type="submit"
+            class="btn btn-primary" >Annuller!</button>
         </div>
       </div>
     </form>
