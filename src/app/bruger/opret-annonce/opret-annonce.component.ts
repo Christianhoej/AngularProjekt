@@ -4,7 +4,7 @@ import {AnnonceService} from '../../annonce/annonce.service';
 import {Annonce} from '../../models/annonce.model';
 import {KategoriService} from '../../startside/kategorier/kategori.service';
 import {HttpClient} from '@angular/common/http';
-import {UploadBilleder} from '../../annonce/Shared/upload-billeder';
+import {UploadBilleder} from '../../Shared/upload-billeder';
 import * as _ from 'lodash';
 import {Kategorier} from '../../startside/kategorier/kategorier.model';
 import {BrugerService} from '../services/bruger.service';
