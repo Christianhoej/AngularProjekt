@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {NgForm} from '@angular/forms';
+import {FormBuilder, FormGroup, NgForm, Validators} from '@angular/forms';
 import {Bruger} from '../Models/bruger.model';
 import {BrugerService} from '../services/bruger.service';
 import {Annonce} from '../../models/annonce.model';
+import {Checkequals} from '../../Shared/checkequals';
 
 @Component({
   selector: 'app-min-side',
@@ -10,13 +11,34 @@ import {Annonce} from '../../models/annonce.model';
   styleUrls: ['./min-side.component.css']
 })
 export class MinSideComponent implements OnInit {
+  aendreForm: FormGroup;
+  submitted = false;
   gender = ['Mand', 'Kvinde', 'Andet'];
   mineAnnoncer: Annonce[];
   gentagKode: string;
   kode: string;
-  constructor(private brugerService: BrugerService) { }
   bruger: Bruger;
+
+
+  constructor(private brugerService: BrugerService,
+              private formBuilder: FormBuilder) { }
+
   ngOnInit() {
+    this.aendreForm = this.formBuilder.group({
+      fornavnOpret: ['', Validators.required],
+      efternavnOpret: ['', Validators.required],
+      fodselsarOpret: ['', Validators.required],
+      konOpret: ['', Validators.required],
+      adresseOpret: ['', Validators.required],
+      postnrOpret: ['', Validators.required],
+      tlfnrOpret: ['', Validators.required],
+      emailOpret: ['', [Validators.required, Validators.email]],
+      kodeordOpret: ['', [Validators.required, Validators.minLength(6)]],
+      gentagKodeordOpret: ['', Validators.required]
+    }, {
+      validator: Checkequals('kodeordOpret', 'gentagKodeordOpret')
+    });
+
     this.bruger = this.brugerService.bruger;
     this.brugerService.getMineAnnoncer()
       .subscribe(
@@ -24,7 +46,11 @@ export class MinSideComponent implements OnInit {
         }
       );
   }
+
+  get f() {return this.aendreForm.controls;}
+
   onRedigerBruger(form: NgForm) {
+    /*
     const email = form.value.emailOpret;
     const kodeord = form.value.kodeordOpret;
     const gentagetKodeord = form.value.kodeordGentagOpret;
@@ -45,6 +71,13 @@ export class MinSideComponent implements OnInit {
         (response) => console.log(response),
         (error) => console.log(error)
       );
+      */
+    this.submitted = true;
+    if(this.aendreForm.invalid) {
+      return
+    }
+    alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.aendreForm.value));
+
   }
 
   aendreKode(form: NgForm){
