@@ -26,7 +26,7 @@ const appRoutes: Routes = [
 
   {path: 'log_ind', component: LogIndComponent},
   {path: 'min_side', component: MinSideComponent},
-  {path: 'rediger_annonce', component: RedigerAnnonceComponent},
+  {path: 'rediger_annonce/:id', component: RedigerAnnonceComponent},
 
 
   {path: 'opret_annonce', canActivate: [AuthGuard], component: OpretAnnonceComponent},

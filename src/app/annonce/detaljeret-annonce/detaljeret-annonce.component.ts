@@ -12,7 +12,7 @@ import {AnnonceService} from '../annonce.service';
 export class DetaljeretAnnonceComponent implements OnInit {
   id: string;
   annonce: Annonce;
-  @Input() index;
+ // @Input() index;
   key: string;
 
   constructor(private annonceService: AnnonceService, private route: ActivatedRoute, private router: Router) { }
