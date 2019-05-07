@@ -1,0 +1,10 @@
+#rcorners2 {
+  border-radius: 5px;
+  border: 2px solid #53030e;
+}
+#borderLeft {
+  border-left: 2px solid #53030e;
+}
+#borderRight {
+  border-right: 2px solid #53030e;
+}
