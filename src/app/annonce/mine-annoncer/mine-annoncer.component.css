@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css?family=Gugi');
+
+.grid-container {
+  width: 95%;
+
+  max-width: 1600px;
+  max-height: 1600px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 20px 2px;
+
+}
+
+.price{
+  font-style: italic;
+  font-weight: bold;
+}
+
+.title{
+
+  font-weight: bold;
+  font-weight: 800;
+  font-size: 18;
+}
+
+.main{
+  font-weight: bold;
+  font-weight: 800;
+  font-size: 35px;
+  font-family: 'Gugi', bold;
+}
+a {
+  color: #3c3c3c;
+}
