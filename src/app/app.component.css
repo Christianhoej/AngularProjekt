@@ -7,3 +7,10 @@ nav {
   height: 1px;
 
 }
+#borderLeft1 {
+  border-left: 2px solid #53030e;
+  margin-top: 10px;
+}
+#borderTop {
+  border-top: 2px solid #53030e;
+}
