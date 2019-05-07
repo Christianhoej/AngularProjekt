@@ -22,6 +22,13 @@ export class HeaderComponent implements OnDestroy {
     );
   }
 
+  logind(){
+    if (this.erLoggetInd = true) {
+      this.erLoggetInd = false;
+      this.brugerService.bruger=null;
+    }
+  }
+
   getErLoggetInd($event){
     this.erLoggetInd = $event;
   }
