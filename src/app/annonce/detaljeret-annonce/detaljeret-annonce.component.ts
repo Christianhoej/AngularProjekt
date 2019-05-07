@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Annonce} from '../annonce.model';
+import {Annonce} from '../../models/annonce.model';
 import {Subscription} from 'rxjs';
 import {ActivatedRoute, Params, Router} from '@angular/router';
 import {AnnonceService} from '../annonce.service';

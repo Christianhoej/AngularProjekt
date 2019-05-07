@@ -3,7 +3,7 @@ import {Subscription} from 'rxjs';
 import {KategoriService} from './kategorier/kategori.service';
 import {Kategorier} from './kategorier/kategorier.model';
 import {AnnonceService} from '../annonce/annonce.service';
-import {Annonce} from '../annonce/annonce.model';
+import {Annonce} from '../models/annonce.model';
 import {ActivatedRoute} from '@angular/router';
 
 @Component({
@@ -14,7 +14,6 @@ import {ActivatedRoute} from '@angular/router';
 export class StartsideComponent implements OnInit {
 
   annoncer: Annonce[];
-  subscription: Subscription;
   kategorier: Kategorier[];
   @Input() valgtKategori;
   constructor(private kategoriService: KategoriService,

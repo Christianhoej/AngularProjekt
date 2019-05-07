@@ -2,7 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {KategoriService} from './kategori.service';
 import {Kategorier} from './kategorier.model';
 import {ActivatedRoute, Params, Route, Router} from '@angular/router';
-import {Annonce} from '../../annonce/annonce.model';
+import {Annonce} from '../../models/annonce.model';
 import {AnnonceService} from '../../annonce/annonce.service';
 
 @Component({

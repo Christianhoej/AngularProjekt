@@ -1,0 +1,25 @@
+<a
+  class="grid-item"
+  style="cursor: pointer; margin-right: 50px"
+
+  [routerLink]="['/detaljeret_annonce', id]"
+  routerLinkActive="active">
+
+  <div class="row" style="min-height: 400px; min-width: 400px">
+    <div class="col-xs-12">
+      <img
+        [src]="minAnnonce.imageURL"
+        alt="{{minAnnonce.header}}"
+        class="img-responsive"
+        style="max-height: 400px;
+        max-width: 400px">
+
+    </div>
+  </div>
+  <div class="title">{{ minAnnonce.header }}</div>
+  <div class="price">{{ minAnnonce.price }} kr</div>
+  <div class="description">{{ minAnnonce.category }} kr</div>
+  <div class="description">{{minAnnonce.description}}</div>
+  <!--  {{ annonce.beskrivelse }} {{ annonce.kategori }} -->
+
+</a>

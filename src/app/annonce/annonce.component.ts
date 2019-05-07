@@ -1,5 +1,5 @@
 import {Component, Input, OnInit, Output} from '@angular/core';
-import {Annonce} from './annonce.model';
+import {Annonce} from '../models/annonce.model';
 import {AnnonceService} from './annonce.service';
 import {Subscription} from 'rxjs';
 
@@ -10,21 +10,20 @@ import {Subscription} from 'rxjs';
 })
 export class AnnonceComponent implements OnInit {
  // annonce: Annonce;
-  annoncer: Annonce[];
-  private subscription: Subscription;
+  //annoncer: Annonce[];
   @Input() annonce: Annonce;
   @Input() id: number;
   @Input() index: number;
 
-  constructor(private annonceService: AnnonceService) { }
+  constructor() { }
 
   ngOnInit() {
 
-    this.annonceService.getAnnoncer()
+    /*this.annonceService.getAnnoncer()
       .subscribe(
         (annoncer: Annonce[]) => {this.annoncer = annoncer;
         }
-      );
+      );*/
     // this.annonceArr = this.annonceService.getAnnoncer();
     // this.subscription = this.annonceService.annonceændret.subscribe((annoncer: Annonce[]) => {this.annonceArr = annoncer});
   }
