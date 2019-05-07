@@ -7,16 +7,15 @@ import {Subscription} from 'rxjs';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent implements OnDestroy{
+export class HeaderComponent implements OnDestroy {
   subscription: Subscription;
-  erLoggetInd: boolean = false;
+  erLoggetInd = false;
   constructor(private brugerService: BrugerService) {
     this.subscription = this.brugerService.loggetInd.subscribe(
       (logind: boolean) => {
-        if (logind){
+        if (logind) {
           this.erLoggetInd = true;
-        }
-        else {
+        } else {
           this.erLoggetInd = false;
         }
       }
@@ -26,10 +25,6 @@ export class HeaderComponent implements OnDestroy{
   getErLoggetInd($event){
     this.erLoggetInd = $event;
   }
-
-
-  inboundClick = true;
-  outboundClick = true;
 
   ngOnDestroy(): void {
     this.subscription.unsubscribe();

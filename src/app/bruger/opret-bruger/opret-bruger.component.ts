@@ -11,6 +11,7 @@ import {BrugerService} from '../services/bruger.service';
 export class OpretBrugerComponent implements OnInit {
 
   opretBruger: Bruger;
+  gender = ['Mand', 'Kvinde', 'Andet'];
 
   constructor(private brugerService: BrugerService) { }
 
