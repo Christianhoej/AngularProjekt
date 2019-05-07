@@ -25,11 +25,11 @@ const appRoutes: Routes = [
   {path: 'detaljeret_annonce', component: DetaljeretAnnonceComponent},
 
   {path: 'log_ind', component: LogIndComponent},
-  {path: 'min_side', component: MinSideComponent},
+  {path: 'min_side', canActivate: [AuthGuard], component: MinSideComponent},
   {path: 'rediger_annonce/:id', component: RedigerAnnonceComponent},
 
 
-  {path: 'opret_annonce', canActivate: [AuthGuard], component: OpretAnnonceComponent},
+  {path: 'opret_annonce',  component: OpretAnnonceComponent},
   {path: 'opret_bruger', component: OpretBrugerComponent}
 ];
 
