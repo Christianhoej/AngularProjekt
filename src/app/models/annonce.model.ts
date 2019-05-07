@@ -1,4 +1,5 @@
 import {NgModule} from '@angular/core';
+import {Bruger} from '../bruger/Models/bruger.model';
 
 export class Annonce {
   public header: string;
@@ -9,6 +10,7 @@ export class Annonce {
   public adId: string;
   public email: string;
   public date: string;
+  public bruger: Bruger;
 
   // public sælger: bruger;
   constructor(header: string, price: number, imageURL: string, description: string, category: string, adId: string, email: string, date: string) {

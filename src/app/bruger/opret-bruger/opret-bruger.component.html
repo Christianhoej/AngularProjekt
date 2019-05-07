@@ -1,34 +1,79 @@
-<form (ngSubmit)="onOpretBruger(f)" #f="ngForm">
-  <div class="row">
-    <div class="col-xs-12">
-      <label for="fornavnOpret">Fornavn</label>
-      <input class="form-control" type="text" ngModel required name="fornavnOpret" id="fornavnOpret">
-      <label for="efternavnOpret">Efternavn</label>
-      <input class="form-control" type="text" ngModel required name="efternavnOpret" id="efternavnOpret">
-      <label for="fodselsdagOpret">Fødselsdag</label>
-      <input class="form-control" type="date" ngModel required name="fodselsdagOpret" id="fodselsdagOpret">
-      <label for="konOpret">Køn</label>
-      <select required ngModel class="form-control" name="konOpret" id="konOpret">
-        <option style="cursor: pointer; size: 10px">Kvinde</option>
-        <option style="cursor: pointer; size: 10px">Mand</option>
-        <option style="cursor: pointer; size: 10px">Andet</option>
+<div>
+  <h3>Mine oplysninger</h3>
+  <br>
+</div>
 
-      </select>
-      <label for="adresseOpret">Adresse</label>
-      <input class="form-control" type="text" ngModel required name="adresseOpret" id="adresseOpret">
-      <label for="postnrOpret">PostNr</label>
-      <input class="form-control" type="text" ngModel required name="postnrOpret" id="postnrOpret">
-      <label for="telefonOpret">Telefon</label>
-      <input class="form-control" type="text" ngModel required name="telefonOpret" id="telefonOpret">
-      <label for="emailOpret"> Email (brugernavn)</label>
-      <input class="form-control" type="text" ngModel required name="emailOpret" id="emailOpret">
-      <label for="kodeordOpret">Kode</label>
-      <input class="form-control" type="password" ngModel required name="kodeordOpret" id="kodeordOpret">
-      <label for="kodeordGentagOpret">Gentag Kode</label>
-      <input class="form-control" type="password" required name="kodeordGentagOpret" id="kodeordGentagOpret">
-      <!--div *ngIf="kodeordGentagOpret.errors.pattern">De indtastede kodeord er ikke ens</div>-->
+<div class="row">
+  <form (ngSubmit)="onOpretBruger(f)" #f=ngForm>
+  <div class="col-xs-5" style="border: #0c5593">
 
-      <button class="btn btn-primary" type="submit"[disabled]="!f.valid">Opret Bruger</button>
-    </div>
+      <table>
+        <tr style="margin-top: 10px">
+          <th >Fornavn</th>
+          <td><input type="text" ngModel required class="form-control" name="fornavnOpret" style="margin-left: 8px" id="fornavnOpret"></td>
+        </tr>
+        <br>
+        <tr style="margin-top: 10px">
+          <th >Efternavn</th>
+          <td><input type="text" required ngModel class="form-control" name="efternavnOpret" style="margin-left: 8px"></td>
+        </tr>
+        <br>
+        <tr style="margin-top: 10px">
+          <th >Fødselsår</th>
+          <td><input type="number" required ngModel class="form-control" name="fodselsdagOpret"  style="margin-left: 8px"></td>
+        </tr>
+        <br>
+        <tr style="margin-top: 10px">
+          <th >Køn</th>
+          <td><select required ngModel class="form-control" name="kønOpret" style="margin-left: 8px">
+            <option style="cursor: pointer; size: 10px" *ngFor="let kon of gender">{{kon}}</option>
+          </select></td>
+        </tr>
+        <br>
+        <tr style="margin-top: 10px">
+          <th >Adresse</th>
+          <td><input type="text" required ngModel class="form-control" name="adresseOpret"  style="margin-left: 8px"></td>
+        </tr>
+        <br>
+        <tr style="margin-top: 10px">
+          <th >Postnummer</th>
+          <td><input type="number" required ngModel class="form-control" name="postnrOpret" style="margin-left: 8px"></td>
+        </tr>
+        <br>
+        <tr style="margin-top: 10px">
+          <th >Telefonnummer</th>
+          <td><input type="number" required ngModel class="form-control" name="telefonnummerOpret"  style="margin-left: 8px"></td>
+        </tr>
+        <br>
+
+      </table>
   </div>
-</form>
+
+  <div  class="col-xs-7" >
+      <table>
+        <tr style="margin-top: 10px">
+          <th >Email</th>
+          <td><input type="text" required ngModel class="form-control" name="emailOpret"  style="margin-left: 8px"></td>
+        </tr>
+        <br>
+        <tr>
+          <th >Kode</th>
+          <td><input type="text" required ngModel class="form-control" name="kodeordOpret" #kodeordOpret style="margin-left: 8px"></td>
+        </tr>
+        <br>
+        <tr style="margin-top: 10px">
+          <th >Gentag kode</th>
+          <td><input type="text" required ngModel class="form-control" name="kodeordGentagOpret" #kodeordGentagOpret style="margin-left: 8px"></td>
+        </tr>
+        <br>
+
+        <button type="submit"
+                class="btn btn-success"
+                style="margin-right: 20px"
+                [disabled]=" !f.valid || !(kodeordOpret.toString() == kodeordGentagOpret.toString())">Opret bruger</button>
+      </table>
+
+  </div>
+  </form>
+
+</div>
