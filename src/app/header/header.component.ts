@@ -24,7 +24,7 @@ export class HeaderComponent implements OnDestroy {
     );
   }
 
-  logind(){
+  logind() {
     if (this.erLoggetInd = true) {
       this.erLoggetInd = false;
       this.brugerService.bruger=null;
