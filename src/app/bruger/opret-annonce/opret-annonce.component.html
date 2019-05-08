@@ -1,7 +1,6 @@
-
-<div class="row">
-  <div class="col-xs-6">
-    <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+<div class="container">
+  <div class="row">
+    <form (ngSubmit)="onOpretAnnonce()" [formGroup]="registrerForm">
 
       <!-- <div class="row">
         <div class="col-xs-12">
@@ -12,80 +11,79 @@
           <button type="button" class="btn btn-danger" (click)="onCancel()">Cancel</button>
         </div>
       </div> -->
-      <div class="row">
-        <div class="col-xs-12">
+      <div class="col-xs-4">
           <div class="form-group">
-            <label for="kategori">Kategori</label>
-            <select name="kategori" id="kategori" ngModel class="form-control">
-            <option style="cursor: pointer" *ngFor="let kategoriElement of kategorier"> {{ kategoriElement.categoryName }}</option>
+            <label >Kategori</label>
+            <select class="form-control" formControlName="category" [ngClass]="{ 'is-invalid': submitted && f.category.errors}">
+              <option value="" [selected]="true" disabled style="cursor: pointer; size: 10px">Vælg kategori</option>
+              <option style="cursor: pointer" *ngFor="let kategoriElement of kategorier"> {{ kategoriElement.categoryName }}</option>
             </select>
-          </div>
+            <div *ngIf="submitted && f.category.errors" class="invalid-feedback">
+              <div *ngIf="f.category.errors.required">Kategori skal vælges</div>
+            </div>
         </div>
-      </div>
-      <div class="row">
-        <div class="col-xs-12">
           <div class="form-group">
-            <label for="titel">Titel</label>
+            <label >Titel</label>
             <input
               type="text"
-              id="titel"
               class="form-control"
-              name="titel"
-              ngModel>
-          </div>
-        </div>
+              formControlName="header"
+              [ngClass]="{ 'is-invalid': submitted && f.header.errors}">
+            <div *ngIf="submitted && f.header.errors" class="invalid-feedback">
+              <div *ngIf="f.header.errors.required">Titel skal indtastes</div>
+            </div>
       </div>
-      <div class="row">
-        <div class="col-xs-12">
+
           <div class="form-group">
-            <label for="pris">Pris</label>
+            <label>Pris</label>
             <input
+              formControlName="price"
               type="number"
-              id="pris"
               class="form-control"
-              name="titel"
-              ngModel>
-          </div>
-        </div>
+              [ngClass]="{ 'is-invalid': submitted && f.price.errors}"
+              >
+            <div *ngIf="submitted && f.price.errors" class="invalid-feedback">
+              <div *ngIf="f.price.errors.required">Pris skal indtastes</div>
+            </div>
       </div>
-      <div class="row">
-        <div class="col-xs-12">
+
           <div class="form-group">
-            <label for="imagePath">Billede URL</label>
+            <label>Billede URL</label>
             <input
               type="text"
-              id="imagePath"
+              formControlName="imageURL"
               class="form-control"
-              name="imagePath"
-              ngModel
+              [ngClass]="{ 'is-invalid': submitted && f.imageURL.errors}"
               #imagePath>
-          </div>
-        </div>
+            <div *ngIf="submitted && f.imageURL.errors" class="invalid-feedback">
+              <div *ngIf="f.imageURL.errors.required">Billede skal indtastes</div>
+            </div>
       </div>
-      <div class="row">
-        <div class="col-xs-12">
+
           <div class="form-group">
-            <label for="beskrivelse">Beskrivelse</label>
-            <textarea
+            <label >Beskrivelse</label>
+            <input
+              style="min-height: 100px; min-width: 100px"
               type="text"
-              id="beskrivelse"
+              formControlName="description"
               class="form-control"
-            rows="6"
-            name="beskrivelse"
-            ngModel>
-          </textarea>
-        </div>
-      </div>
+              [ngClass]="{ 'is-invalid': submitted && f.description.errors}"
+            >
+
+
+
+            <div *ngIf="submitted && f.description.errors" class="invalid-feedback">
+              <div *ngIf="f.description.errors.required">Beskrivelse skal indtastes</div>
+            </div>
     </div>
-      <div class="row">
-        <div class="col-xs-12">
+        <div class="form-group">
           <button
             type="submit"
             class="btn btn-success" >Opret annonce!</button>
-        </div>
+      </div>
       </div>
    </form>
-    <!--
+
 </div>
   <div class="row">
     <div class="col-xs-6">
@@ -93,19 +91,19 @@
     </div>
   </div>
 </div>
--->
-
+<!--
 <h1>Upload billede</h1>
 <input #fileInput
        type="file" accept="image/*"
         (change)="valgtBillede($event)">
-    <!--
+
 <div class="row">
   <div class="col-xs-6">
     <img [src]="imageInput.value" class="img-responsive">
   </div>
 </div>
 -->
+<!--
 <button type="button"
         class="btn btn-primary"
         (click)="fileInput.click()" style="margin-right: 20px">Vælg fil</button>
@@ -114,9 +112,9 @@
         (click)="uploadBillede()">Upload billede</button>
 
 
+-->
 
-  </div>
-</div>
+
 <!--
 <div *ngIf="currentUpload">
   <div class="progress">

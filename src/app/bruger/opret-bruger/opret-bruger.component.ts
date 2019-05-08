@@ -44,7 +44,7 @@ export class OpretBrugerComponent implements OnInit {
   onOpretBruger() {
     this.submitted = true;
     if(this.registrerForm.invalid) {
-      return
+      return;
     }
     const jsonObj = JSON.stringify(this.registrerForm.value, Replacer);
     this.opretBruger = JSON.parse(jsonObj);
