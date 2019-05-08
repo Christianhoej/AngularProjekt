@@ -24,10 +24,11 @@ export class StartsideComponent implements OnInit, OnDestroy {
     this.subscribtion = this.kategoriService.kategoriValgt
       .subscribe(
       (valgt: string) => {
-        if(valgt==''){
+        if(valgt=='Alle' || valgt == ''){
           this.annonceService.getAnnoncer()
             .subscribe(
-              (annoncer: Annonce[]) => {this.annoncer = annoncer;
+              (annoncer: Annonce[]) => {
+                this.annoncer = annoncer;
               }
             );
         } else {

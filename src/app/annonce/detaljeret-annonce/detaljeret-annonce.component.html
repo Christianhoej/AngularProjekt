@@ -17,12 +17,14 @@
     <div class="col-xs-3"
          style="min-height: 200px" id="borderLeft">
       <h2>Kontaktinformation</h2>
-      <h3>Christian Høj</h3>
-      Postnummer: 2800
+      <h3>{{annonce.bruger.firstName}} {{annonce.bruger.lastName}}</h3>
+      Postnummer: {{annonce.bruger.zipCode}}
       <br>
-      Tlf: 78965421
+      Tlf: {{annonce.bruger.phonenumber}}
       <br>
-      Email: {{annonce.email}}
+      Alder: {{annonce.bruger.birthday}}
+      <br>
+      Email: {{annonce.bruger.email}}
     </div>
   </div>
 </div>

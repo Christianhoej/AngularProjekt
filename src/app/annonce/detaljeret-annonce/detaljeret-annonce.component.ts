@@ -3,6 +3,7 @@ import {Annonce} from '../../models/annonce.model';
 import {Subscription} from 'rxjs';
 import {ActivatedRoute, Params, Router} from '@angular/router';
 import {AnnonceService} from '../annonce.service';
+import {Bruger} from '../../bruger/Models/bruger.model';
 
 @Component ({
   selector: 'app-detaljeret-annonce',
@@ -14,6 +15,7 @@ export class DetaljeretAnnonceComponent implements OnInit {
   annonce: Annonce;
  // @Input() index;
   key: string;
+  bruger: Bruger;
 
   constructor(private annonceService: AnnonceService, private route: ActivatedRoute, private router: Router) { }
 
@@ -27,7 +29,17 @@ export class DetaljeretAnnonceComponent implements OnInit {
           this.id = params[this.key];
           this.annonceService.getAnnonce(this.id)
             .subscribe(
-              (annonce: Annonce) => {this.annonce = annonce;
+              (annonce: Annonce) => {
+                // JSON.parse(annonce, (key, value) => {
+                //   if (typeof value 'Bruger') {
+                //     return this.bruger = value;
+                //   }
+                //   return value;
+                // });
+
+
+                this.annonce = annonce;
+               // this.annonce.bruger = annonce.bruger;
               }
             );
         }
