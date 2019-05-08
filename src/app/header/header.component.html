@@ -52,7 +52,9 @@
             Min side
           </button>
         </li>
-        <li routerLinkActive="active" routerLink="/log_ind"><button style="margin-top: 20px" type="button" class="btn btn-success" (click)="logind()"> {{erLoggetInd ? 'Log ud' : 'Log ind'}}</button></li>
+        <li routerLinkActive="active" routerLink="/log_ind">
+          <button style="margin-top: 20px" type="button" class="btn btn-primary" (click)="logind()"> {{erLoggetInd ? 'Log ud' : 'Log ind'}}</button>
+        </li>
       </ul>
     </div>
   </div>

@@ -5,6 +5,8 @@ import {Kategorier} from './kategorier/kategorier.model';
 import {AnnonceService} from '../annonce/annonce.service';
 import {Annonce} from '../models/annonce.model';
 import {ActivatedRoute} from '@angular/router';
+import {BrugerService} from '../bruger/services/bruger.service';
+import {HeaderComponent} from '../header/header.component';
 
 @Component({
   selector: 'app-startside',
@@ -13,15 +15,29 @@ import {ActivatedRoute} from '@angular/router';
 })
 export class StartsideComponent implements OnInit, OnDestroy {
 
+  headerComponent: HeaderComponent;
   annoncer: Annonce[];
   kategorier: Kategorier[];
-  subscribtion: Subscription;
+  subscription: Subscription;
+  erLoggetInd = false;
   @Input() valgtKategori;
   constructor(private kategoriService: KategoriService,
-              private annonceService: AnnonceService) { }
+              private brugerService: BrugerService,
+              private annonceService: AnnonceService) {
+    /*
+    this.subscription = this.brugerService.loggetInd.subscribe(
+    (logind: boolean) => {
+      if (logind) {
+        this.erLoggetInd = true;
+      } else {
+        this.erLoggetInd = false;
+      }
+    }
+  );*/
+  }
 
   ngOnInit() {
-    this.subscribtion = this.kategoriService.kategoriValgt
+    this.subscription = this.kategoriService.kategoriValgt
       .subscribe(
       (valgt: string) => {
         if(valgt=='Alle' || valgt==''){
@@ -56,9 +72,19 @@ export class StartsideComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.subscribtion.unsubscribe();
+    this.subscription.unsubscribe();
+  }
+/*
+  logind() {
+    if (this.erLoggetInd1 = true) {
+      this.erLoggetInd1 = false;
+      this.brugerService.bruger=null;
+    }
   }
 
+  getErLoggetInd($event){
+    this.erLoggetInd = $event;
+  }
 
-
+*/
 }
