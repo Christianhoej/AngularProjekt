@@ -10,10 +10,10 @@ export class Annonce {
   public adId: string;
   public email: string;
   public date: string;
-  public bruger: Bruger;
+  public user: Bruger;
 
   // public sælger: bruger;
-  constructor(header: string, price: number, imageURL: string, description: string, category: string, adId: string, email: string, date: string, bruger: Bruger) {
+  constructor(header: string, price: number, imageURL: string, description: string, category: string, adId: string, email: string, date: string, user: Bruger) {
     this.header = header;
     this.price = price;
     this.imageURL = imageURL;
@@ -22,6 +22,6 @@ export class Annonce {
     this.adId = adId;
     this.email = email;
     this.date = date;
-    this.bruger = bruger;
+    this.user = user;
   }
 }

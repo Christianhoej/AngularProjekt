@@ -20,6 +20,8 @@ export class DetaljeretAnnonceComponent implements OnInit {
   constructor(private annonceService: AnnonceService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
+   // this.annonce = new Annonce('', 0, '', '', '', '', '', '',new Bruger('', '', '', '', '', '', '', '', '', ''));
+
     /*this.annonce = this.annonceService.getAnnoncer();
     this.subscription = this.annonceService.annonceændret.subscribe((annoncer: Annonce[]) => {this.annonceArr = annoncer; });*/
     this.route.params
@@ -30,16 +32,34 @@ export class DetaljeretAnnonceComponent implements OnInit {
           this.annonceService.getAnnonce(this.id)
             .subscribe(
               (annonce: Annonce) => {
-                // JSON.parse(annonce, (key, value) => {
-                //   if (typeof value 'Bruger') {
-                //     return this.bruger = value;
-                //   }
-                //   return value;
-                // });
 
-
+                //this.bruger = annonce['user'];
                 this.annonce = annonce;
-               // this.annonce.bruger = annonce.bruger;
+                console.log(this.annonce.user.email);
+
+
+                //this.annonce = JSON.parse(annonce);
+                //let resource = res[0];
+                //console.log(resource['firstName']);
+
+
+
+
+/*                this.bruger = JSON.parse(JSON.stringify(annonce, (key, value) => {
+                  if (key == 'user') {
+                    return value;
+                  }
+                  return undefined;
+                }));
+
+                console.log('bruuuuuger ' + this.bruger.firstName);
+                this.annonce = JSON.parse(annonce, ((key, value) => {
+                  if (key === 'user') {
+                    return undefined;
+                  }
+                  return value;
+                }));*/
+               // this.annonce = annonce;
               }
             );
         }
