@@ -21,6 +21,30 @@ export class StartsideComponent implements OnInit {
               private route: ActivatedRoute) { }
 
   ngOnInit() {
+    this.kategoriService.kategoriValgt
+      .subscribe(
+      (valgt: string) => {
+        if(valgt==''){
+          this.annonceService.getAnnoncer()
+            .subscribe(
+              (annoncer: Annonce[]) => {this.annoncer = annoncer;
+              }
+            );
+        } else {
+          this.annonceService.filtrerAnnonce(valgt)
+            .subscribe(
+              (annoncer: Annonce[]) => {
+                this.annoncer = annoncer;
+              }
+            );
+        }
+
+
+      }
+      );
+
+
+
     this.annonceService.getAnnoncer()
       .subscribe(
         (annoncer: Annonce[]) => {this.annoncer = annoncer;
