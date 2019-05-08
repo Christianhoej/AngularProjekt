@@ -1,6 +1,6 @@
 export class Bruger {
 
-  constructor(  private firstName: string, private lastName: string, private email: string,
-                private gender: string, private birthday: string, private address: string,
-                private zipCode: string, private phonenumber: string, private password: string) {}
+  constructor(  public firstName: string, public lastName: string, public email: string,
+                public gender: string, public birthday: string, public address: string,
+                public zipCode: string, public phonenumber: string, public password: string, public userId) {}
 }

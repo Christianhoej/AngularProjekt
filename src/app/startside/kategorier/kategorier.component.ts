@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnInit, Output} from '@angular/core';
 import {KategoriService} from './kategori.service';
 import {Kategorier} from './kategorier.model';
 import {ActivatedRoute, Params, Route, Router} from '@angular/router';
@@ -13,9 +13,9 @@ import {AnnonceService} from '../../annonce/annonce.service';
 export class KategorierComponent implements OnInit {
 
   kategoriArr: Kategorier[];
-  id: number;
-  @Input() kategoriIndex: Kategorier;
-  @Input() kategoriInput: number;
+  @Output() kategorien: string;
+  @Input() id: string;
+  @Input() kategori: Kategorier;
   key: string;
 
   constructor(private kategoriService: KategoriService,
@@ -25,20 +25,11 @@ export class KategorierComponent implements OnInit {
 
   ngOnInit() {
 
-
-
-    this.route.params
-      .subscribe(
-        (params: Params) => {
-          this.key = 'id';
-          this.id = +params[this.key];
-          console.log(this.id);
-        }
-      );
   }
 
-  kategoriValgt(kategori: Kategorier) {
-    this.annoncerService.filtrerAnnonce(kategori);
+  kategoriValgt(kategoriValgt: string) {
+    this.annoncerService.getAnnoncer();
+    this.kategorien=this.id;
   }
 
 }

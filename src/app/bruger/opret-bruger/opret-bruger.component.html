@@ -5,80 +5,80 @@
           <div class="col-md-4">
             <div class="form-group">
               <label>Fornavn</label>
-              <input type="text" class="form-control" formControlName="fornavnOpret"  [ngClass]="{ 'is-invalid': submitted && f.fornavnOpret.errors}">
-              <div *ngIf="submitted && f.fornavnOpret.errors" class="invalid-feedback">
-                <div *ngIf="f.fornavnOpret.errors.required">Fornavn skal indtastes</div>
+              <input type="text" class="form-control" formControlName="firstName"  [ngClass]="{ 'is-invalid': submitted && f.firstName.errors}">
+              <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+                <div *ngIf="f.firstName.errors.required">Fornavn skal indtastes</div>
               </div>
             </div>
             <div class="form-group">
               <label>Efternavn</label>
-              <input type="text" class="form-control" formControlName="efternavnOpret" [ngClass]="{ 'is-invalid': submitted && f.efternavnOpret.errors}">
-              <div *ngIf="submitted && f.efternavnOpret.errors" class="invalid-feedback">
-                <div *ngIf="f.efternavnOpret.errors.required">Efternavn skal indtastes</div>
+              <input type="text" class="form-control" formControlName="lastName" [ngClass]="{ 'is-invalid': submitted && f.lastName.errors}">
+              <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
+                <div *ngIf="f.lastName.errors.required">Efternavn skal indtastes</div>
               </div>
             </div>
             <div class="form-group">
               <label>Fødselsår</label>
-              <input type="number" class="form-control" formControlName="fodselsarOpret"[ngClass]="{ 'is-invalid': submitted && f.fodselsarOpret.errors}">
-              <div *ngIf="submitted && f.fodselsarOpret.errors" class="invalid-feedback">
-                <div *ngIf="f.fodselsarOpret.errors.required">Fødselsår skal indtastes</div>
+              <input type="number" class="form-control" formControlName="birthday"[ngClass]="{ 'is-invalid': submitted && f.birthday.errors}">
+              <div *ngIf="submitted && f.birthday.errors" class="invalid-feedback">
+                <div *ngIf="f.birthday.errors.required">Fødselsår skal indtastes</div>
               </div>
             </div>
             <div class="form-group">
               <label>Køn</label>
-              <select class="form-control" formControlName="konOpret" [ngClass]="{ 'is-invalid': submitted && f.konOpret.errors}">
+              <select class="form-control" formControlName="gender" [ngClass]="{ 'is-invalid': submitted && f.gender.errors}">
                 <option value="" [selected]="true" disabled style="cursor: pointer; size: 10px">Vælg køn</option>
-                <option style="cursor: pointer; size: 10px" *ngFor="let kon of gender">{{kon}}</option>
+                <option style="cursor: pointer; size: 10px" *ngFor="let kon of genders">{{kon}}</option>
               </select>
-              <div *ngIf="submitted && f.konOpret.errors" class="invalid-feedback">
-                <div *ngIf="f.konOpret.errors.required">Køn skal vælges</div>
+              <div *ngIf="submitted && f.gender.errors" class="invalid-feedback">
+                <div *ngIf="f.gender.errors.required">Køn skal vælges</div>
               </div>
             </div>
             <div class="form-group">
               <label>Adresse</label>
-              <input type="text" class="form-control" formControlName="adresseOpret" [ngClass]="{ 'is-invalid': submitted && f.adresseOpret.errors}">
-              <div *ngIf="submitted && f.adresseOpret.errors" class="invalid-feedback">
-                <div *ngIf="f.adresseOpret.errors.required">Adresse skal indtastes</div>
+              <input type="text" class="form-control" formControlName="address" [ngClass]="{ 'is-invalid': submitted && f.address.errors}">
+              <div *ngIf="submitted && f.address.errors" class="invalid-feedback">
+                <div *ngIf="f.address.errors.required">Adresse skal indtastes</div>
               </div>
             </div>
           </div>
           <div  class="col-xs-4" >
             <div class="form-group">
               <label>Postnummer</label>
-              <input type="number" class="form-control" formControlName="postnrOpret" [ngClass]="{ 'is-invalid': submitted && f.postnrOpret.errors}">
-              <div *ngIf="submitted && f.postnrOpret.errors" class="invalid-feedback">
-                <div *ngIf="f.postnrOpret.errors.required">Postnummer skal indtastes</div>
+              <input type="number" class="form-control" formControlName="zipCode" [ngClass]="{ 'is-invalid': submitted && f.zipCode.errors}">
+              <div *ngIf="submitted && f.zipCode.errors" class="invalid-feedback">
+                <div *ngIf="f.zipCode.errors.required">Postnummer skal indtastes</div>
               </div>
             </div>
             <div class="form-group">
               <label>Telefonnummer</label>
-              <input type="number" class="form-control" formControlName="tlfnrOpret" [ngClass]="{ 'is-invalid': submitted && f.tlfnrOpret.errors}">
-              <div *ngIf="submitted && f.tlfnrOpret.errors" class="invalid-feedback">
-                <div *ngIf="f.tlfnrOpret.errors.required">Telefonnummer skal indtastes</div>
+              <input type="number" class="form-control" formControlName="phonenumber" [ngClass]="{ 'is-invalid': submitted && f.phonenumber.errors}">
+              <div *ngIf="submitted && f.phonenumber.errors" class="invalid-feedback">
+                <div *ngIf="f.phonenumber.errors.required">Telefonnummer skal indtastes</div>
               </div>
             </div>
             <div class="form-group">
               <label>Email</label>
-              <input type="text" class="form-control" formControlName="emailOpret" [ngClass]="{ 'is-invalid': submitted && f.emailOpret.errors}">
-              <div *ngIf="submitted && f.emailOpret.errors" class="invalid-feedback">
-                <div *ngIf="f.emailOpret.errors.required">Email skal indtastes</div>
-                <div *ngIf="f.emailOpret.errors.email">Det indtastede skal være en emailadresse</div>
+              <input type="text" class="form-control" formControlName="email" [ngClass]="{ 'is-invalid': submitted && f.email.errors}">
+              <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                <div *ngIf="f.email.errors.required">Email skal indtastes</div>
+                <div *ngIf="f.email.errors.email">Det indtastede skal være en emailadresse</div>
               </div>
             </div>
             <div class="form-group">
               <label>Kodeord</label>
-              <input type="password" class="form-control" formControlName="kodeordOpret"  [ngClass]="{ 'is-invalid': submitted && f.kodeordOpret.errors}">
-              <div *ngIf="submitted && f.kodeordOpret.errors" class="invalid-feedback">
-                <div *ngIf="f.kodeordOpret.errors.required">Kodeord skal indtastes</div>
-                <div *ngIf="f.kodeordOpret.errors.minlength">Kodeordet skal være mindst 6 karakterer langt</div>
+              <input type="password" class="form-control" formControlName="password"  [ngClass]="{ 'is-invalid': submitted && f.password.errors}">
+              <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                <div *ngIf="f.password.errors.required">Kodeord skal indtastes</div>
+                <div *ngIf="f.password.errors.minlength">Kodeordet skal være mindst 6 karakterer langt</div>
               </div>
             </div>
             <div class="form-group">
               <label>Gentag kodeord</label>
-              <input type="password" class="form-control" formControlName="gentagKodeordOpret" [ngClass]="{ 'is-invalid': submitted && f.gentagKodeordOpret.errors}">
-              <div *ngIf="submitted && f.gentagKodeordOpret.errors" class="invalid-feedback">
-                <div *ngIf="f.gentagKodeordOpret.errors.required">Kodeord skal indtastes</div>
-                <div *ngIf="f.gentagKodeordOpret.errors.checkequals">Kodeordene skal være ens</div>
+              <input type="password" class="form-control" formControlName="repeatPassword" [ngClass]="{ 'is-invalid': submitted && f.repeatPassword.errors}">
+              <div *ngIf="submitted && f.repeatPassword.errors" class="invalid-feedback">
+                <div *ngIf="f.repeatPassword.errors.required">Kodeord skal indtastes</div>
+                <div *ngIf="f.repeatPassword.errors.checkequals">Kodeordene skal være ens</div>
               </div>
             </div>
             <div class="form-group">

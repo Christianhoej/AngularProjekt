@@ -40,7 +40,7 @@ export class MinSideComponent implements OnInit {
     });
 
     this.bruger = this.brugerService.bruger;
-    this.brugerService.getMineAnnoncer()
+    this.brugerService.getMineAnnoncer(this.bruger)
       .subscribe(
         (annoncer: Annonce[]) => {this.mineAnnoncer = annoncer;
         }

@@ -18,20 +18,23 @@ const appRoutes: Routes = [
   {path: '', redirectTo: '/startside', pathMatch: 'full'},
   {path: 'startside', component: StartsideComponent, children: [
       { path: '', component: StartsideComponent },
-      { path: ':id', component: DetaljeretAnnonceComponent },
+      { path: ':id', component: StartsideComponent },
     ] },
 
   {path: 'detaljeret_annonce/:id', component: DetaljeretAnnonceComponent},
   {path: 'detaljeret_annonce', component: DetaljeretAnnonceComponent},
 
   {path: 'log_ind', component: LogIndComponent},
-  {path: 'min_side', canActivate: [AuthGuard], component: MinSideComponent},
+  {path: 'min_side', component: MinSideComponent},
   {path: 'rediger_annonce/:id', component: RedigerAnnonceComponent},
 
 
   {path: 'opret_annonce',  component: OpretAnnonceComponent},
-  {path: 'opret_bruger', component: OpretBrugerComponent}
+  {path: 'opret_bruger', component: OpretBrugerComponent},
+  {path: '**', redirectTo: '', pathMatch: 'full'}
 ];
+
+// , canActivate: [AuthGuard] --> i min side
 
 @NgModule({
   imports: [RouterModule.forRoot(appRoutes),
