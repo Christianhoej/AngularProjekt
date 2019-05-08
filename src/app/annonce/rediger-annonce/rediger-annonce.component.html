@@ -1,4 +1,3 @@
-REDIGER
 <div class="row">
   <div class="col-xs-6">
     <form (ngSubmit)="onSubmit(f)" #f="ngForm">
@@ -7,7 +6,7 @@ REDIGER
         <div class="col-xs-12">
           <div class="form-group">
             <label for="kategori">Kategori</label>
-            <select name="kategori" [(ngModel)]="annonce.category" id="kategori" ngModel class="form-control">
+            <select name="kategori1" [(ngModel)]="annonce.category" id="kategori" ngModel class="form-control">
               <option style="cursor: pointer" *ngFor="let kategoriElement of kategorier"> {{ kategoriElement.categoryName }}</option>
             </select>
           </div>
@@ -76,20 +75,23 @@ REDIGER
         <div class="col-xs-4">
           <button
             type="submit"
-            class="btn btn-success" >Opret annonce!</button>
-        </div>
-        <div class="col-xs-4">
-          <button
-            type="danger"
-            class="btn btn-danger" >Slet annonce!</button>
-        </div>
-        <div class="col-xs-4">
-          <button
-            type="submit"
-            class="btn btn-primary" >Annuller!</button>
+            class="btn btn-success" >Rediger annonce</button>
         </div>
       </div>
     </form>
+    <br>
+    <div class="row">
+      <div class="col-xs-4">
+        <button
+          type="danger"
+          class="btn btn-danger" (click)="sletAnnonce()">Slet annonce</button>
+      </div>
+      <div class="col-xs-4">
+        <button
+          type="submit"
+          class="btn btn-primary" >Annuller</button>
+      </div>
+    </div>
 
 
 

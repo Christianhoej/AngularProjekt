@@ -27,8 +27,15 @@ export class AnnonceService {
   }
 
   filtrerAnnonce(kategori: string) {
-    console.log('dette er kategoriiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii: ' + kategori);
     return this.http.get(this.resourceURL.adsCategoryURL + '/' + kategori);
+  }
+
+  redigerAnnonce(annonce: Annonce, id: string) {
+    return this.http.put(this.resourceURL.adsURL + '/' + id, annonce);
+  }
+
+  sletAnnonce(id: string) {
+    return this.http.delete(this.resourceURL.adsURL + '/' + id);
   }
 
 
