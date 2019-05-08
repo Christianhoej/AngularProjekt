@@ -24,7 +24,7 @@ export class StartsideComponent implements OnInit, OnDestroy {
     this.subscribtion = this.kategoriService.kategoriValgt
       .subscribe(
       (valgt: string) => {
-        if(valgt==''){
+        if(valgt=='Alle' || valgt==''){
           this.annonceService.getAnnoncer()
             .subscribe(
               (annoncer: Annonce[]) => {this.annoncer = annoncer;
@@ -49,6 +49,7 @@ export class StartsideComponent implements OnInit, OnDestroy {
     this.kategoriService.getKategorier()
       .subscribe(
         (kategorier: Kategorier[]) => {this.kategorier = kategorier;
+        this.kategorier.unshift({categoryName: 'Alle', id: -1});
         }
       );
   }
