@@ -4,22 +4,9 @@
      <ul class="list-group">
        <h3>Kategorier</h3>
        <hr id="hr1">
-       <!--
-       <a
-         class="list-group-item-text,  "
-         *ngFor=" let kategoriElement of kategori"
-         style="cursor: pointer"
-         [routerLink]=""
-       >
-
-         <font size="+1">
-           {{kategoriElement}} <br>
-         </font>
-       </a>
-       -->
        <app-kategorier *ngFor="let kategoriElement of kategorier, let i= index"
-       [kategoriInput]="kategoriElement"
-       [kategoriIndex]="i"></app-kategorier>
+                       [id]="kategoriElement.categoryName"
+                       [kategori]="kategoriElement"></app-kategorier>
      </ul>
    </div>
    <div class="pull-right" routerLinkActive="active" routerLink="/opret_annonce" >
@@ -39,7 +26,7 @@
    </div>
      <div class="col-xs-10">
        <div class="grid-container">
-       <app-annonce *ngFor="let annonce of annoncer, let i = index"
+       <app-annonce *ngFor="let annonce of annoncer"
                     [id]="annonce.adId"
                     [index]="annonce.header"
                     [annonce]="annonce"></app-annonce>

@@ -13,7 +13,7 @@ export class Annonce {
   public bruger: Bruger;
 
   // public sælger: bruger;
-  constructor(header: string, price: number, imageURL: string, description: string, category: string, adId: string, email: string, date: string) {
+  constructor(header: string, price: number, imageURL: string, description: string, category: string, adId: string, email: string, date: string, bruger: Bruger) {
     this.header = header;
     this.price = price;
     this.imageURL = imageURL;
@@ -22,5 +22,6 @@ export class Annonce {
     this.adId = adId;
     this.email = email;
     this.date = date;
+    this.bruger = bruger;
   }
 }

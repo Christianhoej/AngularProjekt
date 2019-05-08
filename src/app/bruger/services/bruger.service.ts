@@ -28,8 +28,8 @@ export class BrugerService {
     return this.http.put(this.resourceURL.usersURL + '/id', bruger);
   }
 
-  getMineAnnoncer() {
-    return this.http.get(this.resourceURL.adsURL);
+  getMineAnnoncer(bruger: Bruger) {
+    return this.http.get(this.resourceURL.adsURL + '/' + bruger.userId + '/userads');
   }
 
   getMinAnnonce(id: string) {

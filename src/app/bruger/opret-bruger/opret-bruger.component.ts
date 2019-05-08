@@ -3,6 +3,8 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Bruger} from '../Models/bruger.model';
 import {BrugerService} from '../services/bruger.service';
 import {Checkequals} from '../../Shared/checkequals';
+import {Replacer} from '../services/replacer.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-opret-bruger',
@@ -13,60 +15,51 @@ export class OpretBrugerComponent implements OnInit {
   registrerForm: FormGroup;
   submitted = false;
   opretBruger: Bruger;
-  gender = ['Mand', 'Kvinde', 'Andet'];
+  genders = ['Mand', 'Kvinde', 'Andet'];
 
   constructor(private brugerService: BrugerService,
-              private formBuilder: FormBuilder) { }
+              private formBuilder: FormBuilder,
+              private router: Router) { }
 
   ngOnInit() {
     this.registrerForm = this.formBuilder.group({
-      fornavnOpret: ['', Validators.required],
-      efternavnOpret: ['', Validators.required],
-      fodselsarOpret: ['', Validators.required],
-      konOpret: ['', Validators.required],
-      adresseOpret: ['', Validators.required],
-      postnrOpret: ['', Validators.required],
-      tlfnrOpret: ['', Validators.required],
-      emailOpret: ['', [Validators.required, Validators.email]],
-      kodeordOpret: ['', [Validators.required, Validators.minLength(6)]],
-      gentagKodeordOpret: ['', Validators.required]
+      firstName: ['', Validators.required],
+      lastName: ['', Validators.required],
+      birthday: ['', Validators.required],
+      gender: ['', Validators.required],
+      address: ['', Validators.required],
+      zipCode: ['', Validators.required],
+      phonenumber: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(6)]],
+      repeatPassword: ['', Validators.required]
     }, {
-      validator: Checkequals('kodeordOpret', 'gentagKodeordOpret')
+      validator: Checkequals('password', 'repeatPassword')
     });
 
   }
 
   get f() {return this.registrerForm.controls;}
 
-
-
   onOpretBruger() {
     this.submitted = true;
     if(this.registrerForm.invalid) {
       return
     }
-    alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.registrerForm.value));
+    const jsonObj = JSON.stringify(this.registrerForm.value, Replacer);
+    this.opretBruger = JSON.parse(jsonObj);
 
-    //
-    // // TODO først tjekke om de to passwordfelter er ens.
-    // const email = form.value.emailOpret;
-    // const kodeord = form.value.kodeordOpret;
-    // const gentagetKodeord = form.value.kodeordGentagOpret;
-    // const fodselsdag = form.value.fodselsdagOpret.toString(); // evt. gemme som string
-    // const fornavn = form.value.fornavnOpret;
-    // const efternavn = form.value.efternavnOpret;
-    // const kon = form.value.konOpret;
-    // const adresse = form.value.adresseOpret;
-    // const telefon = form.value.telefonOpret;
-    // const postnr = form.value.postnrOpret;
-    //
-    // this.opretBruger = new Bruger(fornavn, efternavn, email, kon, fodselsdag,
-    //             adresse, postnr, telefon, kodeord);
-    // this.brugerService.opretBruger(this.opretBruger)
-    //   .subscribe(
-    //     (response) => console.log(response),
-    //     (error) => console.log(error)
-    //   );
+    this.brugerService.opretBruger(this.opretBruger)
+      .subscribe(
+        (response) => {
+          console.log(response);
+          if(response == true) {
+            alert('Du er blevet oprettet! Log ind for at oprette en annonce\n\n (SKAL IKKE VÆRE HER)');
+            this.router.navigate(['/log_ind']);
+          }
+        },
+        (error) => console.log(error)
+      );
   }
 
 }

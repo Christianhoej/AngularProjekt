@@ -87,7 +87,7 @@ export class AnnonceService {
     return this.http.get(this.resourceURL.adsURL + '/' + id);
   }
 
-  filtrerAnnonce(kategori: Kategorier) {
+  filtrerAnnonce(kategori: string) {
     return this.http.get(this.resourceURL.adsCategoryURL);
   }
 
