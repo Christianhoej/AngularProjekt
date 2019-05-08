@@ -89,7 +89,7 @@ export class AnnonceService {
   }
 
   filtrerAnnonce(kategori: string) {
-    console.log('dette er kategoriiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii: '+kategori)
+    console.log('dette er kategoriiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii: '+kategori);
     return this.http.get(this.resourceURL.adsCategoryURL + '/' + kategori);
   }
 

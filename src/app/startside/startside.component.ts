@@ -27,7 +27,8 @@ export class StartsideComponent implements OnInit, OnDestroy {
         if(valgt=='Alle' || valgt==''){
           this.annonceService.getAnnoncer()
             .subscribe(
-              (annoncer: Annonce[]) => {this.annoncer = annoncer;
+              (annoncer: Annonce[]) => {
+                this.annoncer = annoncer;
               }
             );
         } else {
