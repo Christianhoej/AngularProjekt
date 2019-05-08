@@ -28,8 +28,7 @@ export class KategorierComponent implements OnInit {
   }
 
   kategoriValgt(kategoriValgt: string) {
-    this.annoncerService.getAnnoncer();
-    this.kategorien=this.id;
+    this.kategoriService.kategoriValgt.next(kategoriValgt);
   }
 
 }

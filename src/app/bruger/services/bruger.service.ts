@@ -13,7 +13,6 @@ export class BrugerService {
   constructor(private http: HttpClient,
               private resourceURL: ResourceURLService) {
     this.loggetInd.next(false);
-    console.log(this.loggetInd);
   }
 
   opretBruger(bruger: any) {

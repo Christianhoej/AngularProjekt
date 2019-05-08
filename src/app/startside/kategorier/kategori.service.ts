@@ -6,7 +6,7 @@ import {ResourceURLService} from '../../resourceURL.service';
 
 @Injectable()
 export class KategoriService {
-
+  kategoriValgt = new Subject<string>();
  /* private kategori: Kategorier[] = [new Kategorier('Nips'),
     new Kategorier('Møbel'),
     new Kategorier('Til køkkenet'),
@@ -17,7 +17,7 @@ export class KategoriService {
 */
 
   constructor(private http: HttpClient, private resourceURL: ResourceURLService) {
-
+    this.kategoriValgt.next('');
   }
 
   getKategorier() {

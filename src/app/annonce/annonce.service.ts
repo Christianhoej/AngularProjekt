@@ -5,6 +5,7 @@ import {HttpClient} from '@angular/common/http';
 import {ResourceURLService} from '../resourceURL.service';
 import {AnnonceDataService} from './annonce-data.service';
 import {Kategorier} from '../startside/kategorier/kategorier.model';
+import {applySourceSpanToExpressionIfNeeded} from '@angular/compiler/src/output/output_ast';
 
 @Injectable({
   providedIn: 'root'
@@ -88,7 +89,8 @@ export class AnnonceService {
   }
 
   filtrerAnnonce(kategori: string) {
-    return this.http.get(this.resourceURL.adsCategoryURL);
+    console.log('dette er kategoriiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii: '+kategori)
+    return this.http.get(this.resourceURL.adsCategoryURL + '/' + kategori);
   }
 
 
