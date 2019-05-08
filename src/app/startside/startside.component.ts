@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnDestroy, OnInit} from '@angular/core';
 import {Subscription} from 'rxjs';
 import {KategoriService} from './kategorier/kategori.service';
 import {Kategorier} from './kategorier/kategorier.model';
@@ -11,17 +11,17 @@ import {ActivatedRoute} from '@angular/router';
   templateUrl: './startside.component.html',
   styleUrls: ['./startside.component.css']
 })
-export class StartsideComponent implements OnInit {
+export class StartsideComponent implements OnInit, OnDestroy {
 
   annoncer: Annonce[];
   kategorier: Kategorier[];
+  subscribtion: Subscription;
   @Input() valgtKategori;
   constructor(private kategoriService: KategoriService,
-              private annonceService: AnnonceService,
-              private route: ActivatedRoute) { }
+              private annonceService: AnnonceService) { }
 
   ngOnInit() {
-    this.kategoriService.kategoriValgt
+    this.subscribtion = this.kategoriService.kategoriValgt
       .subscribe(
       (valgt: string) => {
         if(valgt==''){
@@ -38,12 +38,8 @@ export class StartsideComponent implements OnInit {
               }
             );
         }
-
-
       }
       );
-
-
 
     this.annonceService.getAnnoncer()
       .subscribe(
@@ -55,6 +51,10 @@ export class StartsideComponent implements OnInit {
         (kategorier: Kategorier[]) => {this.kategorier = kategorier;
         }
       );
+  }
+
+  ngOnDestroy(): void {
+    this.subscribtion.unsubscribe();
   }
 
 

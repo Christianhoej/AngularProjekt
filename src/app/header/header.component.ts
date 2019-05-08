@@ -1,6 +1,7 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {BrugerService} from '../bruger/services/bruger.service';
 import {Subscription} from 'rxjs';
+import {KategoriService} from '../startside/kategorier/kategori.service';
 
 @Component({
   selector: 'app-header',
@@ -10,7 +11,8 @@ import {Subscription} from 'rxjs';
 export class HeaderComponent implements OnDestroy {
   subscription: Subscription;
   erLoggetInd = false;
-  constructor(private brugerService: BrugerService) {
+  constructor(private brugerService: BrugerService,
+              private kategoriService: KategoriService) {
     this.subscription = this.brugerService.loggetInd.subscribe(
       (logind: boolean) => {
         if (logind) {
@@ -35,6 +37,10 @@ export class HeaderComponent implements OnDestroy {
 
   ngOnDestroy(): void {
     this.subscription.unsubscribe();
+  }
+
+  loadStartside(){
+    this.kategoriService.kategoriValgt.next('');
   }
 
 
