@@ -1,0 +1,14 @@
+#borderLeft1 {
+  border-left: 2px solid #53030e;
+  margin-top: 10px;
+}
+#borderRight1 {
+  border-right: 2px solid #53030e;
+  margin-top: 10px;
+}
+#borderTop {
+  border-top: 2px solid #53030e;
+}
+#borderRight {
+  margin-top: 10px;
+}
