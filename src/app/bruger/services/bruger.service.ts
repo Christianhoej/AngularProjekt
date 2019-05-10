@@ -19,12 +19,15 @@ export class BrugerService {
     return this.http.post(this.resourceURL.usersURL, bruger);
   }
 
+  chechEmail(email: string) {
+    return this.http.get(this.resourceURL.usersURL + '/checkEmail/' + email);
+  }
+
   logind(email: string, password: string){
     return this.http.post(this.resourceURL.usersLoginURL, {email: email, password: password});
   }
 
   redigerBruger(bruger: Bruger) {
-    console.log(bruger.userId + ' kommet her til')
     return this.http.put(this.resourceURL.usersURL + '/' + bruger.userId, bruger);
   }
 

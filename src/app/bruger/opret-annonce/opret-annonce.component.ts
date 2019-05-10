@@ -20,7 +20,6 @@ import {timestamp} from 'rxjs/operators';
 })
 export class OpretAnnonceComponent implements OnInit {
   kategorier: Kategorier[];
-  materiale: string[];
   erLoggetInd: boolean;
   submitted = false;
   registrerForm: FormGroup;
@@ -56,9 +55,8 @@ export class OpretAnnonceComponent implements OnInit {
       header: ['', Validators.required],
       price: ['', Validators.required],
       imageURL: ['', Validators.required],
-      description: ['', Validators.required],
-
-    }) ;
+      description: ['', Validators.required]}
+      ) ;
   }
 
   get f() {return this.registrerForm.controls; }
@@ -87,12 +85,11 @@ export class OpretAnnonceComponent implements OnInit {
     console.log(this.opretAnnonce.date + 'DAAAATE')*/
     console.log(this.opretAnnonce.user);
     this.opretAnnonce.date = 'hej';
+    this.opretAnnonce.user = this.brugerService.bruger;
     this.opretAnnonce.email = this.brugerService.bruger.email;
-    console.log(this.opretAnnonce.description)
     this.annonceService.opretAnnonce(this.opretAnnonce)
       .subscribe(
         (response) => {
-          console.log(response);
           if ( response ) {
             alert('ORPETTET\n\n (SKAL IKKE VÆRE HER)');
             this.router.navigate(['/startside']);
@@ -103,8 +100,6 @@ export class OpretAnnonceComponent implements OnInit {
   }
 
 /*
-
-
   detectFiles(event) {
     this.selectedFiles = event.target.files;
   }
@@ -115,20 +110,4 @@ export class OpretAnnonceComponent implements OnInit {
     this.upSvc.pushUpload(this.currentUpload);
   }
 */
-  onSubmit(form: NgForm) {
-    // const newRecipe = new Recipe(
-    //   this.recipeForm.value['name'],
-    //   this.recipeForm.value['description'],
-    //   this.recipeForm.value['imagePath'],
-    //   this.recipeForm.value['ingredients']);
-    /*if (this.editMode) {
-      this.annonceService.updateRecipe(this.id, this.recipeForm.value);
-    } else {
-      this.recipeService.addRecipe(this.recipeForm.value);
-    }
-    this.onCancel();*/
-    const value = form.value;
-   // const nyAnnonce = new Annonce(value.titel, value.pris, value.imagePath, value.beskrivelse, value.kategori, value.materiale, value.id);
-  //  this.annonceService.addAnnonce(nyAnnonce);
-  }
 }

@@ -4,7 +4,7 @@ import {Annonce} from '../../models/annonce.model';
 import {AnnonceService} from '../annonce.service';
 import {KategoriService} from '../../startside/kategorier/kategori.service';
 import {Kategorier} from '../../startside/kategorier/kategorier.model';
-import {NgForm} from '@angular/forms';
+import {FormBuilder, FormGroup, NgForm, Validators} from '@angular/forms';
 import {BrugerService} from '../../bruger/services/bruger.service';
 
 @Component({
@@ -13,16 +13,21 @@ import {BrugerService} from '../../bruger/services/bruger.service';
   styleUrls: ['./rediger-annonce.component.css']
 })
 export class RedigerAnnonceComponent implements OnInit {
+  submitted = false;
+  redigerForm: FormGroup;
   id: string;
+  billedet = null;
   annonce: Annonce;
-  nyAnnonce: Annonce;
+  redigerAnnonce: Annonce;
   key: string;
   kategorier: Kategorier[];
 
   constructor(private annonceService: AnnonceService,
               private route: ActivatedRoute,
               private kategoriService: KategoriService,
-              private router: Router, private brugerService: BrugerService) { }
+              private router: Router,
+              private brugerService: BrugerService,
+              private formBuilder: FormBuilder) { }
 
   ngOnInit() {
     this.route.params
@@ -40,6 +45,14 @@ export class RedigerAnnonceComponent implements OnInit {
         }
       );
 
+    this.redigerForm = this.formBuilder.group({
+      category: ['', Validators.required],
+      header: ['', Validators.required],
+      price: ['', Validators.required],
+      imageURL: ['', Validators.required],
+      description: ['', Validators.required]}
+      );
+
     this.kategoriService.getKategorier()
       .subscribe(
         (kategorier: Kategorier[]) => {this.kategorier = kategorier;
@@ -47,21 +60,28 @@ export class RedigerAnnonceComponent implements OnInit {
       );
   }
 
-  onSubmit(form: NgForm) {
-    this.nyAnnonce = this.annonce;
-    this.nyAnnonce.category = form.value.kategori1;
-    this.nyAnnonce.header = form.value.titel;
-    this.nyAnnonce.price = form.value.pris;
-    this.nyAnnonce.imageURL = form.value.imagePath;
-    this.nyAnnonce.description = form.value.beskrivelse;
-    console.log(this.nyAnnonce);
+  get f() {return this.redigerForm.controls; }
 
-    this.annonceService.redigerAnnonce(this.nyAnnonce, this.id)
+  onRedigerAnnonce() {
+    this.submitted = true;
+    if (this.redigerForm.invalid) {
+      return;
+    }
+
+    this.redigerAnnonce = this.redigerForm.value;
+    this.redigerAnnonce.email = this.brugerService.bruger.email;
+    this.redigerAnnonce.date = this.annonce.date;
+    this.redigerAnnonce.user = this.brugerService.bruger;
+    this.redigerAnnonce.adId = this.annonce.adId;
+
+    this.annonceService.redigerAnnonce(this.redigerAnnonce)
       .subscribe(
         (response) => {
           this.router.navigate(['/min_side', this.brugerService.bruger.userId]);
         },
-      (error) => {console.log(error); }
+      (error) => {
+          console.log(error);
+        }
       );
 
   }
