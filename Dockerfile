@@ -25,7 +25,7 @@ RUN npm run build
 FROM nginx:1.13.12-alpine
 
 #copying from our first image to our second
-COPY --from=node /usr/src/app/dist/test-app/. /usr/share/nginx/html
+COPY --from=node /usr/src/app/dist/angularProjekt/. /usr/share/nginx/html
 #EXPOSE 80
 
 #copying Nginx config into our image
