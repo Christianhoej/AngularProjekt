@@ -1,0 +1,858 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>angular-projekt documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">angular-projekt documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li>RedigerBrugerComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/bruger/rediger-bruger/rediger-bruger.component.ts</code>
+</p>
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-rediger-bruger</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./rediger-bruger.component.css</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./rediger-bruger.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#bruger">bruger</a>
+                            </li>
+                            <li>
+                                <a href="#key">key</a>
+                            </li>
+                            <li>
+                                <a href="#redigerBruger">redigerBruger</a>
+                            </li>
+                            <li>
+                                <a href="#redigerForm">redigerForm</a>
+                            </li>
+                            <li>
+                                <a href="#submitted">submitted</a>
+                            </li>
+                            <li>
+                                <a href="#userid">userid</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#ngOnInit">ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#onRedigerBruger">onRedigerBruger</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Accessors</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                    <a href="#f">f</a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(brugerService: <a href="../injectables/BrugerService.html">BrugerService</a>, formBuilder: <a href="https://angular.io/api/forms/FormBuilder" target="_blank">FormBuilder</a>, router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>, route: <a href="https://angular.io/api/router/ActivatedRoute" target="_blank">ActivatedRoute</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/bruger/rediger-bruger/rediger-bruger.component.ts:20</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>brugerService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/BrugerService.html" target="_self" >BrugerService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>formBuilder</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/forms/FormBuilder" target="_blank" >FormBuilder</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>router</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/router/Router" target="_blank" >Router</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>route</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/router/ActivatedRoute" target="_blank" >ActivatedRoute</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <b>
+                            ngOnInit
+                        </b>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="28"
+                            class="link-to-prism">src/app/bruger/rediger-bruger/rediger-bruger.component.ts:28</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onRedigerBruger"></a>
+                    <span class="name">
+                        <b>
+                            onRedigerBruger
+                        </b>
+                        <a href="#onRedigerBruger"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onRedigerBruger()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="56"
+                            class="link-to-prism">src/app/bruger/rediger-bruger/rediger-bruger.component.ts:56</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="bruger"></a>
+                        <span class="name">
+                            <b>
+                            bruger</b>
+                            <a href="#bruger"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../classes/Bruger.html" target="_self" >Bruger</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/bruger/rediger-bruger/rediger-bruger.component.ts:17</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="key"></a>
+                        <span class="name">
+                            <b>
+                            key</b>
+                            <a href="#key"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/bruger/rediger-bruger/rediger-bruger.component.ts:18</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="redigerBruger"></a>
+                        <span class="name">
+                            <b>
+                            redigerBruger</b>
+                            <a href="#redigerBruger"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../classes/Bruger.html" target="_self" >Bruger</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/bruger/rediger-bruger/rediger-bruger.component.ts:20</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="redigerForm"></a>
+                        <span class="name">
+                            <b>
+                            redigerForm</b>
+                            <a href="#redigerForm"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://angular.io/api/forms/FormGroup" target="_blank" >FormGroup</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/bruger/rediger-bruger/rediger-bruger.component.ts:15</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="submitted"></a>
+                        <span class="name">
+                            <b>
+                            submitted</b>
+                            <a href="#submitted"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>false</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/bruger/rediger-bruger/rediger-bruger.component.ts:16</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="userid"></a>
+                        <span class="name">
+                            <b>
+                            userid</b>
+                            <a href="#userid"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/bruger/rediger-bruger/rediger-bruger.component.ts:19</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+</section>
+
+    <section>
+    <h3 id="accessors">
+        Accessors
+    </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="f"></a>
+                        <span class="name"><b>f</b><a href="#f"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>f()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="54" class="link-to-prism">src/app/bruger/rediger-bruger/rediger-bruger.component.ts:54</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+</section>
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {Component, Input, OnInit} from &#x27;@angular/core&#x27;;
+import {FormBuilder, FormGroup, NgForm, Validators} from &#x27;@angular/forms&#x27;;
+import {Checkequals} from &#x27;../../Shared/checkequals&#x27;;
+import {BrugerService} from &#x27;../services/bruger.service&#x27;;
+import {ActivatedRoute, Params, Router} from &#x27;@angular/router&#x27;;
+import {Bruger} from &#x27;../Models/bruger.model&#x27;;
+import {Replacer} from &#x27;../services/replacer.service&#x27;;
+
+@Component({
+  selector: &#x27;app-rediger-bruger&#x27;,
+  templateUrl: &#x27;./rediger-bruger.component.html&#x27;,
+  styleUrls: [&#x27;./rediger-bruger.component.css&#x27;]
+})
+export class RedigerBrugerComponent implements OnInit {
+  redigerForm: FormGroup;
+  submitted &#x3D; false;
+  bruger: Bruger;
+  key: string;
+  userid: string;
+  redigerBruger: Bruger;
+
+
+  constructor(private brugerService: BrugerService,
+              private formBuilder: FormBuilder,
+              private router: Router,
+              private route: ActivatedRoute) { }
+
+  ngOnInit() {
+    this.route.params
+      .subscribe(
+        (params: Params) &#x3D;&gt; {
+          this.key &#x3D; &#x27;userID&#x27;;
+          this.userid &#x3D; params[this.key];
+        });
+
+
+    this.bruger &#x3D; this.brugerService.bruger;
+    this.redigerForm &#x3D; this.formBuilder.group({
+      firstName: [&#x27;&#x27;, Validators.required],
+      lastName: [&#x27;&#x27;, Validators.required],
+      birthday: [&#x27;&#x27;, Validators.required, Validators.minLength(4), Validators.maxLength(4)],
+      gender: [&#x27;&#x27;, Validators.required],
+      address: [&#x27;&#x27;, Validators.required],
+      zipCode: [&#x27;&#x27;, Validators.required, Validators.minLength(4), Validators.maxLength(4)],
+      phonenumber: [&#x27;&#x27;, Validators.required, Validators.minLength(8), Validators.maxLength(8)],
+      email: [&#x27;&#x27;, [Validators.required, Validators.email]],
+      password: [&#x27;&#x27;, [Validators.required, Validators.minLength(6)]],
+      repeatPassword: [&#x27;&#x27;, Validators.required]
+    }, {
+      validator: Checkequals(&#x27;password&#x27;, &#x27;repeatPassword&#x27;)
+    });
+  }
+
+  get f() {return this.redigerForm.controls;}
+
+  onRedigerBruger() {
+    /*
+    const email &#x3D; form.value.emailOpret;
+    const kodeord &#x3D; form.value.kodeordOpret;
+    const gentagetKodeord &#x3D; form.value.kodeordGentagOpret;
+    const fodselsdag &#x3D; form.value.fodselsdagOpret.toString(); // evt. gemme som string
+    const fornavn &#x3D; form.value.fornavnOpret;
+    const efternavn &#x3D; form.value.efternavnOpret;
+    const kon &#x3D; form.value.konOpret;
+    const adresse &#x3D; form.value.adresseOpret;
+    const telefon &#x3D; form.value.telefonOpret;
+    const postnr &#x3D; form.value.postnrOpret;
+
+    this.bruger &#x3D; new Bruger(fornavn, efternavn, email, kon, fodselsdag,
+      adresse, postnr, telefon, kodeord);
+
+
+    this.brugerService.redigerBruger(this.bruger)
+      .subscribe(
+        (response) &#x3D;&gt; console.log(response),
+        (error) &#x3D;&gt; console.log(error)
+      );
+      */
+    this.submitted &#x3D; true;
+    if (this.redigerForm.invalid) {
+      return;
+    }
+
+    this.redigerBruger &#x3D; this.redigerForm.value;
+    this.redigerBruger.userId &#x3D; this.userid;
+    console.log(this.redigerBruger.address);
+    this.brugerService.redigerBruger(this.redigerBruger)
+      .subscribe(
+        (response) &#x3D;&gt; {
+          this.router.navigate([&#x27;/min_side&#x27;, this.brugerService.bruger.userId]);
+        }
+      );
+
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;row&quot;&gt;
+  &lt;h3&gt;Mine oplysninger&lt;/h3&gt;
+  &lt;form [formGroup]&#x3D;&quot;redigerForm&quot; (ngSubmit)&#x3D;&quot;onRedigerBruger()&quot;&gt;
+    &lt;div class&#x3D;&quot;col-md-4&quot;&gt;
+      &lt;div class&#x3D;&quot;form-group&quot;&gt;
+        &lt;label&gt;Fornavn&lt;/label&gt;
+        &lt;input type&#x3D;&quot;text&quot; class&#x3D;&quot;form-control&quot; formControlName&#x3D;&quot;firstName&quot; [(ngModel)]&#x3D;&quot;bruger.firstName&quot;  [ngClass]&#x3D;&quot;{ &#x27;is-invalid&#x27;: submitted &amp;&amp; f.firstName.errors}&quot;&gt;
+        &lt;div *ngIf&#x3D;&quot;submitted &amp;&amp; f.firstName.errors&quot; class&#x3D;&quot;invalid-feedback&quot;&gt;
+          &lt;div *ngIf&#x3D;&quot;f.firstName.errors.required&quot;&gt;Fornavn skal indtastes&lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class&#x3D;&quot;form-group&quot;&gt;
+        &lt;label&gt;Efternavn&lt;/label&gt;
+        &lt;input type&#x3D;&quot;text&quot; class&#x3D;&quot;form-control&quot; formControlName&#x3D;&quot;lastName&quot; [(ngModel)]&#x3D;&quot;bruger.lastName&quot; [ngClass]&#x3D;&quot;{ &#x27;is-invalid&#x27;: submitted &amp;&amp; f.lastName.errors}&quot;&gt;
+        &lt;div *ngIf&#x3D;&quot;submitted &amp;&amp; f.lastName.errors&quot; class&#x3D;&quot;invalid-feedback&quot;&gt;
+          &lt;div *ngIf&#x3D;&quot;f.lastName.errors.required&quot;&gt;Efternavn skal indtastes&lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class&#x3D;&quot;form-group&quot;&gt;
+        &lt;label&gt;Fødselsår&lt;/label&gt;
+        &lt;input type&#x3D;&quot;number&quot; class&#x3D;&quot;form-control&quot; formControlName&#x3D;&quot;birthday&quot; [(ngModel)]&#x3D;&quot;bruger.birthday&quot; [ngClass]&#x3D;&quot;{ &#x27;is-invalid&#x27;: submitted &amp;&amp; f.birthday.errors}&quot;&gt;
+        &lt;div *ngIf&#x3D;&quot;submitted &amp;&amp; f.birthday.errors&quot; class&#x3D;&quot;invalid-feedback&quot;&gt;
+          &lt;div *ngIf&#x3D;&quot;f.birthday.errors.required&quot;&gt;Fødselsår skal indtastes&lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class&#x3D;&quot;form-group&quot;&gt;
+        &lt;label&gt;Køn&lt;/label&gt;
+        &lt;select class&#x3D;&quot;form-control&quot; formControlName&#x3D;&quot;gender&quot; [(ngModel)]&#x3D;&quot;bruger.gender&quot; [ngClass]&#x3D;&quot;{ &#x27;is-invalid&#x27;: submitted &amp;&amp; f.gender.errors}&quot;&gt;
+          &lt;option style&#x3D;&quot;cursor: pointer; size: 10px&quot; &gt;Mand&lt;/option&gt;
+          &lt;option style&#x3D;&quot;cursor: pointer; size: 10px&quot; &gt;Kvinde&lt;/option&gt;
+          &lt;option style&#x3D;&quot;cursor: pointer; size: 10px&quot; &gt;Andet&lt;/option&gt;
+        &lt;/select&gt;
+        &lt;div *ngIf&#x3D;&quot;submitted &amp;&amp; f.gender.errors&quot; class&#x3D;&quot;invalid-feedback&quot;&gt;
+          &lt;div *ngIf&#x3D;&quot;f.gender.errors.required&quot;&gt;Køn skal vælges&lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class&#x3D;&quot;form-group&quot;&gt;
+        &lt;label&gt;Adresse&lt;/label&gt;
+        &lt;input type&#x3D;&quot;text&quot; class&#x3D;&quot;form-control&quot; formControlName&#x3D;&quot;address&quot; [(ngModel)]&#x3D;&quot;bruger.address&quot; [ngClass]&#x3D;&quot;{ &#x27;is-invalid&#x27;: submitted &amp;&amp; f.address.errors}&quot;&gt;
+        &lt;div *ngIf&#x3D;&quot;submitted &amp;&amp; f.address.errors&quot; class&#x3D;&quot;invalid-feedback&quot;&gt;
+          &lt;div *ngIf&#x3D;&quot;f.address.errors.required&quot;&gt;Adresse skal indtastes&lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div  class&#x3D;&quot;col-xs-4&quot; &gt;
+      &lt;div class&#x3D;&quot;form-group&quot;&gt;
+        &lt;label&gt;Postnummer&lt;/label&gt;
+        &lt;input type&#x3D;&quot;number&quot; class&#x3D;&quot;form-control&quot; formControlName&#x3D;&quot;zipCode&quot; [(ngModel)]&#x3D;&quot;bruger.zipCode&quot; [ngClass]&#x3D;&quot;{ &#x27;is-invalid&#x27;: submitted &amp;&amp; f.zipCode.errors}&quot;&gt;
+        &lt;div *ngIf&#x3D;&quot;submitted &amp;&amp; f.zipCode.errors&quot; class&#x3D;&quot;invalid-feedback&quot;&gt;
+          &lt;div *ngIf&#x3D;&quot;f.zipCode.errors.required&quot;&gt;Postnummer skal indtastes&lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class&#x3D;&quot;form-group&quot;&gt;
+        &lt;label&gt;Telefonnummer&lt;/label&gt;
+        &lt;input type&#x3D;&quot;number&quot; class&#x3D;&quot;form-control&quot; formControlName&#x3D;&quot;phonenumber&quot; [(ngModel)]&#x3D;&quot;bruger.phonenumber&quot; [ngClass]&#x3D;&quot;{ &#x27;is-invalid&#x27;: submitted &amp;&amp; f.phonenumber.errors}&quot;&gt;
+        &lt;div *ngIf&#x3D;&quot;submitted &amp;&amp; f.phonenumber.errors&quot; class&#x3D;&quot;invalid-feedback&quot;&gt;
+          &lt;div *ngIf&#x3D;&quot;f.phonenumber.errors.required&quot;&gt;Telefonnummer skal indtastes&lt;/div&gt;
+          &lt;div *ngIf&#x3D;&quot;f.password.errors.minlength || f.password.errors.maxlength&quot;&gt;Telefonnummeret skal være 8 karakterer langt&lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class&#x3D;&quot;form-group&quot;&gt;
+        &lt;label&gt;Email&lt;/label&gt;
+        &lt;input type&#x3D;&quot;text&quot; class&#x3D;&quot;form-control&quot; formControlName&#x3D;&quot;email&quot; [(ngModel)]&#x3D;&quot;bruger.email&quot; [ngClass]&#x3D;&quot;{ &#x27;is-invalid&#x27;: submitted &amp;&amp; f.email.errors}&quot;&gt;
+        &lt;div *ngIf&#x3D;&quot;submitted &amp;&amp; f.email.errors&quot; class&#x3D;&quot;invalid-feedback&quot;&gt;
+          &lt;div *ngIf&#x3D;&quot;f.email.errors.required&quot;&gt;Email skal indtastes&lt;/div&gt;
+          &lt;div *ngIf&#x3D;&quot;f.email.errors.email&quot;&gt;Det indtastede skal være en emailadresse&lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class&#x3D;&quot;form-group&quot;&gt;
+        &lt;label&gt;Kodeord&lt;/label&gt;
+        &lt;input type&#x3D;&quot;password&quot; class&#x3D;&quot;form-control&quot; formControlName&#x3D;&quot;password&quot;  [ngClass]&#x3D;&quot;{ &#x27;is-invalid&#x27;: submitted &amp;&amp; f.password.errors}&quot;&gt;
+        &lt;div *ngIf&#x3D;&quot;submitted &amp;&amp; f.password.errors&quot; class&#x3D;&quot;invalid-feedback&quot;&gt;
+          &lt;div *ngIf&#x3D;&quot;f.password.errors.required&quot;&gt;Kodeord skal indtastes&lt;/div&gt;
+          &lt;div *ngIf&#x3D;&quot;f.password.errors.minlength&quot;&gt;Kodeordet skal være mindst 6 karakterer langt&lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class&#x3D;&quot;form-group&quot;&gt;
+        &lt;label&gt;Gentag kodeord&lt;/label&gt;
+        &lt;input type&#x3D;&quot;password&quot; class&#x3D;&quot;form-control&quot; formControlName&#x3D;&quot;repeatPassword&quot; [ngClass]&#x3D;&quot;{ &#x27;is-invalid&#x27;: submitted &amp;&amp; f.repeatPassword.errors}&quot;&gt;
+        &lt;div *ngIf&#x3D;&quot;submitted &amp;&amp; f.repeatPassword.errors&quot; class&#x3D;&quot;invalid-feedback&quot;&gt;
+          &lt;div *ngIf&#x3D;&quot;f.repeatPassword.errors.required&quot;&gt;Kodeord skal indtastes&lt;/div&gt;
+          &lt;div *ngIf&#x3D;&quot;f.repeatPassword.errors.checkequals&quot;&gt;Kodeordene skal være ens&lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class&#x3D;&quot;form-group&quot;&gt;
+        &lt;button class&#x3D;&quot;btn btn-primary&quot; type&#x3D;&quot;submit&quot;&gt;Opdater oplysninger&lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/form&gt;
+&lt;/div&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>./rediger-bruger.component.css</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss"></code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="row">  <h3>Mine oplysninger</h3>  <form [formGroup]="redigerForm" (ngSubmit)="onRedigerBruger()">    <div class="col-md-4">      <div class="form-group">        <label>Fornavn</label>        <input type="text" class="form-control" formControlName="firstName" [(ngModel)]="bruger.firstName"  [ngClass]="{ \'is-invalid\': submitted && f.firstName.errors}">        <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">          <div *ngIf="f.firstName.errors.required">Fornavn skal indtastes</div>        </div>      </div>      <div class="form-group">        <label>Efternavn</label>        <input type="text" class="form-control" formControlName="lastName" [(ngModel)]="bruger.lastName" [ngClass]="{ \'is-invalid\': submitted && f.lastName.errors}">        <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">          <div *ngIf="f.lastName.errors.required">Efternavn skal indtastes</div>        </div>      </div>      <div class="form-group">        <label>Fødselsår</label>        <input type="number" class="form-control" formControlName="birthday" [(ngModel)]="bruger.birthday" [ngClass]="{ \'is-invalid\': submitted && f.birthday.errors}">        <div *ngIf="submitted && f.birthday.errors" class="invalid-feedback">          <div *ngIf="f.birthday.errors.required">Fødselsår skal indtastes</div>        </div>      </div>      <div class="form-group">        <label>Køn</label>        <select class="form-control" formControlName="gender" [(ngModel)]="bruger.gender" [ngClass]="{ \'is-invalid\': submitted && f.gender.errors}">          <option style="cursor: pointer; size: 10px" >Mand</option>          <option style="cursor: pointer; size: 10px" >Kvinde</option>          <option style="cursor: pointer; size: 10px" >Andet</option>        </select>        <div *ngIf="submitted && f.gender.errors" class="invalid-feedback">          <div *ngIf="f.gender.errors.required">Køn skal vælges</div>        </div>      </div>      <div class="form-group">        <label>Adresse</label>        <input type="text" class="form-control" formControlName="address" [(ngModel)]="bruger.address" [ngClass]="{ \'is-invalid\': submitted && f.address.errors}">        <div *ngIf="submitted && f.address.errors" class="invalid-feedback">          <div *ngIf="f.address.errors.required">Adresse skal indtastes</div>        </div>      </div>    </div>    <div  class="col-xs-4" >      <div class="form-group">        <label>Postnummer</label>        <input type="number" class="form-control" formControlName="zipCode" [(ngModel)]="bruger.zipCode" [ngClass]="{ \'is-invalid\': submitted && f.zipCode.errors}">        <div *ngIf="submitted && f.zipCode.errors" class="invalid-feedback">          <div *ngIf="f.zipCode.errors.required">Postnummer skal indtastes</div>        </div>      </div>      <div class="form-group">        <label>Telefonnummer</label>        <input type="number" class="form-control" formControlName="phonenumber" [(ngModel)]="bruger.phonenumber" [ngClass]="{ \'is-invalid\': submitted && f.phonenumber.errors}">        <div *ngIf="submitted && f.phonenumber.errors" class="invalid-feedback">          <div *ngIf="f.phonenumber.errors.required">Telefonnummer skal indtastes</div>          <div *ngIf="f.password.errors.minlength || f.password.errors.maxlength">Telefonnummeret skal være 8 karakterer langt</div>        </div>      </div>      <div class="form-group">        <label>Email</label>        <input type="text" class="form-control" formControlName="email" [(ngModel)]="bruger.email" [ngClass]="{ \'is-invalid\': submitted && f.email.errors}">        <div *ngIf="submitted && f.email.errors" class="invalid-feedback">          <div *ngIf="f.email.errors.required">Email skal indtastes</div>          <div *ngIf="f.email.errors.email">Det indtastede skal være en emailadresse</div>        </div>      </div>      <div class="form-group">        <label>Kodeord</label>        <input type="password" class="form-control" formControlName="password"  [ngClass]="{ \'is-invalid\': submitted && f.password.errors}">        <div *ngIf="submitted && f.password.errors" class="invalid-feedback">          <div *ngIf="f.password.errors.required">Kodeord skal indtastes</div>          <div *ngIf="f.password.errors.minlength">Kodeordet skal være mindst 6 karakterer langt</div>        </div>      </div>      <div class="form-group">        <label>Gentag kodeord</label>        <input type="password" class="form-control" formControlName="repeatPassword" [ngClass]="{ \'is-invalid\': submitted && f.repeatPassword.errors}">        <div *ngIf="submitted && f.repeatPassword.errors" class="invalid-feedback">          <div *ngIf="f.repeatPassword.errors.required">Kodeord skal indtastes</div>          <div *ngIf="f.repeatPassword.errors.checkequals">Kodeordene skal være ens</div>        </div>      </div>      <div class="form-group">        <button class="btn btn-primary" type="submit">Opdater oplysninger</button>      </div>    </div>  </form></div></div>'
+    var COMPONENTS = [{'name': 'AnnonceComponent', 'selector': 'app-annonce'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'DetaljeretAnnonceComponent', 'selector': 'app-detaljeret-annonce'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'KategorierComponent', 'selector': 'app-kategorier'},{'name': 'LogIndComponent', 'selector': 'app-log-ind'},{'name': 'MineAnnoncerComponent', 'selector': 'app-mine-annoncer'},{'name': 'MinSideComponent', 'selector': 'app-min-side'},{'name': 'OpretAnnonceComponent', 'selector': 'app-opret-annonce'},{'name': 'OpretBrugerComponent', 'selector': 'app-opret-bruger'},{'name': 'RedigerAnnonceComponent', 'selector': 'app-rediger-annonce'},{'name': 'RedigerBrugerComponent', 'selector': 'app-rediger-bruger'},{'name': 'StartsideComponent', 'selector': 'app-startside'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'RedigerBrugerComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'RedigerBrugerComponent.html';
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

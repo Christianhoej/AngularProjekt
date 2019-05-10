@@ -197,43 +197,64 @@
 })
 export class AppComponent {
   title &#x3D; &#x27;angularProjekt&#x27;;
+
 }
 </code></pre>
     </div>
 
     <div class="tab-pane fade " id="c-templateData">
-        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;col-xs-12&quot; style&#x3D;&quot;margin-left: 30px; margin-right: 30px&quot;&gt;
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;col-xs-12&quot;&gt;
   &lt;!--The content below is only a placeholder and can be replaced.--&gt;
-  &lt;app-header&gt;&lt;/app-header&gt;
-  &lt;hr&gt;
+
+  &lt;div class&#x3D;&quot;container&quot;&gt;
+    &lt;app-header&gt;&lt;/app-header&gt;
+    &lt;hr id&#x3D;&quot;hr1&quot;&gt;
+
+  &lt;/div&gt;
+
   &lt;div class &#x3D;&quot;container&quot;&gt;
     &lt;div class&#x3D;&quot;row&quot;&gt;
       &lt;div class&#x3D;&quot;col-xs-12&quot;&gt;
         &lt;router-outlet&gt;&lt;/router-outlet&gt;
+
       &lt;/div&gt;
     &lt;/div&gt;
   &lt;/div&gt;
+
+
+
+
   &lt;div class&#x3D;&quot;container&quot; style&#x3D;&quot;min-height: 300px&quot;&gt;&lt;/div&gt;
-  &lt;div class&#x3D;&quot;col-xs-12&quot;
-       style&#x3D;&quot;background-color: gainsboro; min-height: 200px&quot;&gt;
-    &lt;div class&#x3D;&quot;col-xs-4&quot; style&#x3D;&quot;text-align: center&quot;&gt;
 
-        &lt;h3&gt;Kontakt&lt;/h3&gt;
+  &lt;div class&#x3D;&quot;col-xs-12&quot; id&#x3D;&quot;borderTop&quot;
+       style&#x3D;&quot;min-height: 150px&quot;&gt;
 
+    &lt;div class&#x3D;&quot;col-xs-4&quot; style&#x3D;&quot;text-align: center&quot; id&#x3D;&quot;borderRight1&quot;&gt;
+
+
+      &lt;h4&gt;Kontakt&lt;/h4&gt;
+      Christian Høj
+      &lt;br&gt;
       Email: s175125@student.dtu.dk
+      &lt;br&gt;
+      Tlf: 27823366
 
     &lt;/div&gt;
-    &lt;div class&#x3D;&quot;col-xs-4&quot; style&#x3D;&quot;text-align: center&quot;&gt;
-      &lt;h3&gt;Sikkerhed og vilkår&lt;/h3&gt;
+    &lt;div class&#x3D;&quot;col-xs-4&quot; style&#x3D;&quot;text-align: center&quot; &gt;
+      &lt;h4&gt;Sikkerhed og vilkår&lt;/h4&gt;
+      Find dem her:
     &lt;/div&gt;
-    &lt;div class&#x3D;&quot;col-xs-4&quot; style&#x3D;&quot;text-align: center&quot;&gt;
-      &lt;h3&gt;Følg os på...&lt;/h3&gt;
+
+    &lt;div class&#x3D;&quot;col-xs-4&quot; style&#x3D;&quot;text-align: center&quot; id&#x3D;&quot;borderLeft1&quot;&gt;
+      &lt;h4&gt;Følg os på...&lt;/h4&gt;
+      Facebook
+      &lt;br&gt;
+      Instagram
+      &lt;br&gt;
+      Twitter
     &lt;/div&gt;
   &lt;/div&gt;
 &lt;/div&gt;
-
-
-
 </code></pre>
     </div>
 
@@ -243,6 +264,23 @@ export class AppComponent {
                 </p>
                 <pre class="line-numbers"><code class="language-scss">nav {
   display: inline-block;
+}
+#hr1{
+  border-top: 1px solid;
+  color: #53030e;
+  height: 1px;
+
+}
+#borderLeft1 {
+  border-left: 2px solid #53030e;
+  margin-top: 10px;
+}
+#borderRight1 {
+  border-right: 2px solid #53030e;
+  margin-top: 10px;
+}
+#borderTop {
+  border-top: 2px solid #53030e;
 }
 </code></pre>
     </div>
@@ -272,8 +310,8 @@ export class AppComponent {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div class="col-xs-12" style="margin-left: 30px; margin-right: 30px">  <!--The content below is only a placeholder and can be replaced.-->  <app-header></app-header>  <hr>  <div class ="container">    <div class="row">      <div class="col-xs-12">        <router-outlet></router-outlet>      </div>    </div>  </div>  <div class="container" style="min-height: 300px"></div>  <div class="col-xs-12"       style="background-color: gainsboro; min-height: 200px">    <div class="col-xs-4" style="text-align: center">        <h3>Kontakt</h3>      Email: s175125@student.dtu.dk    </div>    <div class="col-xs-4" style="text-align: center">      <h3>Sikkerhed og vilkår</h3>    </div>    <div class="col-xs-4" style="text-align: center">      <h3>Følg os på...</h3>    </div>  </div></div></div>'
-    var COMPONENTS = [{'name': 'AnnonceComponent', 'selector': 'app-annonce'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'DetaljeretAnnonceComponent', 'selector': 'app-detaljeret-annonce'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'LogIndComponent', 'selector': 'app-log-ind'},{'name': 'OpretAnnonceComponent', 'selector': 'app-opret-annonce'},{'name': 'StartsideComponent', 'selector': 'app-startside'},{'name': 'StartsideKategoriComponent', 'selector': 'app-startside-kategori'}];
+        var COMPONENT_TEMPLATE = '<div><div class="col-xs-12">  <!--The content below is only a placeholder and can be replaced.-->  <div class="container">    <app-header></app-header>    <hr id="hr1">  </div>  <div class ="container">    <div class="row">      <div class="col-xs-12">        <router-outlet></router-outlet>      </div>    </div>  </div>  <div class="container" style="min-height: 300px"></div>  <div class="col-xs-12" id="borderTop"       style="min-height: 150px">    <div class="col-xs-4" style="text-align: center" id="borderRight1">      <h4>Kontakt</h4>      Christian Høj      <br>      Email: s175125@student.dtu.dk      <br>      Tlf: 27823366    </div>    <div class="col-xs-4" style="text-align: center" >      <h4>Sikkerhed og vilkår</h4>      Find dem her:    </div>    <div class="col-xs-4" style="text-align: center" id="borderLeft1">      <h4>Følg os på...</h4>      Facebook      <br>      Instagram      <br>      Twitter    </div>  </div></div></div>'
+    var COMPONENTS = [{'name': 'AnnonceComponent', 'selector': 'app-annonce'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'DetaljeretAnnonceComponent', 'selector': 'app-detaljeret-annonce'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'KategorierComponent', 'selector': 'app-kategorier'},{'name': 'LogIndComponent', 'selector': 'app-log-ind'},{'name': 'MineAnnoncerComponent', 'selector': 'app-mine-annoncer'},{'name': 'MinSideComponent', 'selector': 'app-min-side'},{'name': 'OpretAnnonceComponent', 'selector': 'app-opret-annonce'},{'name': 'OpretBrugerComponent', 'selector': 'app-opret-bruger'},{'name': 'RedigerAnnonceComponent', 'selector': 'app-rediger-annonce'},{'name': 'RedigerBrugerComponent', 'selector': 'app-rediger-bruger'},{'name': 'StartsideComponent', 'selector': 'app-startside'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'AppComponent'};
 </script>
