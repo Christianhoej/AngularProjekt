@@ -2,19 +2,8 @@ nav {
   display: inline-block;
 }
 #hr1{
-  border-top: 1px solid;
+  border-top: 2px solid;
   color: #53030e;
-  height: 1px;
+}
 
-}
-#borderLeft1 {
-  border-left: 2px solid #53030e;
-  margin-top: 10px;
-}
-#borderRight1 {
-  border-right: 2px solid #53030e;
-  margin-top: 10px;
-}
-#borderTop {
-  border-top: 2px solid #53030e;
-}
+

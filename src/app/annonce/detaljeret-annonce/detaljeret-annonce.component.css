@@ -4,7 +4,9 @@
 }
 #borderLeft {
   border-left: 2px solid #53030e;
+  height: 300px;
 }
 #borderRight {
   border-right: 2px solid #53030e;
+  height: 300px;
 }
