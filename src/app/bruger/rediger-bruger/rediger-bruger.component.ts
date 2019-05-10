@@ -38,11 +38,11 @@ export class RedigerBrugerComponent implements OnInit {
     this.redigerForm = this.formBuilder.group({
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
-      birthday: ['', Validators.required, Validators.minLength(4), Validators.maxLength(4)],
+      birthday: ['', [Validators.required, Validators.min(1900), Validators.max(2001)]],
       gender: ['', Validators.required],
       address: ['', Validators.required],
-      zipCode: ['', Validators.required, Validators.minLength(4), Validators.maxLength(4)],
-      phonenumber: ['', Validators.required, Validators.minLength(8), Validators.maxLength(8)],
+      zipCode: ['', [Validators.required, Validators.min(1000), Validators.max(9999)]],
+      phonenumber: ['', [Validators.required, Validators.min(10000000), Validators.max(99999999)]],
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]],
       repeatPassword: ['', Validators.required]
@@ -83,7 +83,6 @@ export class RedigerBrugerComponent implements OnInit {
 
     this.redigerBruger = this.redigerForm.value;
     this.redigerBruger.userId = this.userid;
-    console.log(this.redigerBruger.address);
     this.brugerService.redigerBruger(this.redigerBruger)
       .subscribe(
         (response) => {

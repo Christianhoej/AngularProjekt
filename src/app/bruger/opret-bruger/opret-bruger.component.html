@@ -7,21 +7,21 @@
               <label>Fornavn</label>
               <input type="text" class="form-control" formControlName="firstName"  [ngClass]="{ 'is-invalid': submitted && f.firstName.errors}">
               <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
-                <div *ngIf="f.firstName.errors.required">Fornavn skal indtastes</div>
+                <div *ngIf="f.firstName.errors.required" style="color: #FF0000;"><i>Fornavn skal indtastes</i></div>
               </div>
             </div>
             <div class="form-group">
               <label>Efternavn</label>
               <input type="text" class="form-control" formControlName="lastName" [ngClass]="{ 'is-invalid': submitted && f.lastName.errors}">
               <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
-                <div *ngIf="f.lastName.errors.required">Efternavn skal indtastes</div>
+                <div *ngIf="f.lastName.errors.required" style="color: #FF0000;"><i>Efternavn skal indtastes</i></div>
               </div>
             </div>
             <div class="form-group">
               <label>Fødselsår</label>
               <input type="number" class="form-control" formControlName="birthday"[ngClass]="{ 'is-invalid': submitted && f.birthday.errors}">
               <div *ngIf="submitted && f.birthday.errors" class="invalid-feedback">
-                <div *ngIf="f.birthday.errors.required">Fødselsår skal indtastes</div>
+                <div *ngIf="f.birthday.errors.required" style="color: #FF0000;"><i>Fødselsår skal indtastes</i></div>
               </div>
             </div>
             <div class="form-group">
@@ -31,14 +31,14 @@
                 <option style="cursor: pointer; size: 10px" *ngFor="let kon of genders">{{kon}}</option>
               </select>
               <div *ngIf="submitted && f.gender.errors" class="invalid-feedback">
-                <div *ngIf="f.gender.errors.required">Køn skal vælges</div>
+                <div *ngIf="f.gender.errors.required" style="color: #FF0000;"><i>Køn skal vælges</i></div>
               </div>
             </div>
             <div class="form-group">
               <label>Adresse</label>
               <input type="text" class="form-control" formControlName="address" [ngClass]="{ 'is-invalid': submitted && f.address.errors}">
               <div *ngIf="submitted && f.address.errors" class="invalid-feedback">
-                <div *ngIf="f.address.errors.required">Adresse skal indtastes</div>
+                <div *ngIf="f.address.errors.required" style="color: #FF0000;"><i>Adresse skal indtastes</i></div>
               </div>
             </div>
           </div>
@@ -47,38 +47,40 @@
               <label>Postnummer</label>
               <input type="number" class="form-control" formControlName="zipCode" [ngClass]="{ 'is-invalid': submitted && f.zipCode.errors}">
               <div *ngIf="submitted && f.zipCode.errors" class="invalid-feedback">
-                <div *ngIf="f.zipCode.errors.required">Postnummer skal indtastes</div>
+                <div *ngIf="f.zipCode.errors.required" style="color: #FF0000;"><i>Postnummer skal indtastes</i></div>
               </div>
             </div>
             <div class="form-group">
               <label>Telefonnummer</label>
               <input type="number" class="form-control" formControlName="phonenumber" [ngClass]="{ 'is-invalid': submitted && f.phonenumber.errors}">
               <div *ngIf="submitted && f.phonenumber.errors" class="invalid-feedback">
-                <div *ngIf="f.phonenumber.errors.required">Telefonnummer skal indtastes</div>
+                <div *ngIf="f.phonenumber.errors.required" style="color: #FF0000;"><i>Telefonnummer skal indtastes</i></div>
               </div>
             </div>
             <div class="form-group">
               <label>Email</label>
               <input type="text" class="form-control" formControlName="email" [ngClass]="{ 'is-invalid': submitted && f.email.errors}">
               <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
-                <div *ngIf="f.email.errors.required">Email skal indtastes</div>
-                <div *ngIf="f.email.errors.email">Det indtastede skal være en emailadresse</div>
+                <div *ngIf="f.email.errors.required" style="color: #FF0000;"><i>Email skal indtastes</i></div>
+                <div *ngIf="f.email.errors.email" style="color: #FF0000;"><i>Den indtastede mail er ugyldig</i></div>
+                <div *ngIf="registrerForm.get('email').errors.alreadyExist" style="color: #FF0000;"><i>{{emailExistError}}</i></div>
+
               </div>
             </div>
             <div class="form-group">
               <label>Kodeord</label>
               <input type="password" class="form-control" formControlName="password"  [ngClass]="{ 'is-invalid': submitted && f.password.errors}">
               <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
-                <div *ngIf="f.password.errors.required">Kodeord skal indtastes</div>
-                <div *ngIf="f.password.errors.minlength">Kodeordet skal være mindst 6 karakterer langt</div>
+                <div *ngIf="f.password.errors.required" style="color: #FF0000;"><i>Kodeord skal indtastes</i></div>
+                <div *ngIf="f.password.errors.minlength" style="color: #FF0000;"><i>Kodeordet skal være mindst 6 karakterer langt</i></div>
               </div>
             </div>
             <div class="form-group">
               <label>Gentag kodeord</label>
               <input type="password" class="form-control" formControlName="repeatPassword" [ngClass]="{ 'is-invalid': submitted && f.repeatPassword.errors}">
               <div *ngIf="submitted && f.repeatPassword.errors" class="invalid-feedback">
-                <div *ngIf="f.repeatPassword.errors.required">Kodeord skal indtastes</div>
-                <div *ngIf="f.repeatPassword.errors.checkequals">Kodeordene skal være ens</div>
+                <div *ngIf="f.repeatPassword.errors.required" style="color: #FF0000;"><i>Kodeord skal indtastes</i></div>
+                <div *ngIf="f.repeatPassword.errors.checkequals" style="color: #FF0000;"><i>Kodeordene skal være ens</i></div>
               </div>
             </div>
             <div class="form-group">

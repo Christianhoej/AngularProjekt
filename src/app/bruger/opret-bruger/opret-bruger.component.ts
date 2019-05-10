@@ -1,10 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {AbstractControl, FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Bruger} from '../Models/bruger.model';
 import {BrugerService} from '../services/bruger.service';
 import {Checkequals} from '../../Shared/checkequals';
 import {Replacer} from '../services/replacer.service';
 import {Router} from '@angular/router';
+import {catchError, map} from 'rxjs/operators';
+import {Observable, ObservableInput, of} from 'rxjs';
+import {applySourceSpanToExpressionIfNeeded} from '@angular/compiler/src/output/output_ast';
+import {AjaxObservable} from 'rxjs/internal-compatibility';
 
 @Component({
   selector: 'app-opret-bruger',
@@ -16,6 +20,7 @@ export class OpretBrugerComponent implements OnInit {
   submitted = false;
   opretBruger: Bruger;
   genders = ['Mand', 'Kvinde', 'Andet'];
+  emailExistError: string = '';
 
   constructor(private brugerService: BrugerService,
               private formBuilder: FormBuilder,
@@ -30,13 +35,27 @@ export class OpretBrugerComponent implements OnInit {
       address: ['', Validators.required],
       zipCode: ['', Validators.required],
       phonenumber: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]],
+      email: ['', [Validators.required, Validators.email], this.checkEmail.bind(this)],
       password: ['', [Validators.required, Validators.minLength(6)]],
       repeatPassword: ['', Validators.required]
     }, {
       validator: Checkequals('password', 'repeatPassword')
     });
 
+  }
+
+  checkEmail(control: AbstractControl) {
+    return this.brugerService.chechEmail(control.value).pipe(map(
+        res => {
+          return null;
+        }
+      ),
+     catchError(err => {
+        this.emailExistError= err.error.fix
+
+        return err ? of({alreadyExist: true}) : of(null) ;
+      })
+    );
   }
 
   get f() {return this.registrerForm.controls;}

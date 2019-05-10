@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormGroup, NgForm, Validators} from '@angular/forms';
+import {FormBuilder} from '@angular/forms';
 import {Bruger} from '../Models/bruger.model';
 import {BrugerService} from '../services/bruger.service';
 import {Annonce} from '../../models/annonce.model';
-import {Checkequals} from '../../Shared/checkequals';
-import {Replacer} from '../services/replacer.service';
 import {Router} from '@angular/router';
 
 @Component({
@@ -18,15 +16,16 @@ export class MinSideComponent implements OnInit {
   bruger: Bruger;
 
 
-  constructor(private brugerService: BrugerService,
-              private formBuilder: FormBuilder,
-              private router: Router) { }
+  constructor(private brugerService: BrugerService) { }
 
   ngOnInit() {
     this.bruger = this.brugerService.bruger;
     this.brugerService.getMineAnnoncer(this.brugerService.bruger)
       .subscribe(
         (annoncer: Annonce[]) => {this.mineAnnoncer = annoncer;
+        },
+        (error) => {
+          console.log(error);
         }
       );
   }

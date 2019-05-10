@@ -30,8 +30,8 @@ export class AnnonceService {
     return this.http.get(this.resourceURL.adsCategoryURL + '/' + kategori);
   }
 
-  redigerAnnonce(annonce: Annonce, id: string) {
-    return this.http.put(this.resourceURL.adsURL + '/' + id, annonce);
+  redigerAnnonce(annonce: Annonce) {
+    return this.http.put(this.resourceURL.adsURL + '/' + annonce.adId, annonce);
   }
 
   sletAnnonce(id: string) {
