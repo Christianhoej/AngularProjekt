@@ -1,12 +1,13 @@
 import {Component, Input, OnDestroy, OnInit} from '@angular/core';
-import {Subscription} from 'rxjs';
+import {Observable, Subscription} from 'rxjs';
 import {KategoriService} from './kategorier/kategori.service';
 import {Kategorier} from './kategorier/kategorier.model';
 import {AnnonceService} from '../annonce/annonce.service';
 import {Annonce} from '../models/annonce.model';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Data} from '@angular/router';
 import {BrugerService} from '../bruger/services/bruger.service';
 import {HeaderComponent} from '../header/header.component';
+import {AnnonceListResolver} from '../annonce/annonce-list-resolver.service';
 
 @Component({
   selector: 'app-startside',
@@ -16,14 +17,15 @@ import {HeaderComponent} from '../header/header.component';
 export class StartsideComponent implements OnInit, OnDestroy {
 
   headerComponent: HeaderComponent;
-  annoncer: Annonce[];
+  annoncer: Observable<Array<any>>;
   kategorier: Kategorier[];
   subscription: Subscription;
   erLoggetInd = false;
   @Input() valgtKategori;
   constructor(private kategoriService: KategoriService,
               private brugerService: BrugerService,
-              private annonceService: AnnonceService) {
+              private annonceService: AnnonceService,
+              private route: ActivatedRoute) {
     /*
     this.subscription = this.brugerService.loggetInd.subscribe(
     (logind: boolean) => {
@@ -41,17 +43,29 @@ export class StartsideComponent implements OnInit, OnDestroy {
       .subscribe(
       (valgt: string) => {
         if(valgt=='Alle' || valgt==''){
+          /*this.route.data
+            .subscribe(
+              (data: Data[]) => {
+                this.annoncer = data['annoncer'];
+              }
+            );
+          /**/
           this.annonceService.getAnnoncer()
             .subscribe(
-              (annoncer: Annonce[]) => {
+              (annoncer: any) => {
                 this.annoncer = annoncer;
               }
             );
         } else {
           this.annonceService.filtrerAnnonce(valgt)
             .subscribe(
-              (annoncer: Annonce[]) => {
+              (annoncer: any) => {
                 this.annoncer = annoncer;
+                // this.annoncer.forEach((
+                //   (annonce) => {
+                //     annonce.email = annonce.user.email;
+                //   }
+                // ))
               }
             );
         }
@@ -60,7 +74,7 @@ export class StartsideComponent implements OnInit, OnDestroy {
 
     this.annonceService.getAnnoncer()
       .subscribe(
-        (annoncer: Annonce[]) => {this.annoncer = annoncer;
+        (annoncer: any) => {this.annoncer = annoncer;
         }
       );
     this.kategoriService.getKategorier()

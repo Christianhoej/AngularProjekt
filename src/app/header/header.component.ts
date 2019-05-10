@@ -11,12 +11,14 @@ import {KategoriService} from '../startside/kategorier/kategori.service';
 export class HeaderComponent implements OnDestroy {
   subscription: Subscription;
   erLoggetInd = false;
+  userid: string;
   constructor(private brugerService: BrugerService,
               private kategoriService: KategoriService) {
     this.subscription = this.brugerService.loggetInd.subscribe(
       (logind: boolean) => {
         if (logind) {
           this.erLoggetInd = true;
+          this.userid = this.brugerService.bruger.userId;
         } else {
           this.erLoggetInd = false;
         }
@@ -42,6 +44,7 @@ export class HeaderComponent implements OnDestroy {
   loadStartside(){
     this.kategoriService.kategoriValgt.next('');
   }
+
 
 
 

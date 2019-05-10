@@ -2,102 +2,55 @@
 <div class="container">
   <div class="row">
     <h3>Mine oplysninger</h3>
-    <form [formGroup]="aendreForm" (ngSubmit)="onRedigerBruger()">
-      <div class="col-md-4">
-        <div class="form-group">
-          <label>Fornavn</label>
-          <input type="text" class="form-control" formControlName="fornavnOpret" [(ngModel)]="bruger.firstName"  [ngClass]="{ 'is-invalid': submitted && f.fornavnOpret.errors}">
-          <div *ngIf="submitted && f.fornavnOpret.errors" class="invalid-feedback">
-            <div *ngIf="f.fornavnOpret.errors.required">Fornavn skal indtastes</div>
-          </div>
-        </div>
-        <div class="form-group">
-          <label>Efternavn</label>
-          <input type="text" class="form-control" formControlName="efternavnOpret" [(ngModel)]="bruger.lastName" [ngClass]="{ 'is-invalid': submitted && f.efternavnOpret.errors}">
-          <div *ngIf="submitted && f.efternavnOpret.errors" class="invalid-feedback">
-            <div *ngIf="f.efternavnOpret.errors.required">Efternavn skal indtastes</div>
-          </div>
-        </div>
-        <div class="form-group">
-          <label>Fødselsår</label>
-          <input type="number" class="form-control" formControlName="fodselsarOpret" [(ngModel)]="bruger.birthday" [ngClass]="{ 'is-invalid': submitted && f.fodselsarOpret.errors}">
-          <div *ngIf="submitted && f.fodselsarOpret.errors" class="invalid-feedback">
-            <div *ngIf="f.fodselsarOpret.errors.required">Fødselsår skal indtastes</div>
-          </div>
-        </div>
-        <div class="form-group">
-          <label>Køn</label>
-          <select class="form-control" formControlName="konOpret" [(ngModel)]="bruger.gender" [ngClass]="{ 'is-invalid': submitted && f.konOpret.errors}">
-            <option style="cursor: pointer; size: 10px" >Mand</option>
-            <option style="cursor: pointer; size: 10px" >Kvinde</option>
-            <option style="cursor: pointer; size: 10px" >Andet</option>
-          </select>
-          <div *ngIf="submitted && f.konOpret.errors" class="invalid-feedback">
-            <div *ngIf="f.konOpret.errors.required">Køn skal vælges</div>
-          </div>
-        </div>
-        <div class="form-group">
-          <label>Adresse</label>
-          <input type="text" class="form-control" formControlName="adresseOpret" [(ngModel)]="bruger.address" [ngClass]="{ 'is-invalid': submitted && f.adresseOpret.errors}">
-          <div *ngIf="submitted && f.adresseOpret.errors" class="invalid-feedback">
-            <div *ngIf="f.adresseOpret.errors.required">Adresse skal indtastes</div>
-          </div>
-        </div>
-      </div>
-      <div  class="col-xs-4" >
-        <div class="form-group">
-          <label>Postnummer</label>
-          <input type="number" class="form-control" formControlName="postnrOpret" [(ngModel)]="bruger.zipCode" [ngClass]="{ 'is-invalid': submitted && f.postnrOpret.errors}">
-          <div *ngIf="submitted && f.postnrOpret.errors" class="invalid-feedback">
-            <div *ngIf="f.postnrOpret.errors.required">Postnummer skal indtastes</div>
-          </div>
-        </div>
-        <div class="form-group">
-          <label>Telefonnummer</label>
-          <input type="number" class="form-control" formControlName="tlfnrOpret" [(ngModel)]="bruger.phonenumber" [ngClass]="{ 'is-invalid': submitted && f.tlfnrOpret.errors}">
-          <div *ngIf="submitted && f.tlfnrOpret.errors" class="invalid-feedback">
-            <div *ngIf="f.tlfnrOpret.errors.required">Telefonnummer skal indtastes</div>
-          </div>
-        </div>
-        <div class="form-group">
-          <label>Email</label>
-          <input type="text" class="form-control" formControlName="emailOpret" [(ngModel)]="bruger.email" [ngClass]="{ 'is-invalid': submitted && f.emailOpret.errors}">
-          <div *ngIf="submitted && f.emailOpret.errors" class="invalid-feedback">
-            <div *ngIf="f.emailOpret.errors.required">Email skal indtastes</div>
-            <div *ngIf="f.emailOpret.errors.email">Det indtastede skal være en emailadresse</div>
-          </div>
-        </div>
-        <div class="form-group">
-          <label>Kodeord</label>
-          <input type="password" class="form-control" formControlName="kodeordOpret"  [ngClass]="{ 'is-invalid': submitted && f.kodeordOpret.errors}">
-          <div *ngIf="submitted && f.kodeordOpret.errors" class="invalid-feedback">
-            <div *ngIf="f.kodeordOpret.errors.required">Kodeord skal indtastes</div>
-            <div *ngIf="f.kodeordOpret.errors.minlength">Kodeordet skal være mindst 6 karakterer langt</div>
-          </div>
-        </div>
-        <div class="form-group">
-          <label>Gentag kodeord</label>
-          <input type="password" class="form-control" formControlName="gentagKodeordOpret" [ngClass]="{ 'is-invalid': submitted && f.gentagKodeordOpret.errors}">
-          <div *ngIf="submitted && f.gentagKodeordOpret.errors" class="invalid-feedback">
-            <div *ngIf="f.gentagKodeordOpret.errors.required">Kodeord skal indtastes</div>
-            <div *ngIf="f.gentagKodeordOpret.errors.checkequals">Kodeordene skal være ens</div>
-          </div>
-        </div>
-        <div class="form-group">
-          <button class="btn btn-primary" type="submit">Opret bruger</button>
-        </div>
-      </div>
-    </form>
+    <div class="col-xs-5">
+      <table>
+        <tr>
+          <th>Fornavn</th>
+          <td><h4 style="margin-left: 15px">{{bruger.firstName}}</h4></td>
+        </tr>
+        <tr style="margin-top: 10px">
+          <th>Efternavn</th>
+          <td><h4 style="margin-left: 15px">{{bruger.lastName}}</h4></td>
+        </tr>
+        <tr style="margin-top: 10px">
+          <th>Fødselsår</th>
+          <td><h4 style="margin-left: 15px">{{bruger.birthday}}</h4></td>
+        </tr>
+        <tr style="margin-top: 10px">
+          <th>Køn</th>
+          <td><h4 style="margin-left: 15px">{{bruger.gender}}</h4></td>
+        </tr>
+        <tr style="margin-top: 10px">
+          <th>Adresse</th>
+          <td><h4 style="margin-left: 15px">{{bruger.address}}</h4></td>
+        </tr>
+        <tr style="margin-top: 10px">
+          <th>Postnummer</th>
+          <td><h4 style="margin-left: 15px">{{bruger.zipCode}}</h4></td>
+        </tr>
+        <tr style="margin-top: 10px">
+          <th>Telefonnummer</th>
+          <td><h4 style="margin-left: 15px">{{bruger.phonenumber}}</h4></td>
+        </tr>
+        <tr style="margin-top: 10px">
+          <th>Email</th>
+          <td><h4 style="margin-left: 15px">{{bruger.email}}</h4></td>
+        </tr>
+      </table>
+      <br>
+      <button class="btn btn-primary" [routerLink]="['/min_side',bruger.userId,'rediger']">Rediger oplysninger</button>
+    </div>
   </div>
-
-  <hr>
-  <div class="col-xs-12">
+  <div class="row">
+    <hr>
     <h3>Mine annoncer</h3>
-    <div class="grid-container">
-      <app-mine-annoncer *ngFor="let minAnnonce of mineAnnoncer, let i = index"
+    <div class="col-xs-12">
+      <div class="grid-container">
+        <app-mine-annoncer *ngFor="let minAnnonce of mineAnnoncer, let i = index"
                          [id]="minAnnonce.adId"
                          [index]="minAnnonce.header"
                          [minAnnonce]="minAnnonce"></app-mine-annoncer>
+      </div>
     </div>
   </div>
 </div>

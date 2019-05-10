@@ -12,11 +12,13 @@ import {AnnonceService} from './annonce/annonce.service';
 import {MinSideComponent} from './bruger/min-side/min-side.component';
 import {RedigerAnnonceComponent} from './annonce/rediger-annonce/rediger-annonce.component';
 import {AuthGuard} from './auth-guard.service';
+import {AnnonceListResolver} from './annonce/annonce-list-resolver.service';
+import {RedigerBrugerComponent} from './bruger/rediger-bruger/rediger-bruger.component';
 
 
 const appRoutes: Routes = [
   {path: '', redirectTo: '/startside', pathMatch: 'full'},
-  {path: 'startside', component: StartsideComponent, children: [
+  {path: 'startside', component: StartsideComponent, /*resolve: {annoncer: AnnonceListResolver},*/ children: [
       { path: '', component: StartsideComponent },
       { path: ':id', component: StartsideComponent },
     ] },
@@ -25,7 +27,8 @@ const appRoutes: Routes = [
   {path: 'detaljeret_annonce', component: DetaljeretAnnonceComponent},
 
   {path: 'log_ind', component: LogIndComponent},
-  {path: 'min_side', component: MinSideComponent},
+  {path: 'min_side/:userID', component: MinSideComponent},
+  {path: 'min_side/:userID/rediger', component: RedigerBrugerComponent},
   {path: 'rediger_annonce/:id', component: RedigerAnnonceComponent},
 
 

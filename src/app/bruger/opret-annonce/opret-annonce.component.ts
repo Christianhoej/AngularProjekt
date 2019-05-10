@@ -83,7 +83,9 @@ export class OpretAnnonceComponent implements OnInit {
    /* this.today = new Date();
     this.opretAnnonce.date = this.today.toDateString().toString();
     console.log(this.opretAnnonce.date + 'DAAAATE')*/
+   console.log(this.opretAnnonce.user);
     this.opretAnnonce.date = 'hej';
+    this.opretAnnonce.email = this.brugerService.bruger.email;
     console.log(this.opretAnnonce.description)
     this.annonceService.opretAnnonce(this.opretAnnonce)
       .subscribe(
