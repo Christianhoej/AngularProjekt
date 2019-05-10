@@ -25,7 +25,7 @@ export class LogIndComponent implements OnInit {
     this.brugerService.logind(form.value.email, form.value.password)
       .subscribe(
         (bruger: Bruger) => {this.brugerService.bruger = bruger;
-                                  console.log(this.brugerService.bruger.userId);
+                                  console.log(this.brugerService.bruger.email);
                                   if(this.brugerService.bruger!=null){
                                     this.brugerService.loggetInd.next(true);
                                   }
