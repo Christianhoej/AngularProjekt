@@ -9,7 +9,7 @@ import * as _ from 'lodash';
 import {Kategorier} from '../../startside/kategorier/kategorier.model';
 import {BrugerService} from '../services/bruger.service';
 import {Replacer} from '../services/replacer.service';
-import {Router} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {timestamp} from 'rxjs/operators';
 
 
@@ -40,7 +40,9 @@ export class OpretAnnonceComponent implements OnInit {
               private http: HttpClient,
               private formBuilder: FormBuilder,
               private brugerService: BrugerService,
-              private router: Router
+              private router: Router,
+              private route: ActivatedRoute
+
               ) { }
 
   ngOnInit() {
@@ -83,7 +85,7 @@ export class OpretAnnonceComponent implements OnInit {
    /* this.today = new Date();
     this.opretAnnonce.date = this.today.toDateString().toString();
     console.log(this.opretAnnonce.date + 'DAAAATE')*/
-   console.log(this.opretAnnonce.user);
+    console.log(this.opretAnnonce.user);
     this.opretAnnonce.date = 'hej';
     this.opretAnnonce.email = this.brugerService.bruger.email;
     console.log(this.opretAnnonce.description)
@@ -91,9 +93,9 @@ export class OpretAnnonceComponent implements OnInit {
       .subscribe(
         (response) => {
           console.log(response);
-          if ( response === true) {
-            alert('Du er blevet oprettet! Log ind for at oprette en annonce\n\n (SKAL IKKE VÆRE HER)');
-            this.router.navigate(['/min_side']);
+          if ( response ) {
+            alert('ORPETTET\n\n (SKAL IKKE VÆRE HER)');
+            this.router.navigate(['/startside']);
           }
         },
         (error) => console.log(error)

@@ -36,24 +36,24 @@ export class RedigerBrugerComponent implements OnInit {
 
     this.bruger = this.brugerService.bruger;
     this.redigerForm = this.formBuilder.group({
-      fornavnOpret: ['', Validators.required],
-      efternavnOpret: ['', Validators.required],
-      fodselsarOpret: ['', Validators.required],
-      konOpret: ['', Validators.required],
-      adresseOpret: ['', Validators.required],
-      postnrOpret: ['', Validators.required],
-      tlfnrOpret: ['', Validators.required],
-      emailOpret: ['', [Validators.required, Validators.email]],
-      kodeordOpret: ['', [Validators.required, Validators.minLength(6)]],
-      gentagKodeordOpret: ['', Validators.required]
+      firstName: ['', Validators.required],
+      lastName: ['', Validators.required],
+      birthday: ['', Validators.required, Validators.minLength(4), Validators.maxLength(4)],
+      gender: ['', Validators.required],
+      address: ['', Validators.required],
+      zipCode: ['', Validators.required, Validators.minLength(4), Validators.maxLength(4)],
+      phonenumber: ['', Validators.required, Validators.minLength(8), Validators.maxLength(8)],
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(6)]],
+      repeatPassword: ['', Validators.required]
     }, {
-      validator: Checkequals('kodeordOpret', 'gentagKodeordOpret')
+      validator: Checkequals('password', 'repeatPassword')
     });
   }
 
   get f() {return this.redigerForm.controls;}
 
-  onRedigerBruger(form: NgForm) {
+  onRedigerBruger() {
     /*
     const email = form.value.emailOpret;
     const kodeord = form.value.kodeordOpret;
@@ -77,17 +77,17 @@ export class RedigerBrugerComponent implements OnInit {
       );
       */
     this.submitted = true;
-    if(this.redigerForm.invalid) {
-      return
+    if (this.redigerForm.invalid) {
+      return;
     }
 
     this.redigerBruger = this.redigerForm.value;
     this.redigerBruger.userId = this.userid;
-    console.log(this.redigerBruger.userId);
+    console.log(this.redigerBruger.address);
     this.brugerService.redigerBruger(this.redigerBruger)
       .subscribe(
         (response) => {
-          this.router.navigate(['/min_side', this.brugerService.bruger.userId])
+          this.router.navigate(['/min_side', this.brugerService.bruger.userId]);
         }
       );
 

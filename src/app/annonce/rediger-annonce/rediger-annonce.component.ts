@@ -5,6 +5,7 @@ import {AnnonceService} from '../annonce.service';
 import {KategoriService} from '../../startside/kategorier/kategori.service';
 import {Kategorier} from '../../startside/kategorier/kategorier.model';
 import {NgForm} from '@angular/forms';
+import {BrugerService} from '../../bruger/services/bruger.service';
 
 @Component({
   selector: 'app-rediger-annonce',
@@ -17,10 +18,11 @@ export class RedigerAnnonceComponent implements OnInit {
   nyAnnonce: Annonce;
   key: string;
   kategorier: Kategorier[];
+
   constructor(private annonceService: AnnonceService,
               private route: ActivatedRoute,
               private kategoriService: KategoriService,
-              private router: Router) { }
+              private router: Router, private brugerService: BrugerService) { }
 
   ngOnInit() {
     this.route.params
@@ -57,9 +59,9 @@ export class RedigerAnnonceComponent implements OnInit {
     this.annonceService.redigerAnnonce(this.nyAnnonce, this.id)
       .subscribe(
         (response) => {
-          this.router.navigate(['/min_side'])
+          this.router.navigate(['/min_side', this.brugerService.bruger.userId]);
         },
-      (error) => {console.log(error)}
+      (error) => {console.log(error); }
       );
 
   }

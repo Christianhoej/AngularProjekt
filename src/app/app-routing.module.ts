@@ -32,7 +32,8 @@ const appRoutes: Routes = [
   {path: 'rediger_annonce/:id', component: RedigerAnnonceComponent},
 
 
-  {path: 'opret_annonce',  component: OpretAnnonceComponent},
+  {path: 'opret_annonce',  component: OpretAnnonceComponent, canActivate: [AuthGuard]},
+
   {path: 'opret_bruger', component: OpretBrugerComponent},
   {path: '**', redirectTo: '', pathMatch: 'full'}
 ];
