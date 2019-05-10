@@ -15,8 +15,8 @@ export class AnnonceService {
   annoncer: Annonce[];
   annonce: Annonce;
 
-  constructor(private http: HttpClient, private resourceURL: ResourceURLService,
-              private annonceDataService: AnnonceDataService)  { }
+  constructor(private http: HttpClient,
+              private resourceURL: ResourceURLService,)  { }
 
   getAnnoncer() {
     return this.http.get(this.resourceURL.adsURL);

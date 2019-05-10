@@ -22,6 +22,8 @@ import { RedigerAnnonceComponent } from './annonce/rediger-annonce/rediger-annon
 import {BrugerService} from './bruger/services/bruger.service';
 import {AuthGuard} from './auth-guard.service';
 import { MineAnnoncerComponent } from './annonce/mine-annoncer/mine-annoncer.component';
+import {AnnonceListResolver} from './annonce/annonce-list-resolver.service';
+import { RedigerBrugerComponent } from './bruger/rediger-bruger/rediger-bruger.component';
 
 
 @NgModule({
@@ -37,7 +39,8 @@ import { MineAnnoncerComponent } from './annonce/mine-annoncer/mine-annoncer.com
     KategorierComponent,
     MinSideComponent,
     RedigerAnnonceComponent,
-    MineAnnoncerComponent
+    MineAnnoncerComponent,
+    RedigerBrugerComponent
   ],
 
   imports: [
@@ -48,7 +51,7 @@ import { MineAnnoncerComponent } from './annonce/mine-annoncer/mine-annoncer.com
     ReactiveFormsModule
   ],
 
-  providers: [AnnonceService, KategoriService, AnnonceDataService, ResourceURLService, BrugerService, AuthGuard],
+  providers: [AnnonceService, KategoriService, AnnonceDataService, ResourceURLService, BrugerService, AuthGuard, AnnonceListResolver],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

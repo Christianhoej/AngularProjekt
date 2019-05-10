@@ -24,7 +24,8 @@ export class BrugerService {
   }
 
   redigerBruger(bruger: Bruger) {
-    return this.http.put(this.resourceURL.usersURL + '/id', bruger);
+    console.log(bruger.userId + ' kommet her til')
+    return this.http.put(this.resourceURL.usersURL + '/' + bruger.userId, bruger);
   }
 
   getMineAnnoncer(bruger: Bruger) {

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute, Params} from '@angular/router';
+import {ActivatedRoute, Params, Router} from '@angular/router';
 import {Annonce} from '../../models/annonce.model';
 import {AnnonceService} from '../annonce.service';
 import {KategoriService} from '../../startside/kategorier/kategori.service';
@@ -17,7 +17,10 @@ export class RedigerAnnonceComponent implements OnInit {
   nyAnnonce: Annonce;
   key: string;
   kategorier: Kategorier[];
-  constructor(private annonceService: AnnonceService, private route: ActivatedRoute, private kategoriService: KategoriService) { }
+  constructor(private annonceService: AnnonceService,
+              private route: ActivatedRoute,
+              private kategoriService: KategoriService,
+              private router: Router) { }
 
   ngOnInit() {
     this.route.params
@@ -27,11 +30,14 @@ export class RedigerAnnonceComponent implements OnInit {
           this.id = params[this.key];
           this.annonceService.getAnnonce(this.id)
             .subscribe(
-              (annonce: Annonce) => {this.annonce = annonce;
+              (annonce: Annonce) => {
+                this.annonce = annonce;
+                this.annonce.email = this.annonce.user.email;
               }
             );
         }
       );
+
     this.kategoriService.getKategorier()
       .subscribe(
         (kategorier: Kategorier[]) => {this.kategorier = kategorier;
@@ -50,9 +56,12 @@ export class RedigerAnnonceComponent implements OnInit {
 
     this.annonceService.redigerAnnonce(this.nyAnnonce, this.id)
       .subscribe(
-        (response) => {console.log(response)},
+        (response) => {
+          this.router.navigate(['/min_side'])
+        },
       (error) => {console.log(error)}
       );
+
   }
 
   sletAnnonce(){
@@ -61,7 +70,7 @@ export class RedigerAnnonceComponent implements OnInit {
         (respone) => {console.log(respone)},
         (error) => {console.log(error)}
       );
-
+    this.router.navigate(['/min_side'])
   }
 
 }

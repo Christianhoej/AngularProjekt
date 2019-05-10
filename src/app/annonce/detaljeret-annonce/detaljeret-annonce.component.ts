@@ -35,7 +35,7 @@ export class DetaljeretAnnonceComponent implements OnInit {
 
                 //this.bruger = annonce['user'];
                 this.annonce = annonce;
-                console.log(this.annonce.user.email);
+                this.annonce.email = this.annonce.user.email;
 
 
                 //this.annonce = JSON.parse(annonce);
