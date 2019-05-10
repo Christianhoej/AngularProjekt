@@ -41,9 +41,8 @@
 
     <div class="collapse navbar-collapse">
       <ul class="nav navbar-nav navbar-right">
-
-        <li routerLinkActive="active" [routerLink]="['/min_side', userid]"  >
           <button
+            routerLinkActive="active" [routerLink]="['/min_side', userid]"
             style="margin-right: 50px; margin-top: 20px"
             type="button"
             class="btn btn-toolbar "
@@ -51,10 +50,14 @@
             >
             Min side
           </button>
-        </li>
-        <li routerLinkActive="active" routerLink="/log_ind">
-          <button style="margin-top: 20px" type="button" class="btn btn-primary" (click)="logind()"> {{erLoggetInd ? 'Log ud' : 'Log ind'}}</button>
-        </li>
+          <button
+            routerLinkActive="active"
+            routerLink="/log_ind"
+            style="margin-top: 20px"
+            type="button"
+            class="btn btn-primary"
+            (click)="logind()"> {{erLoggetInd ? 'Log ud' : 'Log ind'}}
+          </button>
       </ul>
     </div>
   </div>
