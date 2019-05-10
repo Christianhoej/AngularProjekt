@@ -73,22 +73,44 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {NgModule} from &#x27;@angular/core&#x27;;
 import {RouterModule, Routes} from &#x27;@angular/router&#x27;;
 import {StartsideComponent} from &#x27;./startside/startside.component&#x27;;
-import {StartsideKategoriComponent} from &#x27;./startside-kategori/startside-kategori.component&#x27;;
-import {DetaljeretAnnonceComponent} from &#x27;./annonce/detaljeret-annonce/detaljeret-annonce.component&#x27;;
-import {LogIndComponent} from &#x27;./log-ind/log-ind.component&#x27;;
-import {OpretAnnonceComponent} from &#x27;./annonce/opret-annonce/opret-annonce.component&#x27;;
+import { DetaljeretAnnonceComponent } from &#x27;./annonce/detaljeret-annonce/detaljeret-annonce.component&#x27;;
+
+import {LogIndComponent} from &#x27;./bruger/log-ind/log-ind.component&#x27;;
+import { OpretAnnonceComponent } from &#x27;./bruger/opret-annonce/opret-annonce.component&#x27;;
+import {HttpClientModule} from &#x27;@angular/common/http&#x27;;
+import {OpretBrugerComponent} from &#x27;./bruger/opret-bruger/opret-bruger.component&#x27;;
+import { AnnonceComponent } from &#x27;./annonce/annonce.component&#x27;;
+import {AnnonceService} from &#x27;./annonce/annonce.service&#x27;;
+import {MinSideComponent} from &#x27;./bruger/min-side/min-side.component&#x27;;
+import {RedigerAnnonceComponent} from &#x27;./annonce/rediger-annonce/rediger-annonce.component&#x27;;
+import {AuthGuard} from &#x27;./auth-guard.service&#x27;;
+import {AnnonceListResolver} from &#x27;./annonce/annonce-list-resolver.service&#x27;;
+import {RedigerBrugerComponent} from &#x27;./bruger/rediger-bruger/rediger-bruger.component&#x27;;
+
 
 const appRoutes: Routes &#x3D; [
   {path: &#x27;&#x27;, redirectTo: &#x27;/startside&#x27;, pathMatch: &#x27;full&#x27;},
-  {path: &#x27;startside&#x27;, component: StartsideComponent},
-  {path: &#x27;startside_kategori&#x27;, component: StartsideKategoriComponent},
-  {path: &#x27;detaljeret_annonce&#x27;, component: DetaljeretAnnonceComponent},
+  {path: &#x27;startside&#x27;, component: StartsideComponent, /*resolve: {annoncer: AnnonceListResolver},*/ children: [
+      { path: &#x27;&#x27;, component: StartsideComponent },
+      { path: &#x27;:id&#x27;, component: StartsideComponent },
+    ] },
+  {path: &#x27;detaljeret_annonce/:id&#x27;, component: DetaljeretAnnonceComponent},
+  // {path: &#x27;detaljeret_annonce&#x27;, component: DetaljeretAnnonceComponent},
   {path: &#x27;log_ind&#x27;, component: LogIndComponent},
-  {path: &#x27;opret_annonce&#x27;, component: OpretAnnonceComponent}
+  {path: &#x27;min_side/:userID&#x27;, component: MinSideComponent},
+  {path: &#x27;min_side/:userID/rediger&#x27;, component: RedigerBrugerComponent},
+  {path: &#x27;rediger_annonce/:id&#x27;, component: RedigerAnnonceComponent},
+  {path: &#x27;opret_annonce&#x27;,  component: OpretAnnonceComponent, canActivate: [AuthGuard]},
+  {path: &#x27;opret_bruger&#x27;, component: OpretBrugerComponent},
+  {path: &#x27;**&#x27;, redirectTo: &#x27;&#x27;, pathMatch: &#x27;full&#x27;}
 ];
 
+// , canActivate: [AuthGuard] --&gt; i min side
+
 @NgModule({
-  imports: [RouterModule.forRoot(appRoutes)],
+  imports: [RouterModule.forRoot(appRoutes),
+    HttpClientModule,
+    ],
   exports: [RouterModule]
 })
 

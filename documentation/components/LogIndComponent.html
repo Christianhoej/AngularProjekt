@@ -61,7 +61,7 @@
     <h3>File</h3>
 </p>
 <p class="comment">
-    <code>src/app/log-ind/log-ind.component.ts</code>
+    <code>src/app/bruger/log-ind/log-ind.component.ts</code>
 </p>
 
 
@@ -133,6 +133,9 @@
                             <li>
                                 <a href="#ngOnInit">ngOnInit</a>
                             </li>
+                            <li>
+                                <a href="#onLogIndPressed">onLogIndPressed</a>
+                            </li>
                         </ul>
                     </td>
                 </tr>
@@ -151,15 +154,57 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor()</code>
+<code>constructor(brugerService: <a href="../injectables/BrugerService.html">BrugerService</a>, router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">src/app/log-ind/log-ind.component.ts:8</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/bruger/log-ind/log-ind.component.ts:12</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>brugerService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/BrugerService.html" target="_self" >BrugerService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>router</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/router/Router" target="_blank" >Router</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
             </tbody>
         </table>
 </section>
@@ -195,8 +240,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="12"
-                            class="link-to-prism">src/app/log-ind/log-ind.component.ts:12</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="15"
+                            class="link-to-prism">src/app/bruger/log-ind/log-ind.component.ts:15</a></div>
                 </td>
             </tr>
 
@@ -212,13 +257,87 @@
             </tr>
         </tbody>
     </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onLogIndPressed"></a>
+                    <span class="name">
+                        <b>
+                            onLogIndPressed
+                        </b>
+                        <a href="#onLogIndPressed"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onLogIndPressed(form: <a href="https://angular.io/api/forms/NgForm" target="_blank">NgForm</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="18"
+                            class="link-to-prism">src/app/bruger/log-ind/log-ind.component.ts:18</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>form</td>
+                                    <td>
+                                                <code><a href="https://angular.io/api/forms/NgForm" target="_blank" >NgForm</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </section>
 
 </div>
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {Component, EventEmitter, OnInit, Output} from &#x27;@angular/core&#x27;;
+import {NgForm} from &#x27;@angular/forms&#x27;;
+import {BrugerService} from &#x27;../services/bruger.service&#x27;;
+import {Bruger} from &#x27;../Models/bruger.model&#x27;;
+import {Router} from &#x27;@angular/router&#x27;;
 
 @Component({
   selector: &#x27;app-log-ind&#x27;,
@@ -226,10 +345,33 @@
   styleUrls: [&#x27;./log-ind.component.css&#x27;]
 })
 export class LogIndComponent implements OnInit {
-
-  constructor() { }
-
+  // @Output() erLoggetIndEvent &#x3D; new EventEmitter&lt;boolean&gt;()
+  constructor(private brugerService: BrugerService, private router: Router) { }
   ngOnInit() {
+  }
+
+  onLogIndPressed(form: NgForm) {
+    const value &#x3D; form.value;
+    let connnn &#x3D; &#x27;&#x27;;
+    connnn &#x3D; value.email;
+   // console.log(connnn + &#x27; Det sker? &#x27; + value.password);
+    // TODO her skal der laves kald til login og response skal &quot;logges til test af om det virker.
+
+    this.brugerService.logind(form.value.email, form.value.password)
+      .subscribe(
+        (bruger: Bruger) &#x3D;&gt; {this.brugerService.bruger &#x3D; bruger;
+                                  console.log(this.brugerService.bruger.email);
+                                  if(this.brugerService.bruger!&#x3D;null){
+                                    this.brugerService.loggetInd.next(true);
+                                  }
+                                  this.router.navigate([&#x27;/startside&#x27;]);
+                                  },
+        (error) &#x3D;&gt; console.log(error)
+      );
+    /*if(this.brugerService.bruger!&#x3D;null){
+      this.brugerService.loggetInd &#x3D; true;
+      // this.erLoggetIndEvent.emit(true);
+    }*/
   }
 
 }
@@ -237,9 +379,39 @@ export class LogIndComponent implements OnInit {
     </div>
 
     <div class="tab-pane fade " id="c-templateData">
-        <pre class="line-numbers"><code class="language-html">&lt;p&gt;
-  log-ind works!
-&lt;/p&gt;
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;row&quot;&gt;
+  &lt;div class&#x3D;&quot;col-xs-4&quot; style&#x3D;&quot;margin-left: 20px; margin-top: 20px&quot;  &gt;
+    &lt;form (ngSubmit)&#x3D;&quot;onLogIndPressed(f)&quot; #f&#x3D;ngForm&gt;
+      &lt;label for&#x3D;&quot;email&quot; &gt;Email&lt;/label&gt;
+      &lt;input type &#x3D;&quot;email&quot;
+             class&#x3D;&quot;form-control&quot;
+             id&#x3D;&quot;email&quot;
+             name&#x3D;&quot;email&quot;
+             ngModel
+             required
+      &gt;
+      &lt;label for&#x3D;&quot;password&quot;&gt;Kode:&lt;/label&gt;
+      &lt;input type&#x3D;&quot;text&quot;
+             class&#x3D;&quot;form-control&quot;
+             id&#x3D;&quot;password&quot;
+             name&#x3D;&quot;password&quot;
+             ngModel
+             required
+      &gt;
+      &lt;br&gt;
+      &lt;button type&#x3D;&quot;submit&quot;
+              class&#x3D;&quot;btn btn-success&quot;
+              style&#x3D;&quot;margin-right: 20px&quot;
+              [disabled]&#x3D;&quot;!f.valid&quot;&gt;Log ind&lt;/button&gt;
+
+
+    &lt;/form&gt;
+    &lt;hr id&#x3D;&quot;hr1&quot;&gt;
+    &lt;h6&gt;&lt;i&gt;Er du endnu ikke oprettet, kan du gøre det her&lt;/i&gt;&lt;/h6&gt;
+    &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;btn btn-primary&quot; routerLinkActive&#x3D;&quot;active&quot; routerLink&#x3D;&quot;/opret_bruger&quot;&gt; Ny bruger&lt;/button&gt;
+
+  &lt;/div&gt;
+&lt;/div&gt;
 </code></pre>
     </div>
 
@@ -247,7 +419,12 @@ export class LogIndComponent implements OnInit {
                 <p class="comment">
                     <code>./log-ind.component.css</code>
                 </p>
-                <pre class="line-numbers"><code class="language-scss"></code></pre>
+                <pre class="line-numbers"><code class="language-scss">#hr1{
+  border-top: 1px solid;
+  color: #53030e;
+  height: 1px;
+}
+</code></pre>
     </div>
 
     <div class="tab-pane fade " id="c-tree">
@@ -275,8 +452,8 @@ export class LogIndComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><p>  log-ind works!</p></div>'
-    var COMPONENTS = [{'name': 'AnnonceComponent', 'selector': 'app-annonce'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'DetaljeretAnnonceComponent', 'selector': 'app-detaljeret-annonce'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'LogIndComponent', 'selector': 'app-log-ind'},{'name': 'OpretAnnonceComponent', 'selector': 'app-opret-annonce'},{'name': 'StartsideComponent', 'selector': 'app-startside'},{'name': 'StartsideKategoriComponent', 'selector': 'app-startside-kategori'}];
+        var COMPONENT_TEMPLATE = '<div><div class="row">  <div class="col-xs-4" style="margin-left: 20px; margin-top: 20px"  >    <form (ngSubmit)="onLogIndPressed(f)" #f=ngForm>      <label for="email" >Email</label>      <input type ="email"             class="form-control"             id="email"             name="email"             ngModel             required      >      <label for="password">Kode:</label>      <input type="text"             class="form-control"             id="password"             name="password"             ngModel             required      >      <br>      <button type="submit"              class="btn btn-success"              style="margin-right: 20px"              [disabled]="!f.valid">Log ind</button>    </form>    <hr id="hr1">    <h6><i>Er du endnu ikke oprettet, kan du gøre det her</i></h6>    <button type="button" class="btn btn-primary" routerLinkActive="active" routerLink="/opret_bruger"> Ny bruger</button>  </div></div></div>'
+    var COMPONENTS = [{'name': 'AnnonceComponent', 'selector': 'app-annonce'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'DetaljeretAnnonceComponent', 'selector': 'app-detaljeret-annonce'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'KategorierComponent', 'selector': 'app-kategorier'},{'name': 'LogIndComponent', 'selector': 'app-log-ind'},{'name': 'MineAnnoncerComponent', 'selector': 'app-mine-annoncer'},{'name': 'MinSideComponent', 'selector': 'app-min-side'},{'name': 'OpretAnnonceComponent', 'selector': 'app-opret-annonce'},{'name': 'OpretBrugerComponent', 'selector': 'app-opret-bruger'},{'name': 'RedigerAnnonceComponent', 'selector': 'app-rediger-annonce'},{'name': 'RedigerBrugerComponent', 'selector': 'app-rediger-bruger'},{'name': 'StartsideComponent', 'selector': 'app-startside'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'LogIndComponent'};
 </script>

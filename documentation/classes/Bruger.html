@@ -42,7 +42,7 @@
 
 <ol class="breadcrumb">
   <li>Classes</li>
-  <li>Annonce</li>
+  <li>Bruger</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -60,7 +60,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>src/app/models/annonce.model.ts</code>
+            <code>src/app/bruger/Models/bruger.model.ts</code>
         </p>
 
 
@@ -81,19 +81,11 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Public</span>
-                                <a href="#adId">adId</a>
+                                <a href="#address">address</a>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
-                                <a href="#category">category</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Public</span>
-                                <a href="#date">date</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Public</span>
-                                <a href="#description">description</a>
+                                <a href="#birthday">birthday</a>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
@@ -101,19 +93,31 @@
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
-                                <a href="#header">header</a>
+                                <a href="#firstName">firstName</a>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
-                                <a href="#imageURL">imageURL</a>
+                                <a href="#gender">gender</a>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
-                                <a href="#price">price</a>
+                                <a href="#lastName">lastName</a>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
-                                <a href="#user">user</a>
+                                <a href="#password">password</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#phonenumber">phonenumber</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#userId">userId</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#zipCode">zipCode</a>
                             </li>
                         </ul>
                     </td>
@@ -134,12 +138,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(header: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, price: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, imageURL: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, description: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, category: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, adId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, email: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, date: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, user: <a href="../classes/Bruger.html">Bruger</a>)</code>
+<code>constructor(firstName: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, lastName: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, email: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, gender: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, birthday: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, address: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, zipCode: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, phonenumber: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, password: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, userId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/models/annonce.model.ts:13</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="1" class="link-to-prism">src/app/bruger/Models/bruger.model.ts:1</a></div>
                             </td>
                         </tr>
 
@@ -157,7 +161,7 @@
                                         </thead>
                                         <tbody>
                                                 <tr>
-                                                        <td>header</td>
+                                                        <td>firstName</td>
                                                   
                                                         <td>
                                                                         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
@@ -169,55 +173,7 @@
                                                     
                                                 </tr>
                                                 <tr>
-                                                        <td>price</td>
-                                                  
-                                                        <td>
-                                                                        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
-                                                        </td>
-                                                  
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
-                                                </tr>
-                                                <tr>
-                                                        <td>imageURL</td>
-                                                  
-                                                        <td>
-                                                                        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-                                                        </td>
-                                                  
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
-                                                </tr>
-                                                <tr>
-                                                        <td>description</td>
-                                                  
-                                                        <td>
-                                                                        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-                                                        </td>
-                                                  
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
-                                                </tr>
-                                                <tr>
-                                                        <td>category</td>
-                                                  
-                                                        <td>
-                                                                        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-                                                        </td>
-                                                  
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
-                                                </tr>
-                                                <tr>
-                                                        <td>adId</td>
+                                                        <td>lastName</td>
                                                   
                                                         <td>
                                                                         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
@@ -241,7 +197,7 @@
                                                     
                                                 </tr>
                                                 <tr>
-                                                        <td>date</td>
+                                                        <td>gender</td>
                                                   
                                                         <td>
                                                                         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
@@ -253,10 +209,70 @@
                                                     
                                                 </tr>
                                                 <tr>
-                                                        <td>user</td>
+                                                        <td>birthday</td>
                                                   
                                                         <td>
-                                                                        <code><a href="../classes/Bruger.html" target="_self" >Bruger</a></code>
+                                                                        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>address</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>zipCode</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>phonenumber</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>password</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>userId</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -282,12 +298,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="adId"></a>
+                        <a name="address"></a>
                         <span class="name">
                             <b>
                                 <span class="modifier">Public</span>
-                            adId</b>
-                            <a href="#adId"><span class="icon ion-ios-link"></span></a>
+                            address</b>
+                            <a href="#address"><span class="icon ion-ios-link"></span></a>
                         </span>
                     </td>
                 </tr>
@@ -299,7 +315,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">src/app/models/annonce.model.ts:10</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">src/app/bruger/Models/bruger.model.ts:8</a></div>
                             </td>
                         </tr>
 
@@ -310,12 +326,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="category"></a>
+                        <a name="birthday"></a>
                         <span class="name">
                             <b>
                                 <span class="modifier">Public</span>
-                            category</b>
-                            <a href="#category"><span class="icon ion-ios-link"></span></a>
+                            birthday</b>
+                            <a href="#birthday"><span class="icon ion-ios-link"></span></a>
                         </span>
                     </td>
                 </tr>
@@ -327,63 +343,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">src/app/models/annonce.model.ts:9</a></div>
-                            </td>
-                        </tr>
-
-
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="date"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Public</span>
-                            date</b>
-                            <a href="#date"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-
-                        </td>
-                    </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/models/annonce.model.ts:12</a></div>
-                            </td>
-                        </tr>
-
-
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="description"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Public</span>
-                            description</b>
-                            <a href="#description"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-
-                        </td>
-                    </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">src/app/models/annonce.model.ts:8</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="7" class="link-to-prism">src/app/bruger/Models/bruger.model.ts:7</a></div>
                             </td>
                         </tr>
 
@@ -411,7 +371,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/app/models/annonce.model.ts:11</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="5" class="link-to-prism">src/app/bruger/Models/bruger.model.ts:5</a></div>
                             </td>
                         </tr>
 
@@ -422,12 +382,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="header"></a>
+                        <a name="firstName"></a>
                         <span class="name">
                             <b>
                                 <span class="modifier">Public</span>
-                            header</b>
-                            <a href="#header"><span class="icon ion-ios-link"></span></a>
+                            firstName</b>
+                            <a href="#firstName"><span class="icon ion-ios-link"></span></a>
                         </span>
                     </td>
                 </tr>
@@ -439,7 +399,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="5" class="link-to-prism">src/app/models/annonce.model.ts:5</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="3" class="link-to-prism">src/app/bruger/Models/bruger.model.ts:3</a></div>
                             </td>
                         </tr>
 
@@ -450,12 +410,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="imageURL"></a>
+                        <a name="gender"></a>
                         <span class="name">
                             <b>
                                 <span class="modifier">Public</span>
-                            imageURL</b>
-                            <a href="#imageURL"><span class="icon ion-ios-link"></span></a>
+                            gender</b>
+                            <a href="#gender"><span class="icon ion-ios-link"></span></a>
                         </span>
                     </td>
                 </tr>
@@ -467,7 +427,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="7" class="link-to-prism">src/app/models/annonce.model.ts:7</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="6" class="link-to-prism">src/app/bruger/Models/bruger.model.ts:6</a></div>
                             </td>
                         </tr>
 
@@ -478,24 +438,24 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="price"></a>
+                        <a name="lastName"></a>
                         <span class="name">
                             <b>
                                 <span class="modifier">Public</span>
-                            price</b>
-                            <a href="#price"><span class="icon ion-ios-link"></span></a>
+                            lastName</b>
+                            <a href="#lastName"><span class="icon ion-ios-link"></span></a>
                         </span>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
 
                         </td>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="6" class="link-to-prism">src/app/models/annonce.model.ts:6</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="4" class="link-to-prism">src/app/bruger/Models/bruger.model.ts:4</a></div>
                             </td>
                         </tr>
 
@@ -506,24 +466,108 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="user"></a>
+                        <a name="password"></a>
                         <span class="name">
                             <b>
                                 <span class="modifier">Public</span>
-                            user</b>
-                            <a href="#user"><span class="icon ion-ios-link"></span></a>
+                            password</b>
+                            <a href="#password"><span class="icon ion-ios-link"></span></a>
                         </span>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>        <code><a href="../classes/Bruger.html" target="_self" >Bruger</a></code>
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
 
                         </td>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/models/annonce.model.ts:13</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/app/bruger/Models/bruger.model.ts:11</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="phonenumber"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            phonenumber</b>
+                            <a href="#phonenumber"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">src/app/bruger/Models/bruger.model.ts:10</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="userId"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            userId</b>
+                            <a href="#userId"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/bruger/Models/bruger.model.ts:12</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="zipCode"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            zipCode</b>
+                            <a href="#zipCode"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">src/app/bruger/Models/bruger.model.ts:9</a></div>
                             </td>
                         </tr>
 
@@ -542,32 +586,18 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {NgModule} from &#x27;@angular/core&#x27;;
-import {Bruger} from &#x27;../bruger/Models/bruger.model&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">export class Bruger {
 
-export class Annonce {
-  public header: string;
-  public price: number;
-  public imageURL: string;
-  public description: string;
-  public category: string;
-  public adId: string;
-  public email: string;
-  public date: string;
-  public user: Bruger;
-
-  // public sælger: bruger;
-  constructor(header: string, price: number, imageURL: string, description: string, category: string, adId: string, email: string, date: string, user: Bruger) {
-    this.header &#x3D; header;
-    this.price &#x3D; price;
-    this.imageURL &#x3D; imageURL;
-    this.description &#x3D; description;
-    this.category &#x3D; category;
-    this.adId &#x3D; adId;
-    this.email &#x3D; email;
-    this.date &#x3D; date;
-    this.user &#x3D; user;
-  }
+  constructor(  public firstName: string,
+                public lastName: string,
+                public email: string,
+                public gender: string,
+                public birthday: string,
+                public address: string,
+                public zipCode: string,
+                public phonenumber: string,
+                public password: string,
+                public userId: string) {}
 }
 </code></pre>
     </div>
@@ -596,7 +626,7 @@ export class Annonce {
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'class';
-            var COMPODOC_CURRENT_PAGE_URL = 'Annonce.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'Bruger.html';
        </script>
 
        <script src="../js/libs/custom-elements.min.js"></script>

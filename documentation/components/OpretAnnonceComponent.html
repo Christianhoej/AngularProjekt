@@ -186,7 +186,7 @@
                                                     <td>
                                                             No
                                                     </td>
-                                                    
+
                                                 </tr>
                                         </tbody>
                                     </table>
@@ -309,7 +309,7 @@
 
                     </div>
                     <div class="io-description">
-                        
+
                     </div>
                 </td>
             </tr>
@@ -369,7 +369,7 @@ export class OpretAnnonceComponent implements OnInit {
 &lt;div class&#x3D;&quot;row&quot;&gt;
   &lt;div class&#x3D;&quot;col-xs-12&quot;&gt;
     &lt;form (ngSubmit)&#x3D;&quot;onSubmit(f)&quot; #f&#x3D;&quot;ngForm&quot;&gt;
-    &lt;div class&#x3D;&quot;row&quot;&gt;
+  &lt;div class&#x3D;&quot;row&quot;&gt;
       &lt;div class&#x3D;&quot;col-xs-12&quot;&gt;
         &lt;button
           type&#x3D;&quot;submit&quot;
@@ -388,67 +388,137 @@ export class OpretAnnonceComponent implements OnInit {
       &lt;div class&#x3D;&quot;row&quot;&gt;
         &lt;div class&#x3D;&quot;col-xs-12&quot;&gt;
           &lt;div class&#x3D;&quot;form-group&quot;&gt;
-            &lt;label for&#x3D;&quot;titel&quot;&gt;Titel&lt;/label&gt;
+            &lt;label &gt;Titel&lt;/label&gt;
             &lt;input
               type&#x3D;&quot;text&quot;
-              id&#x3D;&quot;titel&quot;
               class&#x3D;&quot;form-control&quot;
-              name&#x3D;&quot;titel&quot;
-              ngModel&gt;
-          &lt;/div&gt;
-        &lt;/div&gt;
+              formControlName&#x3D;&quot;header&quot;
+              [ngClass]&#x3D;&quot;{ &#x27;is-invalid&#x27;: submitted &amp;&amp; f.header.errors}&quot;&gt;
+            &lt;div *ngIf&#x3D;&quot;submitted &amp;&amp; f.header.errors&quot; class&#x3D;&quot;invalid-feedback&quot;&gt;
+              &lt;div *ngIf&#x3D;&quot;f.header.errors.required&quot;&gt;Titel skal indtastes&lt;/div&gt;
+            &lt;/div&gt;
       &lt;/div&gt;
-      &lt;div class&#x3D;&quot;row&quot;&gt;
-        &lt;div class&#x3D;&quot;col-xs-12&quot;&gt;
+
           &lt;div class&#x3D;&quot;form-group&quot;&gt;
-            &lt;label for&#x3D;&quot;pris&quot;&gt;Pris&lt;/label&gt;
+            &lt;label&gt;Pris&lt;/label&gt;
             &lt;input
+              formControlName&#x3D;&quot;price&quot;
               type&#x3D;&quot;number&quot;
-              id&#x3D;&quot;pris&quot;
               class&#x3D;&quot;form-control&quot;
-              name&#x3D;&quot;titel&quot;
-              ngModel&gt;
-          &lt;/div&gt;
-        &lt;/div&gt;
+              [ngClass]&#x3D;&quot;{ &#x27;is-invalid&#x27;: submitted &amp;&amp; f.price.errors}&quot;
+              &gt;
+            &lt;div *ngIf&#x3D;&quot;submitted &amp;&amp; f.price.errors&quot; class&#x3D;&quot;invalid-feedback&quot;&gt;
+              &lt;div *ngIf&#x3D;&quot;f.price.errors.required&quot;&gt;Pris skal indtastes&lt;/div&gt;
+            &lt;/div&gt;
       &lt;/div&gt;
-      &lt;div class&#x3D;&quot;row&quot;&gt;
-        &lt;div class&#x3D;&quot;col-xs-12&quot;&gt;
+
           &lt;div class&#x3D;&quot;form-group&quot;&gt;
-            &lt;label for&#x3D;&quot;imagePath&quot;&gt;Billede URL&lt;/label&gt;
+            &lt;label&gt;Billede URL&lt;/label&gt;
             &lt;input
               type&#x3D;&quot;text&quot;
-              id&#x3D;&quot;imagePath&quot;
+              formControlName&#x3D;&quot;imageURL&quot;
               class&#x3D;&quot;form-control&quot;
-              name&#x3D;&quot;imagePath&quot;
-              ngModel
+              [ngClass]&#x3D;&quot;{ &#x27;is-invalid&#x27;: submitted &amp;&amp; f.imageURL.errors}&quot;
               #imagePath&gt;
-          &lt;/div&gt;
-        &lt;/div&gt;
+            &lt;div *ngIf&#x3D;&quot;submitted &amp;&amp; f.imageURL.errors&quot; class&#x3D;&quot;invalid-feedback&quot;&gt;
+              &lt;div *ngIf&#x3D;&quot;f.imageURL.errors.required&quot;&gt;Billede skal indtastes&lt;/div&gt;
+            &lt;/div&gt;
       &lt;/div&gt;
-      &lt;div class&#x3D;&quot;row&quot;&gt;
-        &lt;div class&#x3D;&quot;col-xs-12&quot;&gt;
-          &lt;img [src]&#x3D;&quot;imagePath.value&quot; class&#x3D;&quot;img-responsive&quot;&gt;
-        &lt;/div&gt;
-      &lt;/div&gt;
-      &lt;div class&#x3D;&quot;row&quot;&gt;
-        &lt;div class&#x3D;&quot;col-xs-12&quot;&gt;
+
           &lt;div class&#x3D;&quot;form-group&quot;&gt;
-            &lt;label for&#x3D;&quot;beskrivelse&quot;&gt;Beskrivelse&lt;/label&gt;
-            &lt;textarea
+            &lt;label &gt;Beskrivelse&lt;/label&gt;
+            &lt;input
+              style&#x3D;&quot;min-height: 100px; min-width: 100px&quot;
               type&#x3D;&quot;text&quot;
-              id&#x3D;&quot;beskrivelse&quot;
+              formControlName&#x3D;&quot;description&quot;
               class&#x3D;&quot;form-control&quot;
-            rows&#x3D;&quot;6&quot;
-            name&#x3D;&quot;beskrivelse&quot;
-            ngModel&gt;
-          &lt;/textarea&gt;
-        &lt;/div&gt;
-      &lt;/div&gt;
+              [ngClass]&#x3D;&quot;{ &#x27;is-invalid&#x27;: submitted &amp;&amp; f.description.errors}&quot;
+            &gt;
+
+
+
+            &lt;div *ngIf&#x3D;&quot;submitted &amp;&amp; f.description.errors&quot; class&#x3D;&quot;invalid-feedback&quot;&gt;
+              &lt;div *ngIf&#x3D;&quot;f.description.errors.required&quot;&gt;Beskrivelse skal indtastes&lt;/div&gt;
+            &lt;/div&gt;
     &lt;/div&gt;
+        &lt;div class&#x3D;&quot;form-group&quot;&gt;
+          &lt;button
+            type&#x3D;&quot;submit&quot;
+            class&#x3D;&quot;btn btn-success&quot; &gt;Opret annonce!&lt;/button&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
    &lt;/form&gt;
+
 &lt;/div&gt;
+  &lt;div class&#x3D;&quot;row&quot;&gt;
+    &lt;div class&#x3D;&quot;col-xs-6&quot;&gt;
+      &lt;img [src]&#x3D;&quot;imagePath.value&quot; class&#x3D;&quot;img-responsive&quot;&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
 &lt;/div&gt;
-&lt;app-annonce&gt;&lt;/app-annonce&gt;
+&lt;!--
+&lt;h1&gt;Upload billede&lt;/h1&gt;
+&lt;input #fileInput
+       type&#x3D;&quot;file&quot; accept&#x3D;&quot;image/*&quot;
+        (change)&#x3D;&quot;valgtBillede($event)&quot;&gt;
+
+&lt;div class&#x3D;&quot;row&quot;&gt;
+  &lt;div class&#x3D;&quot;col-xs-6&quot;&gt;
+    &lt;img [src]&#x3D;&quot;imageInput.value&quot; class&#x3D;&quot;img-responsive&quot;&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+--&gt;
+&lt;!--
+&lt;button type&#x3D;&quot;button&quot;
+        class&#x3D;&quot;btn btn-primary&quot;
+        (click)&#x3D;&quot;fileInput.click()&quot; style&#x3D;&quot;margin-right: 20px&quot;&gt;Vælg fil&lt;/button&gt;
+&lt;button type&#x3D;&quot;button&quot;
+        class&#x3D;&quot;btn btn-success&quot;
+        (click)&#x3D;&quot;uploadBillede()&quot;&gt;Upload billede&lt;/button&gt;
+
+
+--&gt;
+
+
+&lt;!--
+&lt;div *ngIf&#x3D;&quot;currentUpload&quot;&gt;
+  &lt;div class&#x3D;&quot;progress&quot;&gt;
+    &lt;div class&#x3D;&quot;progress-bar progress-bar-animated&quot; [ngStyle]&#x3D;&quot;{ &#x27;width&#x27;: currentUpload?.progress + &#x27;%&#x27; }&quot;&gt;&lt;/div&gt;
+  &lt;/div&gt;
+  Progress: {{currentUpload?.name}} | {{currentUpload?.progress}}% Complete
+&lt;/div&gt;
+--&gt;
+&lt;!--
+&lt;div class&#x3D;&quot;card card-outline-primary&quot;&gt;
+  &lt;div class&#x3D;&quot;card-block&quot;&gt;
+
+
+&lt;label&gt;
+  &lt;input type&#x3D;&quot;file&quot; (change)&#x3D;&quot;detectFiles($event)&quot;&gt;
+&lt;/label&gt;
+
+&lt;button
+  class&#x3D;&quot;btn btn-primary&quot;
+  [disabled]&#x3D;&quot;!selectedFiles&quot;
+  (click)&#x3D;&quot;uploadSingle()&quot;&gt;
+
+  Upload Single
+&lt;/button&gt;
+
+&lt;label&gt;
+  &lt;input type&#x3D;&quot;file&quot; (change)&#x3D;&quot;detectFiles($event)&quot; multiple&gt;
+&lt;/label&gt;
+
+&lt;button
+  class&#x3D;&quot;btn btn-success&quot;
+  [disabled]&#x3D;&quot;!selectedFiles&quot;
+  (click)&#x3D;&quot;uploadMulti()&quot;&gt;
+
+  Upload Multiple
+&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+--&gt;
 </code></pre>
     </div>
 
@@ -484,8 +554,8 @@ export class OpretAnnonceComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><p>  opret-annonce works!</p><div class="row">  <div class="col-xs-12">    <form (ngSubmit)="onSubmit(f)" #f="ngForm">    <div class="row">      <div class="col-xs-12">        <button          type="submit"          class="btn btn-success" >Save</button>        </div>      </div>      <!-- <div class="row">        <div class="col-xs-12">          <button            type="submit"            class="btn btn-success"            [disabled]="!recipeForm.valid">Save</button>          <button type="button" class="btn btn-danger" (click)="onCancel()">Cancel</button>        </div>      </div> -->      <div class="row">        <div class="col-xs-12">          <div class="form-group">            <label for="titel">Titel</label>            <input              type="text"              id="titel"              class="form-control"              name="titel"              ngModel>          </div>        </div>      </div>      <div class="row">        <div class="col-xs-12">          <div class="form-group">            <label for="pris">Pris</label>            <input              type="number"              id="pris"              class="form-control"              name="titel"              ngModel>          </div>        </div>      </div>      <div class="row">        <div class="col-xs-12">          <div class="form-group">            <label for="imagePath">Billede URL</label>            <input              type="text"              id="imagePath"              class="form-control"              name="imagePath"              ngModel              #imagePath>          </div>        </div>      </div>      <div class="row">        <div class="col-xs-12">          <img [src]="imagePath.value" class="img-responsive">        </div>      </div>      <div class="row">        <div class="col-xs-12">          <div class="form-group">            <label for="beskrivelse">Beskrivelse</label>            <textarea              type="text"              id="beskrivelse"              class="form-control"            rows="6"            name="beskrivelse"            ngModel>          </textarea>        </div>      </div>    </div>   </form></div></div><app-annonce></app-annonce></div>'
-    var COMPONENTS = [{'name': 'AnnonceComponent', 'selector': 'app-annonce'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'DetaljeretAnnonceComponent', 'selector': 'app-detaljeret-annonce'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'LogIndComponent', 'selector': 'app-log-ind'},{'name': 'OpretAnnonceComponent', 'selector': 'app-opret-annonce'},{'name': 'StartsideComponent', 'selector': 'app-startside'},{'name': 'StartsideKategoriComponent', 'selector': 'app-startside-kategori'}];
+        var COMPONENT_TEMPLATE = '<div><div class="container">  <div class="row">    <form (ngSubmit)="onOpretAnnonce()" [formGroup]="registrerForm">      <!-- <div class="row">        <div class="col-xs-12">          <button            type="submit"            class="btn btn-success"            [disabled]="!recipeForm.valid">Save</button>          <button type="button" class="btn btn-danger" (click)="onCancel()">Cancel</button>        </div>      </div> -->      <div class="col-xs-4">          <div class="form-group">            <label >Kategori</label>            <select class="form-control" formControlName="category" [ngClass]="{ \'is-invalid\': submitted && f.category.errors}">              <option value="" [selected]="true" disabled style="cursor: pointer; size: 10px">Vælg kategori</option>              <option style="cursor: pointer" *ngFor="let kategoriElement of kategorier"> {{ kategoriElement.categoryName }}</option>            </select>            <div *ngIf="submitted && f.category.errors" class="invalid-feedback">              <div *ngIf="f.category.errors.required">Kategori skal vælges</div>            </div>        </div>          <div class="form-group">            <label >Titel</label>            <input              type="text"              class="form-control"              formControlName="header"              [ngClass]="{ \'is-invalid\': submitted && f.header.errors}">            <div *ngIf="submitted && f.header.errors" class="invalid-feedback">              <div *ngIf="f.header.errors.required">Titel skal indtastes</div>            </div>      </div>          <div class="form-group">            <label>Pris</label>            <input              formControlName="price"              type="number"              class="form-control"              [ngClass]="{ \'is-invalid\': submitted && f.price.errors}"              >            <div *ngIf="submitted && f.price.errors" class="invalid-feedback">              <div *ngIf="f.price.errors.required">Pris skal indtastes</div>            </div>      </div>          <div class="form-group">            <label>Billede URL</label>            <input              type="text"              formControlName="imageURL"              class="form-control"              [ngClass]="{ \'is-invalid\': submitted && f.imageURL.errors}"              #imagePath>            <div *ngIf="submitted && f.imageURL.errors" class="invalid-feedback">              <div *ngIf="f.imageURL.errors.required">Billede skal indtastes</div>            </div>      </div>          <div class="form-group">            <label >Beskrivelse</label>            <input              style="min-height: 100px; min-width: 100px"              type="text"              formControlName="description"              class="form-control"              [ngClass]="{ \'is-invalid\': submitted && f.description.errors}"            >            <div *ngIf="submitted && f.description.errors" class="invalid-feedback">              <div *ngIf="f.description.errors.required">Beskrivelse skal indtastes</div>            </div>    </div>        <div class="form-group">          <button            type="submit"            class="btn btn-success" >Opret annonce!</button>      </div>      </div>   </form></div>  <div class="row">    <div class="col-xs-6">      <img [src]="imagePath.value" class="img-responsive">    </div>  </div></div><!--<h1>Upload billede</h1><input #fileInput       type="file" accept="image/*"        (change)="valgtBillede($event)"><div class="row">  <div class="col-xs-6">    <img [src]="imageInput.value" class="img-responsive">  </div></div>--><!--<button type="button"        class="btn btn-primary"        (click)="fileInput.click()" style="margin-right: 20px">Vælg fil</button><button type="button"        class="btn btn-success"        (click)="uploadBillede()">Upload billede</button>--><!--<div *ngIf="currentUpload">  <div class="progress">    <div class="progress-bar progress-bar-animated" [ngStyle]="{ \'width\': currentUpload?.progress + \'%\' }"></div>  </div>  Progress: {{currentUpload?.name}} | {{currentUpload?.progress}}% Complete</div>--><!--<div class="card card-outline-primary">  <div class="card-block"><label>  <input type="file" (change)="detectFiles($event)"></label><button  class="btn btn-primary"  [disabled]="!selectedFiles"  (click)="uploadSingle()">  Upload Single</button><label>  <input type="file" (change)="detectFiles($event)" multiple></label><button  class="btn btn-success"  [disabled]="!selectedFiles"  (click)="uploadMulti()">  Upload Multiple</button>  </div></div>--></div>'
+    var COMPONENTS = [{'name': 'AnnonceComponent', 'selector': 'app-annonce'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'DetaljeretAnnonceComponent', 'selector': 'app-detaljeret-annonce'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'KategorierComponent', 'selector': 'app-kategorier'},{'name': 'LogIndComponent', 'selector': 'app-log-ind'},{'name': 'MineAnnoncerComponent', 'selector': 'app-mine-annoncer'},{'name': 'MinSideComponent', 'selector': 'app-min-side'},{'name': 'OpretAnnonceComponent', 'selector': 'app-opret-annonce'},{'name': 'OpretBrugerComponent', 'selector': 'app-opret-bruger'},{'name': 'RedigerAnnonceComponent', 'selector': 'app-rediger-annonce'},{'name': 'RedigerBrugerComponent', 'selector': 'app-rediger-bruger'},{'name': 'StartsideComponent', 'selector': 'app-startside'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'OpretAnnonceComponent'};
 </script>
