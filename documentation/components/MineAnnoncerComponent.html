@@ -304,7 +304,7 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {Component, Input, OnInit} from &#x27;@angular/core&#x27;;
-import {Annonce} from &#x27;../../models/annonce.model&#x27;;
+import {Annonce} from &#x27;../annonce.model&#x27;;
 
 @Component({
   selector: &#x27;app-mine-annoncer&#x27;,
@@ -350,8 +350,6 @@ export class MineAnnoncerComponent implements OnInit {
   &lt;div class&#x3D;&quot;price&quot;&gt;{{ minAnnonce.price }} kr&lt;/div&gt;
   &lt;div class&#x3D;&quot;description&quot;&gt;{{ minAnnonce.category }}&lt;/div&gt;
   &lt;div class&#x3D;&quot;description&quot;&gt;{{minAnnonce.description}}&lt;/div&gt;
-  &lt;!--  {{ annonce.beskrivelse }} {{ annonce.kategori }} --&gt;
-
 &lt;/a&gt;
 </code></pre>
     </div>
@@ -423,8 +421,8 @@ a {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><a  class="grid-item"  style="cursor: pointer; margin-right: 50px"  [routerLink]="[\'/rediger_annonce\', id]"  routerLinkActive="active">  <div class="row" style="min-height: 200px; min-width: 200px">    <div class="col-xs-12">      <img        [src]="minAnnonce.imageURL"        alt="{{minAnnonce.header}}"        class="img-responsive"        style="max-height: 200px;        max-width: 200px">    </div>  </div>  <div class="title">{{ minAnnonce.header }}</div>  <div class="price">{{ minAnnonce.price }} kr</div>  <div class="description">{{ minAnnonce.category }}</div>  <div class="description">{{minAnnonce.description}}</div>  <!--  {{ annonce.beskrivelse }} {{ annonce.kategori }} --></a></div>'
-    var COMPONENTS = [{'name': 'AnnonceComponent', 'selector': 'app-annonce'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'DetaljeretAnnonceComponent', 'selector': 'app-detaljeret-annonce'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'KategorierComponent', 'selector': 'app-kategorier'},{'name': 'LogIndComponent', 'selector': 'app-log-ind'},{'name': 'MineAnnoncerComponent', 'selector': 'app-mine-annoncer'},{'name': 'MinSideComponent', 'selector': 'app-min-side'},{'name': 'OpretAnnonceComponent', 'selector': 'app-opret-annonce'},{'name': 'OpretBrugerComponent', 'selector': 'app-opret-bruger'},{'name': 'RedigerAnnonceComponent', 'selector': 'app-rediger-annonce'},{'name': 'RedigerBrugerComponent', 'selector': 'app-rediger-bruger'},{'name': 'StartsideComponent', 'selector': 'app-startside'}];
+        var COMPONENT_TEMPLATE = '<div><a  class="grid-item"  style="cursor: pointer; margin-right: 50px"  [routerLink]="[\'/rediger_annonce\', id]"  routerLinkActive="active">  <div class="row" style="min-height: 200px; min-width: 200px">    <div class="col-xs-12">      <img        [src]="minAnnonce.imageURL"        alt="{{minAnnonce.header}}"        class="img-responsive"        style="max-height: 200px;        max-width: 200px">    </div>  </div>  <div class="title">{{ minAnnonce.header }}</div>  <div class="price">{{ minAnnonce.price }} kr</div>  <div class="description">{{ minAnnonce.category }}</div>  <div class="description">{{minAnnonce.description}}</div></a></div>'
+    var COMPONENTS = [{'name': 'AnnonceComponent', 'selector': 'app-annonce'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'DetaljeretAnnonceComponent', 'selector': 'app-detaljeret-annonce'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'KategoriComponent', 'selector': 'app-kategorier'},{'name': 'LogIndComponent', 'selector': 'app-log-ind'},{'name': 'MineAnnoncerComponent', 'selector': 'app-mine-annoncer'},{'name': 'MinSideComponent', 'selector': 'app-min-side'},{'name': 'OpretAnnonceComponent', 'selector': 'app-opret-annonce'},{'name': 'OpretBrugerComponent', 'selector': 'app-opret-bruger'},{'name': 'RedigerAnnonceComponent', 'selector': 'app-rediger-annonce'},{'name': 'RedigerBrugerComponent', 'selector': 'app-rediger-bruger'},{'name': 'StartsideComponent', 'selector': 'app-startside'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'MineAnnoncerComponent'};
 </script>

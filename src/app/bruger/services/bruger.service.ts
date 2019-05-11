@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {ResourceURLService} from '../../resourceURL.service';
-import {Bruger} from '../Models/bruger.model';
+import {Bruger} from '../bruger.model';
 import {Subject} from 'rxjs';
 
 @Injectable({

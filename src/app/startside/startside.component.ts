@@ -1,13 +1,11 @@
 import {Component, Input, OnDestroy, OnInit} from '@angular/core';
 import {Observable, Subscription} from 'rxjs';
-import {KategoriService} from './kategorier/kategori.service';
-import {Kategorier} from './kategorier/kategorier.model';
-import {AnnonceService} from '../annonce/annonce.service';
-import {Annonce} from '../models/annonce.model';
-import {ActivatedRoute, Data} from '@angular/router';
+import {KategoriService} from './kategori/kategori.service';
+import {Kategori} from './kategori/kategori.model';
+import {AnnonceService} from '../annonce/services/annonce.service';
+import {ActivatedRoute} from '@angular/router';
 import {BrugerService} from '../bruger/services/bruger.service';
 import {HeaderComponent} from '../header/header.component';
-import {AnnonceListResolver} from '../annonce/annonce-list-resolver.service';
 
 @Component({
   selector: 'app-startside',
@@ -18,7 +16,7 @@ export class StartsideComponent implements OnInit, OnDestroy {
 
   headerComponent: HeaderComponent;
   annoncer: Observable<Array<any>>;
-  kategorier: Kategorier[];
+  kategorier: Kategori[];
   subscription: Subscription;
   @Input() valgtKategori;
   constructor(private kategoriService: KategoriService,
@@ -31,14 +29,7 @@ export class StartsideComponent implements OnInit, OnDestroy {
     this.subscription = this.kategoriService.kategoriValgt
       .subscribe(
       (valgt: string) => {
-        if(valgt=='Alle' || valgt==''){
-          /*this.route.data
-            .subscribe(
-              (data: Data[]) => {
-                this.annoncer = data['annoncer'];
-              }
-            );
-          /**/
+        if (valgt === 'Alle' || valgt === '') {
           this.annonceService.getAnnoncer()
             .subscribe(
               (annoncer: any) => {
@@ -63,8 +54,9 @@ export class StartsideComponent implements OnInit, OnDestroy {
       );
     this.kategoriService.getKategorier()
       .subscribe(
-        (kategorier: Kategorier[]) => {this.kategorier = kategorier;
-        this.kategorier.unshift({categoryName: 'Alle', id: -1});
+        (kategorier: Kategori[]) => {
+          this.kategorier = kategorier;
+          this.kategorier.unshift({categoryName: 'Alle', id: -1});
         }
       );
   }

@@ -64,11 +64,8 @@
               [ngClass]="{ 'is-invalid': submitted && f.imageURL.errors}"
               type="file" accept="image/*"
               (change)="valgtBillede($event)">
-            <div *ngIf="submitted && f.imageURL.errors" class="invalid-feedback">
-              <div *ngIf="f.imageURL.errors.required" style="color: #FF0000;"><i>Et billede skal vælges</i></div>
-            </div>
             <div>
-              <img [src]="image.link" class="img-responsive">
+              <img [src]="image" class="img-responsive">
             </div>
           </div>
         </div>
@@ -90,20 +87,4 @@
         class="btn btn-primary" >Annuller</button>
     </div>
   </div>
-
-
-
-    <!--<h1>Upload billede</h1>-->
-    <!--<input #fileInput-->
-           <!--type="file" accept="image/*"-->
-           <!--(change)="valgtBillede($event)">-->
-
-    <!--<button type="button"-->
-            <!--class="btn btn-primary"-->
-            <!--(click)="fileInput.click()" style="margin-right: 20px">Vælg fil</button>-->
-    <!--<button type="button"-->
-            <!--class="btn btn-success"-->
-            <!--(click)="uploadBillede()">Upload billede</button>-->
-
-
 </div>

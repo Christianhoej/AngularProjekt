@@ -6,19 +6,8 @@ import {logger} from 'codelyzer/util/logger';
 
 @Injectable()
 export class AuthGuard implements CanActivate{
-  loggedInd: boolean = false;
+  loggedInd = false;
   constructor(private brugerService: BrugerService, private router: Router) {
-    // this.brugerService.loggetInd.subscribe(
-    //   (logind: boolean) => {
-    //     if (logind){
-    //       this.loggedInd= true;
-    //     }
-    //     else {
-    //       //this.router.navigate(['/log_ind']);
-    //       this.loggedInd = false;
-    //     }
-    //   }
-    // );
   }
 
   canActivate(route: ActivatedRouteSnapshot,

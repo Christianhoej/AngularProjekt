@@ -1,14 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import {AbstractControl, FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {Bruger} from '../Models/bruger.model';
+import {Bruger} from '../bruger.model';
 import {BrugerService} from '../services/bruger.service';
-import {Checkequals} from '../../Shared/checkequals';
+import {CheckequalsFunction} from '../checkequals.function';
 import {Replacer} from '../services/replacer.service';
 import {Router} from '@angular/router';
 import {catchError, map} from 'rxjs/operators';
-import {Observable, ObservableInput, of} from 'rxjs';
-import {applySourceSpanToExpressionIfNeeded} from '@angular/compiler/src/output/output_ast';
-import {AjaxObservable} from 'rxjs/internal-compatibility';
+import {of} from 'rxjs';
 
 @Component({
   selector: 'app-opret-bruger',
@@ -20,7 +18,7 @@ export class OpretBrugerComponent implements OnInit {
   submitted = false;
   opretBruger: Bruger;
   genders = ['Mand', 'Kvinde', 'Andet'];
-  emailExistError: string = '';
+  emailExistError = '';
 
   constructor(private brugerService: BrugerService,
               private formBuilder: FormBuilder,
@@ -39,7 +37,7 @@ export class OpretBrugerComponent implements OnInit {
       password: ['', [Validators.required, Validators.minLength(6)]],
       repeatPassword: ['', Validators.required]
     }, {
-      validator: Checkequals('password', 'repeatPassword')
+      validator: CheckequalsFunction('password', 'repeatPassword')
     });
 
   }
@@ -51,14 +49,14 @@ export class OpretBrugerComponent implements OnInit {
         }
       ),
      catchError(err => {
-        this.emailExistError= err.error.fix
+        this.emailExistError = err.error.fix
 
         return err ? of({alreadyExist: true}) : of(null) ;
       })
     );
   }
 
-  get f() {return this.registrerForm.controls;}
+  get f() {return this.registrerForm.controls; }
 
   onOpretBruger() {
     this.submitted = true;
@@ -72,7 +70,7 @@ export class OpretBrugerComponent implements OnInit {
       .subscribe(
         (response) => {
           console.log(response);
-          if(response == true) {
+          if (response === true) {
             alert('Du er blevet oprettet! Log ind for at oprette en annonce\n\n (SKAL IKKE VÆRE HER)');
             this.router.navigate(['/log_ind']);
           }

@@ -10,22 +10,20 @@ import { StartsideComponent } from './startside/startside.component';
 import { LogIndComponent } from './bruger/log-ind/log-ind.component';
 import { OpretBrugerComponent } from './bruger/opret-bruger/opret-bruger.component';
 import { DetaljeretAnnonceComponent } from './annonce/detaljeret-annonce/detaljeret-annonce.component';
-import { OpretAnnonceComponent } from './opret-annonce/opret-annonce.component';
+import { OpretAnnonceComponent } from './annonce/opret-annonce/opret-annonce.component';
 import { AnnonceComponent } from './annonce/annonce.component';
-import {AnnonceService} from './annonce/annonce.service';
-import {KategoriService} from './startside/kategorier/kategori.service';
-import {AnnonceDataService} from './annonce/annonce-data.service';
-import { KategorierComponent } from './startside/kategorier/kategorier.component';
+import {AnnonceService} from './annonce/services/annonce.service';
+import {KategoriService} from './startside/kategori/kategori.service';
+import { KategoriComponent } from './startside/kategori/kategori.component';
 import {ResourceURLService} from './resourceURL.service';
 import { MinSideComponent } from './bruger/min-side/min-side.component';
 import { RedigerAnnonceComponent } from './annonce/rediger-annonce/rediger-annonce.component';
 import {BrugerService} from './bruger/services/bruger.service';
 import {AuthGuard} from './auth-guard.service';
 import { MineAnnoncerComponent } from './annonce/mine-annoncer/mine-annoncer.component';
-import {AnnonceListResolver} from './annonce/annonce-list-resolver.service';
+import {AnnonceListResolver} from './annonce/services/annonce-list-resolver.service';
 import { RedigerBrugerComponent } from './bruger/rediger-bruger/rediger-bruger.component';
 import { FooterComponent } from './footer/footer.component';
-import {UploadImageService} from './annonce/uploadImage.service';
 
 
 @NgModule({
@@ -38,7 +36,7 @@ import {UploadImageService} from './annonce/uploadImage.service';
     OpretAnnonceComponent,
     OpretBrugerComponent,
     AnnonceComponent,
-    KategorierComponent,
+    KategoriComponent,
     MinSideComponent,
     RedigerAnnonceComponent,
     MineAnnoncerComponent,
@@ -54,7 +52,7 @@ import {UploadImageService} from './annonce/uploadImage.service';
     ReactiveFormsModule,
   ],
 
-  providers: [AnnonceService, KategoriService, AnnonceDataService, ResourceURLService, BrugerService, AuthGuard, AnnonceListResolver, UploadImageService],
+  providers: [AnnonceService, KategoriService, ResourceURLService, BrugerService, AuthGuard, AnnonceListResolver],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

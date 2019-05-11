@@ -1,7 +1,7 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
-import {FormBuilder, FormGroup, NgForm, Validators} from '@angular/forms';
+import {Component, OnInit} from '@angular/core';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {BrugerService} from '../services/bruger.service';
-import {Bruger} from '../Models/bruger.model';
+import {Bruger} from '../bruger.model';
 import {Router} from '@angular/router';
 
 @Component({
@@ -13,7 +13,7 @@ export class LogIndComponent implements OnInit {
   logindForm: FormGroup;
   submitted = false;
   errorLogind: string;
-  logindOK: boolean = true;
+  logindOK = true;
   constructor(private brugerService: BrugerService,
               private router: Router,
               private formBuilder: FormBuilder) { }
@@ -21,10 +21,10 @@ export class LogIndComponent implements OnInit {
     this.logindForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required, ]
-    })
+    });
   }
 
-  get f() {return this.logindForm.controls;}
+  get f() {return this.logindForm.controls; }
 
   onLogIndPressed() {
     this.submitted = true;
@@ -34,9 +34,9 @@ export class LogIndComponent implements OnInit {
     this.brugerService.logind(this.logindForm.value.email, this.logindForm.value.password)
       .subscribe(
         (bruger: Bruger) => {
-          this.logindOK=true;
+          this.logindOK = true;
           this.brugerService.bruger = bruger;
-          this.brugerService.loggetInd=true;
+          this.brugerService.loggetInd = true;
           this.brugerService.loggetIndSubject.next(true);
           // if(this.brugerService.bruger!=null){
           //   console.log('kommet ind!');

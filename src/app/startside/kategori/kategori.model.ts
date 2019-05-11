@@ -1,4 +1,4 @@
-export class Kategorier {
+export class Kategori {
   public categoryName: string;
   public id: number;
 

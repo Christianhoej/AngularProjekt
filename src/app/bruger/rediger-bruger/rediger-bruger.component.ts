@@ -1,10 +1,9 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup, NgForm, Validators} from '@angular/forms';
-import {Checkequals} from '../../Shared/checkequals';
+import {Component, OnInit} from '@angular/core';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {CheckequalsFunction} from '../checkequals.function';
 import {BrugerService} from '../services/bruger.service';
 import {ActivatedRoute, Params, Router} from '@angular/router';
-import {Bruger} from '../Models/bruger.model';
-import {Replacer} from '../services/replacer.service';
+import {Bruger} from '../bruger.model';
 
 @Component({
   selector: 'app-rediger-bruger',
@@ -47,35 +46,13 @@ export class RedigerBrugerComponent implements OnInit {
       password: ['', [Validators.required, Validators.minLength(6)]],
       repeatPassword: ['', Validators.required]
     }, {
-      validator: Checkequals('password', 'repeatPassword')
+      validator: CheckequalsFunction('password', 'repeatPassword')
     });
   }
 
   get f() {return this.redigerForm.controls;}
 
   onRedigerBruger() {
-    /*
-    const email = form.value.emailOpret;
-    const kodeord = form.value.kodeordOpret;
-    const gentagetKodeord = form.value.kodeordGentagOpret;
-    const fodselsdag = form.value.fodselsdagOpret.toString(); // evt. gemme som string
-    const fornavn = form.value.fornavnOpret;
-    const efternavn = form.value.efternavnOpret;
-    const kon = form.value.konOpret;
-    const adresse = form.value.adresseOpret;
-    const telefon = form.value.telefonOpret;
-    const postnr = form.value.postnrOpret;
-
-    this.bruger = new Bruger(fornavn, efternavn, email, kon, fodselsdag,
-      adresse, postnr, telefon, kodeord);
-
-
-    this.brugerService.redigerBruger(this.bruger)
-      .subscribe(
-        (response) => console.log(response),
-        (error) => console.log(error)
-      );
-      */
     this.submitted = true;
     if (this.redigerForm.invalid) {
       return;

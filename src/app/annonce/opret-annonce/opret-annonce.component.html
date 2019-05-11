@@ -69,7 +69,7 @@
               <div *ngIf="f.imageURL.errors.required" style="color: #FF0000;"><i>Et billede skal vælges</i></div>
             </div>
             <div>
-              <img [src]="image.link" class="img-responsive">
+              <img [src]="image" class="img-responsive">
             </div>
           </div>
         </div>
@@ -77,62 +77,3 @@
     </form>
   </div>
 </div>
-<!--
-<div class="row">
-  <div class="col-xs-6">
-    <img [src]="fileInput.value" class="img-responsive">
-  </div>
-</div>
--->
-<!--
-<button type="button"
-        class="btn btn-primary"
-        (click)="fileInput.click()" style="margin-right: 20px">Vælg fil</button>
-<button type="button"
-        class="btn btn-success"
-        (click)="uploadBillede()">Upload billede</button>
-
-
--->
-
-
-
-<!--
-<div *ngIf="currentUpload">
-  <div class="progress">
-    <div class="progress-bar progress-bar-animated" [ngStyle]="{ 'width': currentUpload?.progress + '%' }"></div>
-  </div>
-  Progress: {{currentUpload?.name}} | {{currentUpload?.progress}}% Complete
-</div>
--->
-<!--
-<div class="card card-outline-primary">
-  <div class="card-block">
-
-
-<label>
-  <input type="file" (change)="detectFiles($event)">
-</label>
-
-<button
-  class="btn btn-primary"
-  [disabled]="!selectedFiles"
-  (click)="uploadSingle()">
-
-  Upload Single
-</button>
-
-<label>
-  <input type="file" (change)="detectFiles($event)" multiple>
-</label>
-
-<button
-  class="btn btn-success"
-  [disabled]="!selectedFiles"
-  (click)="uploadMulti()">
-
-  Upload Multiple
-</button>
-  </div>
-</div>
--->

@@ -419,12 +419,6 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
-
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-4">
                             <i>Default value : </i><code>true</code>
                         </td>
                     </tr>
@@ -496,10 +490,10 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {Component, EventEmitter, OnInit, Output} from &#x27;@angular/core&#x27;;
-import {FormBuilder, FormGroup, NgForm, Validators} from &#x27;@angular/forms&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {Component, OnInit} from &#x27;@angular/core&#x27;;
+import {FormBuilder, FormGroup, Validators} from &#x27;@angular/forms&#x27;;
 import {BrugerService} from &#x27;../services/bruger.service&#x27;;
-import {Bruger} from &#x27;../Models/bruger.model&#x27;;
+import {Bruger} from &#x27;../bruger.model&#x27;;
 import {Router} from &#x27;@angular/router&#x27;;
 
 @Component({
@@ -511,7 +505,7 @@ export class LogIndComponent implements OnInit {
   logindForm: FormGroup;
   submitted &#x3D; false;
   errorLogind: string;
-  logindOK: boolean &#x3D; true;
+  logindOK &#x3D; true;
   constructor(private brugerService: BrugerService,
               private router: Router,
               private formBuilder: FormBuilder) { }
@@ -519,10 +513,10 @@ export class LogIndComponent implements OnInit {
     this.logindForm &#x3D; this.formBuilder.group({
       email: [&#x27;&#x27;, [Validators.required, Validators.email]],
       password: [&#x27;&#x27;, Validators.required, ]
-    })
+    });
   }
 
-  get f() {return this.logindForm.controls;}
+  get f() {return this.logindForm.controls; }
 
   onLogIndPressed() {
     this.submitted &#x3D; true;
@@ -532,12 +526,14 @@ export class LogIndComponent implements OnInit {
     this.brugerService.logind(this.logindForm.value.email, this.logindForm.value.password)
       .subscribe(
         (bruger: Bruger) &#x3D;&gt; {
-          this.logindOK&#x3D;true;
+          this.logindOK &#x3D; true;
           this.brugerService.bruger &#x3D; bruger;
-          if(this.brugerService.bruger!&#x3D;null){
-            console.log(&#x27;kommet ind!&#x27;);
-            this.brugerService.loggetInd.next(true);
-          }
+          this.brugerService.loggetInd &#x3D; true;
+          this.brugerService.loggetIndSubject.next(true);
+          // if(this.brugerService.bruger!&#x3D;null){
+          //   console.log(&#x27;kommet ind!&#x27;);
+          //   this.brugerService.loggetInd.next(true);
+          // }
           this.router.navigate([&#x27;/startside&#x27;]);
           },
         (error) &#x3D;&gt; {
@@ -572,7 +568,7 @@ export class LogIndComponent implements OnInit {
       &lt;/div&gt;
       &lt;div class&#x3D;&quot;form-group&quot;&gt;
         &lt;label&gt;Kode:&lt;/label&gt;
-        &lt;input type&#x3D;&quot;text&quot;
+        &lt;input type&#x3D;&quot;password&quot;
                class&#x3D;&quot;form-control&quot;
                formControlName&#x3D;&quot;password&quot;
                [ngClass]&#x3D;&quot;{&#x27;is-invalid&#x27;: submitted &amp;&amp; f.password.errors}&quot;
@@ -590,32 +586,7 @@ export class LogIndComponent implements OnInit {
 
     &lt;/form&gt;
     &lt;hr id&#x3D;&quot;hr1&quot;&gt;
-    &lt;!--&lt;form (ngSubmit)&#x3D;&quot;onLogIndPressed(f)&quot; #f&#x3D;ngForm&gt;--&gt;
-      &lt;!--&lt;label for&#x3D;&quot;email&quot; &gt;Email&lt;/label&gt;--&gt;
-      &lt;!--&lt;input type &#x3D;&quot;email&quot;--&gt;
-             &lt;!--class&#x3D;&quot;form-control&quot;--&gt;
-             &lt;!--id&#x3D;&quot;email&quot;--&gt;
-             &lt;!--name&#x3D;&quot;email&quot;--&gt;
-             &lt;!--ngModel--&gt;
-             &lt;!--required--&gt;
-      &lt;!--&amp;gt;--&gt;
-      &lt;!--&lt;label for&#x3D;&quot;password&quot;&gt;Kode:&lt;/label&gt;--&gt;
-      &lt;!--&lt;input type&#x3D;&quot;text&quot;--&gt;
-             &lt;!--class&#x3D;&quot;form-control&quot;--&gt;
-             &lt;!--id&#x3D;&quot;password&quot;--&gt;
-             &lt;!--name&#x3D;&quot;password&quot;--&gt;
-             &lt;!--ngModel--&gt;
-             &lt;!--required--&gt;
-      &lt;!--&amp;gt;--&gt;
-      &lt;!--&lt;br&gt;--&gt;
-      &lt;!--&lt;button type&#x3D;&quot;submit&quot;--&gt;
-              &lt;!--class&#x3D;&quot;btn btn-success&quot;--&gt;
-              &lt;!--style&#x3D;&quot;margin-right: 20px&quot;--&gt;
-              &lt;!--[disabled]&#x3D;&quot;!f.valid&quot;&gt;Log ind&lt;/button&gt;--&gt;
 
-
-    &lt;!--&lt;/form&gt;--&gt;
-    &lt;!--&lt;hr id&#x3D;&quot;hr1&quot;&gt;--&gt;
     &lt;h6&gt;&lt;i&gt;Er du endnu ikke oprettet, kan du gøre det her&lt;/i&gt;&lt;/h6&gt;
     &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;btn btn-primary&quot; routerLinkActive&#x3D;&quot;active&quot; routerLink&#x3D;&quot;/opret_bruger&quot;&gt; Ny bruger&lt;/button&gt;
 
@@ -662,8 +633,8 @@ export class LogIndComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div class="row">  <div class="col-xs-4" style="margin-left: 20px; margin-top: 20px"  >    <div *ngIf="submitted" class="invalid-feedback">      <div *ngIf="!logindOK" style="color: #FF0000;"><label><i>{{errorLogind}}</i></label></div>    </div>    <form [formGroup]="logindForm" (ngSubmit)="onLogIndPressed()">     <div class="form-group">        <label>Email</label>        <input type ="email"               class="form-control"               formControlName="email"               [ngClass]="{\'is-invalid\': submitted && f.email.errors}"        >       <div *ngIf="submitted && f.email.errors" class="invalid-feedback">         <div *ngIf="f.email.errors.required" style="color: #FF0000;"><i>Email skal indtastes</i></div>         <div *ngIf="f.email.errors.email" style="color: #FF0000;"><i>Den indtastede mail er ugyldig</i></div>       </div>      </div>      <div class="form-group">        <label>Kode:</label>        <input type="text"               class="form-control"               formControlName="password"               [ngClass]="{\'is-invalid\': submitted && f.password.errors}"        >        <div *ngIf="submitted && f.password.errors" class="invalid-feedback">          <div *ngIf="f.password.errors.required" style="color: #FF0000;"><i>Kodeord skal indtastes</i></div>        </div>      </div>      <br>      <button type="submit"              class="btn btn-success"              style="margin-right: 20px">Log ind</button>    </form>    <hr id="hr1">    <!--<form (ngSubmit)="onLogIndPressed(f)" #f=ngForm>-->      <!--<label for="email" >Email</label>-->      <!--<input type ="email"-->             <!--class="form-control"-->             <!--id="email"-->             <!--name="email"-->             <!--ngModel-->             <!--required-->      <!--&gt;-->      <!--<label for="password">Kode:</label>-->      <!--<input type="text"-->             <!--class="form-control"-->             <!--id="password"-->             <!--name="password"-->             <!--ngModel-->             <!--required-->      <!--&gt;-->      <!--<br>-->      <!--<button type="submit"-->              <!--class="btn btn-success"-->              <!--style="margin-right: 20px"-->              <!--[disabled]="!f.valid">Log ind</button>-->    <!--</form>-->    <!--<hr id="hr1">-->    <h6><i>Er du endnu ikke oprettet, kan du gøre det her</i></h6>    <button type="button" class="btn btn-primary" routerLinkActive="active" routerLink="/opret_bruger"> Ny bruger</button>  </div></div></div>'
-    var COMPONENTS = [{'name': 'AnnonceComponent', 'selector': 'app-annonce'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'DetaljeretAnnonceComponent', 'selector': 'app-detaljeret-annonce'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'KategorierComponent', 'selector': 'app-kategorier'},{'name': 'LogIndComponent', 'selector': 'app-log-ind'},{'name': 'MineAnnoncerComponent', 'selector': 'app-mine-annoncer'},{'name': 'MinSideComponent', 'selector': 'app-min-side'},{'name': 'OpretAnnonceComponent', 'selector': 'app-opret-annonce'},{'name': 'OpretBrugerComponent', 'selector': 'app-opret-bruger'},{'name': 'RedigerAnnonceComponent', 'selector': 'app-rediger-annonce'},{'name': 'RedigerBrugerComponent', 'selector': 'app-rediger-bruger'},{'name': 'StartsideComponent', 'selector': 'app-startside'}];
+        var COMPONENT_TEMPLATE = '<div><div class="row">  <div class="col-xs-4" style="margin-left: 20px; margin-top: 20px"  >    <div *ngIf="submitted" class="invalid-feedback">      <div *ngIf="!logindOK" style="color: #FF0000;"><label><i>{{errorLogind}}</i></label></div>    </div>    <form [formGroup]="logindForm" (ngSubmit)="onLogIndPressed()">     <div class="form-group">        <label>Email</label>        <input type ="email"               class="form-control"               formControlName="email"               [ngClass]="{\'is-invalid\': submitted && f.email.errors}"        >       <div *ngIf="submitted && f.email.errors" class="invalid-feedback">         <div *ngIf="f.email.errors.required" style="color: #FF0000;"><i>Email skal indtastes</i></div>         <div *ngIf="f.email.errors.email" style="color: #FF0000;"><i>Den indtastede mail er ugyldig</i></div>       </div>      </div>      <div class="form-group">        <label>Kode:</label>        <input type="password"               class="form-control"               formControlName="password"               [ngClass]="{\'is-invalid\': submitted && f.password.errors}"        >        <div *ngIf="submitted && f.password.errors" class="invalid-feedback">          <div *ngIf="f.password.errors.required" style="color: #FF0000;"><i>Kodeord skal indtastes</i></div>        </div>      </div>      <br>      <button type="submit"              class="btn btn-success"              style="margin-right: 20px">Log ind</button>    </form>    <hr id="hr1">    <h6><i>Er du endnu ikke oprettet, kan du gøre det her</i></h6>    <button type="button" class="btn btn-primary" routerLinkActive="active" routerLink="/opret_bruger"> Ny bruger</button>  </div></div></div>'
+    var COMPONENTS = [{'name': 'AnnonceComponent', 'selector': 'app-annonce'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'DetaljeretAnnonceComponent', 'selector': 'app-detaljeret-annonce'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'KategoriComponent', 'selector': 'app-kategorier'},{'name': 'LogIndComponent', 'selector': 'app-log-ind'},{'name': 'MineAnnoncerComponent', 'selector': 'app-mine-annoncer'},{'name': 'MinSideComponent', 'selector': 'app-min-side'},{'name': 'OpretAnnonceComponent', 'selector': 'app-opret-annonce'},{'name': 'OpretBrugerComponent', 'selector': 'app-opret-bruger'},{'name': 'RedigerAnnonceComponent', 'selector': 'app-rediger-annonce'},{'name': 'RedigerBrugerComponent', 'selector': 'app-rediger-bruger'},{'name': 'StartsideComponent', 'selector': 'app-startside'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'LogIndComponent'};
 </script>
