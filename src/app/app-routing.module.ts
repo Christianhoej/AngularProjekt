@@ -23,11 +23,10 @@ const appRoutes: Routes = [
       { path: ':id', component: StartsideComponent },
     ] },
   {path: 'detaljeret_annonce/:id', component: DetaljeretAnnonceComponent},
-  // {path: 'detaljeret_annonce', component: DetaljeretAnnonceComponent},
   {path: 'log_ind', component: LogIndComponent},
-  {path: 'min_side/:userID', component: MinSideComponent},
-  {path: 'min_side/:userID/rediger', component: RedigerBrugerComponent},
-  {path: 'rediger_annonce/:id', component: RedigerAnnonceComponent},
+  {path: 'min_side/:userID', component: MinSideComponent, canActivate: [AuthGuard]},
+  {path: 'min_side/:userID/rediger', component: RedigerBrugerComponent, canActivate: [AuthGuard]},
+  {path: 'rediger_annonce/:id', component: RedigerAnnonceComponent, canActivate: [AuthGuard]},
   {path: 'opret_annonce',  component: OpretAnnonceComponent, canActivate: [AuthGuard]},
   {path: 'opret_bruger', component: OpretBrugerComponent},
   {path: '**', redirectTo: '', pathMatch: 'full'}
@@ -43,5 +42,6 @@ const appRoutes: Routes = [
 })
 
 export class AppRoutingModule {
-
+  
 }
+

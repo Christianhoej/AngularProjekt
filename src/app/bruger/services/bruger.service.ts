@@ -9,10 +9,11 @@ import {Subject} from 'rxjs';
 })
 export class BrugerService {
   bruger: Bruger;
-  loggetInd = new Subject<boolean>();
+  loggetInd: boolean = false;
+  loggetIndSubject = new Subject<boolean>();
   constructor(private http: HttpClient,
               private resourceURL: ResourceURLService) {
-    this.loggetInd.next(false);
+    this.loggetIndSubject.next(false);
   }
 
   opretBruger(bruger: any) {

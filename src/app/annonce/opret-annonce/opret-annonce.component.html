@@ -36,19 +36,6 @@
           </div>
         </div>
         <div class="form-group">
-          <label>Billede URL</label>
-          <input
-            type="text"
-            formControlName="imageURL"
-            class="form-control"
-            [ngClass]="{ 'is-invalid': submitted && f.imageURL.errors}"
-            #imagePath
-          >
-          <div *ngIf="submitted && f.imageURL.errors" class="invalid-feedback">
-            <div *ngIf="f.imageURL.errors.required" style="color: #FF0000;"><i>Billede skal indtastes</i></div>
-          </div>
-        </div>
-        <div class="form-group">
           <label >Beskrivelse</label>
           <input
             style="min-height: 100px; min-width: 100px"
@@ -67,19 +54,29 @@
             class="btn btn-success" >Opret annonce!</button>
         </div>
       </div>
-   </form>
-    <div class="col-xs-4">
-      <div>
-        <img [src]="image.link" class="img-responsive">
+
+      <div class="col-xs-4">
+        <div class="row">
+          <div class="form-group">
+            <label>Upload billede</label>
+            <input
+              formControlName="imageURL"
+              class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && f.imageURL.errors}"
+              type="file" accept="image/*"
+              (change)="valgtBillede($event)">
+            <div *ngIf="submitted && f.imageURL.errors" class="invalid-feedback">
+              <div *ngIf="f.imageURL.errors.required" style="color: #FF0000;"><i>Et billede skal vælges</i></div>
+            </div>
+            <div>
+              <img [src]="image.link" class="img-responsive">
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
+    </form>
   </div>
 </div>
-
-<h1>Upload billede</h1>
-<input #fileInput
-       type="file" accept="image/*"
-        (change)="valgtBillede($event)">
 <!--
 <div class="row">
   <div class="col-xs-6">

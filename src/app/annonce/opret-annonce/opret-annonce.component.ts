@@ -29,15 +29,7 @@ export class OpretAnnonceComponent implements OnInit {
   billedet: File;
   opretAnnonce: Annonce;
   today: Date;
-  subscription: Subscription;
-  image: ImageModel;
-
-  selectedFiles: FileList;
-  currentUpload: UploadBilleder;
-
-  // id: number;
-  // editMode = false;
-  // annonceForm: FormGroup;
+  image: ImageModel = new ImageModel('','');
 
   constructor(private annonceService: AnnonceService,
               private kategoriService: KategoriService,
@@ -63,7 +55,6 @@ export class OpretAnnonceComponent implements OnInit {
       imageURL: ['', Validators.required],
       description: ['', Validators.required]}
       ) ;
-   // this.image = new ImageModel('', '');
   }
 
   get f() {return this.registrerForm.controls; }
@@ -74,58 +65,25 @@ export class OpretAnnonceComponent implements OnInit {
       (response) => {
         console.log(response);
         const res: any = response;
-        this.image = new ImageModel(res.data.id, res.data.link);
+        this.image.id = res.data.is;
+        this.image.link = res.data.link;
         console.log(res.data.link);
       },
       (error) => console.log(error)
     )
   }
 
-  // readThis(inputValue: any): void {
-  //   var file:File = inputValue.files[0];
-  //   var myReader: FileReader = new FileReader();
-  //
-  //   // myReader.onloadend = (e) => {
-  //   //   this.image = myReader.result;
-  //   //   console.log(this.image);
-  //   //   console.log(file)
-  //   // };
-  //   myReader.readAsDataURL(file);
-  //   console.log(file);
-  //   this.uploadImageService.uploadImage(file).subscribe(
-  //     (response) => {
-  //       console.log(response);
-  //       this.image = response;
-  //       console.log(this.image.data.link);
-  //     },
-  //      (error) => console.log(error)
-  //    )
-  //
-  // }
-
-  uploadBillede() {
-    // const fd = new FormData();
-    // fd.append('image', this.billedet, this.billedet.name)
-
-    this.http.post('https://api.imgur.com/3/upload?Client-ID=1cc04e1ddf61692',   this.billedet)
-      .subscribe(event => { console.log(event); });
-  }
-
   onOpretAnnonce() {
     this.submitted = true;
-    if (this.registrerForm.invalid) {
+    if (this.registrerForm.invalid || this.image.link == '') {
       return;
     }
 
-    const jsonObj = JSON.stringify(this.registrerForm.value);
-    this.opretAnnonce = JSON.parse(jsonObj);
-   /* this.today = new Date();
-    this.opretAnnonce.date = this.today.toDateString().toString();
-    console.log(this.opretAnnonce.date + 'DAAAATE')*/
-    console.log(this.opretAnnonce.user);
+    this.opretAnnonce = this.registrerForm.value;
     this.opretAnnonce.date = 'hej';
     this.opretAnnonce.user = this.brugerService.bruger;
     this.opretAnnonce.email = this.brugerService.bruger.email;
+    this.opretAnnonce.imageURL = this.image.link;
     this.annonceService.opretAnnonce(this.opretAnnonce)
       .subscribe(
         (response) => {
@@ -137,16 +95,4 @@ export class OpretAnnonceComponent implements OnInit {
         (error) => console.log(error)
       );
   }
-
-/*
-  detectFiles(event) {
-    this.selectedFiles = event.target.files;
-  }
-
-  uploadSingle() {
-    const file = this.selectedFiles.item(0);
-    this.currentUpload = new UploadBilleder(file);
-    this.upSvc.pushUpload(this.currentUpload);
-  }
-*/
 }
