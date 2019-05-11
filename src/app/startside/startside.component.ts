@@ -20,22 +20,11 @@ export class StartsideComponent implements OnInit, OnDestroy {
   annoncer: Observable<Array<any>>;
   kategorier: Kategorier[];
   subscription: Subscription;
-  erLoggetInd = false;
   @Input() valgtKategori;
   constructor(private kategoriService: KategoriService,
               private brugerService: BrugerService,
               private annonceService: AnnonceService,
               private route: ActivatedRoute) {
-    /*
-    this.subscription = this.brugerService.loggetInd.subscribe(
-    (logind: boolean) => {
-      if (logind) {
-        this.erLoggetInd = true;
-      } else {
-        this.erLoggetInd = false;
-      }
-    }
-  );*/
   }
 
   ngOnInit() {
@@ -61,11 +50,6 @@ export class StartsideComponent implements OnInit, OnDestroy {
             .subscribe(
               (annoncer: any) => {
                 this.annoncer = annoncer;
-                // this.annoncer.forEach((
-                //   (annonce) => {
-                //     annonce.email = annonce.user.email;
-                //   }
-                // ))
               }
             );
         }
@@ -88,17 +72,4 @@ export class StartsideComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.subscription.unsubscribe();
   }
-/*
-  logind() {
-    if (this.erLoggetInd1 = true) {
-      this.erLoggetInd1 = false;
-      this.brugerService.bruger=null;
-    }
-  }
-
-  getErLoggetInd($event){
-    this.erLoggetInd = $event;
-  }
-
-*/
 }

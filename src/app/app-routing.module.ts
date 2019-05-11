@@ -4,7 +4,7 @@ import {StartsideComponent} from './startside/startside.component';
 import { DetaljeretAnnonceComponent } from './annonce/detaljeret-annonce/detaljeret-annonce.component';
 
 import {LogIndComponent} from './bruger/log-ind/log-ind.component';
-import { OpretAnnonceComponent } from './opret-annonce/opret-annonce.component';
+import { OpretAnnonceComponent } from './annonce/opret-annonce/opret-annonce.component';
 import {HttpClientModule} from '@angular/common/http';
 import {OpretBrugerComponent} from './bruger/opret-bruger/opret-bruger.component';
 import { AnnonceComponent } from './annonce/annonce.component';
@@ -23,11 +23,10 @@ const appRoutes: Routes = [
       { path: ':id', component: StartsideComponent },
     ] },
   {path: 'detaljeret_annonce/:id', component: DetaljeretAnnonceComponent},
-  // {path: 'detaljeret_annonce', component: DetaljeretAnn  onceComponent},
   {path: 'log_ind', component: LogIndComponent},
-  {path: 'min_side/:userID', component: MinSideComponent},
-  {path: 'min_side/:userID/rediger', component: RedigerBrugerComponent},
-  {path: 'rediger_annonce/:id', component: RedigerAnnonceComponent},
+  {path: 'min_side/:userID', component: MinSideComponent, canActivate: [AuthGuard]},
+  {path: 'min_side/:userID/rediger', component: RedigerBrugerComponent, canActivate: [AuthGuard]},
+  {path: 'rediger_annonce/:id', component: RedigerAnnonceComponent, canActivate: [AuthGuard]},
   {path: 'opret_annonce',  component: OpretAnnonceComponent, canActivate: [AuthGuard]},
   {path: 'opret_bruger', component: OpretBrugerComponent},
   {path: '**', redirectTo: '', pathMatch: 'full'}
@@ -45,3 +44,4 @@ const appRoutes: Routes = [
 export class AppRoutingModule {
 
 }
+

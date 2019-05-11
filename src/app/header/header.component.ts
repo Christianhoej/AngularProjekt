@@ -14,8 +14,7 @@ export class HeaderComponent implements OnDestroy {
   userid: string;
   constructor(private brugerService: BrugerService,
               private kategoriService: KategoriService) {
-
-    this.subscription = this.brugerService.loggetInd.subscribe(
+    this.subscription = this.brugerService.loggetIndSubject.subscribe(
       (logind: boolean) => {
         if (logind) {
           this.erLoggetInd = true;
@@ -31,11 +30,8 @@ export class HeaderComponent implements OnDestroy {
     if (this.erLoggetInd = true) {
       this.erLoggetInd = false;
       this.brugerService.bruger=null;
+      this.brugerService.loggetInd=false;
     }
-  }
-
-  getErLoggetInd($event){
-    this.erLoggetInd = $event;
   }
 
   ngOnDestroy(): void {

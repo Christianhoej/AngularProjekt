@@ -18,13 +18,12 @@ export class UploadImageService {
 
   annonce: Annonce;
   headers = new Headers();
-  headers2 = new HttpHeaders();
-  clientID = '7a637dc121fecc9';
+  httpHeaders: HttpHeaders;
+  clientID = 'Client-ID 7a637dc121fecc9';
 
 
   constructor(private http: HttpClient,
-              private resourceURL: ResourceURLService,
-              private httpHeaders: HttpHeaders) {
+              private resourceURL: ResourceURLService) {
   }
 
   getAnnoncer() {
@@ -36,8 +35,19 @@ export class UploadImageService {
   }
 
   uploadImage(file: File) {
-    this.headers2.append('Authorization', this.clientID);
-    return this.http.post(this.resourceURL.uploadImageURL, file, {headers: this.headers2});
+    this.httpHeaders = new HttpHeaders({
+      'Authorization': this.clientID
+      // 'Content-Type': 'text/JSON',
+      // 'Access-Control-Allow-Origin': '*',
+      // 'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
+      // 'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token'
+    });
+    //this.headers2.append('Authorization', this.clientID);
+     // this.headers2.append('Access-Control-Allow-Origin', 'https://api.imgur.com/3/upload');
+  //  this.headers2.append('Access-Control-Allow-Methods','GET, POST, PATCH, PUT, DELETE, OPTIONS');
+//    this.headers2.append('Access-Control-Allow-Headers', 'Origin, Content-Type, X-Auth-Token');
+  //  this.headers2.append('Content-Type', 'application/json')
+    return this.http.post(this.resourceURL.uploadImageURL, file, {headers: this.httpHeaders});
   }
 
 }

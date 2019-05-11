@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {HttpClientModule} from '@angular/common/http';
+import {HttpClientModule, HttpHeaders} from '@angular/common/http';
 import {AppRoutingModule} from './app-routing.module';
 import { StartsideComponent } from './startside/startside.component';
 import { LogIndComponent } from './bruger/log-ind/log-ind.component';
@@ -43,7 +43,7 @@ import {UploadImageService} from './annonce/uploadImage.service';
     RedigerAnnonceComponent,
     MineAnnoncerComponent,
     RedigerBrugerComponent,
-    FooterComponent
+    FooterComponent,
   ],
 
   imports: [
