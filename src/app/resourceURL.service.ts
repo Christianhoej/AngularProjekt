@@ -11,5 +11,6 @@ export class ResourceURLService {
   usersLoginURL = this.usersURL + '/login';
   usersIDURL = this.usersURL + '/userID';
   adminURL = 'http://localhost:8080/Homely-ws/admin';
+  uploadImageURL = 'https://api.imgur.com/3/upload';
 
 }
