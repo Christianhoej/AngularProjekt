@@ -195,8 +195,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="24"
-                            class="link-to-prism">src/app/auth-guard.service.ts:24</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="13"
+                            class="link-to-prism">src/app/auth-guard.service.ts:13</a></div>
                 </td>
             </tr>
 
@@ -268,24 +268,13 @@ import {logger} from &#x27;codelyzer/util/logger&#x27;;
 
 @Injectable()
 export class AuthGuard implements CanActivate{
-  loggedInd: boolean &#x3D; false;
+  loggedInd &#x3D; false;
   constructor(private brugerService: BrugerService, private router: Router) {
-    this.brugerService.loggetInd.subscribe(
-      (logind: boolean) &#x3D;&gt; {
-        if (logind){
-          this.loggedInd&#x3D; true;
-        }
-        else {
-          //this.router.navigate([&#x27;/log_ind&#x27;]);
-          this.loggedInd &#x3D; false;
-        }
-      }
-    );
   }
 
   canActivate(route: ActivatedRouteSnapshot,
               state: RouterStateSnapshot): Observable&lt;boolean&gt; | Promise&lt;boolean&gt; | boolean {
-    if(this.loggedInd){
+    if(this.brugerService.loggetInd){
         return true;
       }
       else {

@@ -56,7 +56,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>src/app/startside/kategorier/kategori.service.ts</code>
+            <code>src/app/startside/kategori/kategori.service.ts</code>
         </p>
 
 
@@ -118,7 +118,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">src/app/startside/kategorier/kategori.service.ts:9</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">src/app/startside/kategori/kategori.service.ts:8</a></div>
                             </td>
                         </tr>
 
@@ -195,8 +195,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="27"
-                            class="link-to-prism">src/app/startside/kategorier/kategori.service.ts:27</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="18"
+                            class="link-to-prism">src/app/startside/kategori/kategori.service.ts:18</a></div>
                 </td>
             </tr>
 
@@ -265,8 +265,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="23"
-                            class="link-to-prism">src/app/startside/kategorier/kategori.service.ts:23</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="14"
+                            class="link-to-prism">src/app/startside/kategori/kategori.service.ts:14</a></div>
                 </td>
             </tr>
 
@@ -307,7 +307,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">src/app/startside/kategorier/kategori.service.ts:9</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">src/app/startside/kategori/kategori.service.ts:8</a></div>
                             </td>
                         </tr>
 
@@ -322,21 +322,12 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {Injectable} from &#x27;@angular/core&#x27;;
 import {Subject} from &#x27;rxjs&#x27;;
-import {Kategorier} from &#x27;./kategorier.model&#x27;;
 import {HttpClient} from &#x27;@angular/common/http&#x27;;
 import {ResourceURLService} from &#x27;../../resourceURL.service&#x27;;
 
 @Injectable()
 export class KategoriService {
   kategoriValgt &#x3D; new Subject&lt;string&gt;();
- /* private kategori: Kategorier[] &#x3D; [new Kategorier(&#x27;Nips&#x27;),
-    new Kategorier(&#x27;Møbel&#x27;),
-    new Kategorier(&#x27;Til køkkenet&#x27;),
-    new Kategorier(&#x27;Tøj&#x27;),
-    new Kategorier(&#x27;Kunst&#x27;),
-    new Kategorier(&#x27;Til børn&#x27;),
-    new Kategorier(&#x27;Andet&#x27;)];
-*/
 
   constructor(private http: HttpClient, private resourceURL: ResourceURLService) {
     this.kategoriValgt.next(&#x27;&#x27;);

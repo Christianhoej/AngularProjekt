@@ -1,5 +1,4 @@
  <div class="row">
-
    <div class="col-xs-2">
      <ul class="list-group">
        <h3>Kategorier</h3>
@@ -18,25 +17,16 @@
        class="btn btn-success"
        *ngIf="brugerService.loggetInd"
      >
-       <!--
-       indsættes indenfor button^^
-       class: more-styles
-       [hidden]="!inboundClick"
-       (click)="inboundClick = !inboundClick"
-       [routerLink]="['/opret_annonce']" href=""-->
        Opret annonce
      </button>
      <div class="col-xs-10">
        <div class="grid-container">
        <app-annonce *ngFor="let annonce of annoncer"
                     [id]="annonce.adId"
-                    [index]="annonce.header"
                     [bruger]="annonce.bruger"
                     [annonce]="annonce"></app-annonce>
      </div>
      </div>
-
-
  </div>
 
 

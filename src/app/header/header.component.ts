@@ -1,7 +1,7 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, OnDestroy} from '@angular/core';
 import {BrugerService} from '../bruger/services/bruger.service';
 import {Subscription} from 'rxjs';
-import {KategoriService} from '../startside/kategorier/kategori.service';
+import {KategoriService} from '../startside/kategori/kategori.service';
 
 @Component({
   selector: 'app-header',
@@ -27,10 +27,10 @@ export class HeaderComponent implements OnDestroy {
   }
 
   logind() {
-    if (this.erLoggetInd = true) {
+    if (this.erLoggetInd) {
       this.erLoggetInd = false;
-      this.brugerService.bruger=null;
-      this.brugerService.loggetInd=false;
+      this.brugerService.bruger = null;
+      this.brugerService.loggetInd = false;
     }
   }
 
@@ -38,7 +38,7 @@ export class HeaderComponent implements OnDestroy {
     this.subscription.unsubscribe();
   }
 
-  loadStartside(){
+  loadStartside() {
     this.kategoriService.kategoriValgt.next('');
   }
 

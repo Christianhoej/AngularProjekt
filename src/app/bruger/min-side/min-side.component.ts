@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder} from '@angular/forms';
-import {Bruger} from '../Models/bruger.model';
+import {Bruger} from '../bruger.model';
 import {BrugerService} from '../services/bruger.service';
-import {Annonce} from '../../models/annonce.model';
-import {Router} from '@angular/router';
+import {Annonce} from '../../annonce/annonce.model';
 
 @Component({
   selector: 'app-min-side',

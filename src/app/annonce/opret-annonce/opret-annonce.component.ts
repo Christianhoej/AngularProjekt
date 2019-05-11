@@ -1,19 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, NgForm, Validators} from '@angular/forms';
-import {AnnonceService} from '../annonce/annonce.service';
-import {Annonce} from '../models/annonce.model';
-import {KategoriService} from '../startside/kategorier/kategori.service';
+import {AnnonceService} from '../services/annonce.service';
+import {Annonce} from '../annonce.model';
+import {KategoriService} from '../../startside/kategori/kategori.service';
 import {HttpClient} from '@angular/common/http';
-import {UploadBilleder} from '../Shared/upload-billeder';
-import * as _ from 'lodash';
-import {Kategorier} from '../startside/kategorier/kategorier.model';
-import {BrugerService} from '../bruger/services/bruger.service';
-import {Replacer} from '../bruger/services/replacer.service';
+import {Kategori} from '../../startside/kategori/kategori.model';
+import {BrugerService} from '../../bruger/services/bruger.service';
 import {ActivatedRoute, Router} from '@angular/router';
-import {timestamp} from 'rxjs/operators';
-import {UploadImageService} from '../annonce/uploadImage.service';
-import {Subscription} from 'rxjs';
-import {ImageModel} from '../annonce/image.model';
 
 
 @Component({
@@ -22,14 +15,14 @@ import {ImageModel} from '../annonce/image.model';
   styleUrls: ['./opret-annonce.component.css']
 })
 export class OpretAnnonceComponent implements OnInit {
-  kategorier: Kategorier[];
+  kategorier: Kategori[];
   erLoggetInd: boolean;
   submitted = false;
   registrerForm: FormGroup;
   billedet: File;
   opretAnnonce: Annonce;
   today: Date;
-  image: ImageModel = new ImageModel('','');
+  image = '';
 
   constructor(private annonceService: AnnonceService,
               private kategoriService: KategoriService,
@@ -37,15 +30,13 @@ export class OpretAnnonceComponent implements OnInit {
               private formBuilder: FormBuilder,
               private brugerService: BrugerService,
               private router: Router,
-              private route: ActivatedRoute,
-              private uploadImageService: UploadImageService,
-
+              private route: ActivatedRoute
               ) { }
 
   ngOnInit() {
     this.kategoriService.getKategorier()
       .subscribe(
-        (kategorier: Kategorier[]) => {this.kategorier = kategorier;
+        (kategorier: Kategori[]) => {this.kategorier = kategorier;
         }
       );
     this.registrerForm = this.formBuilder.group({
@@ -61,12 +52,11 @@ export class OpretAnnonceComponent implements OnInit {
 
   valgtBillede(event) {
     this.billedet = event.target.files[0];
-    this.uploadImageService.uploadImage(this.billedet).subscribe(
+    this.annonceService.uploadImage(this.billedet).subscribe(
       (response) => {
         console.log(response);
         const res: any = response;
-        this.image.id = res.data.is;
-        this.image.link = res.data.link;
+        this.image = res.data.link;
         console.log(res.data.link);
       },
       (error) => console.log(error)
@@ -75,7 +65,7 @@ export class OpretAnnonceComponent implements OnInit {
 
   onOpretAnnonce() {
     this.submitted = true;
-    if (this.registrerForm.invalid || this.image.link == '') {
+    if (this.registrerForm.invalid || this.image === '') {
       return;
     }
 
@@ -83,7 +73,7 @@ export class OpretAnnonceComponent implements OnInit {
     this.opretAnnonce.date = 'hej';
     this.opretAnnonce.user = this.brugerService.bruger;
     this.opretAnnonce.email = this.brugerService.bruger.email;
-    this.opretAnnonce.imageURL = this.image.link;
+    this.opretAnnonce.imageURL = this.image;
     this.annonceService.opretAnnonce(this.opretAnnonce)
       .subscribe(
         (response) => {

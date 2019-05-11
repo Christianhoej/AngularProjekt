@@ -1,13 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Params, Router} from '@angular/router';
-import {Annonce} from '../../models/annonce.model';
-import {AnnonceService} from '../annonce.service';
-import {KategoriService} from '../../startside/kategorier/kategori.service';
-import {Kategorier} from '../../startside/kategorier/kategorier.model';
+import {Annonce} from '../annonce.model';
+import {AnnonceService} from '../services/annonce.service';
+import {KategoriService} from '../../startside/kategori/kategori.service';
+import {Kategori} from '../../startside/kategori/kategori.model';
 import {FormBuilder, FormGroup, NgForm, Validators} from '@angular/forms';
 import {BrugerService} from '../../bruger/services/bruger.service';
-import {ImageModel} from '../image.model';
-import {UploadImageService} from '../uploadImage.service';
 
 @Component({
   selector: 'app-rediger-annonce',
@@ -22,8 +20,8 @@ export class RedigerAnnonceComponent implements OnInit {
   annonce: Annonce;
   redigerAnnonce: Annonce;
   key: string;
-  kategorier: Kategorier[];
-  image: ImageModel = new ImageModel('','');
+  kategorier: Kategori[];
+  image = '';
 
   constructor(private annonceService: AnnonceService,
               private route: ActivatedRoute,
@@ -31,7 +29,7 @@ export class RedigerAnnonceComponent implements OnInit {
               private router: Router,
               private brugerService: BrugerService,
               private formBuilder: FormBuilder,
-              private uploadImageService: UploadImageService) { }
+              ) { }
 
   ngOnInit() {
     this.route.params
@@ -43,7 +41,7 @@ export class RedigerAnnonceComponent implements OnInit {
             .subscribe(
               (annonce: Annonce) => {
                 this.annonce = annonce;
-                this.image.link = annonce.imageURL;
+                this.image = annonce.imageURL;
                 this.annonce.email = this.annonce.user.email;
               }
             );
@@ -54,13 +52,12 @@ export class RedigerAnnonceComponent implements OnInit {
       category: ['', Validators.required],
       header: ['', Validators.required],
       price: ['', Validators.required],
-      imageURL: ['', Validators.required],
       description: ['', Validators.required]}
       );
 
     this.kategoriService.getKategorier()
       .subscribe(
-        (kategorier: Kategorier[]) => {this.kategorier = kategorier;
+        (kategorier: Kategori[]) => {this.kategorier = kategorier;
         }
       );
   }
@@ -69,12 +66,11 @@ export class RedigerAnnonceComponent implements OnInit {
 
   valgtBillede(event) {
     this.billedet = event.target.files[0];
-    this.uploadImageService.uploadImage(this.billedet).subscribe(
+    this.annonceService.uploadImage(this.billedet).subscribe(
       (response) => {
         console.log(response);
         const res: any = response;
-        this.image.id = res.data.is;
-        this.image.link = res.data.link;
+        this.image = res.data.link;
         console.log(res.data.link);
       },
       (error) => console.log(error)
@@ -83,7 +79,7 @@ export class RedigerAnnonceComponent implements OnInit {
 
   onRedigerAnnonce() {
     this.submitted = true;
-    if (this.redigerForm.invalid || this.image.link == '') {
+    if (this.redigerForm.invalid || this.image === '') {
       return;
     }
 
@@ -92,7 +88,7 @@ export class RedigerAnnonceComponent implements OnInit {
     this.redigerAnnonce.date = this.annonce.date;
     this.redigerAnnonce.user = this.brugerService.bruger;
     this.redigerAnnonce.adId = this.annonce.adId;
-    this.redigerAnnonce.imageURL = this.image.link;
+    this.redigerAnnonce.imageURL = this.image;
 
     this.annonceService.redigerAnnonce(this.redigerAnnonce)
       .subscribe(
@@ -103,7 +99,6 @@ export class RedigerAnnonceComponent implements OnInit {
           console.log(error);
         }
       );
-
   }
 
   sletAnnonce(){
@@ -112,7 +107,7 @@ export class RedigerAnnonceComponent implements OnInit {
         (respone) => {console.log(respone)},
         (error) => {console.log(error)}
       );
-    this.router.navigate(['/min_side'])
+    this.router.navigate(['/min_side']);
   }
 
 }

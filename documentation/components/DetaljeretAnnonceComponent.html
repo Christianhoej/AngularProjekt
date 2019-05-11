@@ -179,7 +179,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/annonce/detaljeret-annonce/detaljeret-annonce.component.ts:18</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/annonce/detaljeret-annonce/detaljeret-annonce.component.ts:17</a></div>
                             </td>
                         </tr>
 
@@ -272,8 +272,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="24"
-                            class="link-to-prism">src/app/annonce/detaljeret-annonce/detaljeret-annonce.component.ts:24</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="23"
+                            class="link-to-prism">src/app/annonce/detaljeret-annonce/detaljeret-annonce.component.ts:23</a></div>
                 </td>
             </tr>
 
@@ -342,7 +342,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/annonce/detaljeret-annonce/detaljeret-annonce.component.ts:18</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/annonce/detaljeret-annonce/detaljeret-annonce.component.ts:17</a></div>
                             </td>
                         </tr>
 
@@ -396,7 +396,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/annonce/detaljeret-annonce/detaljeret-annonce.component.ts:17</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/annonce/detaljeret-annonce/detaljeret-annonce.component.ts:16</a></div>
                             </td>
                         </tr>
 
@@ -410,11 +410,11 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {Component, Input, OnInit} from &#x27;@angular/core&#x27;;
-import {Annonce} from &#x27;../../models/annonce.model&#x27;;
+import {Annonce} from &#x27;../annonce.model&#x27;;
 import {Subscription} from &#x27;rxjs&#x27;;
 import {ActivatedRoute, Params, Router} from &#x27;@angular/router&#x27;;
-import {AnnonceService} from &#x27;../annonce.service&#x27;;
-import {Bruger} from &#x27;../../bruger/Models/bruger.model&#x27;;
+import {AnnonceService} from &#x27;../services/annonce.service&#x27;;
+import {Bruger} from &#x27;../../bruger/bruger.model&#x27;;
 
 @Component ({
   selector: &#x27;app-detaljeret-annonce&#x27;,
@@ -424,7 +424,6 @@ import {Bruger} from &#x27;../../bruger/Models/bruger.model&#x27;;
 export class DetaljeretAnnonceComponent implements OnInit {
   id: string;
   annonce: Annonce;
- // @Input() index;
   key: string;
   bruger: Bruger;
 
@@ -433,11 +432,7 @@ export class DetaljeretAnnonceComponent implements OnInit {
               private router: Router) { }
 
   ngOnInit() {
-   // this.annonce &#x3D; new Annonce(&#x27;&#x27;, 0, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;,new Bruger(&#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;));
-
-    /*this.annonce &#x3D; this.annonceService.getAnnoncer();
-    this.subscription &#x3D; this.annonceService.annonceændret.subscribe((annoncer: Annonce[]) &#x3D;&gt; {this.annonceArr &#x3D; annoncer; });*/
-    this.route.params
+     this.route.params
       .subscribe(
         (params: Params) &#x3D;&gt; {
           this.key &#x3D; &#x27;id&#x27;;
@@ -446,33 +441,8 @@ export class DetaljeretAnnonceComponent implements OnInit {
             .subscribe(
               (annonce: Annonce) &#x3D;&gt; {
 
-                //this.bruger &#x3D; annonce[&#x27;user&#x27;];
                 this.annonce &#x3D; annonce;
                 this.annonce.email &#x3D; this.annonce.user.email;
-
-
-                //this.annonce &#x3D; JSON.parse(annonce);
-                //let resource &#x3D; res[0];
-                //console.log(resource[&#x27;firstName&#x27;]);
-
-
-
-
-/*                this.bruger &#x3D; JSON.parse(JSON.stringify(annonce, (key, value) &#x3D;&gt; {
-                  if (key &#x3D;&#x3D; &#x27;user&#x27;) {
-                    return value;
-                  }
-                  return undefined;
-                }));
-
-                console.log(&#x27;bruuuuuger &#x27; + this.bruger.firstName);
-                this.annonce &#x3D; JSON.parse(annonce, ((key, value) &#x3D;&gt; {
-                  if (key &#x3D;&#x3D;&#x3D; &#x27;user&#x27;) {
-                    return undefined;
-                  }
-                  return value;
-                }));*/
-               // this.annonce &#x3D; annonce;
               }
             );
         }
@@ -487,8 +457,7 @@ export class DetaljeretAnnonceComponent implements OnInit {
     </div>
 
     <div class="tab-pane fade " id="c-templateData">
-        <pre class="line-numbers"><code class="language-html">&lt;!--&lt;router-outlet&gt;&lt;/router-outlet&gt;--&gt;
-&lt;!--&lt;h5&gt;&lt;/h5&gt;--&gt;
+        <pre class="line-numbers"><code class="language-html">
 &lt;div class&#x3D;&quot;row&quot;&gt;
   &lt;div class&#x3D;&quot;col-xs-12&quot;&gt;
     &lt;div class&#x3D;&quot;col-xs-4&quot; id&#x3D;&quot;borderRight&quot;&gt;
@@ -564,8 +533,8 @@ export class DetaljeretAnnonceComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><!--<router-outlet></router-outlet>--><!--<h5></h5>--><div class="row">  <div class="col-xs-12">    <div class="col-xs-4" id="borderRight">      <h1>{{ annonce.header }}</h1>      <h3>{{ annonce.price }} kr.</h3>      <br>        <p  style="margin-top: 10px">{{annonce.description}}</p>    </div>    <div class="col-xs-5" align="center">      <img        [src]="annonce.imageURL"        class="img-responsive"        style="max-height: 250px;">    </div>    <div class="col-xs-3"         style="min-height: 200px" id="borderLeft">      <h2>Kontaktinformation</h2>      <h3>{{annonce.user.firstName}} {{annonce.user.lastName}}</h3>      Postnummer: {{annonce.user.zipCode}}      <br>      Tlf: {{annonce.user.phonenumber}}      <br>      Alder: {{annonce.user.birthday}}      <br>      Email: {{annonce.user.email}}    </div>  </div></div></div>'
-    var COMPONENTS = [{'name': 'AnnonceComponent', 'selector': 'app-annonce'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'DetaljeretAnnonceComponent', 'selector': 'app-detaljeret-annonce'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'KategorierComponent', 'selector': 'app-kategorier'},{'name': 'LogIndComponent', 'selector': 'app-log-ind'},{'name': 'MineAnnoncerComponent', 'selector': 'app-mine-annoncer'},{'name': 'MinSideComponent', 'selector': 'app-min-side'},{'name': 'OpretAnnonceComponent', 'selector': 'app-opret-annonce'},{'name': 'OpretBrugerComponent', 'selector': 'app-opret-bruger'},{'name': 'RedigerAnnonceComponent', 'selector': 'app-rediger-annonce'},{'name': 'RedigerBrugerComponent', 'selector': 'app-rediger-bruger'},{'name': 'StartsideComponent', 'selector': 'app-startside'}];
+        var COMPONENT_TEMPLATE = '<div><div class="row">  <div class="col-xs-12">    <div class="col-xs-4" id="borderRight">      <h1>{{ annonce.header }}</h1>      <h3>{{ annonce.price }} kr.</h3>      <br>        <p  style="margin-top: 10px">{{annonce.description}}</p>    </div>    <div class="col-xs-5" align="center">      <img        [src]="annonce.imageURL"        class="img-responsive"        style="max-height: 250px;">    </div>    <div class="col-xs-3"         style="min-height: 200px" id="borderLeft">      <h2>Kontaktinformation</h2>      <h3>{{annonce.user.firstName}} {{annonce.user.lastName}}</h3>      Postnummer: {{annonce.user.zipCode}}      <br>      Tlf: {{annonce.user.phonenumber}}      <br>      Alder: {{annonce.user.birthday}}      <br>      Email: {{annonce.user.email}}    </div>  </div></div></div>'
+    var COMPONENTS = [{'name': 'AnnonceComponent', 'selector': 'app-annonce'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'DetaljeretAnnonceComponent', 'selector': 'app-detaljeret-annonce'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'KategoriComponent', 'selector': 'app-kategorier'},{'name': 'LogIndComponent', 'selector': 'app-log-ind'},{'name': 'MineAnnoncerComponent', 'selector': 'app-mine-annoncer'},{'name': 'MinSideComponent', 'selector': 'app-min-side'},{'name': 'OpretAnnonceComponent', 'selector': 'app-opret-annonce'},{'name': 'OpretBrugerComponent', 'selector': 'app-opret-bruger'},{'name': 'RedigerAnnonceComponent', 'selector': 'app-rediger-annonce'},{'name': 'RedigerBrugerComponent', 'selector': 'app-rediger-bruger'},{'name': 'StartsideComponent', 'selector': 'app-startside'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'DetaljeretAnnonceComponent'};
 </script>

@@ -154,9 +154,6 @@
                             <li>
                                 <a href="#id">id</a>
                             </li>
-                            <li>
-                                <a href="#index">index</a>
-                            </li>
                         </ul>
                     </td>
                 </tr>
@@ -179,7 +176,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/annonce/annonce.component.ts:18</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/annonce/annonce.component.ts:15</a></div>
                             </td>
                         </tr>
 
@@ -205,7 +202,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/annonce/annonce.component.ts:15</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/annonce/annonce.component.ts:13</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -226,7 +223,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/annonce/annonce.component.ts:16</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/annonce/annonce.component.ts:14</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -247,28 +244,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/annonce/annonce.component.ts:17</a></div>
-                            </td>
-                        </tr>
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="index"></a>
-                        <b>index</b>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
-
-                    </td>
-                </tr>
-                        <tr>
-                            <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/annonce/annonce.component.ts:18</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/annonce/annonce.component.ts:15</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -304,8 +280,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="22"
-                            class="link-to-prism">src/app/annonce/annonce.component.ts:22</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="20"
+                            class="link-to-prism">src/app/annonce/annonce.component.ts:20</a></div>
                 </td>
             </tr>
 
@@ -328,10 +304,10 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {Component, Input, OnInit, Output} from &#x27;@angular/core&#x27;;
-import {Annonce} from &#x27;../models/annonce.model&#x27;;
-import {AnnonceService} from &#x27;./annonce.service&#x27;;
+import {Annonce} from &#x27;./annonce.model&#x27;;
+import {AnnonceService} from &#x27;./services/annonce.service&#x27;;
 import {Subscription} from &#x27;rxjs&#x27;;
-import {Bruger} from &#x27;../bruger/Models/bruger.model&#x27;;
+import {Bruger} from &#x27;../bruger/bruger.model&#x27;;
 
 @Component({
   selector: &#x27;app-annonce&#x27;,
@@ -339,12 +315,10 @@ import {Bruger} from &#x27;../bruger/Models/bruger.model&#x27;;
   styleUrls: [&#x27;./annonce.component.css&#x27;]
 })
 export class AnnonceComponent implements OnInit {
- // annonce: Annonce;
-  //annoncer: Annonce[];
   @Input() annonce: Annonce;
   @Input() bruger: Bruger;
   @Input() id: number;
-  @Input() index: number;
+
 
   constructor() { }
 
@@ -359,60 +333,11 @@ export class AnnonceComponent implements OnInit {
     </div>
 
     <div class="tab-pane fade " id="c-templateData">
-        <pre class="line-numbers"><code class="language-html">&lt;!--
-&lt;a
-  style&#x3D;&quot;cursor: pointer;&quot;
-  routerLink&#x3D;&quot;/detaljeret_annonce&quot;
-  routerLinkActive&#x3D;&quot;active&quot;
-  &gt;
-  &lt;div class&#x3D;&quot;row&quot; style&#x3D;&quot;min-height: 135px; min-width: 135px&quot;&gt;
-    &lt;div class&#x3D;&quot;col-xs-12&quot;&gt;
-      &lt;img [src]&#x3D;&quot;annonce.imagepath&quot; class&#x3D;&quot;img-responsive&quot;  style&#x3D;&quot;max-height: 135px ; max-width: 135px&quot;&gt;
-
-    &lt;/div&gt;
-  &lt;/div&gt;
-  &lt;div class&#x3D;&quot;title&quot;&gt;
-    {{ annonce.titel }}
-  &lt;/div&gt;
-  &lt;div class&#x3D;&quot;price&quot;&gt;
-    {{ annonce.pris }} kr
-  &lt;/div&gt;
-&lt;/a&gt;
---&gt;
-&lt;!--
-&lt;div class&#x3D;&quot;row&quot;&gt;
-  &lt;div class&#x3D;&quot;col-xs-2&quot;&gt;
-    &lt;ul class&#x3D;&quot;list-group&quot;&gt;
-      &lt;h3&gt;Kategorier&lt;/h3&gt;
-      &lt;hr&gt;
-      &lt;a
-        class&#x3D;&quot;list-group-item-text,  &quot;
-        *ngFor&#x3D;&quot; let kategoriElement of kategori&quot;
-        style&#x3D;&quot;cursor: pointer&quot;
-
-      &gt;
-
-        &lt;font size&#x3D;&quot;+1&quot;&gt;
-          {{kategoriElement}} &lt;br&gt;
-        &lt;/font&gt;
-      &lt;/a&gt;
-    &lt;/ul&gt;
-  &lt;/div&gt;
-  --&gt;
-&lt;!--
-  &lt;div class&#x3D;&quot;col-xs-10&quot;&gt;
-    &lt;app-grid&gt;&lt;/app-grid&gt;
-  &lt;/div&gt;
---&gt;
-
-
-  &lt;a
+        <pre class="line-numbers"><code class="language-html">  &lt;a
     class&#x3D;&quot;grid-item&quot;
     style&#x3D;&quot;cursor: pointer; margin-right: 50px&quot;
-
     [routerLink]&#x3D;&quot;[&#x27;/detaljeret_annonce&#x27;, id]&quot;
     routerLinkActive&#x3D;&quot;active&quot;&gt;
-
     &lt;div class&#x3D;&quot;row&quot; style&#x3D;&quot;min-height: 135px; min-width: 135px&quot;&gt;
       &lt;div class&#x3D;&quot;col-xs-12&quot;&gt;
         &lt;img
@@ -421,13 +346,10 @@ export class AnnonceComponent implements OnInit {
           class&#x3D;&quot;img-responsive&quot;
           style&#x3D;&quot;max-height: 135px;
           max-width: 135px&quot;&gt;
-
       &lt;/div&gt;
     &lt;/div&gt;
     &lt;div class&#x3D;&quot;title&quot;&gt;{{ annonce.header }}&lt;/div&gt;
     &lt;div class&#x3D;&quot;price&quot;&gt;{{ annonce.price }} kr&lt;/div&gt;
-
-    &lt;!--  {{ annonce.beskrivelse }} {{ annonce.kategori }} --&gt;
 
   &lt;/a&gt;
 
@@ -501,8 +423,8 @@ a {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><!--<a  style="cursor: pointer;"  routerLink="/detaljeret_annonce"  routerLinkActive="active"  >  <div class="row" style="min-height: 135px; min-width: 135px">    <div class="col-xs-12">      <img [src]="annonce.imagepath" class="img-responsive"  style="max-height: 135px ; max-width: 135px">    </div>  </div>  <div class="title">    {{ annonce.titel }}  </div>  <div class="price">    {{ annonce.pris }} kr  </div></a>--><!--<div class="row">  <div class="col-xs-2">    <ul class="list-group">      <h3>Kategorier</h3>      <hr>      <a        class="list-group-item-text,  "        *ngFor=" let kategoriElement of kategori"        style="cursor: pointer"      >        <font size="+1">          {{kategoriElement}} <br>        </font>      </a>    </ul>  </div>  --><!--  <div class="col-xs-10">    <app-grid></app-grid>  </div>-->  <a    class="grid-item"    style="cursor: pointer; margin-right: 50px"    [routerLink]="[\'/detaljeret_annonce\', id]"    routerLinkActive="active">    <div class="row" style="min-height: 135px; min-width: 135px">      <div class="col-xs-12">        <img          [src]="annonce.imageURL"          alt="{{annonce.header}}"          class="img-responsive"          style="max-height: 135px;          max-width: 135px">      </div>    </div>    <div class="title">{{ annonce.header }}</div>    <div class="price">{{ annonce.price }} kr</div>    <!--  {{ annonce.beskrivelse }} {{ annonce.kategori }} -->  </a></div>'
-    var COMPONENTS = [{'name': 'AnnonceComponent', 'selector': 'app-annonce'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'DetaljeretAnnonceComponent', 'selector': 'app-detaljeret-annonce'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'KategorierComponent', 'selector': 'app-kategorier'},{'name': 'LogIndComponent', 'selector': 'app-log-ind'},{'name': 'MineAnnoncerComponent', 'selector': 'app-mine-annoncer'},{'name': 'MinSideComponent', 'selector': 'app-min-side'},{'name': 'OpretAnnonceComponent', 'selector': 'app-opret-annonce'},{'name': 'OpretBrugerComponent', 'selector': 'app-opret-bruger'},{'name': 'RedigerAnnonceComponent', 'selector': 'app-rediger-annonce'},{'name': 'RedigerBrugerComponent', 'selector': 'app-rediger-bruger'},{'name': 'StartsideComponent', 'selector': 'app-startside'}];
+        var COMPONENT_TEMPLATE = '<div>  <a    class="grid-item"    style="cursor: pointer; margin-right: 50px"    [routerLink]="[\'/detaljeret_annonce\', id]"    routerLinkActive="active">    <div class="row" style="min-height: 135px; min-width: 135px">      <div class="col-xs-12">        <img          [src]="annonce.imageURL"          alt="{{annonce.header}}"          class="img-responsive"          style="max-height: 135px;          max-width: 135px">      </div>    </div>    <div class="title">{{ annonce.header }}</div>    <div class="price">{{ annonce.price }} kr</div>  </a></div>'
+    var COMPONENTS = [{'name': 'AnnonceComponent', 'selector': 'app-annonce'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'DetaljeretAnnonceComponent', 'selector': 'app-detaljeret-annonce'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'KategoriComponent', 'selector': 'app-kategorier'},{'name': 'LogIndComponent', 'selector': 'app-log-ind'},{'name': 'MineAnnoncerComponent', 'selector': 'app-mine-annoncer'},{'name': 'MinSideComponent', 'selector': 'app-min-side'},{'name': 'OpretAnnonceComponent', 'selector': 'app-opret-annonce'},{'name': 'OpretBrugerComponent', 'selector': 'app-opret-bruger'},{'name': 'RedigerAnnonceComponent', 'selector': 'app-rediger-annonce'},{'name': 'RedigerBrugerComponent', 'selector': 'app-rediger-bruger'},{'name': 'StartsideComponent', 'selector': 'app-startside'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'AnnonceComponent'};
 </script>

@@ -60,7 +60,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>src/app/models/annonce.model.ts</code>
+            <code>src/app/annonce/annonce.model.ts</code>
         </p>
 
 
@@ -139,7 +139,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/models/annonce.model.ts:13</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/annonce/annonce.model.ts:12</a></div>
                             </td>
                         </tr>
 
@@ -299,7 +299,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">src/app/models/annonce.model.ts:10</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">src/app/annonce/annonce.model.ts:9</a></div>
                             </td>
                         </tr>
 
@@ -327,7 +327,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">src/app/models/annonce.model.ts:9</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">src/app/annonce/annonce.model.ts:8</a></div>
                             </td>
                         </tr>
 
@@ -355,7 +355,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/models/annonce.model.ts:12</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/app/annonce/annonce.model.ts:11</a></div>
                             </td>
                         </tr>
 
@@ -383,7 +383,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">src/app/models/annonce.model.ts:8</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="7" class="link-to-prism">src/app/annonce/annonce.model.ts:7</a></div>
                             </td>
                         </tr>
 
@@ -411,7 +411,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/app/models/annonce.model.ts:11</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">src/app/annonce/annonce.model.ts:10</a></div>
                             </td>
                         </tr>
 
@@ -439,7 +439,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="5" class="link-to-prism">src/app/models/annonce.model.ts:5</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="4" class="link-to-prism">src/app/annonce/annonce.model.ts:4</a></div>
                             </td>
                         </tr>
 
@@ -467,7 +467,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="7" class="link-to-prism">src/app/models/annonce.model.ts:7</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="6" class="link-to-prism">src/app/annonce/annonce.model.ts:6</a></div>
                             </td>
                         </tr>
 
@@ -495,7 +495,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="6" class="link-to-prism">src/app/models/annonce.model.ts:6</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="5" class="link-to-prism">src/app/annonce/annonce.model.ts:5</a></div>
                             </td>
                         </tr>
 
@@ -523,7 +523,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/models/annonce.model.ts:13</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/annonce/annonce.model.ts:12</a></div>
                             </td>
                         </tr>
 
@@ -542,8 +542,7 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {NgModule} from &#x27;@angular/core&#x27;;
-import {Bruger} from &#x27;../bruger/Models/bruger.model&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {Bruger} from &#x27;../bruger/bruger.model&#x27;;
 
 export class Annonce {
   public header: string;
@@ -556,8 +555,8 @@ export class Annonce {
   public date: string;
   public user: Bruger;
 
-  // public sælger: bruger;
-  constructor(header: string, price: number, imageURL: string, description: string, category: string, adId: string, email: string, date: string, user: Bruger) {
+ constructor(header: string, price: number, imageURL: string, description: string,
+             category: string, adId: string, email: string, date: string, user: Bruger) {
     this.header &#x3D; header;
     this.price &#x3D; price;
     this.imageURL &#x3D; imageURL;

@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Annonce} from '../../models/annonce.model';
+import {Annonce} from '../annonce.model';
 
 @Component({
   selector: 'app-mine-annoncer',
