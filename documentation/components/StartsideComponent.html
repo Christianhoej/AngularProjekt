@@ -643,12 +643,13 @@ export class StartsideComponent implements OnInit, OnDestroy {
                        [kategori]&#x3D;&quot;kategoriElement&quot;&gt;&lt;/app-kategorier&gt;
      &lt;/ul&gt;
    &lt;/div&gt;
-   &lt;div class&#x3D;&quot;pull-right&quot; routerLinkActive&#x3D;&quot;active&quot; routerLink&#x3D;&quot;/opret_annonce&quot; &gt;
+   &lt;div class&#x3D;&quot;col-xs-8&quot;&gt;&lt;/div&gt;
      &lt;button
+       routerLinkActive&#x3D;&quot;active&quot;
+       routerLink&#x3D;&quot;/opret_annonce&quot;
        style&#x3D;&quot;margin-right: 50px&quot;
        type&#x3D;&quot;button&quot;
        class&#x3D;&quot;btn btn-success&quot;
-       
      &gt;
        &lt;!--
        indsættes indenfor button^^
@@ -658,7 +659,6 @@ export class StartsideComponent implements OnInit, OnDestroy {
        [routerLink]&#x3D;&quot;[&#x27;/opret_annonce&#x27;]&quot; href&#x3D;&quot;&quot;--&gt;
        Opret annonce
      &lt;/button&gt;
-   &lt;/div&gt;
      &lt;div class&#x3D;&quot;col-xs-10&quot;&gt;
        &lt;div class&#x3D;&quot;grid-container&quot;&gt;
        &lt;app-annonce *ngFor&#x3D;&quot;let annonce of annoncer&quot;
@@ -732,8 +732,8 @@ export class StartsideComponent implements OnInit, OnDestroy {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div> <div class="row">   <div class="col-xs-2">     <ul class="list-group">       <h3>Kategorier</h3>       <hr id="hr1">       <app-kategorier *ngFor="let kategoriElement of kategorier, let i= index"                       [id]="kategoriElement.categoryName"                       [kategori]="kategoriElement"></app-kategorier>     </ul>   </div>   <div class="pull-right" routerLinkActive="active" routerLink="/opret_annonce" >     <button       style="margin-right: 50px"       type="button"       class="btn btn-success"            >       <!--       indsættes indenfor button^^       class: more-styles       [hidden]="!inboundClick"       (click)="inboundClick = !inboundClick"       [routerLink]="[\'/opret_annonce\']" href=""-->       Opret annonce     </button>   </div>     <div class="col-xs-10">       <div class="grid-container">       <app-annonce *ngFor="let annonce of annoncer"                    [id]="annonce.adId"                    [index]="annonce.header"                    [bruger]="annonce.bruger"                    [annonce]="annonce"></app-annonce>     </div>     </div> </div></div>'
-    var COMPONENTS = [{'name': 'AnnonceComponent', 'selector': 'app-annonce'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'DetaljeretAnnonceComponent', 'selector': 'app-detaljeret-annonce'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'KategorierComponent', 'selector': 'app-kategorier'},{'name': 'LogIndComponent', 'selector': 'app-log-ind'},{'name': 'MineAnnoncerComponent', 'selector': 'app-mine-annoncer'},{'name': 'MinSideComponent', 'selector': 'app-min-side'},{'name': 'OpretAnnonceComponent', 'selector': 'app-opret-annonce'},{'name': 'OpretBrugerComponent', 'selector': 'app-opret-bruger'},{'name': 'RedigerAnnonceComponent', 'selector': 'app-rediger-annonce'},{'name': 'RedigerBrugerComponent', 'selector': 'app-rediger-bruger'},{'name': 'StartsideComponent', 'selector': 'app-startside'}];
+        var COMPONENT_TEMPLATE = '<div> <div class="row">   <div class="col-xs-2">     <ul class="list-group">       <h3>Kategorier</h3>       <hr id="hr1">       <app-kategorier *ngFor="let kategoriElement of kategorier, let i= index"                       [id]="kategoriElement.categoryName"                       [kategori]="kategoriElement"></app-kategorier>     </ul>   </div>   <div class="col-xs-8"></div>     <button       routerLinkActive="active"       routerLink="/opret_annonce"       style="margin-right: 50px"       type="button"       class="btn btn-success"     >       <!--       indsættes indenfor button^^       class: more-styles       [hidden]="!inboundClick"       (click)="inboundClick = !inboundClick"       [routerLink]="[\'/opret_annonce\']" href=""-->       Opret annonce     </button>     <div class="col-xs-10">       <div class="grid-container">       <app-annonce *ngFor="let annonce of annoncer"                    [id]="annonce.adId"                    [index]="annonce.header"                    [bruger]="annonce.bruger"                    [annonce]="annonce"></app-annonce>     </div>     </div> </div></div>'
+    var COMPONENTS = [{'name': 'AnnonceComponent', 'selector': 'app-annonce'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'DetaljeretAnnonceComponent', 'selector': 'app-detaljeret-annonce'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'KategorierComponent', 'selector': 'app-kategorier'},{'name': 'LogIndComponent', 'selector': 'app-log-ind'},{'name': 'MineAnnoncerComponent', 'selector': 'app-mine-annoncer'},{'name': 'MinSideComponent', 'selector': 'app-min-side'},{'name': 'OpretAnnonceComponent', 'selector': 'app-opret-annonce'},{'name': 'OpretBrugerComponent', 'selector': 'app-opret-bruger'},{'name': 'RedigerAnnonceComponent', 'selector': 'app-rediger-annonce'},{'name': 'RedigerBrugerComponent', 'selector': 'app-rediger-bruger'},{'name': 'StartsideComponent', 'selector': 'app-startside'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'StartsideComponent'};
 </script>

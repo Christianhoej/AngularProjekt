@@ -603,11 +603,11 @@ export class RedigerBrugerComponent implements OnInit {
     this.redigerForm &#x3D; this.formBuilder.group({
       firstName: [&#x27;&#x27;, Validators.required],
       lastName: [&#x27;&#x27;, Validators.required],
-      birthday: [&#x27;&#x27;, Validators.required, Validators.minLength(4), Validators.maxLength(4)],
+      birthday: [&#x27;&#x27;, [Validators.required, Validators.min(1900), Validators.max(2001)]],
       gender: [&#x27;&#x27;, Validators.required],
       address: [&#x27;&#x27;, Validators.required],
-      zipCode: [&#x27;&#x27;, Validators.required, Validators.minLength(4), Validators.maxLength(4)],
-      phonenumber: [&#x27;&#x27;, Validators.required, Validators.minLength(8), Validators.maxLength(8)],
+      zipCode: [&#x27;&#x27;, [Validators.required, Validators.min(1000), Validators.max(9999)]],
+      phonenumber: [&#x27;&#x27;, [Validators.required, Validators.min(10000000), Validators.max(99999999)]],
       email: [&#x27;&#x27;, [Validators.required, Validators.email]],
       password: [&#x27;&#x27;, [Validators.required, Validators.minLength(6)]],
       repeatPassword: [&#x27;&#x27;, Validators.required]
@@ -648,7 +648,6 @@ export class RedigerBrugerComponent implements OnInit {
 
     this.redigerBruger &#x3D; this.redigerForm.value;
     this.redigerBruger.userId &#x3D; this.userid;
-    console.log(this.redigerBruger.address);
     this.brugerService.redigerBruger(this.redigerBruger)
       .subscribe(
         (response) &#x3D;&gt; {
@@ -670,21 +669,22 @@ export class RedigerBrugerComponent implements OnInit {
         &lt;label&gt;Fornavn&lt;/label&gt;
         &lt;input type&#x3D;&quot;text&quot; class&#x3D;&quot;form-control&quot; formControlName&#x3D;&quot;firstName&quot; [(ngModel)]&#x3D;&quot;bruger.firstName&quot;  [ngClass]&#x3D;&quot;{ &#x27;is-invalid&#x27;: submitted &amp;&amp; f.firstName.errors}&quot;&gt;
         &lt;div *ngIf&#x3D;&quot;submitted &amp;&amp; f.firstName.errors&quot; class&#x3D;&quot;invalid-feedback&quot;&gt;
-          &lt;div *ngIf&#x3D;&quot;f.firstName.errors.required&quot;&gt;Fornavn skal indtastes&lt;/div&gt;
+          &lt;div *ngIf&#x3D;&quot;f.firstName.errors.required&quot; style&#x3D;&quot;color: #FF0000;&quot;&gt;Fornavn skal indtastes&lt;/div&gt;
         &lt;/div&gt;
       &lt;/div&gt;
       &lt;div class&#x3D;&quot;form-group&quot;&gt;
         &lt;label&gt;Efternavn&lt;/label&gt;
         &lt;input type&#x3D;&quot;text&quot; class&#x3D;&quot;form-control&quot; formControlName&#x3D;&quot;lastName&quot; [(ngModel)]&#x3D;&quot;bruger.lastName&quot; [ngClass]&#x3D;&quot;{ &#x27;is-invalid&#x27;: submitted &amp;&amp; f.lastName.errors}&quot;&gt;
         &lt;div *ngIf&#x3D;&quot;submitted &amp;&amp; f.lastName.errors&quot; class&#x3D;&quot;invalid-feedback&quot;&gt;
-          &lt;div *ngIf&#x3D;&quot;f.lastName.errors.required&quot;&gt;Efternavn skal indtastes&lt;/div&gt;
+          &lt;div *ngIf&#x3D;&quot;f.lastName.errors.required&quot; style&#x3D;&quot;color: #FF0000;&quot;&gt;Efternavn skal indtastes&lt;/div&gt;
         &lt;/div&gt;
       &lt;/div&gt;
       &lt;div class&#x3D;&quot;form-group&quot;&gt;
         &lt;label&gt;Fødselsår&lt;/label&gt;
         &lt;input type&#x3D;&quot;number&quot; class&#x3D;&quot;form-control&quot; formControlName&#x3D;&quot;birthday&quot; [(ngModel)]&#x3D;&quot;bruger.birthday&quot; [ngClass]&#x3D;&quot;{ &#x27;is-invalid&#x27;: submitted &amp;&amp; f.birthday.errors}&quot;&gt;
         &lt;div *ngIf&#x3D;&quot;submitted &amp;&amp; f.birthday.errors&quot; class&#x3D;&quot;invalid-feedback&quot;&gt;
-          &lt;div *ngIf&#x3D;&quot;f.birthday.errors.required&quot;&gt;Fødselsår skal indtastes&lt;/div&gt;
+          &lt;div *ngIf&#x3D;&quot;f.birthday.errors.required&quot; style&#x3D;&quot;color: #FF0000;&quot;&gt;Fødselsår skal indtastes&lt;/div&gt;
+          &lt;div *ngIf&#x3D;&quot;f.birthday.errors.min ||f.birthday.errors.max&quot; style&#x3D;&quot;color: #FF0000;&quot;&gt;Fødselsåret skal indeholde 4 tal&lt;/div&gt;
         &lt;/div&gt;
       &lt;/div&gt;
       &lt;div class&#x3D;&quot;form-group&quot;&gt;
@@ -695,14 +695,14 @@ export class RedigerBrugerComponent implements OnInit {
           &lt;option style&#x3D;&quot;cursor: pointer; size: 10px&quot; &gt;Andet&lt;/option&gt;
         &lt;/select&gt;
         &lt;div *ngIf&#x3D;&quot;submitted &amp;&amp; f.gender.errors&quot; class&#x3D;&quot;invalid-feedback&quot;&gt;
-          &lt;div *ngIf&#x3D;&quot;f.gender.errors.required&quot;&gt;Køn skal vælges&lt;/div&gt;
+          &lt;div *ngIf&#x3D;&quot;f.gender.errors.required&quot; style&#x3D;&quot;color: #FF0000;&quot;&gt;Køn skal vælges&lt;/div&gt;
         &lt;/div&gt;
       &lt;/div&gt;
       &lt;div class&#x3D;&quot;form-group&quot;&gt;
         &lt;label&gt;Adresse&lt;/label&gt;
         &lt;input type&#x3D;&quot;text&quot; class&#x3D;&quot;form-control&quot; formControlName&#x3D;&quot;address&quot; [(ngModel)]&#x3D;&quot;bruger.address&quot; [ngClass]&#x3D;&quot;{ &#x27;is-invalid&#x27;: submitted &amp;&amp; f.address.errors}&quot;&gt;
         &lt;div *ngIf&#x3D;&quot;submitted &amp;&amp; f.address.errors&quot; class&#x3D;&quot;invalid-feedback&quot;&gt;
-          &lt;div *ngIf&#x3D;&quot;f.address.errors.required&quot;&gt;Adresse skal indtastes&lt;/div&gt;
+          &lt;div *ngIf&#x3D;&quot;f.address.errors.required&quot; style&#x3D;&quot;color: #FF0000;&quot;&gt;Adresse skal indtastes&lt;/div&gt;
         &lt;/div&gt;
       &lt;/div&gt;
     &lt;/div&gt;
@@ -711,39 +711,41 @@ export class RedigerBrugerComponent implements OnInit {
         &lt;label&gt;Postnummer&lt;/label&gt;
         &lt;input type&#x3D;&quot;number&quot; class&#x3D;&quot;form-control&quot; formControlName&#x3D;&quot;zipCode&quot; [(ngModel)]&#x3D;&quot;bruger.zipCode&quot; [ngClass]&#x3D;&quot;{ &#x27;is-invalid&#x27;: submitted &amp;&amp; f.zipCode.errors}&quot;&gt;
         &lt;div *ngIf&#x3D;&quot;submitted &amp;&amp; f.zipCode.errors&quot; class&#x3D;&quot;invalid-feedback&quot;&gt;
-          &lt;div *ngIf&#x3D;&quot;f.zipCode.errors.required&quot;&gt;Postnummer skal indtastes&lt;/div&gt;
+          &lt;div *ngIf&#x3D;&quot;f.zipCode.errors.required&quot; style&#x3D;&quot;color: #FF0000;&quot;&gt;Postnummer skal indtastes&lt;/div&gt;
+          &lt;div *ngIf&#x3D;&quot;f.zipCode.errors.min || f.zipCode.errors.max&quot; style&#x3D;&quot;color: #FF0000;&quot;&gt;Postnummeret skal indeholde 4 tal&lt;/div&gt;
         &lt;/div&gt;
       &lt;/div&gt;
       &lt;div class&#x3D;&quot;form-group&quot;&gt;
         &lt;label&gt;Telefonnummer&lt;/label&gt;
         &lt;input type&#x3D;&quot;number&quot; class&#x3D;&quot;form-control&quot; formControlName&#x3D;&quot;phonenumber&quot; [(ngModel)]&#x3D;&quot;bruger.phonenumber&quot; [ngClass]&#x3D;&quot;{ &#x27;is-invalid&#x27;: submitted &amp;&amp; f.phonenumber.errors}&quot;&gt;
         &lt;div *ngIf&#x3D;&quot;submitted &amp;&amp; f.phonenumber.errors&quot; class&#x3D;&quot;invalid-feedback&quot;&gt;
-          &lt;div *ngIf&#x3D;&quot;f.phonenumber.errors.required&quot;&gt;Telefonnummer skal indtastes&lt;/div&gt;
-          &lt;div *ngIf&#x3D;&quot;f.password.errors.minlength || f.password.errors.maxlength&quot;&gt;Telefonnummeret skal være 8 karakterer langt&lt;/div&gt;
+          &lt;div *ngIf&#x3D;&quot;f.phonenumber.errors.required&quot; style&#x3D;&quot;color: #FF0000;&quot;&gt;Telefonnummer skal indtastes&lt;/div&gt;
+          &lt;div *ngIf&#x3D;&quot;f.phonenumber.errors.min&quot; style&#x3D;&quot;color: #FF0000;&quot;&gt;Telefonnummeret skal indeholde 8 tal&lt;/div&gt;
+          &lt;div *ngIf&#x3D;&quot;f.phonenumber.errors.max&quot; style&#x3D;&quot;color: #FF0000;&quot;&gt;Telefonnummeret skal indeholde 8 tal&lt;/div&gt;
         &lt;/div&gt;
       &lt;/div&gt;
       &lt;div class&#x3D;&quot;form-group&quot;&gt;
         &lt;label&gt;Email&lt;/label&gt;
-        &lt;input type&#x3D;&quot;text&quot; class&#x3D;&quot;form-control&quot; formControlName&#x3D;&quot;email&quot; [(ngModel)]&#x3D;&quot;bruger.email&quot; [ngClass]&#x3D;&quot;{ &#x27;is-invalid&#x27;: submitted &amp;&amp; f.email.errors}&quot;&gt;
+        &lt;input type&#x3D;&quot;text&quot; disabled class&#x3D;&quot;form-control&quot; formControlName&#x3D;&quot;email&quot; [(ngModel)]&#x3D;&quot;bruger.email&quot; [ngClass]&#x3D;&quot;{ &#x27;is-invalid&#x27;: submitted &amp;&amp; f.email.errors}&quot;&gt;
         &lt;div *ngIf&#x3D;&quot;submitted &amp;&amp; f.email.errors&quot; class&#x3D;&quot;invalid-feedback&quot;&gt;
-          &lt;div *ngIf&#x3D;&quot;f.email.errors.required&quot;&gt;Email skal indtastes&lt;/div&gt;
-          &lt;div *ngIf&#x3D;&quot;f.email.errors.email&quot;&gt;Det indtastede skal være en emailadresse&lt;/div&gt;
+          &lt;div *ngIf&#x3D;&quot;f.email.errors.required&quot; style&#x3D;&quot;color: #FF0000;&quot;&gt;Email skal indtastes&lt;/div&gt;
+          &lt;div *ngIf&#x3D;&quot;f.email.errors.email&quot; style&#x3D;&quot;color: #FF0000;&quot;&gt;Det indtastede skal være en emailadresse&lt;/div&gt;
         &lt;/div&gt;
       &lt;/div&gt;
       &lt;div class&#x3D;&quot;form-group&quot;&gt;
         &lt;label&gt;Kodeord&lt;/label&gt;
         &lt;input type&#x3D;&quot;password&quot; class&#x3D;&quot;form-control&quot; formControlName&#x3D;&quot;password&quot;  [ngClass]&#x3D;&quot;{ &#x27;is-invalid&#x27;: submitted &amp;&amp; f.password.errors}&quot;&gt;
         &lt;div *ngIf&#x3D;&quot;submitted &amp;&amp; f.password.errors&quot; class&#x3D;&quot;invalid-feedback&quot;&gt;
-          &lt;div *ngIf&#x3D;&quot;f.password.errors.required&quot;&gt;Kodeord skal indtastes&lt;/div&gt;
-          &lt;div *ngIf&#x3D;&quot;f.password.errors.minlength&quot;&gt;Kodeordet skal være mindst 6 karakterer langt&lt;/div&gt;
+          &lt;div *ngIf&#x3D;&quot;f.password.errors.required&quot; style&#x3D;&quot;color: #FF0000;&quot;&gt;Kodeord skal indtastes&lt;/div&gt;
+          &lt;div *ngIf&#x3D;&quot;f.password.errors.minlength&quot; style&#x3D;&quot;color: #FF0000;&quot;&gt;Kodeordet skal være mindst 6 karakterer langt&lt;/div&gt;
         &lt;/div&gt;
       &lt;/div&gt;
       &lt;div class&#x3D;&quot;form-group&quot;&gt;
         &lt;label&gt;Gentag kodeord&lt;/label&gt;
         &lt;input type&#x3D;&quot;password&quot; class&#x3D;&quot;form-control&quot; formControlName&#x3D;&quot;repeatPassword&quot; [ngClass]&#x3D;&quot;{ &#x27;is-invalid&#x27;: submitted &amp;&amp; f.repeatPassword.errors}&quot;&gt;
         &lt;div *ngIf&#x3D;&quot;submitted &amp;&amp; f.repeatPassword.errors&quot; class&#x3D;&quot;invalid-feedback&quot;&gt;
-          &lt;div *ngIf&#x3D;&quot;f.repeatPassword.errors.required&quot;&gt;Kodeord skal indtastes&lt;/div&gt;
-          &lt;div *ngIf&#x3D;&quot;f.repeatPassword.errors.checkequals&quot;&gt;Kodeordene skal være ens&lt;/div&gt;
+          &lt;div *ngIf&#x3D;&quot;f.repeatPassword.errors.required&quot; style&#x3D;&quot;color: #FF0000;&quot;&gt;Kodeord skal indtastes&lt;/div&gt;
+          &lt;div *ngIf&#x3D;&quot;f.repeatPassword.errors.checkequals&quot; style&#x3D;&quot;color: #FF0000;&quot;&gt;Kodeordene skal være ens&lt;/div&gt;
         &lt;/div&gt;
       &lt;/div&gt;
       &lt;div class&#x3D;&quot;form-group&quot;&gt;
@@ -787,8 +789,8 @@ export class RedigerBrugerComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div class="row">  <h3>Mine oplysninger</h3>  <form [formGroup]="redigerForm" (ngSubmit)="onRedigerBruger()">    <div class="col-md-4">      <div class="form-group">        <label>Fornavn</label>        <input type="text" class="form-control" formControlName="firstName" [(ngModel)]="bruger.firstName"  [ngClass]="{ \'is-invalid\': submitted && f.firstName.errors}">        <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">          <div *ngIf="f.firstName.errors.required">Fornavn skal indtastes</div>        </div>      </div>      <div class="form-group">        <label>Efternavn</label>        <input type="text" class="form-control" formControlName="lastName" [(ngModel)]="bruger.lastName" [ngClass]="{ \'is-invalid\': submitted && f.lastName.errors}">        <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">          <div *ngIf="f.lastName.errors.required">Efternavn skal indtastes</div>        </div>      </div>      <div class="form-group">        <label>Fødselsår</label>        <input type="number" class="form-control" formControlName="birthday" [(ngModel)]="bruger.birthday" [ngClass]="{ \'is-invalid\': submitted && f.birthday.errors}">        <div *ngIf="submitted && f.birthday.errors" class="invalid-feedback">          <div *ngIf="f.birthday.errors.required">Fødselsår skal indtastes</div>        </div>      </div>      <div class="form-group">        <label>Køn</label>        <select class="form-control" formControlName="gender" [(ngModel)]="bruger.gender" [ngClass]="{ \'is-invalid\': submitted && f.gender.errors}">          <option style="cursor: pointer; size: 10px" >Mand</option>          <option style="cursor: pointer; size: 10px" >Kvinde</option>          <option style="cursor: pointer; size: 10px" >Andet</option>        </select>        <div *ngIf="submitted && f.gender.errors" class="invalid-feedback">          <div *ngIf="f.gender.errors.required">Køn skal vælges</div>        </div>      </div>      <div class="form-group">        <label>Adresse</label>        <input type="text" class="form-control" formControlName="address" [(ngModel)]="bruger.address" [ngClass]="{ \'is-invalid\': submitted && f.address.errors}">        <div *ngIf="submitted && f.address.errors" class="invalid-feedback">          <div *ngIf="f.address.errors.required">Adresse skal indtastes</div>        </div>      </div>    </div>    <div  class="col-xs-4" >      <div class="form-group">        <label>Postnummer</label>        <input type="number" class="form-control" formControlName="zipCode" [(ngModel)]="bruger.zipCode" [ngClass]="{ \'is-invalid\': submitted && f.zipCode.errors}">        <div *ngIf="submitted && f.zipCode.errors" class="invalid-feedback">          <div *ngIf="f.zipCode.errors.required">Postnummer skal indtastes</div>        </div>      </div>      <div class="form-group">        <label>Telefonnummer</label>        <input type="number" class="form-control" formControlName="phonenumber" [(ngModel)]="bruger.phonenumber" [ngClass]="{ \'is-invalid\': submitted && f.phonenumber.errors}">        <div *ngIf="submitted && f.phonenumber.errors" class="invalid-feedback">          <div *ngIf="f.phonenumber.errors.required">Telefonnummer skal indtastes</div>          <div *ngIf="f.password.errors.minlength || f.password.errors.maxlength">Telefonnummeret skal være 8 karakterer langt</div>        </div>      </div>      <div class="form-group">        <label>Email</label>        <input type="text" class="form-control" formControlName="email" [(ngModel)]="bruger.email" [ngClass]="{ \'is-invalid\': submitted && f.email.errors}">        <div *ngIf="submitted && f.email.errors" class="invalid-feedback">          <div *ngIf="f.email.errors.required">Email skal indtastes</div>          <div *ngIf="f.email.errors.email">Det indtastede skal være en emailadresse</div>        </div>      </div>      <div class="form-group">        <label>Kodeord</label>        <input type="password" class="form-control" formControlName="password"  [ngClass]="{ \'is-invalid\': submitted && f.password.errors}">        <div *ngIf="submitted && f.password.errors" class="invalid-feedback">          <div *ngIf="f.password.errors.required">Kodeord skal indtastes</div>          <div *ngIf="f.password.errors.minlength">Kodeordet skal være mindst 6 karakterer langt</div>        </div>      </div>      <div class="form-group">        <label>Gentag kodeord</label>        <input type="password" class="form-control" formControlName="repeatPassword" [ngClass]="{ \'is-invalid\': submitted && f.repeatPassword.errors}">        <div *ngIf="submitted && f.repeatPassword.errors" class="invalid-feedback">          <div *ngIf="f.repeatPassword.errors.required">Kodeord skal indtastes</div>          <div *ngIf="f.repeatPassword.errors.checkequals">Kodeordene skal være ens</div>        </div>      </div>      <div class="form-group">        <button class="btn btn-primary" type="submit">Opdater oplysninger</button>      </div>    </div>  </form></div></div>'
-    var COMPONENTS = [{'name': 'AnnonceComponent', 'selector': 'app-annonce'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'DetaljeretAnnonceComponent', 'selector': 'app-detaljeret-annonce'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'KategorierComponent', 'selector': 'app-kategorier'},{'name': 'LogIndComponent', 'selector': 'app-log-ind'},{'name': 'MineAnnoncerComponent', 'selector': 'app-mine-annoncer'},{'name': 'MinSideComponent', 'selector': 'app-min-side'},{'name': 'OpretAnnonceComponent', 'selector': 'app-opret-annonce'},{'name': 'OpretBrugerComponent', 'selector': 'app-opret-bruger'},{'name': 'RedigerAnnonceComponent', 'selector': 'app-rediger-annonce'},{'name': 'RedigerBrugerComponent', 'selector': 'app-rediger-bruger'},{'name': 'StartsideComponent', 'selector': 'app-startside'}];
+        var COMPONENT_TEMPLATE = '<div><div class="row">  <h3>Mine oplysninger</h3>  <form [formGroup]="redigerForm" (ngSubmit)="onRedigerBruger()">    <div class="col-md-4">      <div class="form-group">        <label>Fornavn</label>        <input type="text" class="form-control" formControlName="firstName" [(ngModel)]="bruger.firstName"  [ngClass]="{ \'is-invalid\': submitted && f.firstName.errors}">        <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">          <div *ngIf="f.firstName.errors.required" style="color: #FF0000;">Fornavn skal indtastes</div>        </div>      </div>      <div class="form-group">        <label>Efternavn</label>        <input type="text" class="form-control" formControlName="lastName" [(ngModel)]="bruger.lastName" [ngClass]="{ \'is-invalid\': submitted && f.lastName.errors}">        <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">          <div *ngIf="f.lastName.errors.required" style="color: #FF0000;">Efternavn skal indtastes</div>        </div>      </div>      <div class="form-group">        <label>Fødselsår</label>        <input type="number" class="form-control" formControlName="birthday" [(ngModel)]="bruger.birthday" [ngClass]="{ \'is-invalid\': submitted && f.birthday.errors}">        <div *ngIf="submitted && f.birthday.errors" class="invalid-feedback">          <div *ngIf="f.birthday.errors.required" style="color: #FF0000;">Fødselsår skal indtastes</div>          <div *ngIf="f.birthday.errors.min ||f.birthday.errors.max" style="color: #FF0000;">Fødselsåret skal indeholde 4 tal</div>        </div>      </div>      <div class="form-group">        <label>Køn</label>        <select class="form-control" formControlName="gender" [(ngModel)]="bruger.gender" [ngClass]="{ \'is-invalid\': submitted && f.gender.errors}">          <option style="cursor: pointer; size: 10px" >Mand</option>          <option style="cursor: pointer; size: 10px" >Kvinde</option>          <option style="cursor: pointer; size: 10px" >Andet</option>        </select>        <div *ngIf="submitted && f.gender.errors" class="invalid-feedback">          <div *ngIf="f.gender.errors.required" style="color: #FF0000;">Køn skal vælges</div>        </div>      </div>      <div class="form-group">        <label>Adresse</label>        <input type="text" class="form-control" formControlName="address" [(ngModel)]="bruger.address" [ngClass]="{ \'is-invalid\': submitted && f.address.errors}">        <div *ngIf="submitted && f.address.errors" class="invalid-feedback">          <div *ngIf="f.address.errors.required" style="color: #FF0000;">Adresse skal indtastes</div>        </div>      </div>    </div>    <div  class="col-xs-4" >      <div class="form-group">        <label>Postnummer</label>        <input type="number" class="form-control" formControlName="zipCode" [(ngModel)]="bruger.zipCode" [ngClass]="{ \'is-invalid\': submitted && f.zipCode.errors}">        <div *ngIf="submitted && f.zipCode.errors" class="invalid-feedback">          <div *ngIf="f.zipCode.errors.required" style="color: #FF0000;">Postnummer skal indtastes</div>          <div *ngIf="f.zipCode.errors.min || f.zipCode.errors.max" style="color: #FF0000;">Postnummeret skal indeholde 4 tal</div>        </div>      </div>      <div class="form-group">        <label>Telefonnummer</label>        <input type="number" class="form-control" formControlName="phonenumber" [(ngModel)]="bruger.phonenumber" [ngClass]="{ \'is-invalid\': submitted && f.phonenumber.errors}">        <div *ngIf="submitted && f.phonenumber.errors" class="invalid-feedback">          <div *ngIf="f.phonenumber.errors.required" style="color: #FF0000;">Telefonnummer skal indtastes</div>          <div *ngIf="f.phonenumber.errors.min" style="color: #FF0000;">Telefonnummeret skal indeholde 8 tal</div>          <div *ngIf="f.phonenumber.errors.max" style="color: #FF0000;">Telefonnummeret skal indeholde 8 tal</div>        </div>      </div>      <div class="form-group">        <label>Email</label>        <input type="text" disabled class="form-control" formControlName="email" [(ngModel)]="bruger.email" [ngClass]="{ \'is-invalid\': submitted && f.email.errors}">        <div *ngIf="submitted && f.email.errors" class="invalid-feedback">          <div *ngIf="f.email.errors.required" style="color: #FF0000;">Email skal indtastes</div>          <div *ngIf="f.email.errors.email" style="color: #FF0000;">Det indtastede skal være en emailadresse</div>        </div>      </div>      <div class="form-group">        <label>Kodeord</label>        <input type="password" class="form-control" formControlName="password"  [ngClass]="{ \'is-invalid\': submitted && f.password.errors}">        <div *ngIf="submitted && f.password.errors" class="invalid-feedback">          <div *ngIf="f.password.errors.required" style="color: #FF0000;">Kodeord skal indtastes</div>          <div *ngIf="f.password.errors.minlength" style="color: #FF0000;">Kodeordet skal være mindst 6 karakterer langt</div>        </div>      </div>      <div class="form-group">        <label>Gentag kodeord</label>        <input type="password" class="form-control" formControlName="repeatPassword" [ngClass]="{ \'is-invalid\': submitted && f.repeatPassword.errors}">        <div *ngIf="submitted && f.repeatPassword.errors" class="invalid-feedback">          <div *ngIf="f.repeatPassword.errors.required" style="color: #FF0000;">Kodeord skal indtastes</div>          <div *ngIf="f.repeatPassword.errors.checkequals" style="color: #FF0000;">Kodeordene skal være ens</div>        </div>      </div>      <div class="form-group">        <button class="btn btn-primary" type="submit">Opdater oplysninger</button>      </div>    </div>  </form></div></div>'
+    var COMPONENTS = [{'name': 'AnnonceComponent', 'selector': 'app-annonce'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'DetaljeretAnnonceComponent', 'selector': 'app-detaljeret-annonce'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'KategorierComponent', 'selector': 'app-kategorier'},{'name': 'LogIndComponent', 'selector': 'app-log-ind'},{'name': 'MineAnnoncerComponent', 'selector': 'app-mine-annoncer'},{'name': 'MinSideComponent', 'selector': 'app-min-side'},{'name': 'OpretAnnonceComponent', 'selector': 'app-opret-annonce'},{'name': 'OpretBrugerComponent', 'selector': 'app-opret-bruger'},{'name': 'RedigerAnnonceComponent', 'selector': 'app-rediger-annonce'},{'name': 'RedigerBrugerComponent', 'selector': 'app-rediger-bruger'},{'name': 'StartsideComponent', 'selector': 'app-startside'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'RedigerBrugerComponent'};
 </script>

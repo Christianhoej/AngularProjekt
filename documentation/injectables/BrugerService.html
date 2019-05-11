@@ -93,6 +93,9 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
+                                <a href="#chechEmail">chechEmail</a>
+                            </li>
+                            <li>
                                 <a href="#getMinAnnonce">getMinAnnonce</a>
                             </li>
                             <li>
@@ -189,6 +192,76 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="chechEmail"></a>
+                    <span class="name">
+                        <b>
+                            chechEmail
+                        </b>
+                        <a href="#chechEmail"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>chechEmail(email: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="22"
+                            class="link-to-prism">src/app/bruger/services/bruger.service.ts:22</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>email</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="getMinAnnonce"></a>
                     <span class="name">
                         <b>
@@ -207,8 +280,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="35"
-                            class="link-to-prism">src/app/bruger/services/bruger.service.ts:35</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="38"
+                            class="link-to-prism">src/app/bruger/services/bruger.service.ts:38</a></div>
                 </td>
             </tr>
 
@@ -277,8 +350,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="31"
-                            class="link-to-prism">src/app/bruger/services/bruger.service.ts:31</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="34"
+                            class="link-to-prism">src/app/bruger/services/bruger.service.ts:34</a></div>
                 </td>
             </tr>
 
@@ -347,8 +420,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="22"
-                            class="link-to-prism">src/app/bruger/services/bruger.service.ts:22</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="26"
+                            class="link-to-prism">src/app/bruger/services/bruger.service.ts:26</a></div>
                 </td>
             </tr>
 
@@ -499,8 +572,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="26"
-                            class="link-to-prism">src/app/bruger/services/bruger.service.ts:26</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="30"
+                            class="link-to-prism">src/app/bruger/services/bruger.service.ts:30</a></div>
                 </td>
             </tr>
 
@@ -633,12 +706,15 @@ export class BrugerService {
     return this.http.post(this.resourceURL.usersURL, bruger);
   }
 
+  chechEmail(email: string) {
+    return this.http.get(this.resourceURL.usersURL + &#x27;/checkEmail/&#x27; + email);
+  }
+
   logind(email: string, password: string){
     return this.http.post(this.resourceURL.usersLoginURL, {email: email, password: password});
   }
 
   redigerBruger(bruger: Bruger) {
-    console.log(bruger.userId + &#x27; kommet her til&#x27;)
     return this.http.put(this.resourceURL.usersURL + &#x27;/&#x27; + bruger.userId, bruger);
   }
 

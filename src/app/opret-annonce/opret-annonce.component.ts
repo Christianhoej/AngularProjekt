@@ -1,19 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, NgForm, Validators} from '@angular/forms';
-import {AnnonceService} from '../annonce.service';
-import {Annonce} from '../../models/annonce.model';
-import {KategoriService} from '../../startside/kategorier/kategori.service';
+import {AnnonceService} from '../annonce/annonce.service';
+import {Annonce} from '../models/annonce.model';
+import {KategoriService} from '../startside/kategorier/kategori.service';
 import {HttpClient} from '@angular/common/http';
-import {UploadBilleder} from '../../Shared/upload-billeder';
+import {UploadBilleder} from '../Shared/upload-billeder';
 import * as _ from 'lodash';
-import {Kategorier} from '../../startside/kategorier/kategorier.model';
-import {BrugerService} from '../../bruger/services/bruger.service';
-import {Replacer} from '../../bruger/services/replacer.service';
+import {Kategorier} from '../startside/kategorier/kategorier.model';
+import {BrugerService} from '../bruger/services/bruger.service';
+import {Replacer} from '../bruger/services/replacer.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {timestamp} from 'rxjs/operators';
-import {UploadImageService} from '../uploadImage.service';
+import {UploadImageService} from '../annonce/uploadImage.service';
 import {Subscription} from 'rxjs';
-import {ImageModel} from '../image.model';
+import {ImageModel} from '../annonce/image.model';
 
 
 @Component({

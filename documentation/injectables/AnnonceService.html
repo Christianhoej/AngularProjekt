@@ -455,7 +455,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>redigerAnnonce(annonce: <a href="../classes/Annonce.html">Annonce</a>, id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+<code>redigerAnnonce(annonce: <a href="../classes/Annonce.html">Annonce</a>)</code>
                 </td>
             </tr>
 
@@ -486,18 +486,6 @@
                                     <td>annonce</td>
                                     <td>
                                                 <code><a href="../classes/Annonce.html" target="_self" >Annonce</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                                <tr>
-                                    <td>id</td>
-                                    <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
                                     </td>
 
                                     <td>
@@ -716,8 +704,8 @@ export class AnnonceService {
     return this.http.get(this.resourceURL.adsCategoryURL + &#x27;/&#x27; + kategori);
   }
 
-  redigerAnnonce(annonce: Annonce, id: string) {
-    return this.http.put(this.resourceURL.adsURL + &#x27;/&#x27; + id, annonce);
+  redigerAnnonce(annonce: Annonce) {
+    return this.http.put(this.resourceURL.adsURL + &#x27;/&#x27; + annonce.adId, annonce);
   }
 
   sletAnnonce(id: string) {
