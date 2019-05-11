@@ -1,16 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, NgForm, Validators} from '@angular/forms';
-import {AnnonceService} from '../../annonce/annonce.service';
+import {AnnonceService} from '../annonce.service';
 import {Annonce} from '../../models/annonce.model';
 import {KategoriService} from '../../startside/kategorier/kategori.service';
 import {HttpClient} from '@angular/common/http';
 import {UploadBilleder} from '../../Shared/upload-billeder';
 import * as _ from 'lodash';
 import {Kategorier} from '../../startside/kategorier/kategorier.model';
-import {BrugerService} from '../services/bruger.service';
-import {Replacer} from '../services/replacer.service';
+import {BrugerService} from '../../bruger/services/bruger.service';
+import {Replacer} from '../../bruger/services/replacer.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {timestamp} from 'rxjs/operators';
+import {UploadImageService} from '../uploadImage.service';
+import {Subscription} from 'rxjs';
+import {ImageModel} from '../image.model';
 
 
 @Component({
@@ -23,9 +26,11 @@ export class OpretAnnonceComponent implements OnInit {
   erLoggetInd: boolean;
   submitted = false;
   registrerForm: FormGroup;
-  billedet = null;
+  billedet: File;
   opretAnnonce: Annonce;
   today: Date;
+  subscription: Subscription;
+  image: ImageModel;
 
   selectedFiles: FileList;
   currentUpload: UploadBilleder;
@@ -40,7 +45,8 @@ export class OpretAnnonceComponent implements OnInit {
               private formBuilder: FormBuilder,
               private brugerService: BrugerService,
               private router: Router,
-              private route: ActivatedRoute
+              private route: ActivatedRoute,
+              private uploadImageService: UploadImageService,
 
               ) { }
 
@@ -63,6 +69,11 @@ export class OpretAnnonceComponent implements OnInit {
 
   valgtBillede(event) {
     this.billedet = event.target.files[0];
+    this.uploadImageService.uploadImage(this.billedet).subscribe(
+      (response: ImageModel) => {
+        this.image = response;
+      }
+    );
   }
 
   uploadBillede() {
@@ -78,6 +89,7 @@ export class OpretAnnonceComponent implements OnInit {
     if (this.registrerForm.invalid) {
       return;
     }
+
     const jsonObj = JSON.stringify(this.registrerForm.value);
     this.opretAnnonce = JSON.parse(jsonObj);
    /* this.today = new Date();
