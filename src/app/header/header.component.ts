@@ -14,6 +14,7 @@ export class HeaderComponent implements OnDestroy {
   userid: string;
   constructor(private brugerService: BrugerService,
               private kategoriService: KategoriService) {
+
     this.subscription = this.brugerService.loggetInd.subscribe(
       (logind: boolean) => {
         if (logind) {

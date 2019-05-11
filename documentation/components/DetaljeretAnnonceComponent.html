@@ -272,8 +272,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="22"
-                            class="link-to-prism">src/app/annonce/detaljeret-annonce/detaljeret-annonce.component.ts:22</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="24"
+                            class="link-to-prism">src/app/annonce/detaljeret-annonce/detaljeret-annonce.component.ts:24</a></div>
                 </td>
             </tr>
 
@@ -428,7 +428,9 @@ export class DetaljeretAnnonceComponent implements OnInit {
   key: string;
   bruger: Bruger;
 
-  constructor(private annonceService: AnnonceService, private route: ActivatedRoute, private router: Router) { }
+  constructor(private annonceService: AnnonceService,
+              private route: ActivatedRoute,
+              private router: Router) { }
 
   ngOnInit() {
    // this.annonce &#x3D; new Annonce(&#x27;&#x27;, 0, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;,new Bruger(&#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;));
@@ -528,9 +530,11 @@ export class DetaljeretAnnonceComponent implements OnInit {
 }
 #borderLeft {
   border-left: 2px solid #53030e;
+  height: 300px;
 }
 #borderRight {
   border-right: 2px solid #53030e;
+  height: 300px;
 }
 </code></pre>
     </div>
@@ -561,7 +565,7 @@ export class DetaljeretAnnonceComponent implements OnInit {
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
         var COMPONENT_TEMPLATE = '<div><!--<router-outlet></router-outlet>--><!--<h5></h5>--><div class="row">  <div class="col-xs-12">    <div class="col-xs-4" id="borderRight">      <h1>{{ annonce.header }}</h1>      <h3>{{ annonce.price }} kr.</h3>      <br>        <p  style="margin-top: 10px">{{annonce.description}}</p>    </div>    <div class="col-xs-5" align="center">      <img        [src]="annonce.imageURL"        class="img-responsive"        style="max-height: 250px;">    </div>    <div class="col-xs-3"         style="min-height: 200px" id="borderLeft">      <h2>Kontaktinformation</h2>      <h3>{{annonce.user.firstName}} {{annonce.user.lastName}}</h3>      Postnummer: {{annonce.user.zipCode}}      <br>      Tlf: {{annonce.user.phonenumber}}      <br>      Alder: {{annonce.user.birthday}}      <br>      Email: {{annonce.user.email}}    </div>  </div></div></div>'
-    var COMPONENTS = [{'name': 'AnnonceComponent', 'selector': 'app-annonce'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'DetaljeretAnnonceComponent', 'selector': 'app-detaljeret-annonce'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'KategorierComponent', 'selector': 'app-kategorier'},{'name': 'LogIndComponent', 'selector': 'app-log-ind'},{'name': 'MineAnnoncerComponent', 'selector': 'app-mine-annoncer'},{'name': 'MinSideComponent', 'selector': 'app-min-side'},{'name': 'OpretAnnonceComponent', 'selector': 'app-opret-annonce'},{'name': 'OpretBrugerComponent', 'selector': 'app-opret-bruger'},{'name': 'RedigerAnnonceComponent', 'selector': 'app-rediger-annonce'},{'name': 'RedigerBrugerComponent', 'selector': 'app-rediger-bruger'},{'name': 'StartsideComponent', 'selector': 'app-startside'}];
+    var COMPONENTS = [{'name': 'AnnonceComponent', 'selector': 'app-annonce'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'DetaljeretAnnonceComponent', 'selector': 'app-detaljeret-annonce'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'KategorierComponent', 'selector': 'app-kategorier'},{'name': 'LogIndComponent', 'selector': 'app-log-ind'},{'name': 'MineAnnoncerComponent', 'selector': 'app-mine-annoncer'},{'name': 'MinSideComponent', 'selector': 'app-min-side'},{'name': 'OpretAnnonceComponent', 'selector': 'app-opret-annonce'},{'name': 'OpretBrugerComponent', 'selector': 'app-opret-bruger'},{'name': 'RedigerAnnonceComponent', 'selector': 'app-rediger-annonce'},{'name': 'RedigerBrugerComponent', 'selector': 'app-rediger-bruger'},{'name': 'StartsideComponent', 'selector': 'app-startside'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'DetaljeretAnnonceComponent'};
 </script>

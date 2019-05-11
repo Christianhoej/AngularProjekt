@@ -14,6 +14,8 @@ import {ImageModel} from './image.model';
 export class UploadImageService {
   annonceændret = new Subject<Annonce[]>();
   annoncer: Annonce[];
+
+
   annonce: Annonce;
   headers = new Headers();
   headers2 = new HttpHeaders();

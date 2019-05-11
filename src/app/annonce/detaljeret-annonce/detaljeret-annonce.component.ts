@@ -17,7 +17,9 @@ export class DetaljeretAnnonceComponent implements OnInit {
   key: string;
   bruger: Bruger;
 
-  constructor(private annonceService: AnnonceService, private route: ActivatedRoute, private router: Router) { }
+  constructor(private annonceService: AnnonceService,
+              private route: ActivatedRoute,
+              private router: Router) { }
 
   ngOnInit() {
    // this.annonce = new Annonce('', 0, '', '', '', '', '', '',new Bruger('', '', '', '', '', '', '', '', '', ''));
