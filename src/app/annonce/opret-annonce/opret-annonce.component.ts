@@ -63,6 +63,7 @@ export class OpretAnnonceComponent implements OnInit {
       imageURL: ['', Validators.required],
       description: ['', Validators.required]}
       ) ;
+   // this.image = new ImageModel('', '');
   }
 
   get f() {return this.registrerForm.controls; }
@@ -70,11 +71,37 @@ export class OpretAnnonceComponent implements OnInit {
   valgtBillede(event) {
     this.billedet = event.target.files[0];
     this.uploadImageService.uploadImage(this.billedet).subscribe(
-      (response: ImageModel) => {
-        this.image = response;
-      }
-    );
+      (response) => {
+        console.log(response);
+        const res: any = response;
+        this.image = new ImageModel(res.data.id, res.data.link);
+        console.log(res.data.link);
+      },
+      (error) => console.log(error)
+    )
   }
+
+  // readThis(inputValue: any): void {
+  //   var file:File = inputValue.files[0];
+  //   var myReader: FileReader = new FileReader();
+  //
+  //   // myReader.onloadend = (e) => {
+  //   //   this.image = myReader.result;
+  //   //   console.log(this.image);
+  //   //   console.log(file)
+  //   // };
+  //   myReader.readAsDataURL(file);
+  //   console.log(file);
+  //   this.uploadImageService.uploadImage(file).subscribe(
+  //     (response) => {
+  //       console.log(response);
+  //       this.image = response;
+  //       console.log(this.image.data.link);
+  //     },
+  //      (error) => console.log(error)
+  //    )
+  //
+  // }
 
   uploadBillede() {
     // const fd = new FormData();
