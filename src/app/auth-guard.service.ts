@@ -8,22 +8,22 @@ import {logger} from 'codelyzer/util/logger';
 export class AuthGuard implements CanActivate{
   loggedInd: boolean = false;
   constructor(private brugerService: BrugerService, private router: Router) {
-    this.brugerService.loggetInd.subscribe(
-      (logind: boolean) => {
-        if (logind){
-          this.loggedInd= true;
-        }
-        else {
-          //this.router.navigate(['/log_ind']);
-          this.loggedInd = false;
-        }
-      }
-    );
+    // this.brugerService.loggetInd.subscribe(
+    //   (logind: boolean) => {
+    //     if (logind){
+    //       this.loggedInd= true;
+    //     }
+    //     else {
+    //       //this.router.navigate(['/log_ind']);
+    //       this.loggedInd = false;
+    //     }
+    //   }
+    // );
   }
 
   canActivate(route: ActivatedRouteSnapshot,
               state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
-    if(this.loggedInd){
+    if(this.brugerService.loggetInd){
         return true;
       }
       else {
