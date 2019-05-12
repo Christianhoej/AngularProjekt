@@ -38,10 +38,6 @@ export class LogIndComponent implements OnInit {
           this.brugerService.bruger = bruger;
           this.brugerService.loggetInd = true;
           this.brugerService.loggetIndSubject.next(true);
-          // if(this.brugerService.bruger!=null){
-          //   console.log('kommet ind!');
-          //   this.brugerService.loggetInd.next(true);
-          // }
           this.router.navigate(['/startside']);
           },
         (error) => {

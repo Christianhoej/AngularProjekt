@@ -19,6 +19,7 @@ export class StartsideComponent implements OnInit, OnDestroy {
   kategorier: Kategori[];
   subscription: Subscription;
   loggedInd = false;
+  overskrift: string
   @Input() valgtKategori;
   constructor(private kategoriService: KategoriService,
               private brugerService: BrugerService,
@@ -27,10 +28,12 @@ export class StartsideComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
+    this.overskrift = 'Annoncer';
     this.subscription = this.kategoriService.kategoriValgt
       .subscribe(
       (valgt: string) => {
         if (valgt === 'Alle' || valgt === '') {
+          this.overskrift = 'Annoncer';
           this.annonceService.getAnnoncer()
             .subscribe(
               (annoncer: any) => {
@@ -42,6 +45,7 @@ export class StartsideComponent implements OnInit, OnDestroy {
           this.annonceService.filtrerAnnonce(valgt)
             .subscribe(
               (annoncer: any) => {
+                this.overskrift = valgt;
                 this.annoncer = annoncer;
               },
               (error) => {alert(error.error.fix + '\n' + error.error.message);}
@@ -57,11 +61,6 @@ export class StartsideComponent implements OnInit, OnDestroy {
         },
         (error) => {alert(error.error.fix + '\n' + error.error.message);}
       )
-    // this.annonceService.getAnnoncer()
-    //   .subscribe(
-    //     (annoncer: any) => {this.annoncer = annoncer;
-    //     }
-    //   );
     this.kategoriService.getKategorier()
       .subscribe(
         (kategorier: Kategori[]) => {

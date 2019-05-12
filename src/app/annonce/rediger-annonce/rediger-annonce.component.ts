@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute, Data, Params, Router} from '@angular/router';
+import {ActivatedRoute, Data, Router} from '@angular/router';
 import {Annonce} from '../annonce.model';
 import {AnnonceService} from '../services/annonce.service';
 import {KategoriService} from '../../startside/kategori/kategori.service';
 import {Kategori} from '../../startside/kategori/kategori.model';
-import {FormBuilder, FormGroup, NgForm, Validators} from '@angular/forms';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {BrugerService} from '../../bruger/services/bruger.service';
 
 @Component({
@@ -88,18 +88,20 @@ export class RedigerAnnonceComponent implements OnInit {
     this.annonceService.redigerAnnonce(this.redigerAnnonce)
       .subscribe(
         (response) => {
+          alert('Annoncen blev redigeret.');
           this.router.navigate(['/min_side', this.brugerService.bruger.userId]);
         },
-      (error) => {
         (error) => {alert(error.error.fix + '\n' + error.error.message);}
-        }
       );
   }
 
   sletAnnonce(){
     this.annonceService.sletAnnonce(this.annonce.adId)
       .subscribe(
-        (respone) => {this.router.navigate(['/min_side', this.brugerService.bruger.userId]);},
+        (respone) => {
+          alert('Annoncen blev slettet.');
+          this.router.navigate(['/min_side', this.brugerService.bruger.userId]);
+          },
         (error) => {alert(error.error.fix + '\n' + error.error.message);}
       );
 

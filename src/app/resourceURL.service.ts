@@ -12,13 +12,19 @@ export class ResourceURLService {
   // usersIDURL = this.usersURL + '/userID';
   // uploadImageURL = 'https://api.imgur.com/3/upload';
   //
-  categoryURL = 'http://130.225.170.204:19926/homely/category?page=1&limit=25';
-  adsURL = 'http://130.225.170.204:19926/homely/ads';
+  // categoryURL = 'http://130.225.170.204:19926/homely/category?page=1&limit=25';
+  // adsURL = 'http://130.225.170.204:19926/homely/ads';
+  // adsCategoryURL = this.adsURL + '/categoryads';
+  // usersURL = 'http://130.225.170.204:19926/homely/users';
+  // usersLoginURL = this.usersURL + '/login';
+  // usersIDURL = this.usersURL + '/userID';
+  // uploadImageURL = 'https://api.imgur.com/3/upload';
+
+  categoryURL = 'http://130.225.170.204:9993/homely/category?page=1&limit=100000';
+  adsURL = 'http://130.225.170.204:9993/homely/ads';
   adsCategoryURL = this.adsURL + '/categoryads';
-  usersURL = 'http://130.225.170.204:19926/homely/users';
+  usersURL = 'http://130.225.170.204:9993/homely/users';
   usersLoginURL = this.usersURL + '/login';
   usersIDURL = this.usersURL + '/userID';
-  uploadImageURL = 'https://api.imgur.com/3/upload';
-
-
+  uploadImageURL ='https://api.imgur.com/3/image';
 }
