@@ -15,7 +15,7 @@ export class RedigerBrugerComponent implements OnInit {
   submitted = false;
   bruger: Bruger;
   key: string;
-  userid: string;
+  // userid: string;
   redigerBruger: Bruger;
 
 
@@ -25,14 +25,6 @@ export class RedigerBrugerComponent implements OnInit {
               private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.route.params
-      .subscribe(
-        (params: Params) => {
-          this.key = 'userID';
-          this.userid = params[this.key];
-        });
-
-
     this.bruger = this.brugerService.bruger;
     this.redigerForm = this.formBuilder.group({
       firstName: ['', Validators.required],
@@ -59,12 +51,13 @@ export class RedigerBrugerComponent implements OnInit {
     }
 
     this.redigerBruger = this.redigerForm.value;
-    this.redigerBruger.userId = this.userid;
+    this.redigerBruger.userId = this.brugerService.bruger.userId;
     this.brugerService.redigerBruger(this.redigerBruger)
       .subscribe(
         (response) => {
           this.router.navigate(['/min_side', this.brugerService.bruger.userId]);
-        }
+        },
+        (error) => {alert(error.error.fix + '\n' + error.error.message);}
       );
 
   }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute, Params, Router} from '@angular/router';
+import {ActivatedRoute, Data, Params, Router} from '@angular/router';
 import {Annonce} from '../annonce.model';
 import {AnnonceService} from '../services/annonce.service';
 import {KategoriService} from '../../startside/kategori/kategori.service';
@@ -32,20 +32,14 @@ export class RedigerAnnonceComponent implements OnInit {
               ) { }
 
   ngOnInit() {
-    this.route.params
+    this.route.data
       .subscribe(
-        (params: Params) => {
-          this.key = 'id';
-          this.id = params[this.key];
-          this.annonceService.getAnnonce(this.id)
-            .subscribe(
-              (annonce: Annonce) => {
-                this.annonce = annonce;
-                this.image = annonce.imageURL;
-                this.annonce.email = this.annonce.user.email;
-              }
-            );
-        }
+        (data: Data) => {
+          this.annonce = data['redigerAnnonce'];
+          this.image = this.annonce.imageURL;
+          this.annonce.email = this.annonce.user.email;
+        },
+        (error) => {alert(error.error.fix + '\n' + error.error.message);}
       );
 
     this.redigerForm = this.formBuilder.group({
@@ -58,7 +52,8 @@ export class RedigerAnnonceComponent implements OnInit {
     this.kategoriService.getKategorier()
       .subscribe(
         (kategorier: Kategori[]) => {this.kategorier = kategorier;
-        }
+        },
+        (error) => {alert(error.error.fix + '\n' + error.error.message);}
       );
   }
 
@@ -96,18 +91,22 @@ export class RedigerAnnonceComponent implements OnInit {
           this.router.navigate(['/min_side', this.brugerService.bruger.userId]);
         },
       (error) => {
-          console.log(error);
+        (error) => {alert(error.error.fix + '\n' + error.error.message);}
         }
       );
   }
 
   sletAnnonce(){
-    this.annonceService.sletAnnonce(this.id)
+    this.annonceService.sletAnnonce(this.annonce.adId)
       .subscribe(
-        (respone) => {console.log(respone)},
-        (error) => {console.log(error)}
+        (respone) => {this.router.navigate(['/min_side', this.brugerService.bruger.userId]);},
+        (error) => {alert(error.error.fix + '\n' + error.error.message);}
       );
-    this.router.navigate(['/min_side']);
+
+  }
+
+  onAnnuler(){
+    this.router.navigate(['/min_side', this.brugerService.bruger.userId]);
   }
 
 }

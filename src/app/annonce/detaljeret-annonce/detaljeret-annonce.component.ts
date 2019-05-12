@@ -1,7 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Annonce} from '../annonce.model';
 import {Subscription} from 'rxjs';
-import {ActivatedRoute, Params, Router} from '@angular/router';
+import {ActivatedRoute, Data, Params, Router} from '@angular/router';
 import {AnnonceService} from '../services/annonce.service';
 import {Bruger} from '../../bruger/bruger.model';
 
@@ -21,20 +21,14 @@ export class DetaljeretAnnonceComponent implements OnInit {
               private router: Router) { }
 
   ngOnInit() {
-     this.route.params
-      .subscribe(
-        (params: Params) => {
-          this.key = 'id';
-          this.id = params[this.key];
-          this.annonceService.getAnnonce(this.id)
-            .subscribe(
-              (annonce: Annonce) => {
 
-                this.annonce = annonce;
-                this.annonce.email = this.annonce.user.email;
-              }
-            );
-        }
+    this.route.data
+      .subscribe(
+        (data: Data) => {
+          this.annonce = data['annonce'];
+          this.annonce.email = this.annonce.user.email;
+        },
+        (error) => {alert(error.error.fix + '\n' + error.error.message);}
       );
   }
 

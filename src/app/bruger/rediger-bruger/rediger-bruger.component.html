@@ -63,7 +63,7 @@
       </div>
       <div class="form-group">
         <label>Email</label>
-        <input type="text" disabled class="form-control" formControlName="email" [(ngModel)]="bruger.email" [ngClass]="{ 'is-invalid': submitted && f.email.errors}">
+        <input type="email" disabled class="form-control" formControlName="email" [(ngModel)]="bruger.email" [ngClass]="{ 'is-invalid': submitted && f.email.errors}">
         <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
           <div *ngIf="f.email.errors.required" style="color: #FF0000;">Email skal indtastes</div>
           <div *ngIf="f.email.errors.email" style="color: #FF0000;">Det indtastede skal være en emailadresse</div>

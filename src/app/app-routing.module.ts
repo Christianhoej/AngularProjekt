@@ -10,19 +10,21 @@ import {MinSideComponent} from './bruger/min-side/min-side.component';
 import {RedigerAnnonceComponent} from './annonce/rediger-annonce/rediger-annonce.component';
 import {AuthGuard} from './auth-guard.service';
 import {RedigerBrugerComponent} from './bruger/rediger-bruger/rediger-bruger.component';
+import {AnnonceListResolver} from './annonce/services/annonce-list-resolver.service';
+import {AnnonceResolver} from './annonce/services/annonce-resolver.service';
 
 
 const appRoutes: Routes = [
   {path: '', redirectTo: '/startside', pathMatch: 'full'},
-  {path: 'startside', component: StartsideComponent, /*resolve: {annoncer: AnnonceListResolver},*/ children: [
+  {path: 'startside', component: StartsideComponent, resolve: {annoncer: AnnonceListResolver}, children: [
       { path: '', component: StartsideComponent },
       { path: ':id', component: StartsideComponent },
     ] },
-  {path: 'detaljeret_annonce/:id', component: DetaljeretAnnonceComponent},
+  {path: 'detaljeret_annonce/:id', component: DetaljeretAnnonceComponent, resolve: {annonce: AnnonceResolver}},
   {path: 'log_ind', component: LogIndComponent},
   {path: 'min_side/:userID', component: MinSideComponent, canActivate: [AuthGuard]},
   {path: 'min_side/:userID/rediger', component: RedigerBrugerComponent, canActivate: [AuthGuard]},
-  {path: 'rediger_annonce/:id', component: RedigerAnnonceComponent, canActivate: [AuthGuard]},
+  {path: 'rediger_annonce/:id', component: RedigerAnnonceComponent, canActivate: [AuthGuard], resolve: {redigerAnnonce: AnnonceResolver}},
   {path: 'opret_annonce',  component: OpretAnnonceComponent, canActivate: [AuthGuard]},
   {path: 'opret_bruger', component: OpretBrugerComponent},
   {path: '**', redirectTo: '', pathMatch: 'full'}

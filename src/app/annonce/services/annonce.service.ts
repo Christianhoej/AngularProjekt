@@ -3,6 +3,7 @@ import { Subject } from 'rxjs';
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {ResourceURLService} from '../../resourceURL.service';
+import {Bruger} from '../../bruger/bruger.model';
 
 @Injectable({
   providedIn: 'root'
@@ -39,6 +40,14 @@ export class AnnonceService {
 
   opretAnnonce(annonce: any) {
     return this.http.post(this.resourceURL.adsURL, annonce);
+  }
+
+  getMineAnnoncer(bruger: Bruger) {
+    return this.http.get(this.resourceURL.adsURL + '/' + bruger.userId + '/userads');
+  }
+
+  getMinAnnonce(id: string) {
+    return this.http.get(this.resourceURL.adsURL + '/' + id);
   }
 
   uploadImage(file: File) {
