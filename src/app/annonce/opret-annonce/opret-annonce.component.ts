@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormGroup, NgForm, Validators} from '@angular/forms';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {AnnonceService} from '../services/annonce.service';
 import {Annonce} from '../annonce.model';
 import {KategoriService} from '../../startside/kategori/kategori.service';
 import {HttpClient} from '@angular/common/http';
 import {Kategori} from '../../startside/kategori/kategori.model';
 import {BrugerService} from '../../bruger/services/bruger.service';
-import {ActivatedRoute, Router} from '@angular/router';
+import {Router} from '@angular/router';
 
 
 @Component({

@@ -1,20 +1,21 @@
-  <a
-    class="grid-item"
-    style="cursor: pointer; margin-right: 50px"
-    [routerLink]="['/detaljeret_annonce', id]"
-    routerLinkActive="active">
-    <div class="row" style="min-height: 135px; min-width: 135px">
-      <div class="col-xs-12">
-        <img
-          [src]="annonce.imageURL"
-          alt="{{annonce.header}}"
-          class="img-responsive"
-          style="max-height: 135px;
-          max-width: 135px">
-      </div>
+<div style="margin-right: 70px">
+<a
+  class="grid-item"
+  style="cursor: pointer"
+  [routerLink]="['/detaljeret_annonce', id]"
+  routerLinkActive="active">
+  <div class="row" style="min-height: 170px; min-width: 170px">
+    <div class="col-xs-12">
+      <img
+        [src]="annonce.imageURL"
+        alt="{{annonce.header}}"
+        class="img-responsive"
+        style="max-height: 170px;
+          max-width: 170px">
     </div>
-    <div class="title">{{ annonce.header }}</div>
-    <div class="price">{{ annonce.price }} kr</div>
+  </div>
+  <div class="title">{{ annonce.header }}</div>
+  <div class="price">{{ annonce.price }} kr</div>
 
-  </a>
-
+</a>
+</div>

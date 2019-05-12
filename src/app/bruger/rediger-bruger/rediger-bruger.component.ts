@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {CheckequalsFunction} from '../checkequals.function';
 import {BrugerService} from '../services/bruger.service';
-import {ActivatedRoute, Params, Router} from '@angular/router';
+import {Router} from '@angular/router';
 import {Bruger} from '../bruger.model';
 
 @Component({
@@ -15,14 +15,12 @@ export class RedigerBrugerComponent implements OnInit {
   submitted = false;
   bruger: Bruger;
   key: string;
-  // userid: string;
   redigerBruger: Bruger;
 
 
   constructor(private brugerService: BrugerService,
               private formBuilder: FormBuilder,
-              private router: Router,
-              private route: ActivatedRoute) { }
+              private router: Router) { }
 
   ngOnInit() {
     this.bruger = this.brugerService.bruger;
@@ -55,6 +53,7 @@ export class RedigerBrugerComponent implements OnInit {
     this.brugerService.redigerBruger(this.redigerBruger)
       .subscribe(
         (response) => {
+          alert('Brugeren blev redigeret.');
           this.router.navigate(['/min_side', this.brugerService.bruger.userId]);
         },
         (error) => {alert(error.error.fix + '\n' + error.error.message);}

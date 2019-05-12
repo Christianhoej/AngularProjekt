@@ -53,16 +53,7 @@ export class AnnonceService {
   uploadImage(file: File) {
     this.httpHeaders = new HttpHeaders({
       'Authorization': this.clientID
-      // 'Content-Type': 'text/JSON',
-      // 'Access-Control-Allow-Origin': '*',
-      // 'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
-      // 'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token'
     });
-    // this.headers2.append('Authorization', this.clientID);
-    // this.headers2.append('Access-Control-Allow-Origin', 'https://api.imgur.com/3/upload');
-    //  this.headers2.append('Access-Control-Allow-Methods','GET, POST, PATCH, PUT, DELETE, OPTIONS');
-//    this.headers2.append('Access-Control-Allow-Headers', 'Origin, Content-Type, X-Auth-Token');
-    //  this.headers2.append('Content-Type', 'application/json')
     return this.http.post(this.resourceURL.uploadImageURL, file, {headers: this.httpHeaders});
   }
 }

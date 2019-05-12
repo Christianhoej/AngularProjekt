@@ -1,7 +1,6 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Annonce} from '../annonce.model';
-import {Subscription} from 'rxjs';
-import {ActivatedRoute, Data, Params, Router} from '@angular/router';
+import {ActivatedRoute, Data, Router} from '@angular/router';
 import {AnnonceService} from '../services/annonce.service';
 import {Bruger} from '../../bruger/bruger.model';
 
@@ -17,11 +16,9 @@ export class DetaljeretAnnonceComponent implements OnInit {
   bruger: Bruger;
 
   constructor(private annonceService: AnnonceService,
-              private route: ActivatedRoute,
-              private router: Router) { }
+              private route: ActivatedRoute) { }
 
   ngOnInit() {
-
     this.route.data
       .subscribe(
         (data: Data) => {
@@ -31,8 +28,4 @@ export class DetaljeretAnnonceComponent implements OnInit {
         (error) => {alert(error.error.fix + '\n' + error.error.message);}
       );
   }
-
-
-
-
 }
