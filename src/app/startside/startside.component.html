@@ -16,18 +16,18 @@
        routerLink="/opret_annonce"
        type="button"
        class="btn btn-success"
-       *ngIf="loggedInd"
-     >
-       Opret annonce
+       *ngIf="loggedInd">
+        Opret annonce
      </button>
    </div>
    <div class="col-xs-10">
-
-     <div class="grid-container">
-       <app-annonce *ngFor="let annonce of annoncer"
-                    [id]="annonce.adId"
-                    [bruger]="annonce.bruger"
-                    [annonce]="annonce"></app-annonce>
+     <div class="grid-container" >
+       <app-annonce
+         *ngFor="let annonce of annoncer"
+         [id]="annonce.adId"
+         [bruger]="annonce.bruger"
+         [annonce]="annonce"
+       ></app-annonce>
      </div>
    </div>
  </div>
