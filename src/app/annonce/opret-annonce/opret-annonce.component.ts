@@ -30,14 +30,14 @@ export class OpretAnnonceComponent implements OnInit {
               private formBuilder: FormBuilder,
               private brugerService: BrugerService,
               private router: Router,
-              private route: ActivatedRoute
               ) { }
 
   ngOnInit() {
     this.kategoriService.getKategorier()
       .subscribe(
         (kategorier: Kategori[]) => {this.kategorier = kategorier;
-        }
+        },
+        (error) => {alert(error.error.fix + '\n' + error.error.message);}
       );
     this.registrerForm = this.formBuilder.group({
       category: ['', Validators.required],
@@ -78,11 +78,11 @@ export class OpretAnnonceComponent implements OnInit {
       .subscribe(
         (response) => {
           if ( response ) {
-            alert('ORPETTET\n\n (SKAL IKKE VÆRE HER)');
+            alert('Annoncen blev oprettet. \n Se den under min side');
             this.router.navigate(['/startside']);
           }
         },
-        (error) => console.log(error)
+        (error) => {alert(error.error.fix + '\n' + error.error.message);}
       );
   }
 }

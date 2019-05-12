@@ -71,11 +71,11 @@ export class OpretBrugerComponent implements OnInit {
         (response) => {
           console.log(response);
           if (response === true) {
-            alert('Du er blevet oprettet! Log ind for at oprette en annonce\n\n (SKAL IKKE VÆRE HER)');
+            alert('Du er blevet oprettet! Log ind for at oprette en annonce');
             this.router.navigate(['/log_ind']);
           }
         },
-        (error) => console.log(error)
+        (error) => {alert(error.error.fix + '\n' + error.error.message);}
       );
   }
 

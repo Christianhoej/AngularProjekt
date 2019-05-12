@@ -23,7 +23,7 @@ export class MinSideComponent implements OnInit {
         (annoncer: Annonce[]) => {this.mineAnnoncer = annoncer;
         },
         (error) => {
-          console.log(error);
+          alert(error.error.fix + '\n' + error.error.message);
         }
       );
   }

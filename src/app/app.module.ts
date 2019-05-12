@@ -4,14 +4,13 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {HttpClientModule, HttpHeaders} from '@angular/common/http';
+import {HttpClientModule} from '@angular/common/http';
 import {AppRoutingModule} from './app-routing.module';
 import { StartsideComponent } from './startside/startside.component';
 import { LogIndComponent } from './bruger/log-ind/log-ind.component';
 import { OpretBrugerComponent } from './bruger/opret-bruger/opret-bruger.component';
 import { DetaljeretAnnonceComponent } from './annonce/detaljeret-annonce/detaljeret-annonce.component';
 import { OpretAnnonceComponent } from './annonce/opret-annonce/opret-annonce.component';
-import { AnnonceComponent } from './annonce/annonce.component';
 import {AnnonceService} from './annonce/services/annonce.service';
 import {KategoriService} from './startside/kategori/kategori.service';
 import { KategoriComponent } from './startside/kategori/kategori.component';
@@ -24,8 +23,13 @@ import { MineAnnoncerComponent } from './annonce/mine-annoncer/mine-annoncer.com
 import {AnnonceListResolver} from './annonce/services/annonce-list-resolver.service';
 import { RedigerBrugerComponent } from './bruger/rediger-bruger/rediger-bruger.component';
 import { FooterComponent } from './footer/footer.component';
+import {AnnonceResolver} from './annonce/services/annonce-resolver.service';
+import {AnnonceComponent} from './annonce/annonce.component';
 
 
+// @ts-ignore
+// @ts-ignore
+// @ts-ignore
 @NgModule({
   declarations: [
     AppComponent,
@@ -52,7 +56,7 @@ import { FooterComponent } from './footer/footer.component';
     ReactiveFormsModule,
   ],
 
-  providers: [AnnonceService, KategoriService, ResourceURLService, BrugerService, AuthGuard, AnnonceListResolver],
+  providers: [AnnonceService, KategoriService, ResourceURLService, BrugerService, AuthGuard, AnnonceListResolver, AnnonceResolver],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

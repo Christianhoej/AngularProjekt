@@ -3,11 +3,11 @@ import {Observable, Subscription} from 'rxjs';
 import {KategoriService} from './kategori/kategori.service';
 import {Kategori} from './kategori/kategori.model';
 import {AnnonceService} from '../annonce/services/annonce.service';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Data} from '@angular/router';
 import {BrugerService} from '../bruger/services/bruger.service';
 import {HeaderComponent} from '../header/header.component';
 
-@Component({
+@Component ({
   selector: 'app-startside',
   templateUrl: './startside.component.html',
   styleUrls: ['./startside.component.css']
@@ -18,6 +18,7 @@ export class StartsideComponent implements OnInit, OnDestroy {
   annoncer: Observable<Array<any>>;
   kategorier: Kategori[];
   subscription: Subscription;
+  loggedInd = false;
   @Input() valgtKategori;
   constructor(private kategoriService: KategoriService,
               private brugerService: BrugerService,
@@ -34,30 +35,40 @@ export class StartsideComponent implements OnInit, OnDestroy {
             .subscribe(
               (annoncer: any) => {
                 this.annoncer = annoncer;
-              }
+              },
+              (error) => {alert(error.error.fix + '\n' + error.error.message);}
             );
         } else {
           this.annonceService.filtrerAnnonce(valgt)
             .subscribe(
               (annoncer: any) => {
                 this.annoncer = annoncer;
-              }
+              },
+              (error) => {alert(error.error.fix + '\n' + error.error.message);}
             );
         }
       }
       );
-
-    this.annonceService.getAnnoncer()
+    this.loggedInd = this.brugerService.loggetInd;
+    this.route.data
       .subscribe(
-        (annoncer: any) => {this.annoncer = annoncer;
-        }
-      );
+        (data: Data) => {
+          this.annoncer = data['annoncer'];
+        },
+        (error) => {alert(error.error.fix + '\n' + error.error.message);}
+      )
+    // this.annonceService.getAnnoncer()
+    //   .subscribe(
+    //     (annoncer: any) => {this.annoncer = annoncer;
+    //     }
+    //   );
     this.kategoriService.getKategorier()
       .subscribe(
         (kategorier: Kategori[]) => {
           this.kategorier = kategorier;
           this.kategorier.unshift({categoryName: 'Alle', id: -1});
-        }
+        },
+        (error) => {alert(error.error.fix + '\n' + error.error.message);}
       );
   }
 
